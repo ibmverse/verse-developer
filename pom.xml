@@ -1,4 +1,4 @@
-<!-- Copyright IBM Corp. 2016  All Rights Reserved.                    -->
+<!-- Copyright IBM Corp. 2016 All Rights Reserved. -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -8,51 +8,37 @@
   <version>1.0.0-SNAPSHOT</version>
   <name>Widget Registry Chrome Extension</name>
   <packaging>pom</packaging>
-  
-  <pluginRepositories>
-    <pluginRepository>
+
+  <repositories>
+    <repository>
+      <id>jenkins-nexus-staging</id>
+      <name>Releases</name>
+      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/releases</url>
+    </repository>
+    <repository>
       <id>jenkins-nexus-snapshots</id>
       <name>Snapshots</name>
       <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/snapshots</url>
-    </pluginRepository>
-  </pluginRepositories>
-  
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    </repository>
+  </repositories>
 
+  <distributionManagement>
+    <repository>
+      <id>jenkins-nexus-staging</id>
+      <name>Releases</name>
+      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>jenkins-nexus-snapshots</id>
+      <name>Snapshots</name>
+      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <build>
     <defaultGoal>package</defaultGoal>
-    
+
     <plugins>
-      <plugin>
-        <groupId>com.google.code.maven-replacer-plugin</groupId>
-        <artifactId>replacer</artifactId>
-        <version>1.5.3</version>
-        <executions>
-          <execution>
-            <!-- the replace should happen before the app is packaged -->
-            <phase>prepare-package</phase>
-            <goals>
-              <goal>replace</goal>
-            </goals>
-          </execution>
-        </executions>
-        
-        <configuration>
-          <includes>
-            <!-- replace the token in this file -->
-            <include>${basedir}/src/Widget Registry/manifest.json</include>
-          </includes>
-          <regex>true</regex>
-          <!-- the name of the token to replace -->
-          <token>"version":.+</token>
-          <!-- replace it with the maven project version -->
-          <value>"version": "${project.version}",</value>
-        </configuration>
-      </plugin>
-      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
@@ -65,17 +51,15 @@
             <goals>
               <goal>single</goal>
             </goals>
-            
+
             <configuration>
               <descriptors>
                 <descriptor>source.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
-
         </executions>
       </plugin>
     </plugins>
   </build>
-
 </project>
