@@ -9,6 +9,19 @@
   <name>Widget Registry Chrome Extension</name>
   <packaging>pom</packaging>
 
+  <url></url>
+  <description>Widget Registry Chrome Extension</description>
+  <organization>
+    <name>IBM</name>
+    <url>http://www.ibm.com</url>
+  </organization>
+  
+  <scm>
+    <url>https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext</url>
+    <connection>scm:git:https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext.git</connection>
+    <developerConnection>scm:git:https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext.git</developerConnection>
+  </scm>
+  
   <repositories>
     <repository>
       <id>jenkins-nexus-staging</id>
