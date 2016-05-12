@@ -1,6 +1,6 @@
 {
   "name": "IBM Verse Widget Registry Extension",
-  "version": "1.0.0-SNAPSHOT",
+  "version": "1.0.0",
   "manifest_version": 2,
   "content_scripts": [ {
     "js": [ "contentscript.js"],
