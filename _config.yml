@@ -1,0 +1,15 @@
+title: Tutorials for Verse Extension
+
+description: >
+  "This site contains Tutorials of Verse Extension"
+baseurl: "/pages/IBM-Verse/widget-registry-chrome-ext"
+url: "https://git.swg.usma.ibm.com" # the base hostname & protocol for your site
+widget-reg-toolkit: "https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext"
+
+name: Tutorials of Verse Extension
+markdown: kramdown
+highlighter: rouge
+
+collections: 
+  tutorials:
+    output: true
