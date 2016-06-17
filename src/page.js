@@ -17,7 +17,11 @@ document.addEventListener("WidgetRegistryReady", function(event) {
     // the widget.json file can define an array of widgets or a single widget
     if(widgets instanceof Array) {
       widgets.forEach(function(widgetObj) {
-        widgetRegistry.addWidgetFromJSON(widgetObj);
+        try {
+          widgetRegistry.addWidgetFromJSON(widgetObj);
+        } catch (error) {
+          console.error("Fail to add a widget %O from widget.json file: %O", widgetObj, error);
+        }
       })
     } else {
       widgetRegistry.addWidgetFromJSON(widgets);
