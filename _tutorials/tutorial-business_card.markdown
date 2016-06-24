@@ -11,11 +11,11 @@ categories: tutorial_action_ext
 This tutorial will guide you through on how to compose an action contribution which will contribute a action to "__business card view__". By clicking the contributed action, a web application with a specific URL parameter will be loaded in a separate window.
 
 
-### Step 1, download and [Install the Widget Registry Toolkit][1]  
+### Step 1, download and [Install the Verse Developer Chrome Extension][1]  
 
 ### Step 2, compose a widget configuration to the manifest file
 
-The manifest file is configred to widget.json by the [Widget Registry toolkit][2], open it from your local file system, and insert the following configuration as the first widget of the manifest.  
+The manifest file is configred to widget.json by the [Verse Developer Chrome Extension][2], open it from your local file system, and insert the following configuration as the first widget of the manifest.  
 
 ```
   {
@@ -133,5 +133,5 @@ Currently, the context related data from __business card view__ can provide the 
 ```
 
 [1]: {{site.baseurl}}/tutorials/tutorial-ext-install-toolkit.html
-[2]: {{site.widget-reg-toolkit}}
+[2]: {{site.verse-developer-chrome-ext}}
 [3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
