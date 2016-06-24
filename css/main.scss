@@ -1,53 +1,98 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+[//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 ---
 @charset "utf-8";
 
+$container-width:    750px;
+$spacing-unit:     26px;
 
 
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
-
-$spacing-unit:     30px;
-
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
-
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
-
-// Width of the content area
-$content-width:    800px;
-
-$on-palm:          600px;
-$on-laptop:        800px;
+body, h1, h2, h3, h4, h5, h6,
+p, pre, hr, dl, dd, ol, ul  {
+    margin: 0;
+}
 
 
+body {
+    font: normal 16px/1.5  Helvetica, Arial, sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+}
 
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen /*and (max-width: $device)*/ {
-        @content;
+
+h1, h2, h3, h4, h5, h6,
+p, pre, ul, ol, dl {
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+
+img {
+  vertical-align: middle;
+  transition-duration: 0.5s;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+
+a {
+    text-decoration: none;
+
+    &:visited {
+        color: #145ba0;
+    }
+
+    &:hover {
+      color: #2aaafe;
+      text-decoration: underline;
     }
 }
 
 
+pre, code {
+    font-size: 15px;
+    border: 1px solid #e7e7e7;
+    border-radius: 3px;
+    background-color: #eee;
+}
 
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-        "base",
-        "layout",
-        "syntax-highlighting"
-;
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: $container-width;
+}
+
+
+.site-header {
+  border-top: 5px solid #414141;
+  border-bottom: 1px solid #e7e7e7;
+  min-height: 58px;
+
+  position: relative;
+}
+
+.site-title {
+  font-size: 30px;
+  line-height: 58px;
+  float: left;
+}
+
+
+.page-content {
+  padding: $spacing-unit 0;
+}
+
+
+.tutorial-list {
+  list-style: none;
+}
+
+.tutorial-link {
+  font-size: 20px;
+}

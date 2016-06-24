@@ -11,11 +11,11 @@ categories: tutorial_action_ext
 
 This tutorial will guide you through on how to compose an action contribution to __"mail read view"__. By clicking the contributed action button, a web application will be loaded in a separate window, and Verse will send context related data to the web application by Cross-document messaging.
 
-### Step 1, download and [Install the Widget Registry Toolkit][1]  
+### Step 1, download and [Install the Verse Developer Chrome Extension][1]  
 
 ### Step 2, compose a widget configuration to the manifest file
 
-The manifest file is configred to widget.json by the [Widget Registry toolkit][2],  open it from your local file system, and insert the following configuration as the first widget of the manifest.  
+The manifest file is configred to widget.json by the [Verse Developer Chrome Extension][2],  open it from your local file system, and insert the following configuration as the first widget of the manifest.  
 
 ```
   {
@@ -50,7 +50,7 @@ ___Note:___ the __"url"__ should be changed to your own html page.
 
 * __"url"__, a must-set property, you should set it to the URL of your html page,  
 
-* __"feature"__, set it to "core", Verse will send __context__ related data to the specified web application by __Cross-document messaging__.  Please refer to the [How to send data to a web application][3] on how to construct the web application page to receive Cross-document messages.
+* __"feature"__, set it to "core", Verse will send __context__ related data to the specified web application by __Cross-document messaging__.  Please refer to the [How to send data to a web application][4] on how to construct the web application page to receive Cross-document messages.
 
 The __"context"__ is a Verse internal data object, in __mail read view__, it is related to the mail you are composing, please refer to the "context structure" section at the end of this page for detail.  
 
@@ -111,5 +111,6 @@ Currently, the context related data from __mail read view__ can provide the foll
 
 
 [1]: {{site.baseurl}}/tutorials/tutorial-ext-install-toolkit.html
-[2]: {{site.widget-reg-toolkit}}
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
+[2]: {{site.verse-developer-chrome-ext}}
+[3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
+[4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html

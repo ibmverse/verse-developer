@@ -1,14 +1,15 @@
+# Copyright IBM Corp. 2016  All Rights Reserved.
+
 title: Tutorials for Verse Extension
 
 description: >
-  "This site contains Tutorials of Verse Extension"
-baseurl: "/pages/IBM-Verse/widget-registry-chrome-ext"
+  "This site contains Tutorials for Verse Extension"
+baseurl: "/pages/IBM-Verse/verse-developer-chrome-ext"
 url: "https://git.swg.usma.ibm.com" # the base hostname & protocol for your site
-widget-reg-toolkit: "https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext"
+verse-developer-chrome-ext: "https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext"
 
-name: Tutorials of Verse Extension
+name: Tutorials for Verse Extension
 markdown: kramdown
-highlighter: rouge
 
 collections: 
   tutorials:

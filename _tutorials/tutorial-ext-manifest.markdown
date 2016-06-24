@@ -9,7 +9,7 @@ categories:
 ### {{page.title}}  
 
 
-The configurations of the Verse extensions are recorded in a manifest file, which is in [JSON format][2]. If you use the [Widget Registry Toolkit][1] to develop Verse extensions, you may find the toolkit configured the __widget.json__ as the manifest file.  
+The configurations of the Verse extensions are recorded in a manifest file, which is in [JSON format][2]. If you use the [Verse Developer Chrome Extension][1] to develop Verse extensions, you may find the toolkit configured the __widget.json__ as the manifest file.  
 
 Verse supports different types of Verse extension, and different types Verse extensions support different properties. The following sample is a typical configuration of an action contribution in the manifest file, the whole manifest file is defined as an Array which is represented by a pair of `[]`, and a Verse extension is described as an Object which is represented by a pair of `{}`,  
    
@@ -61,14 +61,14 @@ In the manifest file, we can see the genernal properties used for configuring a 
 
 * __"feature"__ describes which Verse API the widget wants to call. So far, only the __"core"__ is valid for configuring the __"feature"__, by this configuration, Verse core API will send context related data to the specified web application through [Cross-document messaging][5].
 
-how Verse send data to the web application. please see the [How to send data to a web application][4].  
+To understand how Verse send data to the web application. please see the [How to send data to a web application][4].  
 
 
 
 
 ### Note: _All the properties' name are case sensitive._
 
-[1]: {{site.widget-reg-toolkit}}
+[1]: {{site.verse-developer-chrome-ext}}
 [2]: http://json.org
 [3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
 [4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
