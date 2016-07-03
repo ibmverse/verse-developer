@@ -26,7 +26,7 @@ Verse supports different types of Verse extension, and different types Verse ext
         "title": "Extension example"
       }
     ],
-    "preference" : [
+    "preferences" : [
       {
         "name": "subject ",
         "value": "subject "
@@ -42,7 +42,7 @@ Verse supports different types of Verse extension, and different types Verse ext
       "height" : "400"
     },
     
-    "feature" : []
+    "features" : []
   }
 ]
 ```
@@ -57,9 +57,9 @@ In the manifest file, we can see the genernal properties used for configuring a 
 
 * __"renderParams"__ is used to describe the size of new opened window, which the web application is loaded in.  
 
-* __"preference"__ can be configured to let Verse know which data should be sent to specified web application as URL parameters.
+* __"preferences"__ can be configured to let Verse know which data should be sent to specified web application as URL parameters.
 
-* __"feature"__ describes which Verse API the widget wants to call. So far, only the __"core"__ is valid for configuring the __"feature"__, by this configuration, Verse core API will send context related data to the specified web application through [Cross-document messaging][5].
+* __"features"__ describes which Verse API the widget wants to call. So far, only the __"core"__ is valid for configuring the __"features"__, by this configuration, Verse core API will send context related data to the specified web application through [Cross-document messaging][5].
 
 To understand how Verse send data to the web application. please see the [How to send data to a web application][4].  
 

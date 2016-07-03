@@ -29,7 +29,7 @@ The manifest file is configred to widget.json by the [Verse Developer Chrome Ext
         "title": "Sample 1"
       }
     ],
-    "preference" : [
+    "preferences" : [
       {
         "name": "searchFor",
         "value": "profile.primaryEmail"
@@ -55,7 +55,7 @@ ___Note:___ the __"url"__ should be changed to your own html page.
 * __"url"__ is a must-set property, you should set it to the URL of your html page.  
 
 
-* __"preference"__, indicates that a __context__ property, "profile.primaryEmail" need to be sent as an URL parameter, and the parameter name is "searchFor".
+* __"preferences"__, indicates that a __context__ property, "profile.primaryEmail" need to be sent as an URL parameter, and the parameter name is "searchFor".
 
 
   The __"context"__ is a Verse internal data object, in the __business card view__, it is related to an important person, please refer to the "context structure from business card view" section at the end of this page for detail.  
@@ -91,15 +91,32 @@ Currently, the context related data from __business card view__ can provide the 
 ```
 {
   "currentUser": {
+    "company": "",
     "displayName": "CN=test82 seq/O=test",
-    "emails": [
-      {
-        "primary": true,
-        "type": "work",
-        "value": "test82@yourcompany.com"
-      },
-    ],
-    "id": "id.string"
+    "fax": "",
+    "id": "",
+    "jobTitle": "",
+    "mobilePhone": "",
+    "name": {
+      "displayName": "CN=test82 seq/O=test",
+      "displayType": "",
+      "familyName": "",
+      "formatted": "test82@yourcompany.com",
+      "givenName": "",
+      "honorificPrefix": "",
+      "honorificSuffix": "",
+      "middleName": ""
+    },
+    "network": "",
+    "orgId": "",
+    "photo": "",
+    "photoUrl": "",
+    "primaryAddress": "",
+    "primaryEmail": "test82@yourcompany.com",
+    "primaryPhone": "",
+    "status": "",
+    "tags": "",
+    "website": ""
   },
   "profile": {
     "company": "test",
