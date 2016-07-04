@@ -1,4 +1,4 @@
-# ext-chrome-extension
+# Verse Developer Chrome extension
 
 [Documentation](https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/)
 
