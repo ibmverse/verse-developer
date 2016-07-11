@@ -30,7 +30,7 @@ The manifest file is configred to widget.json by the [Verse Developer Chrome Ext
       }
     ],
     
-    "feature" : ["core"],
+    "features" : ["core"],
     
     "renderParams" : {
       "width" : "500",
@@ -50,7 +50,7 @@ ___Note:___ the __"url"__ should be changed to your own html page.
 
 * __"url"__, a must-set property, you should set it to the URL of your html page,  
 
-* __"feature"__, set it to "core", Verse will send __context__ related data to the specified web application by __Cross-document messaging__.  Please refer to the [How to send data to a web application][4] on how to construct the web application page to receive Cross-document messages.
+* __"features"__, set it to "core", Verse will send __context__ related data to the specified web application by __Cross-document messaging__.  Please refer to the [How to send data to a web application][4] on how to construct the web application page to receive Cross-document messages.
 
 The __"context"__ is a Verse internal data object, in __mail read view__, it is related to the mail you are composing, please refer to the "context structure" section at the end of this page for detail.  
 
