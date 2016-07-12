@@ -10,7 +10,7 @@
         "title": "Blue Page"
       }
     ],
-    "preference" : [
+    "preferences" : [
       {
         "name": "searchFor",
         "value": "profile.primaryEmail"
@@ -22,6 +22,6 @@
       "height" : "500"
     },
     
-    "feature" : []
+    "features" : []
   }
 ]
