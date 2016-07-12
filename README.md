@@ -4,4 +4,4 @@
 
 *Source for documentation is available in the `gh-pages` branch of this repository*
 
-The contents of the documentation and samples are © 2016 under the terms of the MIT License.
+The Verse Developer Chrome extension is © 2016 under the terms of the MIT License.
