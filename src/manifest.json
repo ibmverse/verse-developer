@@ -5,8 +5,6 @@
   "content_scripts": [ {
     "js": [ "contentscript.js"],
     "matches": [
-      "https://mail.notes.scn2.cn.ibm.com/vers*",
-      "https://mail.notes.scniris.com/vers*",
       "https://mail.notes.na.collabserv.com/vers*",
       "https://mail.notes.ap.collabserv.com/vers*",
       "https://mail.notes.ce.collabserv.com/vers*"
