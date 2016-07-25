@@ -1,21 +1,20 @@
 ---
-[//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
+[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
 
 layout: tutorial
-title:  "How to contribute an action contribution to business card"
+title:  "How to add an action contribution to business card"
 categories: tutorial_action_ext
 ---
 
 ### {{page.title}}  
 
-This tutorial will guide you through on how to compose an action contribution which will contribute a action to "__business card view__". By clicking the contributed action, a web application with a specific URL parameter will be loaded in a separate window.
+This tutorial guides you through the process of creating action contribution that displays on the business card in Verse. When a user clicks the action button, a web application loads in a separate window.
 
+### Step 1. [Install the Verse Developer Chrome Extension][1] 
 
-### Step 1, download and [Install the Verse Developer Chrome Extension][1]  
+### Step 2. Add a new widget configuration to the widget.json manifest file.
 
-### Step 2, compose a widget configuration to the manifest file
-
-The manifest file is configred to widget.json by the [Verse Developer Chrome Extension][2], open it from your local file system, and insert the following configuration as the first widget of the manifest.  
+This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget in the manifest, making changes to the properties as described below the sample code. 
 
 ```
   {
@@ -43,50 +42,45 @@ The manifest file is configred to widget.json by the [Verse Developer Chrome Ext
   },
 ```
 
-With this configuration, after the widget loaded by Verse, you may see an action button is renderred in the __business card view__.  
+Properties to modify for this tutorial:
 
-___Note:___ the __"url"__ should be changed to your own html page.
+* __id__ provides a default value that you can either use, or change to another value.
 
-* __"rawExtensionData"__ configures the widget as an __Action Contribution__, with the __"dataType": "person"__, the action button is rendered in __business card view__. Please see [Action contributions][3] for reference.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
 
-* __"id"__, you may give it any value you like(should not contain white space characters), here we give "com.ibm.verse.ext.sample1" to it.  
+* __rawExtensionData__ configures the widget as an action contribution, and uses __“dataType”: “person”__ to specify that the action button is rendered in the business card view. 
 
+* __preferences__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
-* __"url"__ is a must-set property, you should set it to the URL of your html page.  
-
-
-* __"preferences"__, indicates that a __context__ property, "profile.primaryEmail" need to be sent as an URL parameter, and the parameter name is "searchFor".
-
-
-  The __"context"__ is a Verse internal data object, in the __business card view__, it is related to an important person, please refer to the "context structure from business card view" section at the end of this page for detail.  
-
-
+In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card.  For more information, see the “The context structure from the business card view” section at the end of this tutorial.
+After the widget is loaded by Verse, the action button "Sample 1" displays in the business card view. Clicking the button opens the specified web application and passes the primary email address of the user described in the business card.
 
 ### Step 3, Load the widget into Verse and interact with it
 
-* ####  3.1, `Reload` the "IBM Verse" page,  
+1.	Open Verse in the Chrome browser.
 
-* ####  3.2, Click on the business card,  
+2.	Open a business card and view it:
 
     ![business card]({{site.baseurl}}/tutorials/img/bizcard.png)   
 
-* ####  3.3, Click on the "More action" button,  
+3.	In the business card, click the "More actions" arrow:
 
     ![more action button]({{site.baseurl}}/tutorials/img/bizcard_more_action.png)   
-    You may see our sample action button has been rendered in,  
+    
+    The "Sample 1" action button displays: 
+    
     ![action button]({{site.baseurl}}/tutorials/img/bizcard_action.png)  
   
+4.	Click the "Sample 1" button to open the specified web application in a new window. If you examine the URL in the new window, you will see the searchFor parameter with the email address of the person whose business card you viewed in Verse.
 
-* ####  3.4, Click on the action button, the web application should be opened in a new window, the expected parameter, "searchFor" with its value can be seen from the URL.  
-![action button]({{site.baseurl}}/tutorials/img/bizcard_sample.png)  
-
+    ![action button]({{site.baseurl}}/tutorials/img/bizcard_sample.png)  
 
 <br><br>
 <hr>
 
-## _context structure from business card view_ 
+## _The context structure from the business card view_ 
 
-Currently, the context related data from __business card view__ can provide the following properties that extensions could use.
+Verse provides the following properties in context data from the business card view; you can use these properties in your extensions.
 
 ```
 {
