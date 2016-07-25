@@ -2,25 +2,60 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "Install Verse Developer Chrome Extension"
+title:  "Installing the Verse Developer Chrome Extension"
 categories: 
 ---
 
 ### {{page.title}}  
 
-#### For finishing each of the tutorial in this document, please follow the below steps to set up your development environment.
+You can use the Verse Developer Chrome Extension toolkit to register extensions locally for testing. Extensions registered with the Verse Developer Chrome Extension are available only on your computer, with the Google Chrome browser; the extensions cannot be accessed from other devices.
 
-1. A Google Chrome browser is needed in your development environment.
-2. Download the [Verse Developer Chrome Extension][1] to your local file system.
-3. Check to see if your Verse URL match a item of the `matches` property in the __manifest.json__, if not, follow the below steps to add it.  
-    3.1. Find the file of __manifest.json__ from the downloaded [Verse Developer Chrome Extension][1] in your local file system.  
-    3.2. Open it with your editor  
-    3.3. Check the items under `matches` property, if there's not a item matched your Verse URL, follow the pattern there to add yours as a new item. Let's say my Verse URL is "_https://mycompany.com/verse?_", I need to add a `,` at end of the last item of the `matches` property, and then add "_https://mycompany.com/vers*_" as the last item of the `matches` property.  
-4. Launch the Chrome, and input `chrome://extensions/` in address bar.
-5. Tick the checkbox of "Developer mode" from the right side panel and click on the `Load unpacked extension...` to load the downloaded [Verse Developer Chrome Extension][1] from your file system.  
-6. Input the URL of your Verse page in the address bar and load Verse.
-7. Till now, the Verse Developer Chrome Extension is installed and ready to use.
-8. The __widget.json__ is the manifest file, which contains all the configurations of contributed Verse extensions. Under the same directory with __manifest.json__, you may also found the __widget.json__ file, most of our works for contributing Verse extensions is to compose in this file.  Please refer to [The manifest file][2] for details.
+Before proceeding to the tutorials, complete the following steps to set up your development environment.
+
+1.	Install the Google Chrome browser.
+
+2.	Download the [Verse Developer Chrome Extension][1] toolkit to your local file system and extract it to a temporary location.
+
+3.	Add your organization's Verse URL to the toolkit's __manifest.json__ file :
+
+	a) Open the __manifest.json__ file for editing (located in the /src directory of the extracted kit).
+
+	b) Append your organization's Verse URL to the __matches__ property, following the pattern shown in the sample manifest. Be sure to append a comma (,) at the end of the URL before your new URL, to delimit them.
+
+	The following example shows the URL for the Renovations company's Verse URL appended to the matches property in the kit's manifest.json file:
+
+	Original list:
+	```
+    "matches": [
+      "https://mail.notes.na.collabserv.com/vers*",
+      "https://mail.notes.ap.collabserv.com/vers*",
+      "https://mail.notes.ce.collabserv.com/vers*"
+    ],
+	```
+
+	Revised list:
+	```
+    "matches": [
+      "https://mail.notes.na.collabserv.com/vers*",
+      "https://mail.notes.ap.collabserv.com/vers*",
+      "https://mail.notes.ce.collabserv.com/vers*",
+	 "https://renovations.com/vers*"
+    ],
+	```
+
+	c) Save and close the file.
+
+4.	Start the Chrome browser, and type chrome://extensions/ in the address bar.
+
+5.	On the extensions page, select __Developer mode__. 
+
+6.	Click __Load unpacked extension__ and select the /src directory of the extracted kit.
+
+7.	Verify that the "IBM Verse Widget Registry Extension" is __Enabled__.
+
+Your environment is now ready for developing Verse extensions.
+
+__Note:__ In addition to the __manifest.json__ (containing a set of pre-configured extensions), the kit includes a manifest file called __widget.json__ that you will use in the tutorials that follow.
+
 
 [1]: {{site.verse-developer-chrome-ext}}
-[2]: {{site.baseurl}}/tutorials/tutorial-ext-manifest.html
