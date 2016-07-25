@@ -2,20 +2,19 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: tutorial
-title:  "How to contribute an action to mail read view"
+title:  "How to add an action to the mail read view"
 categories: tutorial_action_ext
 ---
 
 ### {{page.title}}  
 
+This tutorial guides you through the process of creating an action contribution that displays in the mail read view in Verse. When a user clicks the action button, a web application loads in a separate window and Verse sends context data to the web application through cross-document messaging.
 
-This tutorial will guide you through on how to compose an action contribution to __"mail read view"__. By clicking the contributed action button, a web application will be loaded in a separate window, and Verse will send context related data to the web application by Cross-document messaging.
+### Step 1. [Install the Verse Developer Chrome Extension][1].
 
-### Step 1, download and [Install the Verse Developer Chrome Extension][1]  
+### Step 2. Add a new widget configuration to the widget.json manifest file.
 
-### Step 2, compose a widget configuration to the manifest file
-
-The manifest file is configred to widget.json by the [Verse Developer Chrome Extension][2],  open it from your local file system, and insert the following configuration as the first widget of the manifest.  
+This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget in the manifest, making changes to the properties as described below the sample code.  
 
 ```
   {
@@ -39,47 +38,40 @@ The manifest file is configred to widget.json by the [Verse Developer Chrome Ext
   }
 ```
 
-With this configuration, after the widget loaded by Verse, you may see an action button is renderred in the __mail read view__.
+Properties to modify for this tutorial:
 
-___Note:___ the __"url"__ should be changed to your own html page.
+* __id__ provides a default value that you can either use, or change to another value.
 
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
 
-* __"rawExtensionData"__ configures the widget as an __Action Contribution__, with the __"path": "mail.read"__, the action button is rendered in __mail read view__. Please see [Action contributions][3] for reference.
+* __rawExtensionData__ configures the widget as an action contribution, and uses __“dataType”: “path” : "mail.read"__ to specify that the action button is rendered in the mail read view. 
 
-* __"id"__,  you may give it any value you like(should not contain white space characters), here we give "com.ibm.verse.ext.sample2" to it,
+* __features : ["core"]__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][4] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the “The context structure from the mail read view” section at the end of this tutorial.
 
-* __"url"__, a must-set property, you should set it to the URL of your html page,  
+After the widget is loaded by Verse, the action button "Sample 3" displays in the mail compose view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being read) to the web application.
 
-* __"features"__, set it to "core", Verse will send __context__ related data to the specified web application by __Cross-document messaging__.  Please refer to the [How to send data to a web application][4] on how to construct the web application page to receive Cross-document messages.
+### Step 3. Load the widget into Verse and interact with it.
 
-The __"context"__ is a Verse internal data object, in __mail read view__, it is related to the mail you are composing, please refer to the "context structure" section at the end of this page for detail.  
+1.	Open Verse in the Chrome browser.
 
+2.	Click an email to open it in mail read view.
 
-
-
-
-### Step 3, Load the widget into Verse and interact with it
-
-* ####  3.1, `Reload` the "IBM Verse", 
-
-* ####  3.2, Click on a received email, then click on the "More action" button from the mail read view,  
+3.	Click the "More actions" icon: 
     ![more action button]({{site.baseurl}}/tutorials/img/mailread_more.png)   
-    You may see our sample action button has been rendered in,  
+
+    The "Sample 3" action button displays: 
     ![action button]({{site.baseurl}}/tutorials/img/mailread_action.png)  
   
-
-* ####  3.3, Click on the action button, the web application should be opened in a new window.  
+4.	Click the "Sample 3" button to open the specified web application in a new window. 
     ![action button]({{site.baseurl}}/tutorials/img/mailread_web_app.png)  
-
 
 
 <br><br>
 <hr>
 
-## _context structure from mail read view_ 
+## _The context structure from the mail read view_ 
 
-
-Currently, the context related data from __mail read view__ can provide the following properties that extensions could use.
+Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions.
 
 ```
   {
