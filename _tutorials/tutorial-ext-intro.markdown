@@ -8,36 +8,59 @@ categories:
 
 ### {{page.title}}  
 
-Verse Extension is a mechanism which customers can integrate their web applications into Verse. To date, two kinds of Verse extensions are supported,  
+__DRAFT__ *This version of the Tutorials for Verse Extensions is a draft and is subject to change without notice.*  
 
-* __Action Contribution__, customers can use it to add action buttons to Verse UI, by clicking on the contributed actions, customers can access their specified web applications which hosted by themselves.  
-* __LiveText__ is another kind of Verse Extension, customers can extend Verse to recognize specified strings in mail body and attach actions on them, then customers can click on them to access specified web applicaions.
+An extension allows you to connect a web application into the IBM Verse user interface. Verse supports the following types of extensions:
+* Action contribution: a widget (for example, a button) that you add directly to the Verse UI.
+* LiveText: a specified string, contained in the body of a mail message, for which you define an action. 
 
+### Requirements
 
-Customers who want to contribute Verse Extensions to Verse UI should have,  
+To deploy your extension in Verse, you will need the following: 
 
-* __Web applications__, which hosted by customers themselves or the third party companies.  For security reasons, the web application pages will be limited in sandbox, which is a iframe or a separated new window. For sending data to the web application, two kinds of ways are provided by Verse,   
-    * Attach the data directly to the URL as parameters, the web application pages can easily get the parameters by front end or back end technologies.  
-    * Pass the data through [cross-document messaging][3].  
-* A __manifest__ file, which describes the configurations of contributed Verse extensions. Please refer to the [Manifest file][2] for details. 
+__Web application:__  The app must be hosted on a server, provided by you or a third party, that the user can access from Verse. For security reasons, the web application's pages must be displayed in an iframe or a new browser window.
 
+Verse supports the following methods for passing data to the web application:
 
+* Attach the data directly to the URL as parameters that can be accessed by the web application.
+
+* Pass the data through [cross-document messaging][3].
+
+__Manifest file:__ a [JSON][1] file that contains configuration information about the extension. See [Working with the manifest file][2] for details.
 
 ### Terms
 
-#### - Widget  
-* Refer to a contributed application in Verse.
-* Can have a html which hosts the code for the widget.
-* A widget may contribute several actions in Verse, and it may contribute other things, like LiveText recognizers, etc. These are called "extensions".
+*Container* - 
+The Verse page where extensions are surfaced for the user.
 
-#### - Extension
-* Refer to an extension added by a widget.
-* There are many types of extensions, an extension can be an action contribution, or a LiveText recognizer, etc.
+*Action contribution* - A UI-based extension that displays an action button at a one of several predefined locations on the Verse page.
 
-#### - Container
-* Refer to the Verse page, which provides the ability to render a widget and other extensibility features, etc.
+*Extension* - A data structure containing properties that describe the behavior of an action contribution or of LiveText.
 
+*Extension point* - A predefined location in the user interface where you can place a UI-based extension (in Verse, an action contribution).
+
+*LiveText* - Text contained within the body of a mail message that displays highlighted and, when clicked, responds by opening a web application.
+
+*Manifest file* - A JSON object containing widget properties and extension properties. The Verse Developer Chrome Extension toolkit contains a manifest file, called widget.json, that you will use for the tutorials.
+
+*Widget* - A data structure that contains a URL pointing to a web application, plus additional properties that describe the behavior of that application.
+
+For example: Suppose you want to be able to easily see what time it is in a contact's time zone. You can add a clock image to the business card view in Verse; clicking this "button" opens a web application (in a new window) where you can view clocks for your time zone and the selected contact's time zone. 
+
+In this example:
+
+* The *container* is the Verse page.
+
+* The *extension point* is the business card view.
+
+* The *action contribution*is the display of the clock (the button) on the Verse page.
+
+* The *extension* describes how the clock button behaves when clicked (the clock is an action contribution).
+
+* The *widget* points to the time-zone application and describes how it will be loaded in the browser.
+
+* The *manifest file* contains the properties that describe the extension and the widget.
 
 [1]: http://json.org
 [2]: {{site.baseurl}}/tutorials/tutorial-ext-manifest.html
-[3]: https://www.w3.org/TR/2011/WD-webmessaging-20110317/#web-messaging
+[3]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
