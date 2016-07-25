@@ -2,18 +2,17 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "How to register widgets to Verse"
+title:  "Registering extensions in Verse"
 categories: 
 ---
 
 ### {{page.title}}  
 
-The configurations of Verse extensions must be loaded and registered into Verse internal widget registry. The registered extensions will be rendered on Verse UI, and can be used by users.
+The configuration of a Verse extension must be loaded and registered in the Verse internal widget registry. The registered extension is rendered in the Verse user interface, where it is available to users. In a production environment, Verse extensions are configured and enabled only by organization administrators, using the Connections App Registry.
 
+In a development environment, you can use the Verse Developer Chrome Extension toolkit to register extensions locally for testing. Extensions registered with the Verse Developer Chrome Extension are available only on your computer with the Google Chrome browser, and cannot be accessed from other devices.
 
-In production environment, Verse extension are configured and enabled only by administrators. A administration interface which is Connections AppRegistry can be used by administrators to fulfill the job. The registered Verse extensions can be used by all users within an organization in different browsers.  
-
-For a developer who is developing a widget needs a convenient way to register widgets into Verse for debugging, the [Verse Developer Chrome Extension][2] can be used for this purpose. By this method, the registered extension can not be used by the other users in different machine. And only the Chrome browser is supported for this method. Please see [Install Verse Developer Chrome Extension][3] for how to get and use the toolkit.  
+See [Installing the Verse Developer Chrome Extension][3] for instructions on downloading and installing this toolkit.
 
 
 
