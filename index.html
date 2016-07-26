@@ -3,12 +3,17 @@
 layout: default
 ---
 <div>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-intro.html" | prepend: site.baseurl }}">{{ "Introduction of Verse Extension" }}</a> </h2>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-manifest.html" | prepend: site.baseurl }}">{{ "The manifest file" }}</a> </h2>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-send-data-to-app.html" | prepend: site.baseurl }}">{{ "How to send data to a web application" }}</a> </h2>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-widget-reg.html" | prepend: site.baseurl }}">{{ "How to register widgets to Verse" }}</a> </h2>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-install-toolkit.html" | prepend: site.baseurl }}">{{ "Install Verse Developer Chrome Extension" }}</a> </h2>
-  <h2> <a href="{{ "/tutorials/tutorial-ext-action-contribution.html" | prepend: site.baseurl }}">{{ "Action Contributions" }}</a> </h2>
+  <h2> DRAFT</h2>
+  <p><em>This version of the Tutorials for Verse Extension is a draft and is subject to change without notice.</em></p>
+</div>
+
+<div>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-intro.html" | prepend: site.baseurl }}">{{ "Introducing Verse extensions" }}</a> </h2>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-manifest.html" | prepend: site.baseurl }}">{{ "Working with the manifest file" }}</a> </h2>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-send-data-to-app.html" | prepend: site.baseurl }}">{{ "Sending data to a web application" }}</a> </h2>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-widget-reg.html" | prepend: site.baseurl }}">{{ "Registering extensions in Verse" }}</a> </h2>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-install-toolkit.html" | prepend: site.baseurl }}">{{ "Installing the Verse Developer Chrome Extension" }}</a> </h2>
+  <h2> <a href="{{ "/tutorials/tutorial-ext-action-contribution.html" | prepend: site.baseurl }}">{{ "Developing action contributions" }}</a> </h2>
   <ul class="tutorial-list">
     {% for page in site.tutorials %}
       {% if page.categories contains "tutorial_action_ext" %}
@@ -19,4 +24,7 @@ layout: default
     {% endfor %}
   </ul>
 
+</div>
+<div>
+  &copy; Copyright IBM Corporation, 2016.
 </div>
