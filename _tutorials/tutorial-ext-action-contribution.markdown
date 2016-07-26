@@ -19,9 +19,7 @@ An __Action contribution__ is a kind of Verse Extension, after loaded by Verse, 
     ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
 
-The configuration of an __Action contribution__ contains a specific property of __"rawExtensionData"__ and other general properties described in [The manifest file][1]. 
-
-For instance, the following configuration described an __Action contribution__,  
+The configuration of an action contribution contains the __rawExtensionData__ property, along with other general properties described in [Working with the manifest file][1]. For example, the following properties describe the "Sample 1" action configuration, which will display on the business card view:
 
 ```
   "rawExtensionData": [
@@ -34,18 +32,22 @@ For instance, the following configuration described an __Action contribution__,
   ]
 ```
 
+In this configuration:
 
+* The __type__ property indicates the type of extension being configured (com.ibm.verse.action specifies an action contribution).
 
-* __"type"__, as metioned above,  must be configured to  __"com.ibm.verse.action"__  to describe the Verse extension is an __Action Contribution__.  
+* The __id__ property is a string that provides a unique identifier for this action contribution.
 
-* __"dataType"__ and __"path"__  
-The configuration of the sub-property, __"dataType" : "person"__ means that the __Action Contribution__ will be contributed to the __"Business card view"__. Alternatively, the sub-property, __"path"__ can be used to configure the actions to be contributed to the __mail read view__ or to the __mail compose view__,  
-    - __"path" : "mail.read"__ ,  the __Action Contribution__ will be contributed to the __mail read view__.  
-    - __"path" : "mail.compose"__,  the __Action Contribution__ will be contributed to the __mail compose view__.  
+* The __dataType__ property indicates the extension point where the action contribution is displayed to the user; there are two possible values:
 
-* __"id"__, an identification string of the action contribution.  
+    * The __person__ property specifies that the action contribution displays in the business card view.
 
-* __"title"__, a description string which will be displayed as caption and tool tip string of the action button.  
+    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view: 
+    
+        * __mail.read__ indicates that the action contribution displays in the mail read view.
+        * __mail.compose__ indicates that the action contribution displays in the mail compose view.
+        
+* The __title__ property is a string that provides text that will be displayed as a caption and as a tool tip for the action button. 
 
 
 
