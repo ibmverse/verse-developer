@@ -9,9 +9,9 @@ categories:
 ### {{page.title}}  
 
 
-The configurations of the Verse extensions are recorded in a manifest file, which is in [JSON format][2]. If you use the [Verse Developer Chrome Extension][1] to develop Verse extensions, you may find the toolkit configured the __widget.json__ as the manifest file.  
+The manifest file contains configuration settings that describe the properties of a Verse extension, in [JSON format][2]. The [Verse Developer Chrome Extension][1] includes a sample manifest called __widget.json__.
 
-Verse supports different types of Verse extension, and different types Verse extensions support different properties. The following sample is a typical configuration of an action contribution in the manifest file, the whole manifest file is defined as an Array which is represented by a pair of `[]`, and a Verse extension is described as an Object which is represented by a pair of `{}`,  
+The following example shows the manifest for an action contribution. The manifest is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each extension is described as an object and is enclosed within `{ }` curly braces.
    
 ```
 [
@@ -47,29 +47,44 @@ Verse supports different types of Verse extension, and different types Verse ext
 ]
 ```
 
-In the manifest file, we can see the genernal properties used for configuring a Verse extension,
+In the manifest, the following general properties describe a Verse extension:
 
-* __"id"__ is needed for a Verse widget. The __"id"__ is the identification of the widget.  
+The __id__ property specifies a unique string that servers as the identifier for the widget associated with this extension; the value must not contain blank spaces.
 
-* __"url"__ tells Verse where to load the web application page.  
+The __url__ property specifies the location of the web application page that loads when the extension is activated by a user.
 
-* __"rawExtensionData"__ with its sub-properties describes the type of the extension and the type related properties. For different Verse extension types, please refer to the relevant sections in this document.  
+The __rawExtensionData__ property lists the set of properties that describe the extension type and context. In this example, the manifest describes an action contribute associated with reading a mail message. In the rawExtensionData settings:
 
-* __"renderParams"__ is used to describe the size of new opened window, which the web application is loaded in.  
+* The __type__ property indicates the type of extension being configured (com.ibm.verse.action specifies an action contribution).
 
-* __"preferences"__ can be configured to let Verse know which data should be sent to specified web application as URL parameters.
+* The __dataType__ property indicates the extension point where the action contribution is displayed to the user; there are two possible values:
 
-* __"features"__ describes which Verse API the widget wants to call. So far, only the __"core"__ is valid for configuring the __"features"__, by this configuration, Verse core API will send context related data to the specified web application through [Cross-document messaging][5].
+    * The __person__ property specifies that the action contribution displays in the business card view.
 
-To understand how Verse send data to the web application. please see the [How to send data to a web application][4].  
+    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view: 
+        * __mail.read__ indicates that the action contribution displays in the mail read view.
+        * __mail.compose__ indicates that the action contribution displays in the mail compose view.
 
+* The __id__ property is a unique string that identifies the action contribution configured within the current __rawExtensionData__ settings.
 
+* The __title__ property is a string that is displayed as both the caption and the tool tip string of action button.
 
+* The __preferences__ property specifies what data is sent to the associated web application as URL parameters, and where that data resides within the context data. The list of preferences is an array and is enclosed in `[ ]` square brackets.
 
-### Note: _All the properties' name are case sensitive._
+* The __renderParams__ property specifies the size of the new window where the web application displays.
+
+* The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][5].
+
+__Notes:__ 
+
+* All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example. 
+* You can include both a __preferences__ property and a __features__ property in the manifest. 
+
+* To understand how Verse send data to the web application, see [Sending data to a web application][4].
+
 
 [1]: {{site.verse-developer-chrome-ext}}
 [2]: http://json.org
 [3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
 [4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
-[5]: https://www.w3.org/TR/2011/WD-webmessaging-20110317/#web-messaging
+[5]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
