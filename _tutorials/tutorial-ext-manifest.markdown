@@ -2,7 +2,7 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "The manifest file"
+title:  "Working with the manifest file"
 categories: 
 ---
 
@@ -53,7 +53,7 @@ The __id__ property specifies a unique string that servers as the identifier for
 
 The __url__ property specifies the location of the web application page that loads when the extension is activated by a user.
 
-The __rawExtensionData__ property lists the set of properties that describe the extension type and context. In this example, the manifest describes an action contribute associated with reading a mail message. In the rawExtensionData settings:
+The __rawExtensionData__ property lists the set of properties that describe the extension type and context:
 
 * The __type__ property indicates the type of extension being configured (com.ibm.verse.action specifies an action contribution).
 
@@ -67,13 +67,13 @@ The __rawExtensionData__ property lists the set of properties that describe the 
 
 * The __id__ property is a unique string that identifies the action contribution configured within the current __rawExtensionData__ settings.
 
-* The __title__ property is a string that is displayed as both the caption and the tool tip string of action button.
+* The __title__ property is a string that is displayed as both the caption and the tool tip string of the action button.
 
-* The __preferences__ property specifies what data is sent to the associated web application as URL parameters, and where that data resides within the context data. The list of preferences is an array and is enclosed in `[ ]` square brackets.
+The __preferences__ property specifies what data is sent to the associated web application as URL parameters, and where that data resides within the context data. The list of preferences is an array and is enclosed in `[ ]` square brackets.
 
-* The __renderParams__ property specifies the size of the new window where the web application displays.
+The __renderParams__ property specifies the size of the new window where the web application displays.
 
-* The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][5].
+The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][5].
 
 __Notes:__ 
 
