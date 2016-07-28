@@ -2,11 +2,11 @@
 [//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
 
 layout: tutorial
-title:  "How to add an action contribution to business card"
+title:  "How to add an action contribution to the business card view"
 categories: tutorial_action_ext
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 This tutorial guides you through the process of creating action contribution that displays on the business card in Verse. When a user clicks the action button, a web application loads in a separate window.
 
@@ -55,7 +55,7 @@ Properties to modify for this tutorial:
 In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card.  For more information, see the “The context structure from the business card view” section at the end of this tutorial.
 After the widget is loaded by Verse, the action button "Sample 1" displays in the business card view. Clicking the button opens the specified web application and passes the primary email address of the user described in the business card.
 
-### Step 3, Load the widget into Verse and interact with it
+### Step 3. Load the widget into Verse and interact with it.
 
 1.	Open Verse in the Chrome browser.
 
@@ -72,8 +72,6 @@ After the widget is loaded by Verse, the action button "Sample 1" displays in th
     ![action button]({{site.baseurl}}/tutorials/img/bizcard_action.png)  
   
 4.	Click the "Sample 1" button to open the specified web application in a new window. If you examine the URL in the new window, you will see the searchFor parameter with the email address of the person whose business card you viewed in Verse.
-
-    ![action button]({{site.baseurl}}/tutorials/img/bizcard_sample.png)  
 
 <br><br>
 <hr>
