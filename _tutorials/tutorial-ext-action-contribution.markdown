@@ -2,22 +2,23 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "Action contributions"
+title:  "Developing action contributions"
 categories: 
 ---
 
 ### {{page.title}}  
 
 
-An __Action contribution__ is a kind of Verse Extension, after loaded by Verse, it will be rendered as an action button in Verse UI. So far, the Verse Extension feature defined three extension points for rendering action buttons, which are,  
+An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions: 
 
-* business card view,  
+* Business card view: You can add an action contribution to the "More actions" section of a business card (see "Sample 1" in the following image).
     ![Business card view]({{site.baseurl}}/tutorials/img/bizcard_action.png "business card view")   
-* mail read view,  
-    ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
-* mail compose view.  
-    ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
+* Mail read view: You can add an action contribution to the "More actions" menu (see "Content Demo" in the following image).
+    ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
+
+* Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image). 
+    ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
 The configuration of an action contribution contains the __rawExtensionData__ property, along with other general properties described in [Working with the manifest file][1]. For example, the following properties describe the "Sample 1" action configuration, which will display on the business card view:
 
@@ -25,9 +26,9 @@ The configuration of an action contribution contains the __rawExtensionData__ pr
   "rawExtensionData": [
     {
       "type": "com.ibm.verse.action", 
-      "id": "", 
+      "id": "com.ibm.verse.ext.sample1.action", 
       "dataType": "person",
-      "title": ""
+      "title": "Sample 1"
     }
   ]
 ```
