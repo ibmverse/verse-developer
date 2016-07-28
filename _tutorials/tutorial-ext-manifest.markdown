@@ -6,7 +6,7 @@ title:  "Working with the manifest file"
 categories: 
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 
 The manifest file contains configuration settings that describe the properties of a Verse extension, in [JSON format][2]. The [Verse Developer Chrome Extension][1] includes a sample manifest called __widget.json__.
