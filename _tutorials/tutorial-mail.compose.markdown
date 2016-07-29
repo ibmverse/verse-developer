@@ -53,12 +53,15 @@ After the widget is loaded by Verse, the action button "Sample 2" displays in th
 1.	Open Verse in the Chrome browser.
 
 2.	Click __Compose__ to open the mail compose view:
+
     ![mail compose]({{site.baseurl}}/tutorials/img/compose_action.png)   
 
 3.	Click the "More actions" icon: 
+
     ![more action button]({{site.baseurl}}/tutorials/img/compose_more_action.png)   
     
     The "Sample 2" action button displays:
+    
     ![action button]({{site.baseurl}}/tutorials/img/compose_view_action.png)  
   
 4.	Click the "Sample 2" button to open the specified web application in a new window. 
