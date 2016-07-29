@@ -6,7 +6,7 @@ title:  "Sending data to a web application"
 categories: 
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 
 There are two ways to send data from Verse to a web application: by passing data in a URL, and by using cross-document messaging. Both methods are explained in this topic.
