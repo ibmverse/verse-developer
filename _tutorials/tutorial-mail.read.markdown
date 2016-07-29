@@ -57,9 +57,11 @@ After the widget is loaded by Verse, the action button "Sample 3" displays in th
 2.	Click an email to open it in mail read view.
 
 3.	Click the "More actions" icon: 
+
     ![more action button]({{site.baseurl}}/tutorials/img/mailread_more.png)   
 
     The "Sample 3" action button displays: 
+
     ![action button]({{site.baseurl}}/tutorials/img/mailread_action.png)  
   
 4.	Click the "Sample 3" button to open the specified web application in a new window. 
