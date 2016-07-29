@@ -6,7 +6,7 @@ title:  "Installing the Verse Developer Chrome Extension"
 categories: 
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 You can use the Verse Developer Chrome Extension toolkit to register extensions locally for testing. Extensions registered with the Verse Developer Chrome Extension are available only on your computer, with the Google Chrome browser; the extensions cannot be accessed from other devices.
 
@@ -39,7 +39,7 @@ Before proceeding to the tutorials, complete the following steps to set up your 
       "https://mail.notes.na.collabserv.com/vers*",
       "https://mail.notes.ap.collabserv.com/vers*",
       "https://mail.notes.ce.collabserv.com/vers*",
-	 "https://renovations.com/vers*"
+      "https://renovations.com/vers*"
     ],
 	```
 
