@@ -2,13 +2,11 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "Introduction of Verse Extension"
+title:  "Introducing Verse extensions"
 categories: 
 ---
 
-### {{page.title}}  
-
-__DRAFT__ *This version of the Tutorials for Verse Extensions is a draft and is subject to change without notice.*  
+## {{page.title}}  
 
 An extension allows you to connect a web application into the IBM Verse user interface. Verse supports the following types of extensions:
 * Action contribution: a widget (for example, a button) that you add directly to the Verse UI.
