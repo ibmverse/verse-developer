@@ -2,11 +2,11 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: tutorial
-title:  "How to add an action to the mail compose view"
+title:  "How to add an action contribution to the mail compose view"
 categories: tutorial_action_ext
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 This tutorial guides you through the process of creating an action contribution that displays in the mail compose view in Verse. When a user clicks the action button, a web application loads in a separate window and Verse sends context data to the web application through cross-document messaging.
 
@@ -62,7 +62,6 @@ After the widget is loaded by Verse, the action button "Sample 2" displays in th
     ![action button]({{site.baseurl}}/tutorials/img/compose_view_action.png)  
   
 4.	Click the "Sample 2" button to open the specified web application in a new window. 
-    ![action button]({{site.baseurl}}/tutorials/img/compose_web_app.png)  
 
 <br><br>
 <hr>
@@ -71,6 +70,7 @@ After the widget is loaded by Verse, the action button "Sample 2" displays in th
 
 
 Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions.
+
 ```
   {
     "body": "the content of mail body",
