@@ -6,18 +6,21 @@ title:  "Developing action contributions"
 categories: 
 ---
 
-### {{page.title}}  
+## {{page.title}}  
 
 
 An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions: 
 
 * Business card view: You can add an action contribution to the "More actions" section of a business card (see "Sample 1" in the following image).
+
     ![Business card view]({{site.baseurl}}/tutorials/img/bizcard_action.png "business card view")   
 
 * Mail read view: You can add an action contribution to the "More actions" menu (see "Content Demo" in the following image).
+
     ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
 
 * Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image). 
+
     ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
 The configuration of an action contribution contains the __rawExtensionData__ property, along with other general properties described in [Working with the manifest file][1]. For example, the following properties describe the "Sample 1" action configuration, which will display on the business card view:
