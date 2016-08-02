@@ -3,7 +3,7 @@
 
 layout: default
 title:  "Working with the manifest file"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
@@ -12,7 +12,7 @@ categories:
 The manifest file contains configuration settings that describe the properties of a Verse extension, in [JSON format][2]. The [Verse Developer Chrome Extension][1] includes a sample manifest called __widget.json__.
 
 The following example shows the manifest for an action contribution. The manifest is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each extension is described as an object and is enclosed within `{ }` curly braces.
-   
+
 ```
 [
   {
@@ -20,9 +20,9 @@ The following example shows the manifest for an action contribution. The manifes
     "url": "https://mycompany/verseext.html",
     "rawExtensionData": [
       {
-        "type": "com.ibm.verse.action", 
-        "id": "com.ibm.verse.ext.sample.action", 
-        "path": "mail.read", 
+        "type": "com.ibm.verse.action",
+        "id": "com.ibm.verse.ext.sample.action",
+        "path": "mail.read",
         "title": "Extension example"
       }
     ],
@@ -36,12 +36,12 @@ The following example shows the manifest for an action contribution. The manifes
         "value": "body"
       }
     ],
-    
+
     "renderParams" : {
       "width" : "500",
       "height" : "400"
     },
-    
+
     "features" : []
   }
 ]
@@ -61,7 +61,7 @@ The __rawExtensionData__ property lists the set of properties that describe the 
 
     * The __person__ property specifies that the action contribution displays in the business card view.
 
-    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view: 
+    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view:
         * __mail.read__ indicates that the action contribution displays in the mail read view.
         * __mail.compose__ indicates that the action contribution displays in the mail compose view.
 
@@ -75,16 +75,16 @@ The __renderParams__ property specifies the size of the new window where the web
 
 The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][5].
 
-__Notes:__ 
+__Notes:__
 
-* All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example. 
-* You can include both a __preferences__ property and a __features__ property in the manifest. 
+* All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example.
+* You can include both a __preferences__ property and a __features__ property in the manifest.
 
 * To understand how Verse send data to the web application, see [Sending data to a web application][4].
 
 
 [1]: {{site.verse-developer-chrome-ext}}
 [2]: http://json.org
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
+[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
 [5]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
