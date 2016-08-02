@@ -4,9 +4,9 @@
     "url": "https://w3-03.sso.ibm.com/bluepages/simpleSearch.wss?searchBy=Internet%20address&location=All+locations",
     "rawExtensionData": [
       {
-        "type": "com.ibm.verse.action", 
-        "id": "com.ibm.verse.ext.bizcard.action", 
-        "path": "bizcard.back.anchor", 
+        "type": "com.ibm.verse.action",
+        "id": "com.ibm.verse.ext.bizcard.action",
+        "dataType": "person",
         "title": "Blue Page"
       }
     ],
@@ -16,12 +16,12 @@
         "value": "profile.primaryEmail"
       }
     ],
-    
+
     "renderParams" : {
       "width" : "900",
       "height" : "500"
     },
-    
+
     "features" : []
   }
 ]
