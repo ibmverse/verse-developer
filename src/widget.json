@@ -4,9 +4,9 @@
     "url": "https://yourcompany.com/sample.html",
     "rawExtensionData": [
       {
-        "type": "com.ibm.verse.action", 
-        "id": "com.ibm.verse.ext.bizcard.action", 
-        "path": "bizcard.back.anchor", 
+        "type": "com.ibm.verse.action",
+        "id": "com.ibm.verse.ext.bizcard.action",
+        "dataType": "person",
         "title": "Blue Page"
       }
     ],
@@ -16,12 +16,12 @@
         "value": "profile.primaryEmail"
       }
     ],
-    
+
     "renderParams" : {
       "width" : "900",
       "height" : "500"
     },
-    
+
     "features" : []
   }
 ]
