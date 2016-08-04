@@ -1,3 +1,8 @@
+/**
+ * Copyright IBM Corp. 2016
+ * Licensed under the MIT License.
+ */
+
 document.addEventListener("WidgetRegistryReady", function(event) {
   var widgetRegistry = event.widgetRegistry;
   if(!widgetRegistry) {
