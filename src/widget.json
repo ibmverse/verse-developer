@@ -1,7 +1,7 @@
 [
   {
     "id": "com.ibm.verse.ext.sample",
-    "url": "https://w3-03.sso.ibm.com/bluepages/simpleSearch.wss?searchBy=Internet%20address&location=All+locations",
+    "url": "https://yourcompany.com/sample.html",
     "rawExtensionData": [
       {
         "type": "com.ibm.verse.action", 

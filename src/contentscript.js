@@ -1,3 +1,7 @@
+/**
+ * Copyright IBM Corp. 2016
+ * Licensed under the MIT License.
+ */
 
 var widget = chrome.extension.getURL('widget.json');
 var xhr = new XMLHttpRequest();
