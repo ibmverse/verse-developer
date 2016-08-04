@@ -3,13 +3,13 @@
 
 layout: default
 title:  "Developing action contributions"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
 
 
-An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions: 
+An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions:
 
 * Business card view: You can add an action contribution to the "More actions" section of a business card (see "Sample 1" in the following image).
 
@@ -19,7 +19,7 @@ An action contribution is a type of extension that is rendered as an action butt
 
     ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
 
-* Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image). 
+* Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image).
 
     ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
@@ -28,8 +28,8 @@ The configuration of an action contribution contains the __rawExtensionData__ pr
 ```
   "rawExtensionData": [
     {
-      "type": "com.ibm.verse.action", 
-      "id": "com.ibm.verse.ext.sample1.action", 
+      "type": "com.ibm.verse.action",
+      "id": "com.ibm.verse.ext.sample1.action",
       "dataType": "person",
       "title": "Sample 1"
     }
@@ -46,15 +46,15 @@ In this configuration:
 
     * The __person__ property specifies that the action contribution displays in the business card view.
 
-    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view: 
-    
+    * The __path__ property indicates that the action contribution displays in the mail view, and uses two additional sub-properties to indicate the specific mail view:
+
         * __mail.read__ indicates that the action contribution displays in the mail read view.
         * __mail.compose__ indicates that the action contribution displays in the mail compose view.
-        
-* The __title__ property is a string that provides text that will be displayed as a caption and as a tool tip for the action button. 
+
+* The __title__ property is a string that provides text that will be displayed as a caption and as a tool tip for the action button.
 
 
 
 
 
-[1]: {{site.baseurl}}/tutorials/tutorial-ext-manifest.html
+[1]: {{site.baseurl}}/tutorials/ext-manifest.html

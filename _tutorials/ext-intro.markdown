@@ -3,18 +3,18 @@
 
 layout: default
 title:  "Introducing Verse extensions"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
 
 An extension allows you to connect a web application into the IBM Verse user interface. Verse supports the following types of extensions:
 * Action contribution: a widget (for example, a button) that you add directly to the Verse UI.
-* LiveText: a specified string, contained in the body of a mail message, for which you define an action. 
+* LiveText: a specified string, contained in the body of a mail message, for which you define an action.
 
 ### Requirements
 
-To deploy your extension in Verse, you will need the following: 
+To deploy your extension in Verse, you will need the following:
 
 __Web application:__  The app must be hosted on a server, provided by you or a third party, that the user can access from Verse. For security reasons, the web application's pages must be displayed in an iframe or a new browser window.
 
@@ -28,7 +28,7 @@ __Manifest file:__ a [JSON][1] file that contains configuration information abou
 
 ### Terms
 
-*Container* - 
+*Container* -
 The Verse page where extensions are surfaced for the user.
 
 *Action contribution* - A UI-based extension that displays an action button at a one of several predefined locations on the Verse page.
@@ -43,7 +43,7 @@ The Verse page where extensions are surfaced for the user.
 
 *Widget* - A data structure that contains a URL pointing to a web application, plus additional properties that describe the behavior of that application.
 
-For example: Suppose you want to be able to easily see what time it is in a contact's time zone. You can add a clock image to the business card view in Verse; clicking this "button" opens a web application (in a new window) where you can view clocks for your time zone and the selected contact's time zone. 
+For example: Suppose you want to be able to easily see what time it is in a contact's time zone. You can add a clock image to the business card view in Verse; clicking this "button" opens a web application (in a new window) where you can view clocks for your time zone and the selected contact's time zone.
 
 In this example:
 
@@ -60,5 +60,5 @@ In this example:
 * The *manifest file* contains the properties that describe the extension and the widget.
 
 [1]: http://json.org
-[2]: {{site.baseurl}}/tutorials/tutorial-ext-manifest.html
+[2]: {{site.baseurl}}/tutorials/ext-manifest.html
 [3]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
