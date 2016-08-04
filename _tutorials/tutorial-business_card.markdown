@@ -18,41 +18,51 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 
 ```
   {
-    "id": "com.ibm.verse.ext.sample1",
+    "app_id": "com.ibm.verse.ext.sample1",
+    "name": "Widget sample 1",
     "url": "https://yourcompany.com/sample1.html",
-    "rawExtensionData": [
+    
+    "extensions": [
       {
-        "type": "com.ibm.verse.action", 
-        "id": "com.ibm.verse.ext.sample1.action", 
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.ext.sample1.action",
+        "name": "Extension sample 1",
+        "payload": {},
         "dataType": "person",
         "title": "Sample 1"
-      }
-    ],
-    "preferences" : [
-      {
-        "name": "searchFor",
-        "value": "profile.primaryEmail"
-      }
+       }
     ],
     
-    "renderParams" : {
-      "width" : "900",
-      "height" : "500"
-    }
-  },
+    "payload": {
+      "preferences" : [
+        {
+          "name": "searchFor",
+          "value": "profile.primaryEmail"
+        }
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
+    },
+
+    "services": [
+      "Verse
+    ]
+  }
 ```
 
 Properties to modify for this tutorial:
 
-* __id__ provides a default value that you can either use, or change to another value.
+* __app_id__ provides a default value that you can either use, or change to another value.
 
 * __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
 
-* __rawExtensionData__ configures the widget as an action contribution, and uses __“dataType”: “person”__ to specify that the action button is rendered in the business card view. 
+* __extensions__ configures the widget as an action contribution, and uses __"dataType": "person"__ to specify that the action button is rendered in the business card view. 
 
-* __preferences__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
+* __preferences__ in __payload__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
-In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card.  For more information, see the “The context structure from the business card view” section at the end of this tutorial.
+In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card. For more information, see the "The context structure from the business card view" section at the end of this tutorial.
 After the widget is loaded by Verse, the action button "Sample 1" displays in the business card view. Clicking the button opens the specified web application and passes the primary email address of the user described in the business card.
 
 ### Step 3. Load the widget into Verse and interact with it.
