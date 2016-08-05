@@ -32,7 +32,7 @@ The configuration of an action contribution contains the __extensions__ property
       "ext_id": "com.ibm.verse.ext.sample1.action",
       "name": "Extension sample 1",
       "payload": {},
-      "dataType": "person",
+      "object": "person",
       "title": "Sample 1"
     }
   ],
@@ -44,7 +44,7 @@ In this configuration:
 
 * The __ext_id__ property is a string that provides a unique identifier for this action contribution.
 
-* The __dataType__ property indicates the extension point where the action contribution is displayed to the user:
+* The __object__ property indicates the extension point where the action contribution is displayed to the user:
 
     * The __person__ property specifies that the action contribution displays in the business card view.
 

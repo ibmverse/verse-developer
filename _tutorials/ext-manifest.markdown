@@ -82,9 +82,9 @@ The __extensions__ property lists the set of properties that describe the extens
     * __mail.read__ indicates that the action contribution displays in the mail read view.
     * __mail.compose__ indicates that the action contribution displays in the mail compose view.
 
-* The __dataType__ property indicates that the action contribution displays in a view which provides the specific dataType.
+* The __object__ property indicates that the action contribution displays in a view which provides the specific object.
 
-    * The __person__ value specifies that the action contribution displays in a view which provides __person__ dataType. For example, the business card view provides the __person__ data type, then the action contribution will be shown on the business card view.
+    * The __person__ value specifies that the action contribution displays in a view which provides __person__ object. For example, the business card view provides the __person__ data type, then the action contribution will be shown on the business card view.
 
 * The __title__ property is a string that is displayed as both the caption and the tool tip string of the action button.
 
@@ -103,7 +103,7 @@ __Notes:__
 
 * All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example. 
 * You can include both a __preferences__ property and a __features__ property in the manifest. 
-* Only one property between __path__ and __dataType__ can be chosen as a single extension definition. These two properties can't be used at the same time to define the same extension.
+* Only one property between __path__ and __object__ can be chosen as a single extension definition. These two properties can't be used at the same time to define the same extension.
 
 * To understand how Verse send data to the web application, see [Sending data to a web application][4].
 

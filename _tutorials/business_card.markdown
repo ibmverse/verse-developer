@@ -28,7 +28,7 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
         "ext_id": "com.ibm.verse.ext.sample1.action",
         "name": "Extension sample 1",
         "payload": {},
-        "dataType": "person",
+        "object": "person",
         "title": "Sample 1"
        }
     ],
@@ -58,7 +58,7 @@ Properties to modify for this tutorial:
 
 * __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
 
-* __extensions__ configures the widget as an action contribution, and uses __"dataType": "person"__ to specify that the action button is rendered in the business card view. 
+* __extensions__ configures the widget as an action contribution, and uses __"object": "person"__ to specify that the action button is rendered in the business card view. 
 
 * __preferences__ in __payload__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
