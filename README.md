@@ -5,4 +5,4 @@
     
 * The `sample` directory contains all the sample codes.  
 
-The contents of the documentation and samples are © 2016 under the terms of the MIT License.
+The samples are © 2016 under the terms of the MIT License.
