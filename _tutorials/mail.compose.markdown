@@ -67,20 +67,20 @@ After the widget is loaded by Verse, the action button "Sample 2" displays in th
 
     ![mail compose]({{site.baseurl}}/tutorials/img/compose_action.png)   
 
-3.	Click the "More actions" icon: 
+3.	Click the "More actions" icon:
 
     ![more action button]({{site.baseurl}}/tutorials/img/compose_more_action.png)   
-    
+
     The "Sample 2" action button displays:
-    
+
     ![action button]({{site.baseurl}}/tutorials/img/compose_view_action.png)  
-  
-4.	Click the "Sample 2" button to open the specified web application in a new window. 
+
+4.	Click the "Sample 2" button to open the specified web application in a new window.
 
 <br><br>
 <hr>
 
-## _The context structure from the mail compose view_ 
+## _The context structure from the mail compose view_
 
 
 Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions.
@@ -108,7 +108,7 @@ Verse provides the following properties in context data from the mail compose vi
 
 
 
-[1]: {{site.baseurl}}/tutorials/tutorial-ext-install-toolkit.html
+[1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
 [2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
+[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html

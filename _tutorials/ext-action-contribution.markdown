@@ -3,13 +3,13 @@
 
 layout: default
 title:  "Developing action contributions"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
 
 
-An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions: 
+An action contribution is a type of extension that is rendered as an action button in the Verse user interface. Verse currently supports three extension points where you can add action contributions:
 
 * Business card view: You can add an action contribution to the "More actions" section of a business card (see "Sample 1" in the following image).
 
@@ -19,7 +19,7 @@ An action contribution is a type of extension that is rendered as an action butt
 
     ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
 
-* Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image). 
+* Mail compose view:  You can add an action contribution to the "More actions" menu (see "Tone Analyzer Demo" in the following image).
 
     ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcomposeview.png "mail compose view")   
 
@@ -57,6 +57,4 @@ In this configuration:
 
 
 
-
-
-[1]: {{site.baseurl}}/tutorials/tutorial-ext-manifest.html
+[1]: {{site.baseurl}}/tutorials/ext-manifest.html

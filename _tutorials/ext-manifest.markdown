@@ -3,7 +3,7 @@
 
 layout: default
 title:  "Working with the manifest file"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
@@ -11,8 +11,9 @@ categories:
 
 The manifest file contains configuration settings that describe the properties of a Verse extension, in [JSON format][2]. The [Verse Developer Chrome Extension][1] includes a sample manifest called __widget.json__.
 
-The following example shows the manifest for an action contribution. The manifest is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each widget is described as an object and is enclosed within `{ }` curly braces.
-   
+
+The following example shows the manifest for an action contribution. The manifest is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each extension is described as an object and is enclosed within `{ }` curly braces.
+
 ```
 [
   {
@@ -28,7 +29,7 @@ The following example shows the manifest for an action contribution. The manifes
         "payload": {},
         "path": "mail.read",
         "title": "Extension sample"
-       }
+      }
     ],
 
     "payload": {
@@ -98,7 +99,7 @@ The __payload__ property lists the set of properties that describe the widget's 
 The __services__ property indicates which service the widget is contributed to. The list of services is an array and is enclosed in `[ ]` square brackets. Since the widget is contributed to Verse by default, therefore, the only accepted value is __Verse__ which indicates that the widget is contributed to Verse.
 
 
-__Notes:__ 
+__Notes:__
 
 * All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example. 
 * You can include both a __preferences__ property and a __features__ property in the manifest. 
@@ -109,6 +110,6 @@ __Notes:__
 
 [1]: {{site.verse-developer-chrome-ext}}
 [2]: http://json.org
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
+[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
 [5]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging

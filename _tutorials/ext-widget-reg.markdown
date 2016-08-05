@@ -3,7 +3,7 @@
 
 layout: default
 title:  "Registering extensions in Verse"
-categories: 
+categories:
 ---
 
 ## {{page.title}}  
@@ -18,4 +18,4 @@ See [Installing the Verse Developer Chrome Extension][3] for instructions on dow
 
 [1]: http://json.org
 [2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-install-toolkit.html
+[3]: {{site.baseurl}}/tutorials/ext-install-toolkit.html

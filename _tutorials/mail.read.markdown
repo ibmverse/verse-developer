@@ -67,21 +67,21 @@ After the widget is loaded by Verse, the action button "Sample 3" displays in th
 
 2.	Click an email to open it in mail read view.
 
-3.	Click the "More actions" icon: 
+3.	Click the "More actions" icon:
 
     ![more action button]({{site.baseurl}}/tutorials/img/mailread_more.png)   
 
-    The "Sample 3" action button displays: 
+    The "Sample 3" action button displays:
 
     ![action button]({{site.baseurl}}/tutorials/img/mailread_action.png)  
-  
-4.	Click the "Sample 3" button to open the specified web application in a new window. 
+
+4.	Click the "Sample 3" button to open the specified web application in a new window.
 
 
 <br><br>
 <hr>
 
-## _The context structure from the mail read view_ 
+## _The context structure from the mail read view_
 
 Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions.
 
@@ -114,7 +114,7 @@ Verse provides the following properties in context data from the mail read view;
 
 
 
-[1]: {{site.baseurl}}/tutorials/tutorial-ext-install-toolkit.html
+[1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
 [2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/tutorial-ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/tutorial-ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
+[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
