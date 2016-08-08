@@ -10,7 +10,7 @@ categories: tutorial_action_ext
 
 This tutorial guides you through the process of creating an action contribution that displays in the mail compose view in Verse. When a user clicks the action button, a web application loads in a separate window and Verse sends context data to the web application through cross-document messaging.
 
-### Step 1. [Install the Verse Developer Chrome Extension][1].
+### Step 1. [Install the Verse Developer Extension for Google Chrome][1].
 
 ### Step 2. Add a new widget configuration to the widget.json manifest file.
 
