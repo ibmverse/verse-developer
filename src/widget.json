@@ -1,27 +1,37 @@
 [
   {
-    "id": "com.ibm.verse.ext.sample",
-    "url": "https://yourcompany.com/sample.html",
-    "rawExtensionData": [
+    "app_id": "com.ibm.verse.ext.sample",
+    "name": "Widget example",
+    "url": "https://yourcompany/sample1.html",
+      
+    "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "id": "com.ibm.verse.ext.bizcard.action",
-        "dataType": "person",
-        "title": "Blue Page"
-      }
-    ],
-    "preferences" : [
-      {
-        "name": "searchFor",
-        "value": "profile.primaryEmail"
+        "ext_id": "com.ibm.verse.ext.bizcard.action",
+        "name": "BizCard Extension",
+        "payload": {},
+        "object": "person",
+        "title": "BizCard Extension Sample 1"
       }
     ],
 
-    "renderParams" : {
-      "width" : "900",
-      "height" : "500"
+    "payload": {
+      "features": [
+      ],
+      "preferences": [
+        {
+          "name": "searchFor",
+          "value": "profile.primaryEmail"
+        }
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
     },
 
-    "features" : []
+    "services": [
+      "Verse"
+    ]
   }
 ]
