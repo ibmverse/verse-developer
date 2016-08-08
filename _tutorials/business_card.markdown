@@ -47,7 +47,7 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
     },
 
     "services": [
-      "Verse
+      "Verse"
     ]
   }
 ```

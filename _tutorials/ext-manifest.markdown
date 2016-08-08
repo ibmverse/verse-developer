@@ -53,7 +53,7 @@ The following example shows the manifest for an action contribution. The manifes
     },
 
     "services": [
-      "Verse
+      "Verse"
     ]
   }
 ]
@@ -86,7 +86,7 @@ The __extensions__ property lists the set of properties that describe the extens
 
     * The __person__ value specifies that the action contribution displays in a view which provides __person__ object. For example, the business card view provides the __person__ data type, then the action contribution will be shown on the business card view.
 
-* The __title__ property is a string that is displayed as both the caption and the tool tip string of the action button.
+* The __title__ property is a string that is displayed as both the caption and the tool tip string of the action button. This property is required.
 
 The __payload__ property lists the set of properties that describe the widget's rendering parameters, preferences and features:
 
