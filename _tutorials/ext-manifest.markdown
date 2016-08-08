@@ -53,7 +53,7 @@ The following example shows the manifest for an action contribution. The manifes
     },
 
     "services": [
-      "Verse
+      "Verse"
     ]
   }
 ]
