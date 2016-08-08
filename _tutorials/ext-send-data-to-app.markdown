@@ -15,9 +15,9 @@ There are two ways to send data from Verse to a web application: by passing data
 
 The most common method for passing data to a web application is by including the data as parameters in a URL. Parameters that are static can be directly specified in the URL, but sometimes you will not know the values of a parameter such as the current user's email address. In that situation, you can extract information from the Verse context data and add it to the URL. 
 
-However, sometimes, the URL will contain variable which is surrounded by `< >`. If there are some variables in the widget's URL, we need to first resolve each variable through querying context's value before including other parameters defined in __preferences__ property into URL.
+In the URL, this infomration is represented as a variable, which is surrounded by `< >`. If there are some variables in the widget's URL, each variable must be resolved by querying the context's value before including other parameters defined in __preferences__ property into URL.
 
-For example, suppose that the widget's URL is `https://yourcompany.com/your_app.html/<userName>` and Verse provides the following context data for a user and you want to send that user's email address to your web application:
+For example, suppose that the widget's URL is `https://yourcompany.com/your_app.html/<userName>` and Verse provides the following context data for a user; you want to send that user's email address to your web application:
    
 ```
   {
@@ -51,7 +51,7 @@ https://yourcompany.com/your_app.html/samantha_daryn?email=samantha_daryn@renova
 
 ### Passing data through cross-document messaging
 
-If a URL cannot support the type or length of the data you want to pass to your web application, you can use [cross-document messaging][1]  instead. To use this method, add the __features__ property to the manifest with the value of  __["core"]__ so that Verse will load the web application before sending data.
+If a URL cannot support the type or length of the data you want to pass to your web application, you can use [cross-document messaging][1] instead. To use this method, add the __features__ property to the manifest with the value of  __["core"]__ so that Verse will load the web application before sending data.
 
 Then, add code to your web application so that it can notify Verse when it is ready to receive data, plus an event listener to actually receive the data from Verse. For example, suppose that your web application includes the following script:    
 
