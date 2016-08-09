@@ -2,19 +2,19 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "Installing the Verse Developer Chrome Extension"
+title:  "Installing the Verse Developer Extension for Google Chrome"
 categories: 
 ---
 
 ## {{page.title}}  
 
-You can use the Verse Developer Chrome Extension toolkit to register extensions locally for testing. Extensions registered with the Verse Developer Chrome Extension are available only on your computer, with the Google Chrome browser; the extensions cannot be accessed from other devices.
+You can use the IBM Verse Developer Extension for Google Chrome toolkit to register extensions locally for testing. Extensions registered with the Verse Developer Extension for Google Chrome are available only on your computer, with the Chrome browser; the extensions cannot be accessed from other devices.
 
 Before proceeding to the tutorials, complete the following steps to set up your development environment.
 
 1. Install the Google Chrome browser.
 
-2. Download the [Verse Developer Chrome Extension][1] toolkit to your local file system and extract it to a temporary location.
+2. Download the [Verse Developer Extension for Google Chrome][1] toolkit to your local file system and extract it to a temporary location.
 
 3. Add your organization's Verse URL to the toolkit's __manifest.json__ file :
 
@@ -45,7 +45,7 @@ Before proceeding to the tutorials, complete the following steps to set up your 
 
   c) Save and close the file.
 
-4. Start the Chrome browser, and type chrome://extensions/ in the address bar.
+4. Start the Chrome browser and type chrome://extensions/ in the address bar.
 
 5. On the extensions page, select __Developer mode__. 
 
