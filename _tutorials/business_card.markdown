@@ -10,7 +10,7 @@ categories: tutorial_action_ext
 
 This tutorial guides you through the process of creating action contribution that displays on the business card in Verse. When a user clicks the action button, a web application loads in a separate window.
 
-### Step 1. [Install the Verse Developer Chrome Extension][1]
+### Step 1. [Install the Verse Developer Extension for Google Chrome][1]
 
 ### Step 2. Add a new widget configuration to the widget.json manifest file.
 
@@ -63,6 +63,7 @@ Properties to modify for this tutorial:
 * __preferences__ in __payload__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
 In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card. For more information, see the "The context structure from the business card view" section at the end of this tutorial.
+
 After the widget is loaded by Verse, the action button "Sample 1" displays in the business card view. Clicking the button opens the specified web application and passes the primary email address of the user described in the business card.
 
 ### Step 3. Load the widget into Verse and interact with it.
