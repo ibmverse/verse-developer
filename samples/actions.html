@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verse Developer Action Sample</title>
+
+    <script>
+      var opener = window.opener;
+
+      if (opener) {
+        var loaded_message = {
+          verseApiType : "com.ibm.verse.widget.loaded",
+          verseApiData: {
+            widgetId: "com.ibm.verselabs.action.sample"
+          }
+        };
+        opener.postMessage(loaded_message, '*');
+
+        window.addEventListener("message", function(event) {
+          var eventData = event.data;
+          console.log("========================eventData", eventData);
+
+          if (eventData.verseApiType == "com.ibm.verse.ping.widget.loaded") {
+            event.source.postMessage(loaded_message, event.origin);
+          }
+
+          if (eventData.verseApiType == "com.ibm.verse.action.clicked") {
+            var actionData = eventData.verseApiData;
+            console.log("========================actionData", actionData);
+            var context = actionData.context;
+            document.getElementById("context").innerHTML = actionData.actionId + "<hr><pre>"
+             + JSON.stringify(context, null, 2) + "</pre><hr>";
+          }
+        }, false);
+
+        window.addEventListener("load", function(event) {
+          var eventData = event.data;
+          console.log("==========================event", event);
+          console.log("========================location.search", window.location.search);
+          document.getElementById("search_part").innerHTML = window.location.search;
+        }, false);
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <h1>Verse Developer Action Sample</h1>
+    <div id="search_part"></div>
+    <h2>Context Structure</h2>
+    <div id="context"></div>
+  </body>
+</html>
