@@ -18,18 +18,18 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 
 ```
   {
-    "app_id": "com.ibm.verse.ext.sample3",
-    "name": "Widget example 3",
-    "url": "https://yourcompany.com/sample3.html",
-    
+    "app_id": "com.ibm.verselabs.actions.sample",
+    "name": "Mail Read Action Sample",
+    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.ext.sample3.action",
-        "name": "Extension example 3",
+        "ext_id": "com.ibm.verselabs.action.sample.mailRead",
+        "name": "Mail Read Sample",
         "payload": {},
         "path": "mail.read",
-        "title": "Extension sample 3"
+        "title": "Mail Read Action"
        }
     ],
 
@@ -38,8 +38,8 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
         "core"
       ],
       "renderParams": {
-        "width": "500",
-        "height": "400"
+        "width": "900",
+        "height": "500"
       }
     },
 
@@ -55,11 +55,11 @@ Properties to modify for this tutorial:
 
 * __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
 
-* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view. 
+* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view.
 
 * __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][4] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail read view" section at the end of this tutorial.
 
-After the widget is loaded by Verse, the action button "Sample 3" displays in the mail read view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being read) to the web application.
+After the widget is loaded by Verse, the action button "Mail Read Action" displays in the mail read view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being read) to the web application.
 
 ### Step 3. Load the widget into Verse and interact with it.
 
@@ -71,11 +71,11 @@ After the widget is loaded by Verse, the action button "Sample 3" displays in th
 
     ![more action button]({{site.baseurl}}/tutorials/img/mailread_more.png)   
 
-    The "Sample 3" action button displays:
+    The "Mail Read Action" action button displays:
 
     ![action button]({{site.baseurl}}/tutorials/img/mailread_action.png)  
 
-4.	Click the "Sample 3" button to open the specified web application in a new window.
+4.	Click the "Mail Read Action" button to open the specified web application in a new window.
 
 
 <br><br>

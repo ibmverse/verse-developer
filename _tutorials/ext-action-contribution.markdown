@@ -15,9 +15,9 @@ An action contribution is a type of extension that is rendered as an action butt
 
     ![Business card view]({{site.baseurl}}/tutorials/img/bizcard_action.png "business card view")   
 
-* Mail read view: You can add an action contribution to the "More actions" menu (see "Content Demo" in the following image).
+* Mail read view: You can add an action contribution to the "More actions" menu (see "Mail Read Action" in the following image).
 
-    ![Mail read view]({{site.baseurl}}/tutorials/img/mailreadview.png "mail read view")   
+    ![Mail read view]({{site.baseurl}}/tutorials/img/mailread_action.png "mail read view")   
 
 * Mail compose view:  You can add an action contribution to the "More actions" menu (see "Mail Compose Action" in the following image).
 
