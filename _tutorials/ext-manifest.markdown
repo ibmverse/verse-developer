@@ -61,7 +61,7 @@ The following example shows the manifest for an action contribution. The manifes
 
 In the manifest, the following general properties describe a Verse extension:
 
-The __app_id__ property specifies a unique string that serves as the identifier for the widget associated with this extension. This property is required, the value must not contain blank space,s and it must be unique among all registered widgets within the organization.
+The __app_id__ property specifies a unique string that serves as the identifier for the widget associated with this extension. This property is required, the value must not contain blank spaces, and it must be unique among all registered widgets within the organization.
 
 The __name__ property specifies the name of the widget. This property is required and its value must be unique among all registered widgets within the organization.
 
