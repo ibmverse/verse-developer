@@ -20,7 +20,7 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
   {
     "app_id": "com.ibm.verselabs.actions.sample",
     "name": "Person Sample",
-    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+    "url": "https://yourcompany.com/personSample.html",
 
     "extensions": [
       {
@@ -59,7 +59,7 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][5] you can use with this tutorial.
 
 * __extensions__ configures the widget as an action contribution, and uses __"object": "person"__ to specify that the action button is rendered in the business card view.
 
@@ -161,3 +161,4 @@ Verse provides the following properties in context data from the business card v
 [2]: {{site.verse-developer-chrome-ext}}
 [3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
 [4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[5]: {{site.baseurl}}/tutorials/sample-html.html

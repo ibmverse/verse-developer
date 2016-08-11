@@ -5,15 +5,15 @@
     <title>Verse Developer Action Sample</title>
 
     <script>
-      var loaded_message = {
-        verseApiType : "com.ibm.verse.widget.loaded"
-      };
-
+      // Print out context structure for all the Action Samples
       window.addEventListener("message", function(event) {
         console.log("========================message received: %O", event);
         var eventData = event.data;
 
         if (eventData.verseApiType == "com.ibm.verse.ping.widget.loaded") {
+          var loaded_message = {
+            verseApiType : "com.ibm.verse.widget.loaded"
+          };
           event.source.postMessage(loaded_message, event.origin);
         }
 
@@ -25,6 +25,8 @@
         }
       }, false);
 
+      // For retrieving data from URL in the Person Action Sample,
+      // and print it in the search_part div.
       window.addEventListener("load", function(event) {
         var eventData = event.data;
         console.log("==========================event", event);
