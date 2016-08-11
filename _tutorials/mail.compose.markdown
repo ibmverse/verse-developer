@@ -19,14 +19,14 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 ```
   {
     "app_id": "com.ibm.verselabs.actions.sample",
-    "name": "Mail Compose Action Sample",
+    "name": "Mail Compose Sample",
     "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
 
     "extensions": [
       {
         "type": "com.ibm.verse.action",
         "ext_id": "com.ibm.verselabs.action.sample.mailCompose",
-        "name": "Mail Compose Sample",
+        "name": "Mail Compose Action Sample",
         "payload": {},
         "path": "mail.compose",
         "title": "Mail Compose Action"

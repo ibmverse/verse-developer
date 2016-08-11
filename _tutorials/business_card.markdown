@@ -19,7 +19,7 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 ```
   {
     "app_id": "com.ibm.verselabs.actions.sample",
-    "name": "Person Action Sample",
+    "name": "Person Sample",
     "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
 
     "extensions": [
