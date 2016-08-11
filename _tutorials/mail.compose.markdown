@@ -83,7 +83,7 @@ After the widget is loaded by Verse, the action button "Sample 2" displays in th
 ## _The context structure from the mail compose view_
 
 
-Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions.
+Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and the 'body' property value is a HTML format. All of other properties values are String type.
 
 ```
   {

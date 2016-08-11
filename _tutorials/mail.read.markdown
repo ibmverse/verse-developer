@@ -83,12 +83,14 @@ After the widget is loaded by Verse, the action button "Sample 3" displays in th
 
 ## _The context structure from the mail read view_
 
-Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions.
+Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and 'timeSent' proprety value is Date type, and the 'body' property value is a HTML format. All of other properties values are String type.
+
+the format for the most of properties's value is String
 
 ```
   {
     "body": "the content of mail body",
-    "contextId: "id of mail compose view control",
+    "contextId: "id of mail read view control",
     "id": "the message ID of the mail document",
     "unid": "Notes document unid",
     "recipientTo": [
