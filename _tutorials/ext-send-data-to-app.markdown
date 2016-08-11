@@ -9,7 +9,7 @@ categories:
 ## {{page.title}}  
 
 
-There are two ways to send data from Verse to a web application: by passing data in a URL, and by using cross-document messaging. Both methods are explained in this topic.
+There are two ways to send data from Verse to a web application: by passing data in a URL, and by using cross-document messaging. You can use both of these two ways in your web application at the same time. These two methods are explained in this topic.
 
 ### Passing data in a URL
 
@@ -51,38 +51,55 @@ https://yourcompany.com/your_app.html/samantha_daryn?email=samantha_daryn@renova
 
 ### Passing data through cross-document messaging
 
-If a URL cannot support the type or length of the data you want to pass to your web application, you can use [cross-document messaging][1] instead. To use this method, add the __features__ property to the manifest with the value of  __["core"]__ so that Verse will load the web application before sending data.
+If your web application cannot support to receive the data from url request, you can use [cross-document messaging][1] instead. To use this method, add the __features__ property to the manifest with the value of  __["core"]__ so that your web application can communicate with Verse.
 
-Then, add code to your web application so that it can notify Verse when it is ready to receive data, plus an event listener to actually receive the data from Verse. For example, suppose that your web application includes the following script:    
+Before sending the context data to your application, Verse needs to know whether your web application is completely loaded. Verse will continue to send a ping widget's message to your web application to check whether the web application is ready. Then, when your web application is ready, it needs to post a widget loaded's message back to Verse to identify that it is fully loaded and ready to receive data from Verse. The specific messages is like 
+
+```
+  The message that Verse sends to your web application:
+  
+  var message = {
+    verseApiType : "com.ibm.verse.ping.widget.loaded"
+  };
+  
+```
+
+```
+  The message that your web application sends back to Verse:
+  
+  var message = {
+    verseApiType : "com.ibm.verse.widget.loaded"
+  };
+```
+
+In order to handle the message from Verse, your web application needs to register an event listener through __window.addEventListener("message"), function(event) {}__.
+Then in the event handler, the web application first sends a 'com.ibm.verse.widget.loaded' message back to Verse to identify that the web application is ready to receive the message. Then your web application can process the received the context data based on its own logic. 
+
+A sample script included in the web application to communicate with Verse through cross-document messaging is like below:
 
 ```
     <script>
-      var opener = window.opener;
-      if (opener) {
-        var message = {
-          verseApiType : "com.ibm.verse.widget.loaded"
-        };
-        opener.postMessage(message, '*');
-        
-        window.addEventListener("message", function(event) {
-          var eventData = event.data;
-          if (eventData.verseApiType === "com.ibm.verse.action.clicked") {
-            var actionData = eventData.verseApiData;
-            if (actionData.actionId === "com.ibm.verse.ext.sample1.action") {
-              var message = actionData.context;
-              if (message && message.subject) {
-                document.getElementById("subject").innerHTML = message.subject;
-              }
-              if (message && message.body) {
-                document.getElementById("mailBody").innerHTML = message.body;
-              }
+      window.addEventListener("message", function(event) {
+        var eventData = event.data;
+        if (eventData.verseApiType === "__com.ibm.verse.ping.widget.loaded__") {
+          var message = {
+            verseApiType : "__com.ibm.verse.widget.loaded__"
+          };
+          event.source.postMessage(message, event.origin);    //__Your application must send a message back to Verse to identify that it's ready to receive data from Verse__
+        } else if (eventData.verseApiType === "__com.ibm.verse.action.clicked__") {
+          var actionData = eventData.verseApiData;
+          if (actionData.actionId === "com.ibm.verse.ext.sample1.action") {
+            var message = actionData.context;
+            if (message && message.subject) {
+              document.getElementById("subject").innerHTML = message.subject;
+            }
+            if (message && message.body) {
+              document.getElementById("mailBody").innerHTML = message.body;
             }
           }
-        }, false);
-      }
+        }
+      }, false);
     </script>
 ```
-
-When the web application is called by Verse, it might load its resources and scripts asynchronously. Before it can send context data, Verse needs to be informed that the web application has finished loading and that it is ready to receive data. When loading is complete, the web application sends the __(opener.postMessage())__ message to Verse with __"verseApiType" : "com.ibm.verse.widget.loaded"__ to indicate that it is ready to receive data. The web application then registers an event listener so that it can receive data from Verse: __(window.addEventListener())__
 
 [1]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
