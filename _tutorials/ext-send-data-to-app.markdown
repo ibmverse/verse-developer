@@ -81,12 +81,12 @@ A sample script included in the web application to communicate with Verse throug
     <script>
       window.addEventListener("message", function(event) {
         var eventData = event.data;
-        if (eventData.verseApiType === "__com.ibm.verse.ping.widget.loaded__") {
+        if (eventData.verseApiType === "com.ibm.verse.ping.widget.loaded") {
           var message = {
-            verseApiType : "__com.ibm.verse.widget.loaded__"
+            verseApiType : "com.ibm.verse.widget.loaded"
           };
-          event.source.postMessage(message, event.origin);    //__Your application must send a message back to Verse to identify that it's ready to receive data from Verse__
-        } else if (eventData.verseApiType === "__com.ibm.verse.action.clicked__") {
+          event.source.postMessage(message, event.origin);    //Your application must send a message back to Verse to identify that it's ready to receive data from Verse
+        } else if (eventData.verseApiType === "com.ibm.verse.action.clicked") {
           var actionData = eventData.verseApiData;
           if (actionData.actionId === "com.ibm.verse.ext.sample1.action") {
             var message = actionData.context;
