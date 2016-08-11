@@ -88,18 +88,22 @@ Verse provides the following properties in context data from the mail compose vi
 ```
   {
     "body": "the content of mail body",
-    "contextId: "",
-    "id": "",
-    "recipientCC": [
-      {
-         "displayName": "test76 seq",
-         "emailAddress": "test76 seq/test"
-      }
-    ],
+    "contextId: "id of mail compose view control",
+    "unid": "Notes document unid. If the document has not ever been saved, then the value will be'$new'",
     "recipientTo": [
       {
-         "displayName": "test77 seq",
-         "emailAddress": "test77 seq/test"
+        "displayName": "test77 seq",
+        "emailAddress": "internet email address, for examaple, test77seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test77 seq/test",
+        "phoneticName": "phonetic name"
+      }
+    ],
+    "recipientCC": [
+      {
+        "displayName": "test76 seq",
+        "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test76 seq/test",
+        "phoneticName": "phonetic name"
       }
     ],
     "subject": "the subject of the mail"

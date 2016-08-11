@@ -25,6 +25,7 @@ Before proceeding to the tutorials, complete the following steps to set up your 
   The following example shows the URL for the Renovations company's Verse URL appended to the matches property in the kit's manifest.json file:
 
   Original list:
+  
   ```
     "matches": [
       "https://mail.notes.na.collabserv.com/vers*",
@@ -34,6 +35,7 @@ Before proceeding to the tutorials, complete the following steps to set up your 
   ```
 
   Revised list:
+  
   ```
     "matches": [
       "https://mail.notes.na.collabserv.com/vers*",

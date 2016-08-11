@@ -88,23 +88,30 @@ Verse provides the following properties in context data from the mail read view;
 ```
   {
     "body": "the content of mail body",
-    "contextId: "",
-    "id": "",
-    "recipientCC": [
-      {
-         "displayName": "test76 yourcompany",
-         "emailAddress": "test76@yourcompany.com"
-      }
-    ],
+    "contextId: "id of mail compose view control",
+    "id": "the message ID of the mail document",
+    "unid": "Notes document unid",
     "recipientTo": [
       {
-         "displayName": "test77 yourcompany",
-         "emailAddress": "test77@yourcompany.com"
+        "displayName": "test77 seq",
+        "emailAddress": "internet email address, for examaple, test77seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test77 seq/test",
+        "phoneticName": "phonetic name"
+      }
+    ],
+    "recipientCC": [
+      {
+        "displayName": "test76 seq",
+        "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test76 seq/test",
+        "phoneticName": "phonetic name"
       }
     ],
     "sender": {
-      "displayName": "test77 yourcompany",
-      "emailAddress": "test77@yourcompany.com"
+      "displayName": "test76 seq",
+      "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+      "notesAddress": "Notes email address, for example, test76 seq/test",
+      "phoneticName": "phonetic name"
     },
     "subject": "the subject of the mail",
     "timeSent": "Tue Jun 21 2016 20:12:18 GMT+0800"
