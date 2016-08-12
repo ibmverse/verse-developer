@@ -93,7 +93,7 @@ Verse provides the following properties in context data from the mail compose vi
     "recipientTo": [
       {
         "displayName": "test77 seq",
-        "emailAddress": "internet email address, for examaple, test77seq@yourcompany.com",
+        "emailAddress": "internet email address, for example, test77seq@yourcompany.com",
         "notesAddress": "Notes email address, for example, test77 seq/test",
         "phoneticName": "phonetic name"
       }
@@ -101,7 +101,7 @@ Verse provides the following properties in context data from the mail compose vi
     "recipientCC": [
       {
         "displayName": "test76 seq",
-        "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+        "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
         "notesAddress": "Notes email address, for example, test76 seq/test",
         "phoneticName": "phonetic name"
       }

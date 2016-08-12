@@ -83,18 +83,18 @@ After the widget is loaded by Verse, the action button "Sample 3" displays in th
 
 ## _The context structure from the mail read view_
 
-Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and 'timeSent' proprety value is Date type, and the 'body' property value is a HTML format. All of other properties values are String type.
+Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and 'timeSent' property value is Date type, and the 'body' property value is a HTML format. All of other properties values are String type.
 
 ```
   {
     "body": "the content of mail body",
     "contextId: "id of mail read view control",
-    "id": "the message ID of the mail document. See Message-ID in rfc5322",
+    "id": "the message ID of the mail document. See Message-ID in [rfc5322][5]",
     "unid": "Notes document unid",
     "recipientTo": [
       {
         "displayName": "test77 seq",
-        "emailAddress": "internet email address, for examaple, test77seq@yourcompany.com",
+        "emailAddress": "internet email address, for example, test77seq@yourcompany.com",
         "notesAddress": "Notes email address, for example, test77 seq/test",
         "phoneticName": "phonetic name"
       }
@@ -102,14 +102,14 @@ Verse provides the following properties in context data from the mail read view;
     "recipientCC": [
       {
         "displayName": "test76 seq",
-        "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+        "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
         "notesAddress": "Notes email address, for example, test76 seq/test",
         "phoneticName": "phonetic name"
       }
     ],
     "sender": {
       "displayName": "test76 seq",
-      "emailAddress": "internet email address, for examaple, test76seq@yourcompany.com",
+      "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
       "notesAddress": "Notes email address, for example, test76 seq/test",
       "phoneticName": "phonetic name"
     },
@@ -125,3 +125,4 @@ Verse provides the following properties in context data from the mail read view;
 [2]: {{site.verse-developer-chrome-ext}}
 [3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
 [4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[5]: http://www.rfc-base.org/rfc-5322.html 
