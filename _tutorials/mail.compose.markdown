@@ -83,23 +83,27 @@ After the widget is loaded by Verse, the action button "Mail Compose Action" dis
 ## _The context structure from the mail compose view_
 
 
-Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions.
+Verse provides the following properties in context data from the mail compose view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and the 'body' property value is a HTML format. All of other properties values are String type.
 
 ```
   {
     "body": "the content of mail body",
-    "contextId: "",
-    "id": "",
-    "recipientCC": [
-      {
-         "displayName": "test76 seq",
-         "emailAddress": "test76 seq/test"
-      }
-    ],
+    "contextId: "id of mail compose view control",
+    "unid": "Notes document unid. If the document has not ever been saved, then the value will be'$new'",
     "recipientTo": [
       {
-         "displayName": "test77 seq",
-         "emailAddress": "test77 seq/test"
+        "displayName": "test77 seq",
+        "emailAddress": "internet email address, for example, test77seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test77 seq/test",
+        "phoneticName": "phonetic name"
+      }
+    ],
+    "recipientCC": [
+      {
+        "displayName": "test76 seq",
+        "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test76 seq/test",
+        "phoneticName": "phonetic name"
       }
     ],
     "subject": "the subject of the mail"

@@ -53,7 +53,7 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][5] you can use with this tutorial.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][6] you can use with this tutorial.
 
 * __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view.
 
@@ -83,28 +83,35 @@ After the widget is loaded by Verse, the action button "Mail Read Action" displa
 
 ## _The context structure from the mail read view_
 
-Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions.
+Verse provides the following properties in context data from the mail read view; you can use these properties in your extensions. In the following properties, 'recipientTo' and 'recipientCC' properties values are Array type, and 'timeSent' property value is Date type, and the 'body' property value is a HTML format. All of other properties values are String type.
 
 ```
   {
     "body": "the content of mail body",
-    "contextId: "",
-    "id": "",
-    "recipientCC": [
-      {
-         "displayName": "test76 yourcompany",
-         "emailAddress": "test76@yourcompany.com"
-      }
-    ],
+    "contextId: "id of mail read view control",
+    "id": "the message ID of the mail document. See Message-ID in [rfc5322][5]",
+    "unid": "Notes document unid",
     "recipientTo": [
       {
-         "displayName": "test77 yourcompany",
-         "emailAddress": "test77@yourcompany.com"
+        "displayName": "test77 seq",
+        "emailAddress": "internet email address, for example, test77seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test77 seq/test",
+        "phoneticName": "phonetic name"
+      }
+    ],
+    "recipientCC": [
+      {
+        "displayName": "test76 seq",
+        "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
+        "notesAddress": "Notes email address, for example, test76 seq/test",
+        "phoneticName": "phonetic name"
       }
     ],
     "sender": {
-      "displayName": "test77 yourcompany",
-      "emailAddress": "test77@yourcompany.com"
+      "displayName": "test76 seq",
+      "emailAddress": "internet email address, for example, test76seq@yourcompany.com",
+      "notesAddress": "Notes email address, for example, test76 seq/test",
+      "phoneticName": "phonetic name"
     },
     "subject": "the subject of the mail",
     "timeSent": "Tue Jun 21 2016 20:12:18 GMT+0800"
@@ -118,4 +125,5 @@ Verse provides the following properties in context data from the mail read view;
 [2]: {{site.verse-developer-chrome-ext}}
 [3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
 [4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[5]: {{site.baseurl}}/tutorials/sample-html.html
+[5]: http://www.rfc-base.org/rfc-5322.html
+[6]: {{site.baseurl}}/tutorials/sample-html.html
