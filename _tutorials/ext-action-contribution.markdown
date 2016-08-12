@@ -21,7 +21,7 @@ An action contribution is a type of extension that is rendered as an action butt
 
 * Mail compose view:  You can add an action contribution to the "More actions" menu (see "Mail Compose Action" in the following image).
 
-    ![Mail compose view]({{site.baseurl}}/tutorials/img/compose_view_action.png "mail compose view")   
+    ![Mail compose view]({{site.baseurl}}/tutorials/img/mailcompose_action.png "mail compose view")   
 
 The configuration of an action contribution contains the __extensions__ property, along with other general properties described in [Working with the manifest file][1]. For example, the following properties describe the "Person Action" action configuration, which will display on the business card view:
 

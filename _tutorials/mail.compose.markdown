@@ -73,7 +73,7 @@ After the widget is loaded by Verse, the action button "Mail Compose Action" dis
 
     The "Mail Compose Action" action button displays:
 
-    ![action button]({{site.baseurl}}/tutorials/img/compose_view_action.png)  
+    ![action button]({{site.baseurl}}/tutorials/img/mailcompose_action.png)  
 
 4.	Click the "Mail Compose Action" button to open the specified web application in a new window.
 
