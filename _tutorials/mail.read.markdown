@@ -12,9 +12,9 @@ This tutorial guides you through the process of creating an action contribution 
 
 ### Step 1. [Install the Verse Developer Extension for Google Chrome][1].
 
-### Step 2. Add a new widget configuration to the widget.json manifest file.
+### Step 2. Add a new widget configuration to the widget.json file.
 
-This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget in the manifest, making changes to the properties as described below the sample code.  
+This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget, making changes to the properties as described below the sample code.  
 
 ```
   {
@@ -57,9 +57,8 @@ Properties to modify for this tutorial:
 
 * __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view. 
 
-* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][4] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail read view" section at the end of this tutorial.
+* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail read view" section at the end of this tutorial.
 
-After the widget is loaded by Verse, the action button "Sample 3" displays in the mail read view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being read) to the web application.
 
 ### Step 3. Load the widget into Verse and interact with it.
 
@@ -89,7 +88,7 @@ Verse provides the following properties in context data from the mail read view;
   {
     "body": "the content of mail body",
     "contextId: "id of mail read view control",
-    "id": "the message ID of the mail document. See Message-ID in [rfc5322][5]",
+    "id": "the message ID of the mail document. See Message-ID in [rfc5322][3]",
     "unid": "Notes document unid",
     "recipientTo": [
       {
@@ -122,7 +121,5 @@ Verse provides the following properties in context data from the mail read view;
 
 
 [1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
-[2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[5]: http://www.rfc-base.org/rfc-5322.html 
+[2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[3]: http://www.rfc-base.org/rfc-5322.html 
