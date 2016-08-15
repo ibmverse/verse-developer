@@ -12,9 +12,9 @@ This tutorial guides you through the process of creating an action contribution 
 
 ### Step 1. [Install the Verse Developer Extension for Google Chrome][1].
 
-### Step 2. Add a new widget configuration to the widget.json manifest file.
+### Step 2. Add a new widget configuration to the widget.json file
 
-This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget in the manifest, making changes to the properties as described below the sample code.
+This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget, making changes to the properties as described below the sample code.
 
 ```
   {
@@ -53,13 +53,13 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][5] you can use with this tutorial.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][3] you can use with this tutorial.
 
 * __extensions__ configures the widget as an action contribution, and uses __"path": "mail.compose"__ to specify that the action button is rendered in the mail compose view.
 
-* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][4] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail compose view" section at the end of this tutorial.
+* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail compose view" section at the end of this tutorial.
 
-After the widget is loaded by Verse, the action button "Mail Compose Action" displays in the mail compose view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being composed) to the web application.
+### Step 3. Load the widget into Verse and interact with it
 
 1.	Open Verse in the Chrome browser.
 
@@ -113,7 +113,5 @@ Verse provides the following properties in context data from the mail compose vi
 
 
 [1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
-[2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[5]: {{site.baseurl}}/tutorials/sample-html.html
+[2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/sample-html.html

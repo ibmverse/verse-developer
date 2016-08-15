@@ -12,10 +12,8 @@ The configuration of a Verse extension must be loaded and registered in the Vers
 
 In a development environment, you can use the Verse Developer Extension for Google Chrome to register extensions locally for testing. Extensions registered with the Verse Developer Extension for Google Chrome are available only on your computer with the Chrome browser, and cannot be accessed from other devices.
 
-See [Installing the Verse Developer Extension for Google Chrome][3] for instructions on downloading and installing this toolkit.
+See [Installing the Verse Developer Extension for Google Chrome][1] for instructions on downloading and installing this toolkit.
 
 
 
-[1]: http://json.org
-[2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
+[1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html

@@ -12,9 +12,9 @@ This tutorial guides you through the process of creating action contribution tha
 
 ### Step 1. [Install the Verse Developer Extension for Google Chrome][1]
 
-### Step 2. Add a new widget configuration to the widget.json manifest file.
+### Step 2. Add a new widget configuration to the widget.json file
 
-This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget in the manifest, making changes to the properties as described below the sample code.
+This tutorial uses the __widget.json__ file, located in the /src folder of the extracted toolkit. Open the file and insert the following configuration as the first widget, making changes to the properties as described below the sample code.
 
 ```
   {
@@ -59,19 +59,17 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][5] you can use with this tutorial.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][3] you can use with this tutorial.
 
 * __extensions__ configures the widget as an action contribution, and uses __"object": "person"__ to specify that the action button is rendered in the business card view.
 
-* __preferences__ in __payload__ indicates that a context property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
+* __preferences__ in __payload__ indicates that a __context__ property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
-* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][4] to learn how to construct the web application page to receive cross-document messages. In this example we are printing out all the context information in the specified web application. If we are only sending the context property profile.primaryEmail to the web application as the value of the URL parameter we do not need to include __features : ["core"]__.
+* __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. In this example we are printing out all the context information in the specified web application. If we are only sending the context property profile.primaryEmail to the web application as the value of the URL parameter we do not need to include __features : ["core"]__.
 
 In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card. For more information, see the "The context structure from the business card view" section at the end of this tutorial.
 
-After the widget is loaded by Verse, the action button "Person Action" displays in the business card view. Clicking the button opens the specified web application and passes the primary email address of the user described in the business card.
-
-### Step 3. Load the widget into Verse and interact with it.
+### Step 3. Load the widget into Verse and interact with it
 
 1. Open Verse in the Chrome browser.
 
@@ -158,7 +156,5 @@ Verse provides the following properties in context data from the business card v
 ```
 
 [1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
-[2]: {{site.verse-developer-chrome-ext}}
-[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
-[4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[5]: {{site.baseurl}}/tutorials/sample-html.html
+[2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/sample-html.html
