@@ -59,7 +59,6 @@ Properties to modify for this tutorial:
 
 * __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail read view" section at the end of this tutorial.
 
-After the widget is loaded by Verse, the action button "Sample 3" displays in the mail read view. Clicking the button opens the specified web application and passes context data (about the mail message that is currently being read) to the web application.
 
 ### Step 3. Load the widget into Verse and interact with it.
 
