@@ -30,9 +30,9 @@ For example, suppose that the widget's URL is `https://yourcompany.com/your_app.
 
 You can first extract the user name from the context data and use its value to replace the variable '<userName>' in the widget's URL. Then the widget's URL will be `https://yourcompany.com/your_app.html/samantha_daryn`.
    
-Then you can extract that email address from the context data and add it to your application's URL by configuring the __preferences__ property in the manifest.
+Then you can extract that email address from the context data and add it to your application's URL by configuring the __preferences__ property in the widget.json file.
 
-In the manifest, add a __preferences__ property with the name __email__ and a value that indicates where the email address resides within the context data (__profile.primaryEmail__), as shown in the following example. Remember that the properties are case sensitive.
+In the widget.json file, add a __preferences__ property with the name __email__ and a value that indicates where the email address resides within the context data (__profile.primaryEmail__), as shown in the following example. Remember that the properties are case sensitive.
 
 ```
   "preferences" : [
@@ -51,7 +51,7 @@ https://yourcompany.com/your_app.html/samantha_daryn?email=samantha_daryn@renova
 
 ### Passing data through cross-document messaging
 
-If your web application cannot support receiving the data from url request, you can use [cross-document messaging][1] instead. To use this method, add the __features__ property to the manifest with the value of  __["core"]__ so that your web application can communicate with Verse.
+If your web application cannot support receiving the data from url request, you can use [cross-document messaging][1] instead. To use this method, add the __features__ property to the widget.json file with the value of  __["core"]__ so that your web application can communicate with Verse.
 
 Before sending the context data to your application, Verse needs to know whether your web application is completely loaded. Verse will continue to send a ping widget's message to your web application to check whether the web application is ready. Then, when your web application is ready, it needs to post a widget loaded's message back to Verse to identify that it is fully loaded and ready to receive data from Verse. The specific messages are like 
 

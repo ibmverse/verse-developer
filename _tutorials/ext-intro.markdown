@@ -26,7 +26,7 @@ Verse supports the following methods for passing data to the web application:
 
 * Pass the data through [cross-document messaging][3].
 
-__Manifest file:__ a [JSON][1] file that contains configuration information about the extension. See [Working with the manifest file][2] for details.
+__widget.json file:__ a [JSON][1] file that contains configuration information about the extension. See [Working with the widget.json file][2] for details.
 
 ### Terms
 
@@ -40,8 +40,6 @@ The Verse page where extensions are surfaced for the user.
 *Extension point* - A predefined location in the user interface where you can place a UI-based extension (in Verse, an action contribution).
 
 *LiveText* - Text contained within the body of a mail message that displays highlighted and, when clicked, responds by opening a web application.
-
-*Manifest file* - A JSON object containing widget properties and extension properties. The Verse Developer Chrome Extension toolkit contains a manifest file, called widget.json, that you will use for the tutorials.
 
 *Widget* - A data structure that contains a URL pointing to a web application, plus additional properties that describe the behavior of that application.
 
@@ -59,7 +57,7 @@ In this example:
 
 * The *widget* points to the time-zone application and describes how it will be loaded in the browser.
 
-* The *manifest file* contains the properties that describe the extension and the widget.
+* The *widget.json file* contains the properties that describe the extension and the widget.
 
 [1]: http://json.org
 [2]: {{site.baseurl}}/tutorials/ext-manifest.html

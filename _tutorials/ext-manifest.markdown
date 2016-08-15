@@ -2,17 +2,17 @@
 [//]: # (Copyright IBM Corp. 2016  All Rights Reserved.)
 
 layout: default
-title:  "Working with the manifest file"
+title:  "Working with the widget.json file"
 categories:
 ---
 
 ## {{page.title}}  
 
 
-The manifest file contains configuration settings that describe the properties of a Verse extension in [JSON format][2]. The [Verse Developer Chrome Extension][1] includes a sample manifest called __widget.json__.
+The __widget.json__ file in the [Verse Developer Extension for Google Chrome][1] contains configuration settings that describe the properties of a Verse extension in [JSON format][2]. 
 
 
-The following example shows the manifest for an action contribution. The manifest is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each extension is described as an object and is enclosed within `{ }` curly braces.
+The following example shows the configuration for an action contribution. The configuration is defined as an array and is contained with a pair of `[ ]` square brackets. Within the array, each extension is described as an object and is enclosed within `{ }` curly braces.
 
 ```
 [
@@ -59,7 +59,7 @@ The following example shows the manifest for an action contribution. The manifes
 ]
 ```
 
-In the manifest, the following general properties describe a Verse extension:
+In the widget.json file, the following general properties describe a Verse extension:
 
 The __app_id__ property specifies a unique string that serves as the identifier for the widget associated with this extension. This property is required, the value must not contain blank spaces, and it must be unique among all registered widgets within the organization.
 
@@ -90,7 +90,7 @@ The __extensions__ property lists the set of properties that describe the extens
 
 The __payload__ property lists the set of properties that describe the widget's rendering parameters, preferences, and features:
 
-* The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][5].
+* The __features__ property indicates which Verse API is called by the widget. The list of features is an array and is enclosed in `[ ]` square brackets. Currently, the only accepted value is __core__ which indicates that the Verse core API will send context data to the web application through [cross-document messaging][3].
 
 * The __preferences__ property specifies what data is sent to the associated web application as URL parameters, and where that data resides within the context data. The list of preferences is an array and is enclosed in `[ ]` square brackets.
 
@@ -102,13 +102,12 @@ The __services__ property indicates which service the widget is contributed to. 
 __Notes:__
 
 * All property names and values are case sensitive, must be enclosed in quotation marks (" "), and must be spelled as shown in the example. 
-* You can include both a __preferences__ property and a __features__ property in the manifest. 
+* You can include both a __preferences__ property and a __features__ property in the widget.json. 
 * Only one property between __path__ and __object__ can be chosen as a single extension definition. These two properties can't be used at the same time to define the same extension.
 * To understand how Verse sends data to the web application, see [Sending data to a web application][4].
 
 
 [1]: {{site.verse-developer-chrome-ext}}
 [2]: http://json.org
-[3]: {{site.baseurl}}/tutorials/ext-action-contribution.html
+[3]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
 [4]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[5]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
