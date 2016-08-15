@@ -1,6 +1,6 @@
-# Verse Developer Chrome extension
+# IBM Verse Developer Extension for Google Chrome
 
-Verse Developer Chrome Extension is a tool for developers of IBM Verse Widgets. The Chrome extension allows you to register your widget in Verse locally as you develop it. Widgets registered with the Extension are available only on the developers' computers, with the Google Chrome browser, and cannot be accessed from other devices.
+This Chrome extension is a tool for developers of IBM Verse Widgets. It allows you to register your widget in Verse locally as you develop it. Widgets registered with the Extension are available only on the developers' computers, with the Google Chrome browser, and cannot be accessed from other devices.
 
 ## What's Here
 - How to get started with the chrome extension
@@ -71,7 +71,7 @@ To learn more about Verse Developer Chrome Extension, check out the [documentati
 
 *Source for documentation is available in the `gh-pages` branch of this repository*
 
-The Verse Developer Chrome extension is © 2016 under the terms of the MIT License.
+The Verse Developer Extension for Google Chrome is © 2016 under the terms of the MIT License.
 
 [1]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/
 [2]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/business_card.html
