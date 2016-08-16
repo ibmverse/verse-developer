@@ -1,5 +1,5 @@
 {
-  "name": "IBM Verse Widget Registry Extension",
+  "name": "IBM Verse Developer Extension for Google Chrome",
   "version": "1.0.0",
   "manifest_version": 2,
   "content_scripts": [ {
