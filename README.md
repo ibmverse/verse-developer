@@ -1,6 +1,6 @@
 # IBM Verse Developer Extension for Google Chrome
 
-This Chrome extension is a tool for developers of IBM Verse Widgets. It allows you to register your widget in Verse locally as you develop it. Widgets registered with the Extension are available only on the developers' computers, with the Google Chrome browser, and cannot be accessed from other devices.
+IBM Verse Developer is an extension for the Google Chrome browser which is used in the development of widgets for IBM. It allows you to register your widget in IBM Verse as you develop it. Widgets registered with the extension are only available in the developers' local Chrome browser, and cannot be accessed from other devices.
 
 ## What's Here
 - How to get started with the chrome extension
@@ -8,27 +8,22 @@ This Chrome extension is a tool for developers of IBM Verse Widgets. It allows y
 
 
 ## Getting Started with the Chrome Extension
-- Open extensions tab in chrome i.e. `chrome://extensions/`
-- Turn on `Developer mode`
-- Select `Load unpacked extension...` in Chrome
-![Getting Started with the Chrome Extension](/demo/img/rm_01_01_700.png)
-- Choose the src folder in your local copy of this repository
-![Load Unpacked Extension](/demo/img/rm_01_02_700.png)
-- The extension contains the definition of some sample widgets, follow the instructions in the [Documentation][1] to set up the samples. There are currently three samples provided:
+- Follow the documentation [Installing the Verse Developer Extension for Google Chrome][7] to install the extension.
+- The extension contains the definition of some sample widgets, follow the instructions in the [documentation][1] to set up the samples. There are currently three samples provided:
   * [Add an action contribution to the business card view][2]
   * [Add an action contribution to the mail compose view][3]
   * [Add an action contribution to the mail read view][4]
 
 ## How to Register a Widget
-The project contains a manifest file `src\widget.json` (copied below). This file contains a sample widget registration for the person action. It will add an action button at the back of the bizcard.
+The project contains a manifest file `src\widget.json` (copied below). This file contains a sample widget registration for the person action. It will add an action button at the back of the bizCard.
 ![Person Action in BizCard](demo/img/bizcard_action.png)
 
 ```
 [
   {
-    "app_id": "com.ibm.verselabs.actions.sample",
+    "app_id": "<unique id for this widget>",
     "name": "Person Sample",
-    "url": "https://yourcompany/personSample.html",
+    "url": "<URL to the web page which is displayed when this action is triggered>",
 
     "extensions": [
       {
@@ -63,9 +58,12 @@ The project contains a manifest file `src\widget.json` (copied below). This file
   }
 ]
 ```
-You need to change the value of the `url` property to point to your web application. We have provided you with a [sample HTML][5] in the [Documentation][1] for you to try out.
+You need to change the value of the `url` property to point to your web application. We have provided you with a [sample HTML][5] in the [documentation][1] for you to try out.
 
-The `widget.json` can contain the definition of multiple widgets. For a list of properties contained in each widget. See [Working with the manifest file][6] section in our [Documentation][1].
+The `widget.json` can contain the definition of multiple widgets. For a list of properties contained in each widget. See [Working with the manifest file][6] section in our [documentation][1].
+
+After you have made changes to any of the source code under the `/src` folder, it is necessary to `reload` the extension in the `chrome://extensions` tab, then reload Verse for the changes to be picked up.
+![Reload Extension in Chrome](demo/img/reload.png)
 
 To learn more about Verse Developer Chrome Extension, check out the [documentation][1].
 
@@ -79,3 +77,4 @@ The Verse Developer Extension for Google Chrome is © 2016 under the terms of th
 [4]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/mail.read.html
 [5]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/sample-html.html
 [6]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/ext-manifest.html
+[7]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/ext-install-toolkit.html
