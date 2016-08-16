@@ -18,18 +18,18 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 
 ```
   {
-    "app_id": "com.ibm.verse.ext.sample2",
-    "name": "Widget example 2",
-    "url": "https://yourcompany.com/sample2.html",
-    
+    "app_id": "com.ibm.verselabs.actions.sample",
+    "name": "Mail Compose Sample",
+    "url": "https://yourcompany.com/mailComposeSample.html",
+
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.ext.sample2.action",
-        "name": "Extension example 2",
+        "ext_id": "com.ibm.verselabs.action.sample.mailCompose",
+        "name": "Mail Compose Action Sample",
         "payload": {},
         "path": "mail.compose",
-        "title": "Extension sample 2"
+        "title": "Mail Compose Action"
        }
     ],
 
@@ -38,8 +38,8 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
         "core"
       ],
       "renderParams": {
-        "width": "500",
-        "height": "400"
+        "width": "900",
+        "height": "500"
       }
     },
 
@@ -53,9 +53,9 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][3] you can use with this tutorial.
 
-* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.compose"__ to specify that the action button is rendered in the mail compose view. 
+* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.compose"__ to specify that the action button is rendered in the mail compose view.
 
 * __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail compose view" section at the end of this tutorial.
 
@@ -71,11 +71,11 @@ Properties to modify for this tutorial:
 
     ![more action button]({{site.baseurl}}/tutorials/img/compose_more_action.png)   
 
-    The "Sample 2" action button displays:
+    The "Mail Compose Action" action button displays:
 
-    ![action button]({{site.baseurl}}/tutorials/img/compose_view_action.png)  
+    ![action button]({{site.baseurl}}/tutorials/img/mailcompose_action.png)  
 
-4.	Click the "Sample 2" button to open the specified web application in a new window.
+4.	Click the "Mail Compose Action" button to open the specified web application in a new window.
 
 <br><br>
 <hr>
@@ -114,3 +114,4 @@ Verse provides the following properties in context data from the mail compose vi
 
 [1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
 [2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[3]: {{site.baseurl}}/tutorials/sample-html.html

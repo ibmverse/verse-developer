@@ -18,18 +18,18 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
 
 ```
   {
-    "app_id": "com.ibm.verse.ext.sample3",
-    "name": "Widget example 3",
-    "url": "https://yourcompany.com/sample3.html",
-    
+    "app_id": "com.ibm.verselabs.actions.sample",
+    "name": "Mail Read Sample",
+    "url": "https://yourcompany.com/mailReadSample.html",
+
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.ext.sample3.action",
-        "name": "Extension example 3",
+        "ext_id": "com.ibm.verselabs.action.sample.mailRead",
+        "name": "Mail Read Action Sample",
         "payload": {},
         "path": "mail.read",
-        "title": "Extension sample 3"
+        "title": "Mail Read Action"
        }
     ],
 
@@ -38,8 +38,8 @@ This tutorial uses the __widget.json__ file, located in the /src folder of the e
         "core"
       ],
       "renderParams": {
-        "width": "500",
-        "height": "400"
+        "width": "900",
+        "height": "500"
       }
     },
 
@@ -53,9 +53,9 @@ Properties to modify for this tutorial:
 
 * __app_id__ provides a default value that you can either use, or change to another value.
 
-* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access.
+* __url__ is required because it specifies the URL of the web application that is launched by the action contribution; you can specify the URL of any web application that you can access. Here is [a sample HTML page][4] you can use with this tutorial.
 
-* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view. 
+* __extensions__ configures the widget as an action contribution, and uses __"path": "mail.read"__ to specify that the action button is rendered in the mail read view.
 
 * __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. For more information on context data, see the "The context structure from the mail read view" section at the end of this tutorial.
 
@@ -70,11 +70,11 @@ Properties to modify for this tutorial:
 
     ![more action button]({{site.baseurl}}/tutorials/img/mailread_more.png)   
 
-    The "Sample 3" action button displays:
+    The "Mail Read Action" action button displays:
 
     ![action button]({{site.baseurl}}/tutorials/img/mailread_action.png)  
 
-4.	Click the "Sample 3" button to open the specified web application in a new window.
+4.	Click the "Mail Read Action" button to open the specified web application in a new window.
 
 
 <br><br>
@@ -122,4 +122,5 @@ Verse provides the following properties in context data from the mail read view;
 
 [1]: {{site.baseurl}}/tutorials/ext-install-toolkit.html
 [2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[3]: http://www.rfc-base.org/rfc-5322.html 
+[3]: http://www.rfc-base.org/rfc-5322.html
+[4]: {{site.baseurl}}/tutorials/sample-html.html
