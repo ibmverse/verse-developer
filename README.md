@@ -1,6 +1,6 @@
 # IBM Verse Developer Extension for Google Chrome
 
-IBM Verse Developer is an extension for the Google Chrome browser which is used in the development of widgets for IBM. It allows you to register your widget in IBM Verse as you develop it. Widgets registered with the extension are only available in the developers' local Chrome browser, and cannot be accessed from other devices.
+IBM Verse Developer Extension for Google Chrome is an extension which is used in the development of widgets for IBM. It allows you to register your widget in IBM Verse as you develop it. Widgets registered with the extension are only available in the developers' local Chrome browser, and cannot be accessed from other devices.
 
 ## What's Here
 - How to get started with the chrome extension
@@ -65,7 +65,7 @@ The `widget.json` can contain the definition of multiple widgets. For a list of 
 After you have made changes to any of the source code under the `/src` folder, it is necessary to `reload` the extension in the `chrome://extensions` tab, then reload Verse for the changes to be picked up.
 ![Reload Extension in Chrome](demo/img/reload.png)
 
-To learn more about Verse Developer Chrome Extension, check out the [documentation][1].
+To learn more about IBM Verse Developer Extension for Google Chrome, check out the [documentation][1].
 
 *Source for documentation is available in the `gh-pages` branch of this repository*
 
