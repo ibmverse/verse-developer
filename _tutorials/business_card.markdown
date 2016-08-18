@@ -63,15 +63,15 @@ Properties to modify for this tutorial:
 
 * __extensions__ configures the widget as an action contribution, and uses __"object": "person"__ to specify that the action button is rendered in the business card view.
 
-* __preferences__ in __payload__ indicates that a __context__ property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
-
 * __features : ["core"]__ in __payload__ indicates that Verse will send context data to the specified web application through cross-document messaging. Refer to [Sending data to a web application][2] to learn how to construct the web application page to receive cross-document messages. In this example we are printing out all the context information in the specified web application. If we are only sending the context property profile.primaryEmail to the web application as the value of the URL parameter we do not need to include __features : ["core"]__.
+
+* __preferences__ in __payload__ indicates that a __context__ property called profile.primaryEmail is sent to the web application as the value of the URL parameter called __searchFor__.
 
 In Verse, __context__ is an internal data object; in the business card view, it references information about the user who is described by the business card. For more information, see the "The context structure from the business card view" section at the end of this tutorial.
 
 ### Step 3. Load the widget into Verse and interact with it
 
-1. Open Verse in the Chrome browser.
+1. Open or reload Verse in the Chrome browser.
 
 2. Open a business card and view it:
 
