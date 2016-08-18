@@ -9,11 +9,13 @@
       window.addEventListener("message", function(event) {
         console.log("========================message received: %O", event);
         var eventData = event.data;
-
+        //Message from verse to check whether your web application is ready
         if (eventData.verseApiType == "com.ibm.verse.ping.widget.loaded") {
           var loaded_message = {
             verseApiType : "com.ibm.verse.widget.loaded"
           };
+          //Your application must send a message back to Verse to identify that
+          //it's ready to receive data from Verse
           event.source.postMessage(loaded_message, event.origin);
         }
 
