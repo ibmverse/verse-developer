@@ -23,16 +23,17 @@ Before proceeding to the tutorials, complete the following steps to set up your 
     
     Original list:
     
-    ```javascript
+    ```
     "matches": [
       "https://mail.notes.na.collabserv.com/vers*",
       "https://mail.notes.ap.collabserv.com/vers*",
       "https://mail.notes.ce.collabserv.com/vers*"
     ],
     ```
+    
     Revised list:
     
-    ```javascript
+    ```
     "matches": [
       "https://mail.notes.na.collabserv.com/vers*",
       "https://mail.notes.ap.collabserv.com/vers*",
@@ -46,7 +47,7 @@ Before proceeding to the tutorials, complete the following steps to set up your 
 1. Start the Chrome browser and type chrome://extensions/ in the address bar.
 1. On the extensions page, select __Developer mode__. 
 1. Click __Load unpacked extension__ and select the /src directory of the extracted kit.
-1. Verify that the "IBM Verse Widget Registry Extension" is __Enabled__.
+1. Verify that the "IBM Verse Developer Extension for Google Chrome" is __Enabled__.
 
 Your environment is now ready for developing Verse extensions.
 

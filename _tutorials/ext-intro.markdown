@@ -8,11 +8,7 @@ categories:
 
 ## {{page.title}}  
 
-An extension allows you to connect a web application into the IBM Verse user interface. Verse supports the following types of extensions:
-
-* Action contribution: a widget (for example, a button) that you add directly to the Verse UI.
-
-* LiveText: a specified string, contained in the body of a mail message, for which you define an action. 
+An extension allows you to connect a web application into the IBM Verse user interface. Currently Verse supports the action contribution extension. Action contribution is a widget (for example, a button) that you add directly to the Verse UI.
 
 ### Requirements
 
@@ -35,11 +31,9 @@ The Verse page where extensions are surfaced for the user.
 
 *Action contribution* - A UI-based extension that displays an action button at one of several predefined locations on the Verse page.
 
-*Extension* - A data structure containing properties that describe the behavior of an action contribution or of LiveText.
+*Extension* - A data structure containing properties that describe the behavior of an action contribution.
 
 *Extension point* - A predefined location in the user interface where you can place a UI-based extension (in Verse, an action contribution).
-
-*LiveText* - Text contained within the body of a mail message that displays highlighted and, when clicked, responds by opening a web application.
 
 *Widget* - A data structure that contains a URL pointing to a web application, plus additional properties that describe the behavior of that application.
 

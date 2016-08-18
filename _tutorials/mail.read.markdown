@@ -62,7 +62,7 @@ Properties to modify for this tutorial:
 
 ### Step 3. Load the widget into Verse and interact with it.
 
-1.	Open Verse in the Chrome browser.
+1.	Open or reload Verse in the Chrome browser.
 
 2.	Click an email to open it in mail read view.
 
