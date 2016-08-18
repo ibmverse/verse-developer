@@ -16,7 +16,7 @@ You can use both ways in your web application at the same time.
 
 This method supports sending data to a URL with unknown value parameters, known as dot-separated string variables. In a URL, every variable is represented as `<variable>`. When a URL is employed to send data from Verse to a web application, each URL variable will be dynamically substituted as a specific value. In Verse, the information can be extracted from the context data to replace the URL variable. This kind of variable can exist in any part of a URL, such as path, query and fragment, etc.
 
-In this section, a specific example will be given to explain how to configure the widget.json file to define a URL and use it to send data to a web application. For example, a web application is expected to find the homePage of some employee from the specific department of a company. For example, you can use the URL
+In this section, a specific example will be given to explain how to configure the widget.json file to define a URL and use this URL to send data to a web application. For example, a web application is expected to find the homePage of some employee from the specific department of a company. For example, you can use the URL
 `https://yourcompany.com/org/research?username=samantha_daryn` to look up the Samantha_daryn, who is from your company's research department. Also, you can find the Sophia from your company's marketing department via the URL `https://yourcompany.com/org/markerting?username=sophia`. To achieve this, you can simply construct one URL
 `https://yourcompany.com/org/<profile.department>?username=<profile.name>`. When you click different person's profile, the variables `<profile.department>` and `<profile.name>` will be replaced by the specific value extracted from the context data.
 
@@ -26,7 +26,7 @@ To construct such a URL, the url attribute of the widget.json file can be set as
   "url": "https://yourcompany.com/org/<profile.department>?username=<profile.name>",
 ```
 
-Alternatively, the _preference_ property can be used to set the variable in the URL query part, therefore, we can also construct the URL `https://yourcompany.com/org/<profile.department>?username=<profile.name>` by re-configuring the widget.json file as below
+Alternatively, the _preference_ property can be used to set the variable in the URL query part, so we can also construct the URL `https://yourcompany.com/org/<profile.department>?username=<profile.name>` by re-configuring the widget.json file as below
 
 ```
   "url": "https://yourcompany.com/org/<profile.department>",
@@ -84,7 +84,7 @@ Before sending the context data to your application, Verse needs to know whether
 ```
 
 In order to handle the message from Verse, your web application needs to register an event listener through __window.addEventListener("message", function(event) {})__.
-Then in the event handler, the web application first sends a 'com.ibm.verse.widget.loaded' message back to Verse to identify that the web application is ready to receive the message. Then your web application can process the context data based on its own logic. 
+In the event handler, the web application first sends a 'com.ibm.verse.widget.loaded' message back to Verse to identify that the web application is ready to receive the message. Then your web application can process the context data based on its own logic. 
 
 A sample script included in the web application to communicate with Verse through cross-document messaging is like below. Also here is [a sample HTML page][2] you can refer.
 
