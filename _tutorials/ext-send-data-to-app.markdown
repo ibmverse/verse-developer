@@ -23,7 +23,7 @@ In this section, a specific example will be given to explain how to configure th
 To construct such a URL, the url attribute of the widget.json file can be set as
 
 ```
-  "url": "https://yourcompany.com/org/<profile.department>?username=<profile.name>",
+  "url": "https://yourcompany.com/org/<profile.department>?username=<profile.name>"
 ```
 
 Alternatively, the _preference_ property can be used to set the variable in the URL query part, so we can also construct the URL `https://yourcompany.com/org/<profile.department>?username=<profile.name>` by re-configuring the widget.json file as below
@@ -40,6 +40,7 @@ Alternatively, the _preference_ property can be used to set the variable in the 
 ```
 
 In verse, the dot-separated string variable _(A.B.C)_ is applied to extract the information from the context data. Suppose that the following context data is given,
+
 ```
   {
     "profile": {
@@ -53,6 +54,7 @@ In verse, the dot-separated string variable _(A.B.C)_ is applied to extract the 
     }
   }
 ```
+
 The variables _profile.name_ and _profile.department_ will be replaced by the corresponding values which are extracted from the context data. Therefore, if you click the samantha_daryn's profile,
 you can get the URL `https://yourcompany.com/org/research?username=samantha_daryn`. If you click the sophia's profile, the URL will be `https://yourcompany.com/org/marketing?marketing=sohpia`.
 
