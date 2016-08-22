@@ -1,22 +1,23 @@
 [
   {
-    "app_id": "com.ibm.verse.ext.sample",
-    "name": "Widget example",
-    "url": "https://yourcompany/sample1.html",
-      
+    "app_id": "com.ibm.verselabs.actions.sample",
+    "name": "Person Sample",
+    "url": "https://yourcompany/personSample.html",
+
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.ext.bizcard.action",
-        "name": "BizCard Extension",
+        "ext_id": "com.ibm.verselabs.action.sample.person",
+        "name": "Person Action Sample",
         "payload": {},
         "object": "person",
-        "title": "BizCard Extension Sample 1"
+        "title": "Person Action"
       }
     ],
 
     "payload": {
       "features": [
+        "core"
       ],
       "preferences": [
         {
