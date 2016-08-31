@@ -1,4 +1,4 @@
-# Your First Extension for Verse
+# Your First Application for Verse
 
 ## 1. Introduction
 
@@ -24,7 +24,7 @@ By following this tutorial, you are going to start with some pre-written example
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
-This tutorial focuses on getting you started on building a widget for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the 'Further Readings' sections at the end of each step of the tutorial, but they are not required to finish this tutorial.
+This tutorial focuses on getting you started on building an application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the 'Further Readings' sections at the end of each step of the tutorial, but they are not required to finish this tutorial.
 
 
 [1]: https://thimble.mozilla.org/en-US/
