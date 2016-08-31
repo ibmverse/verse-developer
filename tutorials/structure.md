@@ -22,6 +22,10 @@
 * 3.5 Further readings
 
 ## 4. Add Mail Read Action
+* 4.1 Edit widget.json
+* 4.2 Reload extension
+* 4.3 Reload Verse and test it out
+* 4.4 How does it work?
 
 ## 5. Create New Application Implementation
 

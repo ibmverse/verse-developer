@@ -58,7 +58,7 @@ The external application is registered via the file `src/widget.json`, which als
 
 Open `src/widget.json` in a text editor, you will see that it contains an array of object. Each object contains an application, with one or more extensions registered under. The URL for the external application is specified under the property `url`.
 
-For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to be "Person Action" via the `title` property. In the next section, we will learn how to add UI buttons on different parts of the Verse UI.
+For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to be `"Person Action"` via the `title` property. In the next section, we will learn how to add UI buttons on different parts of the Verse UI.
 
 We have also indicated via the property `preferences` under `payload` that a context property called `profile.primaryEmail` will be sent to the web application as the value of the URL parameter called `searchFor`. Using query arguments is only one way of sending data from Verse to your application. In the next section, we will learn a second way: cross-document messaging.
 
