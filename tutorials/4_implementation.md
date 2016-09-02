@@ -2,7 +2,7 @@
 
 In previous sections, you have learned how to register applications with Verse, and add action buttons to the Verse UI.
 
-While registering those applications, in the __widget.json__ file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
+While registering those applications, in the `widget.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
 
 
 ### Create web page
@@ -70,7 +70,7 @@ This sample HTML will print out all the information sent from Verse for each of 
 ### Set up a web server
 You will need a place to host the web page you just created. You can either use [FireFox Thimble][1], or set up your own web server.
 
-For the purpose of this tutorial, we will use the Chrome Web Server to set up a localhost on your own laptop. If you are familiar with setting up your own server for hosting web pages, or prefer to use FireFox Thimble, feel free to skip to the next step [Edidt widget.json to point to your new URL](#edit-widget.json-to-point-to-your-new-URL).
+For the purpose of this tutorial, you can use the Chrome Web Server to set up a localhost on your own laptop. If you are familiar with setting up your own server for hosting web pages, or prefer to use FireFox Thimble, feel free to skip to the next step [Edidt widget.json to point to your new URL](#edit-widget.json-to-point-to-your-new-URL).
 
 You can install the Chrome Web Server from the [Chrome Web Store][2] using your Chrome browser.
 
@@ -85,7 +85,7 @@ In the __options__ section, check the option "Automatically show index.html"
 ![automatically show index.html](img/4_show_index.png)
 This will allow you to use the Web Server URL shown in the section below without appending `/index.html` after the URL.
 
-Afterwards, toggle the __Web Server: STARTED__ button to stop, then restart the web server. Once the server is started (indicated by a blue color on the button), you can access index.html by clicking on the link provided under the __Web Server URL(s)__ section, or by typing that address yourself into the browser. You shall see the index page we just made show up in the browser. There won't be much showing up in that page just yet.
+Afterwards, toggle the __Web Server: STARTED__ button to stop, then restart the web server. Once the server is started (indicated by a blue color on the button), you can access index.html by clicking on the link provided under the __Web Server URL(s)__ section, or by typing that address yourself into the browser. You shall see the web page you created in the previous step pops up in a separate window. There won't be much showing up on that page as you are not accessing it via Verse.
 ![server toggle button](img/4_toggle_server.png)
 
 
@@ -93,16 +93,14 @@ Afterwards, toggle the __Web Server: STARTED__ button to stop, then restart the 
 Open widget.json in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the app under the section __Web Server URL(s)__.
 
 
-### Reload the extension and Verse
-As is explained in previous section, every time you make a change to the extension code, you will have to reload the extension from __chrome://extensions__, then reload Verse, so Chrome and Verse will pick up your latest changes.
-
-
 ### Test it out
-Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in __widget.json__.
+Now try it out in Verse. Don't forget to reload the extension, then Verse to pick up your latest code changes!
+
+Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in `widget.json`.
 
 
 ### How does it work?
-When users click on the action buttons in Verse added via the __widget.json__ file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in __widget.json___.
+When users click on the action buttons in Verse added via the `widget.json` file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in `widget.json`.
 
 Now you have learned how to register your application with Verse, add action buttons to the Verse UI, and get Verse send data to your application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own application for Verse!
 

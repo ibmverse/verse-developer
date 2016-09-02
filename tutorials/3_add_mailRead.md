@@ -1,6 +1,6 @@
 ## 3. Add an application for the Mail Read View
 
-In this section, we will add an action button to the Mail Read View, and register this new application with Verse. This section is very similar to the last section.
+In this section, you will add an action button to the Mail Read View, and register this new application with Verse. This section is very similar to the last section.
 
 
 ### Edit widget.json
@@ -42,26 +42,23 @@ In this section, we will add an action button to the Mail Read View, and registe
   ```
 
 
-### Reload the extension
-Open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click `Reload`.
-![reload extension](img/2_reload.png)
+### Reload the extension and Verse
+As is explained in previous section, every time you make a change to the extension code, you will have to reload the extension from `chrome://extensions__`, then reload Verse, so Chrome and Verse will pick up your latest changes.
 
 
-### Reload Verse and test it out
-1. Navigate to your Verse URL. If you already have Verse open in your Chrome browser, you need to reload Verse to pick up your latest code changes in the extension.
+### Test it out
+1. In the Verse UI, click open a mail to inspect it in the Mail Read View.
 
-2. In the Verse UI, click open a mail to inspect it in the Mail Read View.
-
-3. In the Mail Read View, click on the "More actions" button.
+2. In the Mail Read View, click on the "More actions" button.
 ![more actions button](img/3_mailread_more.png)
 
-4. In the drop-down menu, click "Mail Read Action". This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.
+3. In the drop-down menu, click "Mail Read Action". This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.
 ![mail read action button](img/3_mailread_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Read View, and registered the relevant application with Verse.
 
 
 ### How does it work?
-Configuration for the Mail Read extension we just added in the current section is quite similar to the Mail Compose extension we added in the previous section.
+Configuration for the Mail Read extension you just added in the current section is quite similar to the Mail Compose extension you added in the previous section.
 
-The only difference is that, for the property `path`, instead of setting it to `mail.compose`, we are setting it to `mail.read`. This indicates the action button should be located in the Mail Read View.
+The only difference is that, for the property `path`, instead of setting it to `mail.compose`, you are setting it to `mail.read`. This indicates the action button should be located in the Mail Read View.

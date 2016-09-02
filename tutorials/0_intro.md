@@ -9,8 +9,8 @@ Verse Developer Extension for Google Chrome allows you to extend Verse's functio
 * mail compose view
 * mail read view
 
-### What are we going to build?
-By following this tutorial, you are going to start with some pre-written example code which adds functionality to the bizCard in Verse, you will then add your own extensions to the mail compose view and the mail read view.
+### What you are going to build
+By following this tutorial, you are going to start with some pre-written sample code which adds functionality to the business card (bizCard) in Verse. You will then add another application for Verse which will add functionality to the Mail Compose View and the Mail Read View.
 
 ### What you'll learn
 * How to add action buttons into the Verse UI for your application.
@@ -19,12 +19,14 @@ By following this tutorial, you are going to start with some pre-written example
 
 ### What you'll need
 * Chrome browser
-* [FireFox Thimble][1], or a Web Server (if you decide to use a Web Server, this can be [Web Server for Chrome][2], local host, or your own web server of choice)
-* The Verse Developer Chrome Extension code
+* [Web Server for Chrome][2] (alternatively, you can also use [FireFox Thimble][1], or your own web server of choice, including localhost)
+* The Verse Developer Chrome Extension source code
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
 This tutorial focuses on getting you started on building an application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the 'Further Readings' sections at the end of each step of the tutorial, but they are not required to finish this tutorial.
+
+Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has your extension installed. To let other people use your application, you will need to share your extension with them and let them install it on their Chrome browsers too.
 
 
 [1]: https://thimble.mozilla.org/en-US/

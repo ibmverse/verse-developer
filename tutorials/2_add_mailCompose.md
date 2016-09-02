@@ -1,6 +1,6 @@
 ## 3. Add an application for the Mail Compose View
 
-In this section, we will add an action button to the Mail Compose View, and register this new application with Verse.
+In this section, you will add an action button to the Mail Compose View, and register this new application with Verse.
 
 
 ### Edit widget.json
@@ -42,34 +42,34 @@ In this section, we will add an action button to the Mail Compose View, and regi
   ```
 
 
-### Reload the extension
-Open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click `Reload`.
+### Reload the extension and Verse
+Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
+
+To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.
 ![reload extension](img/2_reload.png)
 
 
-### Reload Verse and test it out
-1. Navigate to your Verse URL. If you already have Verse open in your Chrome browser, you need to reload Verse to pick up your latest code changes in the extension.
-
-2. In the Verse UI, click the "Compose" button.
+### Test it out
+1. In the Verse UI, click the __Compose__ button.
 ![compose button](img/2_compose_action.png)
 
-3. In the pop-up Mail Compose View, click on the "More actions" button.
+2. In the pop-up Mail Compose View, click on the __More actions__ button.
 ![more actions button](img/2_compose_more_action.png)
 
-4. In the drop-down menu, click "Mail Compose Action". This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.
+3. In the drop-down menu, click __Mail Compose Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.
 ![mail compose action button](img/2_mailcompose_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant application with Verse.
 
 
 ### How does it work?
-In this section, we have added a new extension under a different application ID. It is also possible to add multiple extensions within the same app. In that case, you will append the new extension to the `extensions` array.
+In this section, a new extension is added under a different application ID. It is also possible to add multiple extensions within the same app. In that case, you will append the new extension to the `extensions` array.
 
-Let us have a look at some of the properties in the new application we just added, which are quite different from the previous bizCard application.
+You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 
 Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View.
 
-Under `payload`, instead of using `preferences`, the new extension we just added uses `"features": ["core"]`. `preferences` is used to set the URL parameters, while `"features": ["core"]` indicates we will be using cross-document messaging. In this application, we will not be using URL to pass data from Verse, but will use cross-document messaging instead.
+Under `payload`, instead of using `preferences`, the newly added extension uses `"features": ["core"]`. `preferences` is used to set the URL parameters, while `"features": ["core"]` indicates the application will be using cross-document messaging. This application will not be using URL to pass data from Verse, but will use cross-document messaging instead.
 
 
 ### Further readings:
@@ -80,5 +80,5 @@ Under `payload`, instead of using `preferences`, the new extension we just added
 
 [1]: {{site.baseurl}}/tutorials/ext-manifest.html
 [2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[3]: https://html.spec.whatwg.org/multipage/comms.html#web-messaging
+[3]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 [4]: {{site.baseurl/tutorials/to_be_written.html}}
