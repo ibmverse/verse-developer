@@ -1,33 +1,38 @@
 # Your First Application for Verse
 
 ## 1. Introduction
-* 1.1 What is Verse Developer Extension for Chrome
-* 1.2 What are we going to building
-* 1.3 What you'll learn
-* 1.4 What you'll need
+* What is Verse Developer Extension for Chrome
+* What are we going to building
+* What you'll learn
+* What you'll need
 
 ## 2. Installing Verse Developer Extension for Google Chrome
-* 2.1 Download the code
-* 2.2 Update manifest.json
-* 2.3 Load unpacked extensions
-* 2.4 Reload Verse and test it out
+* Download the code
+* Update manifest.json
+* Load unpacked extensions
+* Reload Verse and test it out
 * How does it work?
 * Further readings
 
 ## 3. Add an application for the Mail Compose View
-* 3.1 Edit widget.json
-* 3.2 Reload extension
-* 3.3 Reload Verse and test it out
-* 3.4 How does it work?
-* 3.5 Further readings
+* Edit widget.json
+* Reload extension
+* Reload Verse and test it out
+* How does it work?
+* Further readings
 
 ## 4. Add Mail Read Action
-* 4.1 Edit widget.json
-* 4.2 Reload extension
-* 4.3 Reload Verse and test it out
-* 4.4 How does it work?
+* Edit widget.json
+* Reload extension
+* Reload Verse and test it out
+* How does it work?
 
 ## 5. Create New Application Implementation
+* Create web page
+* Set up a web server
+* Edit widget.json to point to your new URL
+* Reload the extension and Verse
+* Test it out
+* How does it work
 
-## Further Readings
-* Link to documentation
+## Documentation
