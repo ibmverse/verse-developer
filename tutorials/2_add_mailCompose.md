@@ -1,4 +1,4 @@
-## 3. Add an application for the Mail Compose View
+## 3. Add Mail Compose Action
 
 In this section, you will add an action button to the Mail Compose View, and register this new application with Verse.
 
@@ -9,9 +9,9 @@ In this section, you will add an action button to the Mail Compose View, and reg
 2. Append the following object into the array in `widget.json`, and save the file:
   ```JavaScript
   {
-    "app_id": "com.ibm.verselabs.actions.sample.mailCompose",
-    "name": "Mail Compose Sample",
-    "url": "https://yourcompany/mailComposeSample.html",
+    "app_id": "com.ibm.verselabs.actions.sample.mail",
+    "name": "Mail Sample",
+    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
 
     "extensions": [
       {
@@ -62,8 +62,8 @@ To reload the extension, open your Chrome browser, go to `chrome://extensions`, 
 Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant application with Verse.
 
 
-### How does it work?
-In this section, a new extension is added under a different application ID. It is also possible to add multiple extensions within the same app. In that case, you will append the new extension to the `extensions` array.
+### How it works
+In this section, a new application with its own `app_id` is added into `widget.json` and thus registered with Verse. Under this new app, we add an extension with its own `ext_id`. It is also possible to add multiple extensions within the same app. We will give you an example in the next section.
 
 You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 

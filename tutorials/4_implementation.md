@@ -99,7 +99,7 @@ Now try it out in Verse. Don't forget to reload the extension, then Verse to pic
 Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in `widget.json`.
 
 
-### How does it work?
+### How it works
 When users click on the action buttons in Verse added via the `widget.json` file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in `widget.json`.
 
 Now you have learned how to register your application with Verse, add action buttons to the Verse UI, and get Verse send data to your application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own application for Verse!

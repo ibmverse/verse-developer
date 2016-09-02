@@ -11,27 +11,27 @@
 * Update manifest.json
 * Load unpacked extension
 * Reload Verse and test it out
-* How does it work?
+* How it works
 * Further readings
 
-## 3. Add an application for the Mail Compose View
+## 3. Add Mail Compose action
 * Edit widget.json
 * Reload the extension and Verse
 * Test it out
-* How does it work?
+* How it works
 * Further readings
 
-## 4. Add Mail Read Action
+## 4. Add Mail Read action
 * Edit widget.json
 * Reload the extension and Verse
 * Test it out
-* How does it work?
+* How it works
 
 ## 5. Create New Application Implementation
 * Create web page
 * Set up a web server
 * Edit widget.json to point to your new URL
 * Test it out
-* How does it work
+* How it works
 
 ## Documentation

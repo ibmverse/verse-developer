@@ -55,7 +55,7 @@ If you received an error related to `Failed to load extension from: ... Manifest
 5. Click on the button. This will load a web application in a separate window, which uses information sent from the Verse bizCard.
 
 
-### How does it work?
+### How it works
 If you have reached this step, congratulations! You have successfully installed the extension and it is working for you, but how does this all work?
 
 The external application is registered via the file `src/widget.json`, which also adds the button to the bizCard.
