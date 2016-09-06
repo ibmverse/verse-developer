@@ -1,10 +1,10 @@
 ## 3. Add Mail Read Action
 
-In this section, you will add an action button to the Mail Read View. Different from the last section, instead of registering it as a new application in `widget.json`, we will put it inside the application we added in the previous section, alongside the extension for the Mail Compose View.
+In this section, you will add an action button to the Mail Read View. Different from the last section, instead of registering it as a new application in `applications.json`, we will put it inside the application we added in the previous section, alongside the extension for the Mail Compose View.
 
 
-### Edit widget.json
-1. Open `src/widget.json` in your text editor.
+### Edit applications.json
+1. Open `src/applications.json` in your text editor.
 
 2. Append the following object into the `extensions` belonging to the app with `app_id`: `com.ibm.verselabs.actions.sample.mail`, and save the file:
   ```JavaScript
@@ -36,7 +36,7 @@ Congratulations! You have successfully added an action button to the Mail Read V
 
 
 ### How it works
-In the last section, you have learned how to add a new app with a new extension to `widget.json`: You append the new app object into the array in `widget.json`. In this section, you have learned how to add multiple extensions into the same app registered with `widget.json`: you append the new extension into the `extensions` array of the specific app.
+In the last section, you have learned how to add a new app with a new extension to `applications.json`: You append the new app object into the array in `applications.json`. In this section, you have learned how to add multiple extensions into the same app registered with `applications.json`: you append the new extension into the `extensions` array of the specific app.
 
 Configuration for the Mail Read extension you just added in the current section is quite similar to the Mail Compose extension you added in the previous section.
 

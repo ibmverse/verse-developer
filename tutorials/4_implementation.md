@@ -2,7 +2,7 @@
 
 In previous sections, you have learned how to register applications with Verse, and add action buttons to the Verse UI.
 
-While registering those applications, in the `widget.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
+While registering those applications, in the `applications.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
 
 
 ### Create web page
@@ -68,11 +68,13 @@ This sample HTML will print out all the information sent from Verse for each of 
 
 
 ### Set up a web server
-You will need a place to host the web page you just created. You can either use [FireFox Thimble][1], or set up your own web server.
+You will need a place to host the web page you just created.
 
-For the purpose of this tutorial, you can use the Chrome Web Server to set up a localhost on your own laptop. If you are familiar with setting up your own server for hosting web pages, or prefer to use FireFox Thimble, feel free to skip to the next step [Edidt widget.json to point to your new URL](#edit-widget.json-to-point-to-your-new-URL).
+If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-widget.json-to-point-to-your-new-URL).
 
-You can install the Chrome Web Server from the [Chrome Web Store][2] using your Chrome browser.
+Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps:
+
+Install the Chrome Web Server from the [Chrome Web Store][1] using your Chrome browser.
 
 After installing, you can launch it by navigating to `chrome://apps` in your Chrome browser, and click on the icon for the Chrome Web Server:
 
@@ -89,21 +91,20 @@ Afterwards, toggle the __Web Server: STARTED__ button to stop, then restart the 
 ![server toggle button](img/4_toggle_server.png)
 
 
-### Edidt widget.json to point to your new URL
-Open widget.json in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the app under the section __Web Server URL(s)__.
+### Edit applications.json to point to your new URL
+Open applications.json in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the app under the section __Web Server URL(s)__.
 
 
 ### Test it out
 Now try it out in Verse. Don't forget to reload the extension, then Verse to pick up your latest code changes!
 
-Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in `widget.json`.
+Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in `applications.json`.
 
 
 ### How it works
-When users click on the action buttons in Verse added via the `widget.json` file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in `widget.json`.
+When users click on the action buttons in Verse added via the `applications.json` file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in `applications.json`.
 
 Now you have learned how to register your application with Verse, add action buttons to the Verse UI, and get Verse send data to your application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own application for Verse!
 
 
-[1]: https://thimble.mozilla.org/en-US/
-[2]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en
+[1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?hl=en

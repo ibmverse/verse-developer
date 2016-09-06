@@ -4,7 +4,7 @@
 
 ### What is Verse Developer Extension for Google Chrome
 
-Verse Developer Extension for Google Chrome allows you to extend Verse's functionality by sending data from Verse to your external application. It currently supports adding UI buttons into the following parts in the Verse interface:
+Verse Developer Extension for Google Chrome allows you to extend Verse's functionality by sending data from Verse to your external application. You can have multiple applications registered within the Verse Developer Extension, each with their own `app_id`, and each of this application can have multiple Verse extensions, each with its own `ext_id`. The Verse Developer Extension currently supports adding UI buttons into the following parts in the Verse interface:
 * business card view
 * mail compose view
 * mail read view
@@ -14,8 +14,7 @@ By following this tutorial, you are going to start with some pre-written sample 
 
 ### What you'll learn
 * How to add action buttons into the Verse UI for your application.
-* How to transfer data from Verse to your application via query arguments in the URL
-* How to transfer data from Verse to your application through cross-document messaging.
+* How to transfer data from Verse to your application.
 
 ### What you'll need
 * Chrome browser
@@ -26,7 +25,7 @@ By following this tutorial, you are going to start with some pre-written sample 
 
 This tutorial focuses on getting you started on building an application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the 'Further Readings' sections at the end of each step of the tutorial, but they are not required to finish this tutorial.
 
-Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has your extension installed. To let other people use your application, you will need to share your extension with them and let them install it on their Chrome browsers too.
+Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people use your application, you will need to share the edited extension with them and let them install it on their Chrome browsers too.
 
 
 [1]: https://thimble.mozilla.org/en-US/

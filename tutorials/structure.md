@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 * What is Verse Developer Extension for Chrome
-* What you are going to building
+* What you are going to build
 * What you'll learn
 * What you'll need
 

@@ -1,5 +1,7 @@
 ## 2. Installing Verse Developer Extension for Google Chrome
 
+The default Verse Developer Extension already contains one sample application, with one extension under this application. In this section, you will install the Verse Developer Extension with this sample application and make it work with Verse.
+
 
 ### Download source code for Verse Developer Extension
 Download the [Verse Developer Extension for Google Chrome][1] source code to your local file system by clicking the __Download Zip__ button:
@@ -56,23 +58,27 @@ If you received an error related to `Failed to load extension from: ... Manifest
 
 
 ### How it works
-If you have reached this step, congratulations! You have successfully installed the extension and it is working for you, but how does this all work?
+If you have reached this step, congratulations! You have successfully installed the Verse Developer Extension with one default application, but how does this all work?
 
-The external application is registered via the file `src/widget.json`, which also adds the button to the bizCard.
+The external application is registered via the file `src/applications.json`, which also adds the button to the bizCard.
 
-Open `src/widget.json` in a text editor, you will see that it contains an array of object. Each object contains an application, with one or more extensions registered under. The URL for the external application is specified under the property `url`.
+Open `src/applications.json` in a text editor, you will see that it contains an array of object. Each object contains an application, with one or more extensions registered under. The URL for the external application is specified under the property `url`.
+
+You will notice that the URL contains a variable `profile.primaryEmail`, surrounded by a pair of angle brackets `<>`. `profile.primaryEmail` is part of the context structure for the bizCard that will get sent to the external application from Verse. The value for `profile.primaryEmail` will be calculated and automatically filled in when the external application is loaded. A context structure contains information related to Verse. For each of the extension points (bizCard, Mail Read View, and Mail Compose View), it will have its own context structure. To learn more about context structure and how they get sent, please refer to the [Further Readings](#further-readings) section.
 
 For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to be `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
-
-We have also indicated via the property `preferences` under `payload` that a context property called `profile.primaryEmail` will be sent to the web application as the value of the URL parameter called `searchFor`. Using query arguments is only one way of sending data from Verse to your application. In the next section, you will learn a second way: cross-document messaging.
 
 
 ### Further readings
 1. [Working with match patterns in `manifest.json`][2]
 2. [Introduction to  Verse extensions][3]
 3. [Introduction to Verse Developer Extension for Google Chrome][4]
+4. [Context Structure in Verse][5]
+5. [Sending data from Verse][6]
 
 [1]: {{site.verse-developer-chrome-ext}}
 [2]: https://developer.chrome.com/extensions/match_patterns
 [3]: {{site.baseurl}}/tutorials/ext-intro.html
 [4]: {{site.baseurl}}/tutorials/ext-widget-reg.html
+[5]: {{site.baseurl}}/tutorials/context-structure.html
+[6]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html

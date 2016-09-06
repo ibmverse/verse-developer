@@ -1,12 +1,12 @@
 ## 3. Add Mail Compose Action
 
-In this section, you will add an action button to the Mail Compose View, and register this new application with Verse.
+In this section, you will add a new application with one extension to `applications.json`, which will add an action button to the Mail Compose View. When the user clicks this action button, it will open your application in a new window, which will print out all the context structure of the Mail Compose View provided by Verse. In the next section, we will add an extra extension into this application.
 
 
-### Edit widget.json
-1. Open `src/widget.json` in your text editor.
+### Edit applications.json
+1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the array in `widget.json`, and save the file:
+2. Append the following object into the array in `applications.json`, and save the file:
   ```JavaScript
   {
     "app_id": "com.ibm.verselabs.actions.sample.mail",
@@ -63,22 +63,24 @@ Congratulations! You have successfully added an action button to the Mail Compos
 
 
 ### How it works
-In this section, a new application with its own `app_id` is added into `widget.json` and thus registered with Verse. Under this new app, we add an extension with its own `ext_id`. It is also possible to add multiple extensions within the same app. We will give you an example in the next section.
+In this section, a new application with its own `app_id` is added into `applications.json` and thus registered with Verse. Under this new app, we add an extension with its own `ext_id`. It is also possible to add multiple extensions within the same app. We will give you an example in the next section.
 
 You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 
 Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View.
 
-Under `payload`, instead of using `preferences`, the newly added extension uses `"features": ["core"]`. `preferences` is used to set the URL parameters, while `"features": ["core"]` indicates the application will be using cross-document messaging. This application will not be using URL to pass data from Verse, but will use cross-document messaging instead.
+Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external application via cross-document messaging.
 
 
 ### Further readings:
-1. [Working with the widget.json file][1]
+1. [Working with the applications.json file][1]
 2. [Sending data from Verse][2]
 3. [Introduction to cross-document messaging][3]
-4. [Adding multiple extensions][4]
+4. [Context Structure in Verse][4]
+5. [Adding multiple extensions][5]
 
 [1]: {{site.baseurl}}/tutorials/ext-manifest.html
 [2]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
 [3]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-[4]: {{site.baseurl/tutorials/to_be_written.html}}
+[4]: {{site.baseurl}}/tutorials/context-structure.html
+[5]: {{site.baseurl/tutorials/to_be_written.html}}
