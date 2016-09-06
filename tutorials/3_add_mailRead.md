@@ -1,6 +1,6 @@
 ## 3. Add Mail Read Action
 
-In this section, you will add an action button to the Mail Read View. Different from the last section, instead of registering it as a new application in `applications.json`, we will put it inside the application we added in the previous section, alongside the extension for the Mail Compose View.
+In this section, you will add an action button to the Mail Read View, which, when click, will bring out a separate window with information related to the Mail Read View sent from Verse. We will add this extension into the application we created in the last section which currently contains one extension for the Mail Compose View.
 
 
 ### Edit applications.json
@@ -20,16 +20,16 @@ In this section, you will add an action button to the Mail Read View. Different 
 
 
 ### Reload the extension and Verse
-As is explained in previous section, every time you make a change to the extension code, you will have to reload the extension from `chrome://extensions__`, then reload Verse, so Chrome and Verse will pick up your latest changes.
+As is explained in previous sections, every time you make a change to the extension code, you need to reload the extension from `chrome://extensions__`, then reload Verse, so Chrome and Verse will pick up your latest changes.
 
 
 ### Test it out
 1. In the Verse UI, click open a mail to inspect it in the Mail Read View.
 
-2. In the Mail Read View, click on the "More actions" button.
+2. In the Mail Read View, click on the __More actions__ button.
 ![more actions button](img/3_mailread_more.png)
 
-3. In the drop-down menu, click "Mail Read Action". This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.
+3. In the drop-down menu, click __Mail Read Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.
 ![mail read action button](img/3_mailread_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Read View, and registered it as a new extension for the Mail Read application we created in the last section.

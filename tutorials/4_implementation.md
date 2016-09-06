@@ -1,6 +1,6 @@
 ## 3. Create new application implementation
 
-In previous sections, you have learned how to register applications with Verse, and add action buttons to the Verse UI.
+In previous sections, you have learned how to register applications with Verse, add one or more extensions under each application, and add action buttons to the Verse UI.
 
 While registering those applications, in the `applications.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
 
@@ -67,9 +67,11 @@ Open `index.html` in a text editor, copy and paste the following code into the f
 This sample HTML will print out all the information sent from Verse for each of the action button added. In the case of the bizCard extension, it also prints out the query arguments appended to the URL. We have provided explanation of the code as comments inside this HTML file. We have also added some `console.log` to print out details of the event sent from Verse to the application. You can use the Chrome dev tool and open the console of the pop-up window to inspect the these event details.
 
 You can open the Chrome dev tools by right click somewhere on the web page:
+
 ![open Chrome dev tool](img/4_devtool.png)
 
 After the window for the dev tools is open, click on the __Console__ tab.
+
 ![console tab](img/4_console.png)
 
 
@@ -87,13 +89,17 @@ After installing, you can launch it by navigating to `chrome://apps` in your Chr
 ![Chrome web server](img/4_chrome_webServer.png)
 
 After the app is launched, click the __choose folder__ button, select the folder where you put the `index.html` file you just made.
+
 ![choose folder](img/4_choose_folder.png)
 
 In the __options__ section, check the option "Automatically show index.html"
+
 ![automatically show index.html](img/4_show_index.png)
+
 This will allow you to use the Web Server URL shown in the section below without appending `/index.html` after the URL.
 
 Afterwards, toggle the __Web Server: STARTED__ button to stop, then restart the web server. Once the server is started (indicated by a blue color on the button), you can access index.html by clicking on the link provided under the __Web Server URL(s)__ section, or by typing that address yourself into the browser. You shall see the web page you created in the previous step pops up in a separate window. There won't be much showing up on that page as you are not accessing it via Verse.
+
 ![server toggle button](img/4_toggle_server.png)
 
 
@@ -108,7 +114,7 @@ Try clicking the action buttons you added into Verse in previous steps, includin
 
 
 ### How it works
-When users click on the action buttons in Verse added via the `applications.json` file, Verse open your application in a separate window, waited for your application to get ready, and send the relevant data to your application, hosted at the URL you specified in `applications.json`.
+When users click on the action buttons in Verse added via the `applications.json` file, Verse will open your application in a separate window, wait for your application to get ready, and send the relevant data to your application, which is hosted at the URL specified in `applications.json`.
 
 Now you have learned how to register your application with Verse, add action buttons to the Verse UI, and get Verse send data to your application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own application for Verse!
 

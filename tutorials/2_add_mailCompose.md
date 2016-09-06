@@ -1,6 +1,6 @@
 ## 3. Add Mail Compose Action
 
-In this section, you will add a new application with one extension to `applications.json`, which will add an action button to the Mail Compose View. When the user clicks this action button, it will open your application in a new window, which will print out all the context structure of the Mail Compose View provided by Verse. In the next section, we will add an extra extension into this application.
+In this section, you will add a new application with one extension to `applications.json`. This extension will add an action button to the Mail Compose View, which, when clicked, will open your application in a separate window, which will print out all the context structure of the Mail Compose View provided by Verse. In the next section, we will add an extra extension into this application.
 
 
 ### Edit applications.json
@@ -46,17 +46,21 @@ In this section, you will add a new application with one extension to `applicati
 Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
 
 To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.
+
 ![reload extension](img/2_reload.png)
 
 
 ### Test it out
 1. In the Verse UI, click the __Compose__ button.
+
 ![compose button](img/2_compose_action.png)
 
 2. In the pop-up Mail Compose View, click on the __More actions__ button.
+
 ![more actions button](img/2_compose_more_action.png)
 
 3. In the drop-down menu, click __Mail Compose Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.
+
 ![mail compose action button](img/2_mailcompose_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant application with Verse.
