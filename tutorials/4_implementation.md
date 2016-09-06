@@ -66,6 +66,12 @@ Open `index.html` in a text editor, copy and paste the following code into the f
 ```
 This sample HTML will print out all the information sent from Verse for each of the action button added. In the case of the bizCard extension, it also prints out the query arguments appended to the URL. We have provided explanation of the code as comments inside this HTML file. We have also added some `console.log` to print out details of the event sent from Verse to the application. You can use the Chrome dev tool and open the console of the pop-up window to inspect the these event details.
 
+You can open the Chrome dev tools by right click somewhere on the web page:
+![open Chrome dev tool](img/4_devtool.png)
+
+After the window for the dev tools is open, click on the __Console__ tab.
+![console tab](img/4_console.png)
+
 
 ### Set up a web server
 You will need a place to host the web page you just created.

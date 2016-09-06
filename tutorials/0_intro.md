@@ -18,7 +18,7 @@ By following this tutorial, you are going to start with some pre-written sample 
 
 ### What you'll need
 * Chrome browser
-* [Web Server for Chrome][2] (alternatively, you can also use [FireFox Thimble][1], or your own web server of choice, including localhost)
+* [Web Server for Chrome][1] (alternatively, you can also use FireFox Thimble, or your own web server of choice, including localhost)
 * The Verse Developer Chrome Extension source code
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
@@ -28,5 +28,4 @@ This tutorial focuses on getting you started on building an application for Vers
 Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people use your application, you will need to share the edited extension with them and let them install it on their Chrome browsers too.
 
 
-[1]: https://thimble.mozilla.org/en-US/
-[2]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
+[1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb

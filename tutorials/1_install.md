@@ -46,7 +46,8 @@ If you received an error related to `Failed to load extension from: ... Manifest
 ### Reload Verse and test it out
 1. Open Verse in another tab in the Chrome browser. If you already have Verse open then please reload Verse. For Verse to pick up the extension you just installed, it is necessary to reload Verse.
 
-2. Click on a People Bubble to bring up the business card (bizCard).
+2. Hover over a People Bubble, and click on the `i` icon to bring up the business card (bizCard).
+![people bubble bizcard button](img/1_bizcard.png)
 
 3. Click on the arrow button located at the right bottom part of the bizCard to turn the bizCard around:
 ![bizCard more actions](img/1_bizcard_more_action.png)
