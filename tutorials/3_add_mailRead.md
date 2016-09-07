@@ -26,10 +26,10 @@ As is explained in previous sections, every time you make a change to the extens
 ### Test it out
 1. In the Verse UI, click open a mail to inspect it in the Mail Read View.
 
-2. In the Mail Read View, click on the __More actions__ button.
+2. In the Mail Read View, click on the __More actions__ button.  
 ![more actions button](img/3_mailread_more.png)
 
-3. In the drop-down menu, click __Mail Read Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.
+3. In the drop-down menu, click __Mail Read Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.  
 ![mail read action button](img/3_mailread_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Read View, and registered it as a new extension for the Mail Read application we created in the last section.

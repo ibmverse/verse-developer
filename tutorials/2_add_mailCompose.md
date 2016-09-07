@@ -45,22 +45,18 @@ In this section, you will add a new application with one extension to `applicati
 ### Reload the extension and Verse
 Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
 
-To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.
-
+To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
 ![reload extension](img/2_reload.png)
 
 
 ### Test it out
-1. In the Verse UI, click the __Compose__ button.
-
+1. In the Verse UI, click the __Compose__ button.  
 ![compose button](img/2_compose_action.png)
 
-2. In the pop-up Mail Compose View, click on the __More actions__ button.
-
+2. In the pop-up Mail Compose View, click on the __More actions__ button.  
 ![more actions button](img/2_compose_more_action.png)
 
-3. In the drop-down menu, click __Mail Compose Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.
-
+3. In the drop-down menu, click __Mail Compose Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.  
 ![mail compose action button](img/2_mailcompose_action.png)
 
 Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant application with Verse.
@@ -71,7 +67,7 @@ In this section, a new application with its own `app_id` is added into `applicat
 
 You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 
-Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View.
+Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose View. The reason is, for this example, we are writing an extension for a particular UI view (Mail Compose View), while in the previous extension, instead of extending a particular UI view, we are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People Bubble.
 
 Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external application via cross-document messaging.
 

@@ -4,13 +4,11 @@ The default Verse Developer Extension already contains one sample application, w
 
 
 ### Download source code for Verse Developer Extension
-Download the [Verse Developer Extension for Google Chrome][1] source code to your local file system by clicking the __Download Zip__ button:
-
-![Download ZIP](img/1_install_downloadZip.png)
+Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][1].
 
 Then unzip the folder at a location convenient to you.
 
-Alternatively, you can fork the repository instead of downloading it.
+Alternatively, you can fork the repository from [here][7] instead of downloading it.
 
 
 ### Update manifest.json
@@ -20,30 +18,25 @@ To do so:
 
 1. Open `src/manifest.json` file in a text editor.
 
-2. See if the value for the property `matches` contains the URL you will be using for Verse. The `*` at the end of a URL means matching 0 or more characters.
+2. See if the value for the property `matches` contains the URL you will be using for Verse. The `*` at the end of a URL means matching 0 or more characters. We recommend adding the `*`.
 
-3. If your Verse URL is already there, skip to the next step [Load unpacked extension](# load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. Don't forget to add a comma `,` at the end of the preceding URL before adding your own! Here is an example:
-
+3. If your Verse URL is already there, skip to the next step [Load unpacked extension](# load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. Don't forget to add a comma `,` at the end of the preceding URL before adding your own! Here is an example:  
 ![update manifest.json](img/1_update_manifest.png)
 
 
 ### Load unpacked extensions
 1. Open your Google Chrome browser, and type in the address bar: `chrome://extensions`.
 
-2. Select __Developer mode__, as unpacked extension could only be loaded in __Developer mode__:
-
+2. Select __Developer mode__, as unpacked extension could only be loaded in __Developer mode__.  
 ![Developer mode](img/1_developer_mode.png)
 
-3. Click the button __Load unpacked extension...__:
-
+3. Click the button __Load unpacked extension...__.  
 ![Load unpacked extension](img/1_load_unpacked_ext.png)
 
-4. In the pop-up file picker, select the `src` folder, which contains the `manifest.json` file:
-
+4. In the pop-up file picker, select the `src` folder, which contains the `manifest.json` file.  
 ![Select src](img/1_select_src.png)
 
-5. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `chrome://extensions` page:
-
+5. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `chrome://extensions` page.  
 ![Extension loaded](img/1_extension_loaded.png)
 
 If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder!
@@ -52,16 +45,13 @@ If you received an error related to `Failed to load extension from: ... Manifest
 ### Reload Verse and test it out
 1. Open Verse in another tab in the Chrome browser. If you already have Verse open then please reload Verse, otherwise it will not be able to pick up the latest change you made to the extension.
 
-2. Hover over a People Bubble, and click on the __i__ icon to bring up the business card (bizCard).
-
+2. Hover over a People Bubble, and click on the __i__ icon to bring up the business card (bizCard).  
 ![people bubble bizcard button](img/1_bizcard.png)
 
-3. Click on the __arrow__ button located at the right bottom part of the bizCard to turn the bizCard around:
-
+3. Click on the __arrow__ button located at the right bottom part of the bizCard to turn the bizCard around.  
 ![bizCard more actions](img/1_bizcard_more_action.png)
 
-4. At the back of the bizCard you will see a new button called __Person Action__:
-
+4. At the back of the bizCard you will see a new button called __Person Action__.  
 ![bizCard action](img/1_bizcard_action.png)
 
 5. Click on the __Person Action__ button. This will load a web application in a separate window, which uses information sent from the Verse bizCard.
@@ -86,9 +76,10 @@ For adding the UI button on the bizCard, we specified `person` as the value for 
 4. [Context Structure in Verse][5]
 5. [Sending data from Verse][6]
 
-[1]: {{site.verse-developer-chrome-ext}}
+[1]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/archive/master.zip
 [2]: https://developer.chrome.com/extensions/match_patterns
 [3]: {{site.baseurl}}/tutorials/ext-intro.html
 [4]: {{site.baseurl}}/tutorials/ext-widget-reg.html
 [5]: {{site.baseurl}}/tutorials/context-structure.html
 [6]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[7]: {{site.baseurl}}
