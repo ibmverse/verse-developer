@@ -52,9 +52,12 @@ Then unzip the folder at a location convenient to you.
 
 Alternatively, you can fork the repository from [here][7] instead of downloading it.
 
+Once you have unzipped the folder, you may notice that there is an `src` folder. The `src` folder will be the folder you are going to work with. In this tutorial, you will only need to edit the `manifest.json` file and `applications.json` file within the `src` folder.
+
+We have also provided you with `src-step2`, `src-step3`, and `src-step4` folders. Each folder shows you how your code would look like after finishing each step in the tutorial. So if you get stuck, you can take a look at them.
 
 ### Update manifest.json
-In the `manifest.json` file there is a `matches` property which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. So if the Verse URL you are currently using is not in this array, you will have to update the `manifest.json` file to include the Verse URL you'll be using.
+In the `src/manifest.json` file there is a `matches` property which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. So if the Verse URL you are currently using is not in this array, you will have to update the `manifest.json` file to include the Verse URL you'll be using.
 
 To do so:
 
