@@ -43,6 +43,14 @@
         "payload": {},
         "path": "mail.compose",
         "title": "Mail Compose Action"
+      },
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verselabs.action.sample.mailRead",
+        "name": "Mail Read Action Sample",
+        "payload": {},
+        "path": "mail.read",
+        "title": "Mail Read Action"
       }
     ],
 

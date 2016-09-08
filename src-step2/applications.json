@@ -28,36 +28,5 @@
     "services": [
       "Verse"
     ]
-  },
-
-  {
-    "app_id": "com.ibm.verselabs.actions.sample.mail",
-    "name": "Mail Sample",
-    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
-
-    "extensions": [
-      {
-        "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verselabs.action.sample.mailCompose",
-        "name": "Mail Compose Action Sample",
-        "payload": {},
-        "path": "mail.compose",
-        "title": "Mail Compose Action"
-      }
-    ],
-
-    "payload": {
-      "features": [
-        "core"
-      ],
-      "renderParams": {
-        "width": "900",
-        "height": "500"
-      }
-    },
-
-    "services": [
-      "Verse"
-    ]
   }
 ]
