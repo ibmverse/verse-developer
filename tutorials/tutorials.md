@@ -161,7 +161,8 @@ In this section, you will add a new application with one extension to `applicati
   }
 
   ```
-
+If you are using Git, the diffs for the file `applications.json` before and after edit should show up as such:  
+![update applications json](img/2_update_applications.png)
 
 ### Reload the extension and Verse
 Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
@@ -219,7 +220,8 @@ In this section, you will add an action button to the Mail Read View, which, whe
     "title": "Mail Read Action"
   }
   ```
-
+If you are using Git, the diffs for the file `applications.json` before and after edit should show up as such:  
+![update applications json](img/3_update_applications.png)
 
 ### Reload the extension and Verse
 As is explained in previous sections, every time you make a change to the extension code, you need to reload the extension from `chrome://extensions__`, then reload Verse, so Chrome and Verse will pick up your latest changes.
