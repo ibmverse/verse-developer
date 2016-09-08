@@ -13,6 +13,6 @@
   }],
   "web_accessible_resources": [
     "page.js",
-    "widget.json"
+    "applications.json"
   ]
 }
