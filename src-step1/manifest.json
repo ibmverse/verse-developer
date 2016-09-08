@@ -7,7 +7,8 @@
     "matches": [
       "https://mail.notes.na.collabserv.com/vers*",
       "https://mail.notes.ap.collabserv.com/vers*",
-      "https://mail.notes.ce.collabserv.com/vers*"
+      "https://mail.notes.ce.collabserv.com/vers*",
+      "https://<your-domain-here>/vers*"
     ],
     "run_at": "document_start"
   }],
