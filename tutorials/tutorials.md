@@ -133,14 +133,14 @@ In this section, you will add a new application with one extension to `applicati
 2. Append the following object into the array in `applications.json`, and save the file:
   ```JavaScript
   {
-    "app_id": "com.ibm.verselabs.actions.sample.mail",
+    "app_id": "com.ibm.verse.actions.sample.mail",
     "name": "Mail Sample",
     "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
 
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verselabs.action.sample.mailCompose",
+        "ext_id": "com.ibm.verse.action.sample.mailCompose",
         "name": "Mail Compose Action Sample",
         "payload": {},
         "path": "mail.compose",
@@ -212,11 +212,11 @@ In this section, you will add an action button to the Mail Read View, which, whe
 ### Edit applications.json
 1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the `extensions` belonging to the app with `app_id`: `com.ibm.verselabs.actions.sample.mail`, and save the file:
+2. Append the following object into the `extensions` belonging to the app with `app_id`: `com.ibm.verse.actions.sample.mail`, and save the file:
   ```JavaScript
   {
     "type": "com.ibm.verse.action",
-    "ext_id": "com.ibm.verselabs.action.sample.mailRead",
+    "ext_id": "com.ibm.verse.action.sample.mailRead",
     "name": "Mail Read Action Sample",
     "payload": {},
     "path": "mail.read",
