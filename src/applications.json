@@ -1,13 +1,13 @@
 [
   {
-    "app_id": "com.ibm.verselabs.actions.sample",
+    "app_id": "com.ibm.verse.actions.sample.person",
     "name": "Person Sample",
-    "url": "https://yourcompany/personSample.html",
+    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=<profile.primaryEmail>",
 
     "extensions": [
       {
         "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verselabs.action.sample.person",
+        "ext_id": "com.ibm.verse.action.sample.person",
         "name": "Person Action Sample",
         "payload": {},
         "object": "person",
@@ -18,12 +18,6 @@
     "payload": {
       "features": [
         "core"
-      ],
-      "preferences": [
-        {
-          "name": "searchFor",
-          "value": "profile.primaryEmail"
-        }
       ],
       "renderParams": {
         "width": "900",

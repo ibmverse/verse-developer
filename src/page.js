@@ -9,29 +9,29 @@ document.addEventListener("WidgetRegistryReady", function(event) {
     console.error("Fail to get widgetRegistry!");
     return;
   }
-  
-  var jsonString = localStorage.getItem('widget-json');
+
+  var jsonString = localStorage.getItem('applications-json');
   if(jsonString) {
-    var widgets = [];
+    var apps = [];
     try {
-      widgets = JSON.parse(jsonString);
+      apps = JSON.parse(jsonString);
     } catch (error) {
-      console.error("Fail to parse widget.json: %O", error);
+      console.error("Fail to parse applications.json: %O", error);
     }
-    
-    // the widget.json file can define an array of widgets or a single widget
-    if(widgets instanceof Array) {
-      widgets.forEach(function(widgetObj) {
+
+    // the applications.json file can define an array of applications or a single application
+    if(apps instanceof Array) {
+      apps.forEach(function(appObj) {
         try {
-          widgetRegistry.addWidgetFromJSON(widgetObj);
+          widgetRegistry.addWidgetFromJSON(appObj);
         } catch (error) {
-          console.error("Fail to add a widget %O from widget.json file: %O", widgetObj, error);
+          console.error("Fail to add an application %O from applications.json file: %O", appObj, error);
         }
-      })
+      });
     } else {
-      widgetRegistry.addWidgetFromJSON(widgets);
+      widgetRegistry.addWidgetFromJSON(apps);
     }
   } else {
-    console.error("Fail to read widget.json.");
+    console.error("Fail to read applications.json.");
   }
 }, false);
