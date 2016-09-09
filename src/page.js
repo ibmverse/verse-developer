@@ -10,7 +10,7 @@ document.addEventListener("WidgetRegistryReady", function(event) {
     return;
   }
 
-  var jsonString = localStorage.getItem('app-json');
+  var jsonString = localStorage.getItem('applications-json');
   if(jsonString) {
     var apps = [];
     try {
