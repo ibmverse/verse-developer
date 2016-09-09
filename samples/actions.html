@@ -19,8 +19,8 @@
 
         console.log(event);
 
-        document.getElementById("origin").innerHTML = "Message received. Event origin: "
-          + "<hr><pre>" + event.origin + "</pre>";
+        document.getElementById("messages").insertAdjacentHTML('beforeend', "Message received: "
+          + "<hr><pre>" + JSON.stringify(eventData, null, 2) + "</pre>");
 
         /**
          * Message from Verse to check whether your web application is ready.
@@ -37,21 +37,12 @@
         }
 
         /**
-         * Print out the Verse API data received in the api-data div.
-         */
-        if (eventData.verseApiType === "com.ibm.verse.action.clicked") {
-          var verseApiData = eventData.verseApiData;
-          document.getElementById("api-data").innerHTML = "Verse API Data" + "<hr><pre>"
-            + JSON.stringify(verseApiData, null, 2) + "</pre>";
-
-          /**
-            * Retrieve data from URL for the Person Sample,
-            * and print it in the query-str div.
-            */
-          if (verseApiData.actionId === "com.ibm.verse.action.sample.person") {
-            document.getElementById("query-str").innerHTML = "Query String for Person Action Sample"
-            + "<hr><pre>" + window.location.search + "</pre>";
-          }
+          * Retrieve data from URL for the Person Sample,
+          * and print it in the query-str div.
+          */
+        if (eventData.verseApiType === "com.ibm.verse.action.clicked" && eventData.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
+          document.getElementById("query-str").innerHTML = "Query String for Person Action Sample"
+          + "<hr><pre>" + window.location.search + "</pre>";
         }
       }, false);
     </script>
@@ -59,8 +50,7 @@
 
   <body>
     <h1>Verse Developer Action Sample</h1>
-    <div id="origin"></div>
     <div id="query-str"></div>
-    <div id="api-data"></div>
+    <div id="messages"></div>
   </body>
 </html>
