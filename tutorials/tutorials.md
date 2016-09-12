@@ -1,6 +1,6 @@
 # Your First Application for Verse
 
-This tutorial will get you started writing an application for Verse. There is much more detailed documentation available [here][16], but it's not required to complete the tutorials.
+This tutorial will get you started writing an Application for Verse. There is much more detailed documentation available [here][16], but it's not required to complete the tutorials.
 
 Structure of the Tutorial:
 
@@ -15,7 +15,7 @@ Structure of the Tutorial:
 ## 1. Introduction
 ### What is the Verse Developer Extension for Google Chrome?
 
-The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports action extensions which are displayed in IBM Verse as either a button or a link. Action extensions can be contributed to the following parts of the IBM Verse user interface:
+The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an Application to be registered with IBM Verse, where each Application contains a set of customised capabilities. One or more Applications can be registered using the tool. Each Application can contain one or more Extensions. IBM Verse supports action Extensions which are displayed in IBM Verse as either a button or a link. Action Extensions can be contributed to the following parts of the IBM Verse user interface:
 * Business Card (bizCard) View
 * Mail Compose View
 * Mail Read View
@@ -24,8 +24,8 @@ The Verse Developer Extension for Google Chrome is a tool for developers who are
 This tutorial starts with a sample Application for you to add functionality to the Business Card (bizCard) in Verse. Then you will write another Application which adds functionality to both the Mail Compose and Mail Read Views.
 
 ### What you'll learn
-* How to add actions into the Verse UI for your application.
-* How to transfer data from Verse to your application.
+* How to add actions into the Verse UI for your Application.
+* How to transfer data from Verse to your Application.
 
 ### What you'll need
 * Chrome browser
@@ -34,14 +34,14 @@ This tutorial starts with a sample Application for you to add functionality to t
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
-This tutorial focuses on getting you started on building an application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further Reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
+This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further Reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
 
-Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people test your application, you will need to share the edited extension with them and let them install it on their Chrome browsers too. IBM will be providing an Application Registry to allow you to deploy your application in production.
+Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people test your Application, you will need to share the edited extension with them and let them install it on their Chrome browsers too. IBM will be providing an Application Registry to allow you to deploy your Application in production.
 
 ---
 
 ## 2. Installing the Verse Developer Extension for Google Chrome
-In this section, you will install the default Verse Developer Extension and make it work with Verse. This Verse Developer Extension already has one sample application, which contains one extension under it.
+In this section, you will install the default Verse Developer Extension and make it work with Verse. This Verse Developer Extension already has one sample Application, which contains one Extension under it.
 
 ### Download source code for Verse Developer Extension
 Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
@@ -97,19 +97,19 @@ If you received an error related to `Failed to load extension from: ... Manifest
 4. At the back of the bizCard you will see a new button called __Person Action__.  
 ![bizCard action](img/1_bizcard_action.png)
 
-5. Click on the __Person Action__ button. This will load a web application in a separate window, which uses information sent from the Verse bizCard.
+5. Click on the __Person Action__ button. This will load a web Application in a separate window, which uses information sent from the Verse bizCard.
 
 
 ### How it works
-If you have reached this step, congratulations! You have successfully installed the Verse Developer Extension with one default application, but how does this all work?
+If you have reached this step, congratulations! You have successfully installed the Verse Developer Extension with one default Application, but how does this all work?
 
-The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Action__ button to the bizCard.
+The external Application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Action__ button to the bizCard.
 
-Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `url`.
+Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an Application, with one or more Extensions registered under it. The URL for the external Application is specified under the property `url`.
 
-The URL contains the variable `profile.primaryEmail`, surrounded by a pair of angle brackets `<>`. The value for this variable will be calculated and automatically filled in when the external application is loaded.
+The URL contains the variable `profile.primaryEmail`, surrounded by a pair of angle brackets `<>`. The value for this variable will be calculated and automatically filled in when the external Application is loaded.
 
-`profile.primaryEmail` is part of the *context structure* for the bizCard that gets sent to the external application from Verse. A context structure contains information related to Verse. Each of the extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
+`profile.primaryEmail` is part of the *context structure* for the bizCard that gets sent to the external Application from Verse. A context structure contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
 
 To learn more about context structure and how they get sent, please refer to the __Further Reading__ section below.
 
@@ -126,13 +126,13 @@ For adding the UI button on the bizCard, we specified `person` as the value for 
 ---
 
 ## 3. Add Action for Mail Compose
-In this section, you will add a new application which consists of one extension to Verse. The extension will add an action button to the Mail Compose View. When the user clicks on this button, an external application will be opened in a separate window, and print out the details of the event data sent from Verse. In the next section, we will add a second extension into this application.
+In this section, you will add a new Application which consists of one Extension to Verse. The Extension will add an action button to the Mail Compose View. When the user clicks on this button, an external Application will be opened in a separate window, and print out the details of the event data sent from Verse. In the next section, we will add a second Extension into this Application.
 
 
 ### Edit applications.json
 1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding application before adding your own__.
+2. Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Application before adding your own__.
   ```JavaScript
   {
     "app_id": "com.ibm.verse.actions.sample.mail",
@@ -183,38 +183,38 @@ To reload the extension, open your Chrome browser, go to `chrome://extensions`, 
 2. In the pop-up Mail Compose View, click on the __More actions__ button.  
 ![more actions button](img/2_compose_more_action.png)
 
-3. In the drop-down menu, click __Mail Compose Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.  
+3. In the drop-down menu, click __Mail Compose Action__. This will bring up the web Application you just registered with the Chrome extension, with information related to the Mail Compose View passed on from Verse.  
 ![mail compose action button](img/2_mailcompose_action.png)
 
-Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant application with Verse.
+Congratulations! You have successfully added an action button to the Mail Compose View, and registered the relevant Application with Verse.
 
 
 ### How it works
-In this section, a new application with its own `app_id` is added into `applications.json` and thus registered with Verse. Under this new app, we add an extension with its own `ext_id`. It is also possible to add multiple extensions within the same application. We will give you an example in the next section.
+In this section, a new Application with its own `app_id` is added into `applications.json` and thus registered with Verse. Under this new app, we add an Extension with its own `ext_id`. It is also possible to add multiple Extensions within the same Application. We will give you an example in the next section.
 
-You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
+You might have noticed that some of the properties in the newly added Application are quite different from the previous bizCard Application.
 
-Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose View. The reason is, for this example, we are writing an extension for a particular UI view (Mail Compose View), while in the previous extension, instead of extending a particular UI view, we are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People Bubble.
+Under `extensions`, instead of using `object: "person"`, our new Application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose View. The reason is, for this example, we are writing an Extension for a particular UI view (Mail Compose View), while in the previous Extension, instead of extending a particular UI view, we are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People Bubble.
 
-Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external application via cross-document messaging.
+Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
 
 ### Further reading:
 1. [Working with the applications.json file][9]
 2. [Sending data from Verse][10]
 3. [Introduction to cross-document messaging][11]
 4. [Context Structure in Verse][12]
-5. [Adding multiple extensions][13]
+5. [Adding multiple Extensions][13]
 
 ---
 
 ## 4. Add Action for Mail Read
-In this section, you will add an action button to the Mail Read View, which, when click, will bring out a separate window with information related to the Mail Read View sent from Verse. We will add this extension into the application we created in the last section which currently contains one extension for the Mail Compose View.
+In this section, you will add an action button to the Mail Read View, which, when click, will bring out a separate window with information related to the Mail Read View sent from Verse. We will add this Extension into the Application we created in the last section which currently contains one Extension for the Mail Compose View.
 
 
 ### Edit applications.json
 1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the `extensions` belonging to the application with `app_id`: `com.ibm.verse.actions.sample.mail`, and save the file. __Don't forget to add a comma `,` at the end of the preceding extension before adding your own__.
+2. Append the following object into the `extensions` belonging to the Application with `app_id`: `com.ibm.verse.actions.sample.mail`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Extension before adding your own__.
   ```JavaScript
   {
     "type": "com.ibm.verse.action",
@@ -238,25 +238,25 @@ As explained in previous sections, every time you make a change to the extension
 2. In the Mail Read View, click on the __More actions__ button.  
 ![more actions button](img/3_mailread_more.png)
 
-3. In the drop-down menu, click __Mail Read Action__. This will bring up the external application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.  
+3. In the drop-down menu, click __Mail Read Action__. This will bring up the web Application you just registered with the Chrome extension, with information related to the Mail Read View passed on from Verse.  
 ![mail read action button](img/3_mailread_action.png)
 
-Congratulations! You have successfully added an action button to the Mail Read View, and registered it as a new extension for the Mail Read application we created in the last section.
+Congratulations! You have successfully added an action button to the Mail Read View, and registered it as a new Extension for the Mail Read Application we created in the last section.
 
 
 ### How it works
-In the last section, you have learned how to add a new application with a new extension to `applications.json`: You append the new application object into the array in `applications.json`. In this section, you have learned how to add multiple extensions into the same application registered with `applications.json`: you append the new extension into the `extensions` array of the specific application.
+In the last section, you have learned how to add a new Application with a new Extension to `applications.json`: You append the new Application object into the array in `applications.json`. In this section, you have learned how to add multiple Extensions into the same Application registered with `applications.json`: you append the new Extension into the `extensions` array of the specific Application.
 
-Configuration for the Mail Read extension you just added in the current section is quite similar to the Mail Compose extension you added in the previous section.
+Configuration for the Mail Read Extension you just added in the current section is quite similar to the Mail Compose Extension you added in the previous section.
 
-In the Mail Read extension, for the property `path`, instead of setting it to `mail.compose`, you are setting it to `mail.read`. This indicates the action button should be located in the Mail Read View.
+In the Mail Read Extension, for the property `path`, instead of setting it to `mail.compose`, you are setting it to `mail.read`. This indicates the action button should be located in the Mail Read View.
 
 ---
 
 ## 5. Create New Application Implementation
-In previous sections, you have learned how to register applications with Verse, add one or more extensions under each application, and add action buttons to the Verse UI.
+In previous sections, you have learned how to register Applications with Verse, add one or more Extensions under each Application, and add action buttons to the Verse UI.
 
-While registering those applications, in the `applications.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
+While registering those Applications, in the `applications.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
 
 
 ### Create web page
@@ -266,7 +266,7 @@ Create an empty folder on your laptop, then create a file called `index.html` in
 
 Open `index.html` in a text editor, copy and paste our sample HTML code from [here][15] into the file, then save.
 
-The HTML will print out details of the event sent from Verse to the application for each of the action button added. If there is any error occurs, it will be printed out in the div on the top right corner of the page. In the case of the bizCard extension, it will also print out the query arguments appended to the URL.
+The HTML will print out details of the event sent from Verse to the Application for each of the action button added. If there is any error occurs, it will be printed out in the div on the top right corner of the page. In the case of the bizCard Extension, it will also print out the query arguments appended to the URL.
 
 
 ### Set up a web server
@@ -281,7 +281,7 @@ Otherwise, you can use the Chrome Web Server to set up a localhost on your machi
 2. After installing, you can launch it by navigating to `chrome://apps` in your Chrome browser, and click on the icon for the Chrome Web Server:  
 ![Chrome web server](img/4_chrome_webServer.png)
 
-3. After the application is launched, click the __choose folder__ button, select the folder where you put the `index.html` file you just made.  
+3. After the Application is launched, click the __choose folder__ button, select the folder where you put the `index.html` file you just made.  
 ![choose folder](img/4_choose_folder.png)
 
 4. In the __options__ section, check the option "Automatically show index.html".  
@@ -293,7 +293,7 @@ This will allow you to use the Web Server URL shown in the section below without
 
 
 ### Edit applications.json to point to your new URL
-Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the application under the section __Web Server URL(s)__.
+Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the Application under the section __Web Server URL(s)__.
 
 
 ### Test it out
@@ -303,9 +303,9 @@ Try clicking the action buttons you added into Verse in previous steps, includin
 
 
 ### How it works
-When users click on the action buttons in Verse added via the `applications.json` file, Verse will open your application in a separate window, wait for your application to get ready, and send the relevant data to your application, which is hosted at the URL specified in `applications.json`.
+When users click on the action buttons in Verse added via the `applications.json` file, Verse will open your Application in a separate window, wait for your Application to get ready, and send the relevant data to your Application, which is hosted at the URL specified in `applications.json`.
 
-Now you have learned how to register your application with Verse, add action buttons to the Verse UI, and get Verse send data to your application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own application for Verse!
+Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own Application for Verse!
 
 
 ### Further reading
@@ -314,7 +314,7 @@ Now you have learned how to register your application with Verse, add action but
 ---
 
 ## Documentation
-Want to dig into the details? Here is a link to the documentation, for a comprehensive, structured reference to developing applications for Verse:
+Want to dig into the details? Here is a link to the documentation, for a comprehensive, structured reference to developing Applications for Verse:
 
 [Documentation][16]
 
