@@ -8,7 +8,7 @@ Structure of the Tutorial:
 2. [Installing the Verse Developer Extension for Google Chrome](#2-installing-the-verse-developer-extension-for-google-chrome)
 3. [Add Action for Mail Compose](#3-add-action-for-mail-compose)
 4. [Add Action for Mail Read](#4-add-action-for-mail-read)
-5. [Create New Application Implementation](#5-create-new-application-implementation)
+5. [Create a New Application Implementation](#5-create-a-new-application-implementation)
 
 ---
 
@@ -244,28 +244,26 @@ Congratulations! You have successfully added an action button to the Mail Read V
 
 
 ### How it works
-In the last section, you have learned how to add a new Application with a new Extension to `applications.json`: You append the new Application object into the array in `applications.json`. In this section, you have learned how to add multiple Extensions into the same Application registered with `applications.json`: you append the new Extension into the `extensions` array of the specific Application.
+In the previous section you learned how to add an Application containing one Extension to Verse by adding the new Application definition into the `applications` array in `applications.json`. In this section you learned how to add an additional Extension into this Application by adding the new Extension into the `extensions` array of the specific Application.
 
-Configuration for the Mail Read Extension you just added in the current section is quite similar to the Mail Compose Extension you added in the previous section.
-
-In the Mail Read Extension, for the property `path`, instead of setting it to `mail.compose`, you are setting it to `mail.read`. This indicates the action button should be located in the Mail Read View.
+The configuration differences between the new Mail Read Extension and the Mail Compose Extension previously added are slight. For example, in the Mail Read Extension the `path` property is set to `mail.read` rather than `mail.compose`. This indicates the action button should be located in the Mail Read View.
 
 ---
 
-## 5. Create New Application Implementation
-In previous sections, you have learned how to register Applications with Verse, add one or more Extensions under each Application, and add action buttons to the Verse UI.
+## 5. Create a New Application Implementation
+The previous sections have shown you how to register Applications with Verse, add one or more Extensions under each Application and add action buttons to the Verse UI.
 
-While registering those Applications, in the `applications.json` file, we set the value of the `url` property to be the address of a sample web page we have set up for you. Now it is time for you to set up your own implementation.
+To register these Applications, you were relying on a sample web page used in the `url` property element in `applications.json`. You will now implement your own web page.
 
 
-### Create web page
-In this step you are going to create an HTML page, which will pop up when the users click on the action buttons you added into Verse during the previous sections.
+### Create a web page
+In this step you are going to create an HTML page, which will pop up when the user clicks on the action buttons previously added to Verse.
 
-Create an empty folder on your laptop, then create a file called `index.html` inside the folder.
+Create an empty folder on your laptop and create a file called `index.html` inside the folder.
 
-Open `index.html` in a text editor, copy and paste our sample HTML code from [here][15] into the file, then save.
+Open `index.html` in a text editor, copy and paste our sample HTML code from [here][15] into the file and then save the file.
 
-The HTML will print out details of the event sent from Verse to the Application for each of the action button added. If there is any error occurs, it will be printed out in the div on the top right corner of the page. In the case of the bizCard Extension, it will also print out the query arguments appended to the URL.
+The web page shows details of the event sent from Verse to the Application for each of the action buttons added. In the case of the bizCard Extension, it will also print out the query arguments which were appended to the URL.
 
 
 ### Set up a web server
@@ -280,7 +278,7 @@ Otherwise, you can use the Chrome Web Server to set up a localhost on your machi
 2. After installing, you can launch it by navigating to `chrome://apps` in your Chrome browser, and click on the icon for the Chrome Web Server:  
 ![Chrome web server](img/4_chrome_webServer.png)
 
-3. After the Application is launched, click the __choose folder__ button, select the folder where you put the `index.html` file you just made.  
+3. After the Application is launched, click the __choose folder__ button and select the folder where you saved your `index.html` file.  
 ![choose folder](img/4_choose_folder.png)
 
 4. In the __options__ section, check the option "Automatically show index.html".  
