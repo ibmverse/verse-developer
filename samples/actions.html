@@ -19,6 +19,8 @@
 
         console.log(event);
 
+        document.getElementById("status").innerHTML = "";
+
         document.getElementById("messages").insertAdjacentHTML('beforeend', "Message received: "
           + "<hr><pre>" + JSON.stringify(eventData, null, 2) + "</pre>");
 
@@ -50,6 +52,7 @@
 
   <body>
     <h1>Verse Developer Action Sample</h1>
+    <div id="status">Waiting for messages from Verse.</div>
     <div id="query-str"></div>
     <div id="messages"></div>
   </body>
