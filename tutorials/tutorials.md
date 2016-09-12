@@ -109,19 +109,19 @@ Open `src/applications.json` in a text editor. It contains an array of objects. 
 
 The URL contains the variable `profile.primaryEmail`, surrounded by a pair of angle brackets `<>`. The value for this variable will be calculated and automatically filled in when the external Application is loaded.
 
-`profile.primaryEmail` is part of the *context structure* for the bizCard that gets sent to the external Application from Verse. A context structure contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
+`profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external Application from Verse. A context object contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
 
-To learn more about context structure and how they get sent, please refer to the __Further Reading__ section below.
+To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the __Further Reading__ section below.
 
 For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
 
 
 ### Further reading
-1. [Working with match patterns in `manifest.json`][2]
-2. [Introduction to Verse extensions][3]
-3. [Introduction to the Verse Developer Extension for Google Chrome][4]
-4. [Context Structure in Verse][5]
-5. [Sending data from Verse][6]
+1. [Introduction to Verse extensibility][3]
+2. [Editing the `manifest.json` file][4]
+3. [Working with match patterns in `manifest.json`][2]
+4. [Verse API data][5]
+5. [Sending and receiving data from Verse][6]
 
 ---
 
@@ -200,10 +200,9 @@ Under `payload`, we are still using `"features": ["core"]` to ask Verse to send 
 
 ### Further reading:
 1. [Working with the applications.json file][9]
-2. [Sending data from Verse][10]
+2. [Sending and receiving data from Verse][6]
 3. [Introduction to cross-document messaging][11]
-4. [Context Structure in Verse][12]
-5. [Adding multiple Extensions][13]
+4. [Verse API data][5]
 
 ---
 
@@ -323,19 +322,16 @@ Want to dig into the details? Here is a link to the documentation, for a compreh
 [1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
 [8]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/archive/master.zip
 [2]: https://developer.chrome.com/extensions/match_patterns
-[3]: {{site.baseurl}}/tutorials/ext-intro.html
-[4]: {{site.baseurl}}/tutorials/ext-widget-reg.html
-[5]: {{site.baseurl}}/tutorials/context-structure.html
-[6]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
-[7]: {{site.baseurl}}
+[3]: {{site.baseurl}}/reference.html#introduction-to-ibm-verse-extensibility
+[4]: {{site.baseurl}}/reference.html#editing-the-manifest
+[5]: {{site.baseurl}}/reference.html#verse-api-data
+[6]: {{site.baseurl}}/reference.html#sending-and-receiving-data
+[7]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/
 
-[9]: {{site.baseurl}}/tutorials/ext-manifest.html
-[10]: {{site.baseurl}}/tutorials/ext-send-data-to-app.html
+[9]: {{site.baseurl}}/reference.html#the-applicationsjson-file
 [11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
-[12]: {{site.baseurl}}/tutorials/context-structure.html
-[13]: {{site.baseurl/tutorials/to_be_written.html}}
 
-[14]:{{site.baseurl}}/tutorials/ext-debugging.html
-[15]:https://git.swg.usma.ibm.com/raw/IBM-Verse/verse-developer-chrome-ext/gh-pages/samples/actions.html
+[14]:{{site.baseurl}}/reference.html#troubleshooting
+[15]:https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/gh-pages/samples/actions.html
 
-[16]:https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/
+[16]:{{site.baseurl}}/reference.html
