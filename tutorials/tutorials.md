@@ -323,16 +323,16 @@ Want to dig into the details? Here is a link to the documentation, for a compreh
 [1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
 [8]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/archive/master.zip
 [2]: https://developer.chrome.com/extensions/match_patterns
-[3]: {{site.baseurl}}/reference.html#introduction-to-ibm-verse-extensibility
-[4]: {{site.baseurl}}/reference.html#editing-the-manifest
-[5]: {{site.baseurl}}/reference.html#verse-api-data
-[6]: {{site.baseurl}}/reference.html#sending-and-receiving-data
+[3]: {{site.baseurl}}/reference/reference.html#introduction-to-ibm-verse-extensibility
+[4]: {{site.baseurl}}/reference/reference.html#editing-the-manifest
+[5]: {{site.baseurl}}/reference/reference.html#verse-api-data
+[6]: {{site.baseurl}}/reference/reference.html#sending-and-receiving-data
 [7]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/
 
-[9]: {{site.baseurl}}/reference.html#the-applicationsjson-file
+[9]: {{site.baseurl}}/reference/reference.html#the-applicationsjson-file
 [11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 
-[14]:{{site.baseurl}}/reference.html#troubleshooting
+[14]:{{site.baseurl}}/reference/reference.html#troubleshooting
 [15]:https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/gh-pages/samples/actions.html
 
-[16]:{{site.baseurl}}/reference.html
+[16]:{{site.baseurl}}/reference/reference.html
