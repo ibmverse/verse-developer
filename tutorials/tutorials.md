@@ -285,22 +285,25 @@ Otherwise, you can use the Chrome Web Server to set up a localhost on your machi
 ![automatically show index.html](img/4_show_index.png)  
 This will allow you to use the Web Server URL shown in the section below without appending `/index.html` after the URL.
 
-5. Toggle the __Web Server: STARTED__ button to stop, then restart the web server. Once the server is started (indicated by a blue color on the button), you can access index.html by clicking on the link provided under the __Web Server URL(s)__ section, or by typing that address yourself into the browser. You shall see the web page you created in the previous step pops up in a separate window. There won't be much showing up on that page as you are not accessing it via Verse.  
+5. Toggle the __Web Server: STARTED__ button to stop, then restart the web server. Once the server is started (indicated by a blue color on the button), you can access index.html by clicking on the link provided under the __Web Server URL(s)__ section, or by typing that address yourself into the browser.  
 ![server toggle button](img/4_toggle_server.png)
 
+  The web page you created will open in a separate window. As you are not accessing the page via Verse, you won't see any Verse API data at this point.  
+![sample page](img/4_sample_page.png)
 
 ### Edit applications.json to point to your new URL
 Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the Application under the section __Web Server URL(s)__.
 
 
 ### Test it out
-Now try it out in Verse. Don't forget to reload the extension, then Verse to pick up your latest code changes!
+Now try it out in Verse: first reload the extension and then reload Verse to pick up your latest code changes.
 
-Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section [Create web page](#create-web-page) and hosted at the URL you specified in `applications.json`.
+Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section. It should be populated with some Verse API data now as the web Application is accessed via Verse.  
+![sample page with Verse data](img/4_webpage_with_verse_data.png)
 
 
 ### How it works
-When users click on the action buttons in Verse added via the `applications.json` file, Verse will open your Application in a separate window, wait for your Application to get ready, and send the relevant data to your Application, which is hosted at the URL specified in `applications.json`.
+When a user clicks on a new action button added to Verse via `applications.json`, Verse contacts your Application at the URL specified in the file and opens it in a new window. Once your Application is ready, Verse sends it the relevant data which is then displayed in your Application's window.
 
 Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own Application for Verse!
 
