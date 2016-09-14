@@ -13,5 +13,4 @@ markdown: kramdown
 
 collections: 
   tutorials:
-  reference:
     output: true
