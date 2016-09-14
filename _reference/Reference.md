@@ -1,9 +1,12 @@
 ---
-title: Verse Extensibility Documentation
----
-#Verse Extensibility Documentation
+[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
 
-###Contents
+layout: tutorial
+title:  "Verse Extensibility Documentation"
+categories: tutorial_action_ext
+---
+
+# {{page.title}}
 
 * [Introduction to IBM Verse Extensibility](#introduction-to-ibm-verse-extensibility)
 * [Extensibility Concepts](#extensibility-concepts)
