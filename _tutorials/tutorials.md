@@ -12,11 +12,11 @@ This tutorial will get you started writing an Application for Verse. There is mu
 
 Structure of the Tutorial:
 
-1. [Introduction](#1-introduction)
-2. [Installing the Verse Developer Extension for Google Chrome](#2-installing-the-verse-developer-extension-for-google-chrome)
-3. [Add Action for Mail Compose](#3-add-action-for-mail-compose)
-4. [Add Action for Mail Read](#4-add-action-for-mail-read)
-5. [Create a New Application Implementation](#5-create-a-new-application-implementation)
+1. [Introduction](#introduction)
+2. [Installing the Verse Developer Extension for Google Chrome](#installing-the-verse-developer-extension-for-google-chrome)
+3. [Add Action for Mail Compose](#add-action-for-mail-compose)
+4. [Add Action for Mail Read](#add-action-for-mail-read)
+5. [Create a New Application Implementation](#create-a-new-application-implementation)
 
 ---
 
@@ -70,7 +70,7 @@ In the `src/manifest.json` file there is a `matches` property which contains an 
 
 2. See if the value for the property `matches` contains the URL you will be using for Verse. The `*` at the end of a URL means matching 0 or more characters. We recommend adding the `*`.
 
-3. If your Verse URL is already there, skip to the next step [Load unpacked extension](# load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
+3. If your Verse URL is already there, skip to the next step [Load unpacked extension](#load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
 
   For example:  
 ![update manifest.json](img/1_update_manifest.png)
