@@ -1,0 +1,63 @@
+[
+  {
+    "app_id": "com.ibm.verse.actions.sample.person",
+    "name": "Person Sample",
+    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=<profile.primaryEmail>",
+
+    "extensions": [
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.action.sample.person",
+        "name": "Person Action Sample",
+        "payload": {},
+        "object": "person",
+        "title": "Person Action"
+      }
+    ],
+
+    "payload": {
+      "features": [
+        "core"
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
+    },
+
+    "services": [
+      "Verse"
+    ]
+  },
+
+  {
+    "app_id": "com.ibm.verse.actions.sample.mail",
+    "name": "Mail Sample",
+    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+
+    "extensions": [
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.action.sample.mailCompose",
+        "name": "Mail Compose Action Sample",
+        "payload": {},
+        "path": "mail.compose",
+        "title": "Mail Compose Action"
+      }
+    ],
+
+    "payload": {
+      "features": [
+        "core"
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
+    },
+
+    "services": [
+      "Verse"
+    ]
+  }
+]
