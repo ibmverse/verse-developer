@@ -199,7 +199,7 @@ Under `extensions`, instead of using `object: "person"`, our new Application use
 Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
 
 ### Further reading:
-1. [Working with the applications.json file][9]
+1. [Registering an application in IBM Verse][9]
 2. [Sending and receiving data from Verse][6]
 3. [Introduction to cross-document messaging][11]
 4. [Verse API data][5]
@@ -269,7 +269,7 @@ The web page shows details of the event sent from Verse to the Application for e
 ### Set up a web server
 You will need a place to host the web page you just created.
 
-If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-widget.json-to-point-to-your-new-URL).
+If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-applications.json-to-point-to-your-new-url).
 
 Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps:
 
@@ -329,7 +329,7 @@ Want to dig into the details? Here is a link to the documentation, for a compreh
 [6]: {{site.baseurl}}/reference/reference.html#sending-and-receiving-data
 [7]: https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext/
 
-[9]: {{site.baseurl}}/reference/reference.html#the-applicationsjson-file
+[9]: {{site.baseurl}}/reference/reference.html#registering-an-application-in-ibm-verse
 [11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 
 [14]:{{site.baseurl}}/reference/reference.html#troubleshooting
