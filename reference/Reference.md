@@ -1,3 +1,6 @@
+---
+title: Verse Extensibility Documentation
+---
 #Verse Extensibility Documentation
 
 ###Contents
