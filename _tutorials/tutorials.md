@@ -21,6 +21,7 @@ Structure of the Tutorial:
 ---
 
 ## 1. Introduction
+
 ### What is the Verse Developer Extension for Google Chrome?
 
 The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an Application to be registered with IBM Verse, where each Application contains a set of customised capabilities. One or more Applications can be registered using the tool. Each Application can contain one or more Extensions. IBM Verse supports action Extensions which are displayed in IBM Verse as either a button or a link. Action Extensions can be contributed to the following parts of the IBM Verse user interface:
