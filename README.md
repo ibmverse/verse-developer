@@ -1,8 +1,7 @@
+# IBM Verse Developer Extension for Google Chrome
 
-## Documentation and Samples for Verse Extension  
+* The `_tutorials` directory contains all the tutorials
+* The `_reference` directory contains the reference documentation
+* The `sample` directory contains all the sample code used in the tutorials
 
-* The `_tutorials` directory contains all the tutorials. If a html page under `_tutorials` needs to be list in the index.html, its `categories` property should contain the value of `tutorial`.  
-    
-* The `sample` directory contains all the sample codes.  
-
-The samples are © 2016 under the terms of the MIT License.
+The samples are ï¿½ 2016 under the terms of the MIT License.
