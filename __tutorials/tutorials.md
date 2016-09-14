@@ -1,4 +1,12 @@
-# Your First Application for Verse
+---
+[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
+
+layout: tutorial
+title:  "Your First Application for Verse"
+categories: tutorial_verse_developer
+---
+
+# {{page.title}}
 
 This tutorial will get you started writing an Application for Verse. There is much more detailed documentation available [here][16], but it's not required to complete the tutorials.
 
