@@ -1,9 +1,9 @@
 # Copyright IBM Corp. 2016  All Rights Reserved.
 
-title: Tutorials for Verse Extension
+title: IBM Verse Extensibility
 
 description: >
-  "This site contains Tutorials for Verse Extension"
+  "This site contains a tutorial and reference documentation for the IBM Verse extensibility features."
 baseurl: "/pages/IBM-Verse/verse-developer-chrome-ext"
 url: "https://git.swg.usma.ibm.com" # the base hostname & protocol for your site
 verse-developer-chrome-ext: "https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext"
@@ -13,4 +13,6 @@ markdown: kramdown
 
 collections: 
   tutorials:
+    output: true
+  reference:
     output: true

@@ -2,7 +2,7 @@
 [//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
 
 layout: tutorial
-title:  "Your First Application for Verse"
+title:  "Your First Application for IBM Verse"
 categories: tutorial_verse_developer
 ---
 
