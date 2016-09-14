@@ -42,7 +42,8 @@
           * Retrieve data from URL for the Person Sample,
           * and print it in the query-str div.
           */
-        if (eventData.verseApiType === "com.ibm.verse.action.clicked" && eventData.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
+        if (eventData.verseApiType === "com.ibm.verse.action.clicked" &&
+        eventData.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
           document.getElementById("query-str").innerHTML = "Query String for Person Action Sample"
           + "<hr><pre>" + window.location.search + "</pre>";
         }
