@@ -1,9 +1,9 @@
 ---
 [//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
 
-layout: tutorial
+layout: reference
 title:  "Verse Extensibility Documentation"
-categories: tutorial_action_ext
+categories: refernece_reference
 ---
 
 # {{page.title}}
