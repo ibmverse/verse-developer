@@ -8,7 +8,7 @@ categories: reference
 
 # {{page.title}}
 
-###Contents
+### Contents
 
 * [Introduction to IBM Verse Extensibility](#introduction-to-ibm-verse-extensibility)
 * [Extensibility Concepts](#extensibility-concepts)
