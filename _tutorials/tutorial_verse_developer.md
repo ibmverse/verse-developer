@@ -149,7 +149,7 @@ In this section, you will add a new Application which consists of one Extension 
     {
       "app_id": "com.ibm.verse.actions.sample.mail",
       "name": "Mail Sample",
-      "url": "{{site.baseurl}}/samples/actions.html",
+      "url": "{{site.url}}{{site.baseurl}}/samples/actions.html",
 
       "extensions": [
         {
