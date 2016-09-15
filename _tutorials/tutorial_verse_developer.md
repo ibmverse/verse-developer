@@ -286,7 +286,7 @@ The web page shows details of the event sent from Verse to the Application for e
 ### Set up a web server
 You will need a place to host the web page you just created.
 
-If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-applications.json-to-point-to-your-new-url).
+If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-applicationsjson-to-point-to-your-new-url).
 
 Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps:
 
