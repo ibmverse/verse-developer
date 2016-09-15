@@ -44,7 +44,7 @@ This tutorial starts with a sample Application for you to add functionality to t
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
-This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
+This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the [Further Reading](#further-reading) section at the end of the tutorial, but they are not required to finish this tutorial.
 
 Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people test your Application, you will need to share the edited extension with them and let them install it on their Chrome browsers too. IBM will be providing an Application Registry to allow you to deploy your Application in production.
 
@@ -121,17 +121,9 @@ The URL contains the variable `profile.primaryEmail`, surrounded by a pair of an
 
 `profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external Application from Verse. A context object contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
 
-To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further reading](#further-reading) section below.
+To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further Reading](#further-reading) section at the end of the tutorial.
 
 For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
-
-
-### Further reading
-1. [Introduction to Verse extensibility][3]
-2. [Editing the `manifest.json` file][4]
-3. [Working with match patterns in `manifest.json`][2]
-4. [Verse API data][5]
-5. [Sending and receiving data from Verse][6]
 
 ---
 
@@ -208,11 +200,6 @@ Under `extensions`, instead of using `object: "person"`, our new Application use
 
 Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
 
-### Further reading:
-1. [Registering an application in IBM Verse][9]
-2. [Sending and receiving data from Verse][6]
-3. [Introduction to cross-document messaging][11]
-4. [Verse API data][5]
 
 ---
 
@@ -318,10 +305,20 @@ When a user clicks on a new action button added to Verse via `applications.json`
 Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own Application for Verse!
 
 
-### Further reading
-[Tips for debugging][14]
+---
+
+## Further Reading
+1. [Introduction to Verse extensibility][3]
+2. [Editing the `manifest.json` file][4]
+3. [Working with match patterns in `manifest.json`][2]
+4. [Verse API data][5]
+5. [Sending and receiving data from Verse][6]
+6. [Registering an application in IBM Verse][9]
+7. [Introduction to cross-document messaging][11]
+8. [Tips for debugging][14]
 
 ---
+
 
 ## Documentation
 To check out the reference documentation, click [here][16].
