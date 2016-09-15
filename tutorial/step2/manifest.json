@@ -5,10 +5,10 @@
   "content_scripts": [ {
     "js": [ "contentscript.js"],
     "matches": [
-      "https://mail.notes.na.collabserv.com/vers*",
-      "https://mail.notes.ap.collabserv.com/vers*",
-      "https://mail.notes.ce.collabserv.com/vers*",
-      "https://<your-domain-here>/vers*"
+      "https://mail.notes.na.collabserv.com/verse*",
+      "https://mail.notes.ap.collabserv.com/verse*",
+      "https://mail.notes.ce.collabserv.com/verse*",
+      "https://<your-domain-here>/verse*"
     ],
     "run_at": "document_start"
   }],
