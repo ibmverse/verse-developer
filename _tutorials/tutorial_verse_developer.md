@@ -8,7 +8,7 @@ categories: tutorial_verse_developer
 
 # {{page.title}}
 
-This tutorial will get you started writing an Application for Verse. There is much more detailed documentation available [here][16], but it's not required to complete the tutorials.
+This tutorial will get you started writing an Application for Verse. There is much more detailed documentation available [here][16]{:target="_blank"}, but it's not required to complete the tutorials.
 
 Structure of the Tutorial:
 
@@ -39,7 +39,7 @@ This tutorial starts with a sample Application for you to add functionality to t
 
 ### What you'll need
 * Chrome browser
-* [Web Server for Chrome][1] (alternatively, you can also use FireFox Thimble, or your own web server of choice)
+* [Web Server for Chrome][1]{:target="_blank"} (alternatively, you can also use FireFox Thimble, or your own web server of choice)
 * The Verse Developer Chrome Extension source code
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
@@ -56,7 +56,7 @@ In this section, you will install the default Verse Developer Extension and make
 ### Download source code for Verse Developer Extension
 1. Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
 
-  Alternatively, you can fork the repository from [here][7] instead of downloading it.
+  Alternatively, you can fork the repository from [here][7]{:target="_blank"} instead of downloading it.
 
 2. Unzip the folder at a location convenient to you.
 
@@ -265,7 +265,7 @@ In this step you are going to create an HTML page, which will pop up when the us
 
 Create an empty folder on your laptop and create a file called `index.html` inside the folder.
 
-Open `index.html` in a text editor, copy and paste our sample HTML code from [here][15] into the file and then save the file.
+Open `index.html` in a text editor, copy and paste our sample HTML code from [here][15]{:target="_blank"} into the file and then save the file.
 
 The web page shows details of the event sent from Verse to the Application for each of the action buttons added. In the case of the bizCard Extension, it will also print out the query arguments which were appended to the URL.
 
@@ -277,7 +277,7 @@ If you are familiar with setting up your own server for hosting web pages, or pr
 
 Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps:
 
-1. Install the Chrome Web Server from the [Chrome Web Store][1] using your Chrome browser.
+1. Install the Chrome Web Server from the [Chrome Web Store][1]{:target="_blank"} using your Chrome browser.
 
 2. After installing, you can launch it by navigating to `chrome://apps` in your Chrome browser, and click on the icon for the Chrome Web Server:  
 ![Chrome web server](img/4_chrome_webServer.png)
@@ -315,20 +315,14 @@ Now you have learned how to register your Application with Verse, add action but
 ---
 
 ## Further Reading
-1. [Introduction to Verse extensibility][3]
-2. [Editing the `manifest.json` file][4]
-3. [Working with match patterns in `manifest.json`][2]
-4. [Verse API data][5]
-5. [Sending and receiving data from Verse][6]
-6. [Registering an application in IBM Verse][9]
-7. [Introduction to cross-document messaging][11]
-8. [Tips for debugging][14]
-
----
-
-
-## Documentation
-To check out the reference documentation, click [here][16].
+1. [Introduction to Verse extensibility][3]{:target="_blank"}
+2. [Editing the `manifest.json` file][4]{:target="_blank"}
+3. [Working with match patterns in `manifest.json`][2]{:target="_blank"}
+4. [Verse API data][5]{:target="_blank"}
+5. [Sending and receiving data from Verse][6]{:target="_blank"}
+6. [Registering an application in IBM Verse][9]{:target="_blank"}
+7. [Introduction to cross-document messaging][11]{:target="_blank"}
+8. [Tips for debugging][14]{:target="_blank"}
 
 
 
