@@ -44,7 +44,7 @@ This tutorial starts with a sample Application for you to add functionality to t
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
-This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further Reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
+This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
 
 Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people test your Application, you will need to share the edited extension with them and let them install it on their Chrome browsers too. IBM will be providing an Application Registry to allow you to deploy your Application in production.
 
@@ -121,7 +121,7 @@ The URL contains the variable `profile.primaryEmail`, surrounded by a pair of an
 
 `profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external Application from Verse. A context object contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
 
-To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the __Further Reading__ section below.
+To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further reading](#further-reading) section below.
 
 For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
 
