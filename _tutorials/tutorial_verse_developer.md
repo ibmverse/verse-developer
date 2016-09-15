@@ -220,7 +220,7 @@ Under `payload`, we are still using `"features": ["core"]` to ask Verse to send 
 ---
 
 ## 4. Add Action for Mail Read
-In this section, you will add an action button to the Mail Read View, which, when click, will bring out a separate window with information related to the Mail Read View sent from Verse. We will add this Extension into the Application we created in the last section which currently contains one Extension for the Mail Compose View.
+In this section, you will add an action button to the Mail Read View that when clicked it will open a separate window with information related to the Mail Read View sent from Verse. We will add this Extension into the Application we created in the last section which currently contains one Extension for the Mail Compose View.
 
 
 ### Edit applications.json
