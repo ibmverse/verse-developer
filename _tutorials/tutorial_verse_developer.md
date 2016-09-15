@@ -286,7 +286,7 @@ The web page shows details of the event sent from Verse to the Application for e
 ### Set up a web server
 You will need a place to host the web page you just created.
 
-If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-applications.json-to-point-to-your-new-url).
+If you are familiar with setting up your own server for hosting web pages, or prefer to use some alternative solutions such as FireFox Thimble, feel free to skip to the next step [Edit applications.json to point to your new URL](#edit-applicationsjson-to-point-to-your-new-url).
 
 Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps:
 
@@ -322,7 +322,7 @@ Try clicking the action buttons you added into Verse in previous steps, includin
 ### How it works
 When a user clicks on a new action button added to Verse via `applications.json`, Verse contacts your Application at the URL specified in the file and opens it in a new window. Once your Application is ready, Verse sends it the relevant data which is then displayed in your Application's window.
 
-Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create web page](#create-web-page) to make your own Application for Verse!
+Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create a web page](#create-a-web-page) to make your own Application for Verse!
 
 
 ### Further reading
