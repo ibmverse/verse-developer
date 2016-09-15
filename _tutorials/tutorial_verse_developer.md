@@ -143,39 +143,40 @@ In this section, you will add a new Application which consists of one Extension 
 1. Open `src/applications.json` in your text editor.
 
 2. Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Application before adding your own__.
+
   ```JavaScript
-  {
-    "app_id": "com.ibm.verse.actions.sample.mail",
-    "name": "Mail Sample",
-    "url": "{{site.baseurl}}/samples/actions.html",
+    {
+      "app_id": "com.ibm.verse.actions.sample.mail",
+      "name": "Mail Sample",
+      "url": "{{site.baseurl}}/samples/actions.html",
 
-    "extensions": [
-      {
-        "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.action.sample.mailCompose",
-        "name": "Mail Compose Action Sample",
-        "payload": {},
-        "path": "mail.compose",
-        "title": "Mail Compose Action"
-      }
-    ],
-
-    "payload": {
-      "features": [
-        "core"
+      "extensions": [
+        {
+          "type": "com.ibm.verse.action",
+          "ext_id": "com.ibm.verse.action.sample.mailCompose",
+          "name": "Mail Compose Action Sample",
+          "payload": {},
+          "path": "mail.compose",
+          "title": "Mail Compose Action"
+        }
       ],
-      "renderParams": {
-        "width": "900",
-        "height": "500"
-      }
-    },
 
-    "services": [
-      "Verse"
-    ]
-  }
+      "payload": {
+        "features": [
+          "core"
+        ],
+        "renderParams": {
+          "width": "900",
+          "height": "500"
+        }
+      },
 
+      "services": [
+        "Verse"
+      ]
+    }
   ```
+
 If you are using Git, the before and after diffs for the file `applications.json` should look like this:  
 ![update applications json](img/2_update_applications.png)
 
@@ -224,17 +225,19 @@ In this section, you will add an action button to the Mail Read View, which, whe
 1. Open `src/applications.json` in your text editor.
 
 2. Append the following object into the `extensions` belonging to the Application with `app_id`: `com.ibm.verse.actions.sample.mail`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Extension before adding your own__.
+
   ```JavaScript
-  {
-    "type": "com.ibm.verse.action",
-    "ext_id": "com.ibm.verse.action.sample.mailRead",
-    "name": "Mail Read Action Sample",
-    "payload": {},
-    "path": "mail.read",
-    "title": "Mail Read Action"
-  }
+    {
+      "type": "com.ibm.verse.action",
+      "ext_id": "com.ibm.verse.action.sample.mailRead",
+      "name": "Mail Read Action Sample",
+      "payload": {},
+      "path": "mail.read",
+      "title": "Mail Read Action"
+    }
   ```
-If you are using Git, the diffs for the file `applications.json` before and after edit should show up as such:  
+
+  If you are using Git, the diffs for the file `applications.json` before and after edit should show up as such:  
 ![update applications json](img/3_update_applications.png)
 
 ### Reload the extension and Verse
