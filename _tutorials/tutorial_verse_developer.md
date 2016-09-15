@@ -44,7 +44,7 @@ This tutorial starts with a sample Application for you to add functionality to t
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 
-This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the __Further Reading__ section at the end of each step of the tutorial, but they are not required to finish this tutorial.
+This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the [Further Reading](#further-reading) section at the end of the tutorial, but they are not required to finish this tutorial.
 
 Beware that the changes you made during the tutorial will only be applied to the Chrome browser that has the extension installed. To let other people test your Application, you will need to share the edited extension with them and let them install it on their Chrome browsers too. IBM will be providing an Application Registry to allow you to deploy your Application in production.
 
@@ -54,15 +54,15 @@ Beware that the changes you made during the tutorial will only be applied to the
 In this section, you will install the default Verse Developer Extension and make it work with Verse. This Verse Developer Extension already has one sample Application, which contains one Extension under it.
 
 ### Download source code for Verse Developer Extension
-Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
+1. Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
 
-Unzip the folder at a location convenient to you.
+  Alternatively, you can fork the repository from [here][7] instead of downloading it.
 
-Alternatively, you can fork the repository from [here][7] instead of downloading it.
+2. Unzip the folder at a location convenient to you.
 
-Once you have unzipped the folder, locate the `src` folder. In this tutorial, you will be modifying the `manifest.json` and `applications.json` files within this `src` folder.
+3. Once you have unzipped the folder, locate the `src` folder. In this tutorial, you will be modifying the `manifest.json` and `applications.json` files from within the `src` folder.
 
-We have also provided `src-step2`, `src-step3`, and `src-step4` folders. Each folder includes the completed version of the files modified in each step of the tutorial.
+We have also provided a `tutorial` folder which contains three subfolders: `src-step2`, `src-step3` and `src-step4`. Each subfolder includes the completed version of the files modified in each step of the tutorial.
 
 ### Update manifest.json
 In the `src/manifest.json` file there is a `matches` property which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. If the Verse URL you are using is not in this array, you will have to update the `manifest.json` file to include it.
@@ -92,11 +92,11 @@ In the `src/manifest.json` file there is a `matches` property which contains an 
 5. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `chrome://extensions` page.  
 ![Extension loaded](img/1_extension_loaded.png)
 
-If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
+  If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
 
 
 ### Reload Verse and test it out
-1. Reload Verse, so that it will pick up the change you made to the extension.
+1. __Reload Verse__, so that it will pick up the change you made to the extension.
 
 2. Hover over a People Bubble, and click on the __i__ icon to bring up the business card (bizCard).  
 ![people bubble bizcard button](img/1_bizcard.png)
@@ -121,17 +121,9 @@ The URL contains the variable `profile.primaryEmail`, surrounded by a pair of an
 
 `profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external Application from Verse. A context object contains information related to Verse. Each of the Extension points (bizCard, Mail Read View, and Mail Compose View), will have its own context structure.
 
-To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the __Further Reading__ section below.
+To learn more about context object and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further Reading](#further-reading) section at the end of the tutorial.
 
 For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
-
-
-### Further reading
-1. [Introduction to Verse extensibility][3]
-2. [Editing the `manifest.json` file][4]
-3. [Working with match patterns in `manifest.json`][2]
-4. [Verse API data][5]
-5. [Sending and receiving data from Verse][6]
 
 ---
 
@@ -183,7 +175,7 @@ If you are using Git, the before and after diffs for the file `applications.json
 ![update applications json](img/2_update_applications.png)
 
 ### Reload the extension and Verse
-Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
+__Every time__ you make a change to the extension code, you will have to __reload the extension__ first, then __reload Verse,__ so Chrome and Verse will pick up your latest changes.
 
 To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
 ![reload extension](img/2_reload.png)
@@ -211,11 +203,6 @@ Under `extensions`, instead of using `object: "person"`, our new Application use
 
 Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
 
-### Further reading:
-1. [Registering an application in IBM Verse][9]
-2. [Sending and receiving data from Verse][6]
-3. [Introduction to cross-document messaging][11]
-4. [Verse API data][5]
 
 ---
 
@@ -245,7 +232,7 @@ In this section, you will add an action button to the Mail Read View that when c
 ![update applications json](img/3_update_applications.png)
 
 ### Reload the extension and Verse
-As explained in previous sections, every time you make a change to the extension code, you need to reload the extension from `chrome://extensions`, then reload Verse, so Chrome and Verse will pick up your latest changes.
+As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ from `chrome://extensions`, then __reload Verse,__ so Chrome and Verse will pick up your latest changes.
 
 
 ### Test it out
@@ -313,7 +300,7 @@ Open `applications.json` in a text editor. Change the value for all the `url` pr
 
 
 ### Test it out
-Now try it out in Verse: first reload the extension and then reload Verse to pick up your latest code changes.
+Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
 
 Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section. It should be populated with some Verse API data now as the web Application is accessed via Verse.  
 ![sample page with Verse data](img/4_webpage_with_verse_data.png)
@@ -325,15 +312,23 @@ When a user clicks on a new action button added to Verse via `applications.json`
 Now you have learned how to register your Application with Verse, add action buttons to the Verse UI, and get Verse send data to your Application, you can modify the sample HTML code we provided you in the previous section [Create a web page](#create-a-web-page) to make your own Application for Verse!
 
 
-### Further reading
-[Tips for debugging][14]
+---
+
+## Further Reading
+1. [Introduction to Verse extensibility][3]
+2. [Editing the `manifest.json` file][4]
+3. [Working with match patterns in `manifest.json`][2]
+4. [Verse API data][5]
+5. [Sending and receiving data from Verse][6]
+6. [Registering an application in IBM Verse][9]
+7. [Introduction to cross-document messaging][11]
+8. [Tips for debugging][14]
 
 ---
 
-## Documentation
-Want to dig into the details? Here is a link to the documentation, for a comprehensive, structured reference to developing Applications for Verse:
 
-[Documentation][16]
+## Documentation
+To check out the reference documentation, click [here][16].
 
 
 
