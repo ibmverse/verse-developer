@@ -324,9 +324,7 @@ Now you have learned how to register your Application with Verse, add action but
 ---
 
 ## Documentation
-Want to dig into the details? Here is a link to the documentation, for a comprehensive, structured reference to developing Applications for Verse:
-
-[Documentation][16]
+To check out the reference documentation, click [here][16].
 
 
 
