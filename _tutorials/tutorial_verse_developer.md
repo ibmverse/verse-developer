@@ -54,15 +54,15 @@ Beware that the changes you made during the tutorial will only be applied to the
 In this section, you will install the default Verse Developer Extension and make it work with Verse. This Verse Developer Extension already has one sample Application, which contains one Extension under it.
 
 ### Download source code for Verse Developer Extension
-Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
+1. Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
 
-Unzip the folder at a location convenient to you.
+  Alternatively, you can fork the repository from [here][7] instead of downloading it.
 
-Alternatively, you can fork the repository from [here][7] instead of downloading it.
+2. Unzip the folder at a location convenient to you.
 
-Once you have unzipped the folder, locate the `src` folder. In this tutorial, you will be modifying the `manifest.json` and `applications.json` files within this `src` folder.
+3. Once you have unzipped the folder, locate the `src` folder. In this tutorial, you will be modifying the `manifest.json` and `applications.json` files from within the `src` folder.
 
-We have also provided `src-step2`, `src-step3`, and `src-step4` folders. Each folder includes the completed version of the files modified in each step of the tutorial.
+We have also provided a `tutorial` folder which contains three subfolders: `src-step2`, `src-step3` and `src-step4`. Each subfolder includes the completed version of the files modified in each step of the tutorial.
 
 ### Update manifest.json
 In the `src/manifest.json` file there is a `matches` property which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. If the Verse URL you are using is not in this array, you will have to update the `manifest.json` file to include it.
