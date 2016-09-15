@@ -62,7 +62,7 @@ In this section, you will install the default Verse Developer Extension and make
 
 3. Once you have unzipped the folder, locate the `src` folder. In this tutorial, you will be modifying the `manifest.json` and `applications.json` files from within the `src` folder.
 
-We have also provided a `tutorial` folder which contains three subfolders: `src-step2`, `src-step3` and `src-step4`. Each subfolder includes the completed version of the files modified in each step of the tutorial.
+We have also provided a `tutorial` folder which contains four subfolders: `step2`, `step3`, `step4`, and `step5`. Each subfolder includes the completed version of the files modified in each step of the tutorial.
 
 ### Update manifest.json
 In the `src/manifest.json` file there is a `matches` property which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. If the Verse URL you are using is not in this array, you will have to update the `manifest.json` file to include it.
@@ -296,8 +296,8 @@ This will allow you to use the Web Server URL shown in the section below without
 ![sample page](img/4_sample_page.png)
 
 ### Edit applications.json to point to your new URL
-Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your index.html page is hosted. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the Application under the section __Web Server URL(s)__.
-
+Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your `index.html` page is hosted, but leave the query strings of the first application in your URL (see Git diffs below for reference). If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the Application under the section __Web Server URL(s)__. If you are using Git, the diffs for the file `applications.json` before and after edit should show up similar to this:  
+![applications json](img/5_applicationsjson.png)
 
 ### Test it out
 Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
