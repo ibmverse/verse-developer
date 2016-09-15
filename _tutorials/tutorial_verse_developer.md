@@ -92,11 +92,11 @@ In the `src/manifest.json` file there is a `matches` property which contains an 
 5. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `chrome://extensions` page.  
 ![Extension loaded](img/1_extension_loaded.png)
 
-If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
+  If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
 
 
 ### Reload Verse and test it out
-1. Reload Verse, so that it will pick up the change you made to the extension.
+1. __Reload Verse__, so that it will pick up the change you made to the extension.
 
 2. Hover over a People Bubble, and click on the __i__ icon to bring up the business card (bizCard).  
 ![people bubble bizcard button](img/1_bizcard.png)
@@ -180,7 +180,7 @@ If you are using Git, the before and after diffs for the file `applications.json
 ![update applications json](img/2_update_applications.png)
 
 ### Reload the extension and Verse
-Every time you make a change to the extension code, you will have to reload the extension first, then reload Verse, so Chrome and Verse will pick up your latest changes.
+__Every time__ you make a change to the extension code, you will have to __reload the extension__ first, then __reload Verse,__ so Chrome and Verse will pick up your latest changes.
 
 To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
 ![reload extension](img/2_reload.png)
@@ -238,7 +238,7 @@ If you are using Git, the diffs for the file `applications.json` before and afte
 ![update applications json](img/3_update_applications.png)
 
 ### Reload the extension and Verse
-As explained in previous sections, every time you make a change to the extension code, you need to reload the extension from `chrome://extensions`, then reload Verse, so Chrome and Verse will pick up your latest changes.
+As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ from `chrome://extensions`, then __reload Verse,__ so Chrome and Verse will pick up your latest changes.
 
 
 ### Test it out
@@ -306,7 +306,7 @@ Open `applications.json` in a text editor. Change the value for all the `url` pr
 
 
 ### Test it out
-Now try it out in Verse: first reload the extension and then reload Verse to pick up your latest code changes.
+Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
 
 Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section. It should be populated with some Verse API data now as the web Application is accessed via Verse.  
 ![sample page with Verse data](img/4_webpage_with_verse_data.png)
