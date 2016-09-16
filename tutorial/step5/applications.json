@@ -1,0 +1,71 @@
+[
+  {
+    "app_id": "com.ibm.verse.actions.sample.person",
+    "name": "Person Sample",
+    "url": "http://127.0.0.1:8887?searchFor=<profile.primaryEmail>",
+
+    "extensions": [
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.action.sample.person",
+        "name": "Person Action Sample",
+        "payload": {},
+        "object": "person",
+        "title": "Person Action"
+      }
+    ],
+
+    "payload": {
+      "features": [
+        "core"
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
+    },
+
+    "services": [
+      "Verse"
+    ]
+  },
+
+  {
+    "app_id": "com.ibm.verse.actions.sample.mail",
+    "name": "Mail Sample",
+    "url": "http://127.0.0.1:8887",
+
+    "extensions": [
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.action.sample.mailCompose",
+        "name": "Mail Compose Action Sample",
+        "payload": {},
+        "path": "mail.compose",
+        "title": "Mail Compose Action"
+      },
+      {
+        "type": "com.ibm.verse.action",
+        "ext_id": "com.ibm.verse.action.sample.mailRead",
+        "name": "Mail Read Action Sample",
+        "payload": {},
+        "path": "mail.read",
+        "title": "Mail Read Action"
+      }
+    ],
+
+    "payload": {
+      "features": [
+        "core"
+      ],
+      "renderParams": {
+        "width": "900",
+        "height": "500"
+      }
+    },
+
+    "services": [
+      "Verse"
+    ]
+  }
+]
