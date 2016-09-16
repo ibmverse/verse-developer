@@ -303,7 +303,7 @@ Open `applications.json` in a text editor. Change the value for all the `url` pr
 ### Test it out
 Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
 
-Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section. It should be populated with some Verse API data now as the web Application is accessed via Verse.  
+Try clicking the action buttons you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose View, and the __Mail Read Action__ in the Mail Read View. These actions will bring up in a separate window the web page you added in the previous section. __The URL shown in the address bar should be the same URL you just added in the previous step.__ The web page should be populated with some Verse API data now as the web Application is accessed via Verse.  
 ![sample page with Verse data](img/4_webpage_with_verse_data.png)
 
 
