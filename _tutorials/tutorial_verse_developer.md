@@ -43,6 +43,7 @@ This tutorial starts with a sample Application for you to add functionality to t
 * The Verse Developer Chrome Extension source code
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
+* Estimated time: 40 min
 
 This tutorial focuses on getting you started on building an Application for Verse. It does not go into the details of the API and different concepts. If you need to learn more, you can refer to the [Further Reading](#further-reading) section at the end of the tutorial, but they are not required to finish this tutorial.
 
