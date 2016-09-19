@@ -27,13 +27,17 @@ Structure of the Tutorial:
 The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an Application to be registered with IBM Verse, where each Application contains a set of customised capabilities. One or more Applications can be registered using the tool. Each Application can contain one or more Extensions. IBM Verse supports action Extensions which are displayed in IBM Verse as either a button or a link. Action Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by red border in the pictures):
 
 * Business Card (bizCard) View
+
   ![business card view 1](img/0_bizCard_1.png)
 
   ![business card view 2](img/0_bizCard_2.png)
+
 * Mail Compose View
+
   ![mail compose view](img/0_mailCompose.png)
 
 * Mail Read View
+
   ![mail read view](img/0_mailRead.png)
 
 ### What you are going to build
