@@ -118,7 +118,7 @@ with your application. Both methods are described below.
 
 Your application can receive data from Verse through URL Query String parameters which are added to the URL specified in the `applications.json` file. Valid parameters are described in the [Verse API Data](#verse-api-data) section.
 
-For Example, to send the name of a user from a business card extension to your application, specify the following URL in the `applications.json` file: `https://MyCompany.com/extension.html?username=<profile.name>`. `profile.name` is a variable which holds the user's name.
+For Example, to send the name of a user from a business card extension to your application, specify the following URL in the `applications.json` file: `https://<your-domain-here>/extension.html?username=<profile.name>`. `profile.name` is a variable which holds the user's name.
 
 In your application you retrieve the URL query string parameters as normal.
 
@@ -286,7 +286,7 @@ In the sections below the structure of each of the different context objects is 
 
 ## Editing The Manifest
 
-If the URL you use to access Verse is specific to your company, you will need to add it to the `manifest.json` file. You can follow our instructions in [__Update manifest.json__ section in the tutorial][7]{:target="_blank"}.
+If the URL you use to access Verse is specific to your company, you will need to add it to the `manifest.json` file. You can follow our tutorial on [how to update manifest.json][7]{:target="_blank"}.
 
 After you modify this file you will need to reload the Chrome extension and refresh Verse to pick up your latest changes.
 
