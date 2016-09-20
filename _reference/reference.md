@@ -21,9 +21,9 @@ categories: reference
 
 ## Introduction to IBM Verse Extensibility
 
-Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions which will enhance Verse with some new functionality. 
+Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions which will enhance Verse with some new functionality.
 
-For example, one of the extension points that Verse supports is an action extension. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which when clicked triggers some logic in your application. 
+For example, one of the extension points that Verse supports is an action extension. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which when clicked triggers some logic in your application.
 
 An extension can declare that it requires specific data from Verse and when the extension is activated Verse will send this data to it. For example, if you add a link to a Verse business card your extension can be configured to receive the email address of the person when the link is clicked.
 
@@ -36,28 +36,28 @@ This section introduces extensibility concepts and terminology which is used thr
   The application will have access to Verse data through cross-document messaging or URL query string parameters.
 
 * Extension: A feature contributes to a specific part of IBM Verse. For example, an action extension that adds a button or link to the Verse UI which when clicked will open a new browser window containing a third-party web application.
-  
+
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extension(s) will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
 ## Verse Action Extensions
 Verse supports action extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
-The `mail.compose` action extension adds an additional action to the `more actions` button when composing a mail. 
+The `mail.compose` action extension adds an additional action to the `more actions` button when composing a mail.
 When an extension is clicked, Verse opens your application in a new window and sends the requested information to it.
 For example, if you add a `mail.read` action extension Verse will send the extension the mail subject, body, recipients, date etc. See [here](#action-extensions) for the full reference of action extensions.
-    
+
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
 you can use the [IBM Verse Developer Extension for Google Chrome](../tutorials/tutorial_verse_developer.html).
 
 ### Your Application
 You will need to provide Verse with the URL to your application. Once an action extension is clicked in the Verse UI, the URL will be loaded in a new window.
-The page that is loaded needs some Javascript to listen for a window message event which contains a context object. This object has information from Verse for your extension as specified in the `applications.json` file. 
+The page that is loaded needs some Javascript to listen for a window message event which contains a context object. This object has information from Verse for your extension as specified in the `applications.json` file.
 
 When using the Chrome extension you will need to add the URL of your application and the action extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
 
 ### File structure of `applications.json`
 
-The `applications.json` file contains a list of Application definitions in JSON format 
+The `applications.json` file contains a list of Application definitions in JSON format
 ```
 [
   {
@@ -86,11 +86,11 @@ An application definition **must** contain the following properties:
 
 An extension definition **must** contain the following properties. **N.B. only one of `object` or `path` is required**:
 * `ext_id` The ID of the action extension. This must be **unique**.
-* `type` The type property indicates the type of extension being configured (for example, com.ibm.verse.action specifies an action contribution).
+* `type` The type property indicates the type of extension being configured (for example, `com.ibm.verse.action` specifies an action contribution).
 * `name` The name of the action extension in the UI. This must be **unique**.
-* `payload` The payload property indicates optional properties of the extension. *This is required but its value may be empty*.
+* `payload` The payload property indicates optional properties of the extension (for example, you can insert an icon into your action button by adding `"svg": "<your-svg-element-here>"`). *This is required but its value may be empty*.
 * `object` The object property indicates that the extension displays in a view which provides the specific object.
-            Using the person value specifies that the extension displays in a view which provides the person object. 
+            Using the person value specifies that the extension displays in a view which provides the person object.
             For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.
             *This property is not required if you are using the `path` property.*
 * `path` The path property is used to display an action extension in the mail compose view or the mail read view. Valid values are "mail.read" OR "mail.compose". *This property is not required if you are using the `object` property.*
@@ -104,8 +104,8 @@ An extension definition **must** contain the following properties. **N.B. only o
 ## Sending and Receiving Data
 
 Verse supports both URL query string parameters or cross-document messaging to communicate
-with your application. Both methods are described below. 
-   
+with your application. Both methods are described below.
+
 ### Passing data in a URL
 
 Your application can receive data from Verse through URL Query String parameters which are added to the URL specified in the `applications.json` file. Valid parameters are described in the [Verse API Data](#verse-api-data) section.
@@ -113,20 +113,20 @@ For Example, to send the name of a user from a business card extension to your a
 ```https://MyCompany.com/extension.html?username=<profile.name>```
 `profile.name` is a variable which holds the user's name.
 
-In your application you retrieve the URL query string parameters as normal. 
-  
+In your application you retrieve the URL query string parameters as normal.
+
 ### Passing data through cross-document messaging
 
 If your web application cannot support receiving data from a URL request, you can use cross-document messaging instead. To use this method, you must
 add the features property to the manifest with the value of ```["core"]``` so that your web application can communicate with Verse.
 
-In your application code you must send a ```"com.ibm.verse.application.loaded"``` message back to the Verse window, so Verse knows your web application is ready to receive data from it. If you have a reference to the Verse window you can do this at the beginning of your code, otherwise wait for the message ```"com.ibm.verse.ping.application.loaded"``` as the source of this message will be the Verse window. 
+In your application code you must send a ```"com.ibm.verse.application.loaded"``` message back to the Verse window, so Verse knows your web application is ready to receive data from it. If you have a reference to the Verse window you can do this at the beginning of your code, otherwise wait for the message ```"com.ibm.verse.ping.application.loaded"``` as the source of this message will be the Verse window.
 
-To handle messages from Verse, your web application needs to register an event listener by using 
+To handle messages from Verse, your web application needs to register an event listener by using
 ```JavaScript
  window.addEventListener("message", function(event) {
    // handle message event code
- }); 
+ });
  ```
 See [here](../samples/actions.html) for the complete code source of a sample application that demonstrates the concepts described in this section.
 
@@ -154,14 +154,14 @@ In the sections below the structure of each of the different context objects is 
 
 #### Action Extensions
 
-* [mail.compose:](#mail-compose) This appears when composing a new mail under the `more actions` button. 
-* [mail.read:](#mail-read-view) This appears when viewing an existing mail under the `more actions` button. 
+* [mail.compose:](#mail-compose) This appears when composing a new mail under the `more actions` button.
+* [mail.read:](#mail-read-view) This appears when viewing an existing mail under the `more actions` button.
 * [person:](#business-card) This appears on the back of the business card.
 
 
 #### Mail Compose
 
-``` 
+```
   {
     "body": "",
     "contextId": "",
@@ -181,7 +181,7 @@ In the sections below the structure of each of the different context objects is 
     "subject": ""
   }
 ```
-  
+
 #### Mail Read View
 
 ```
@@ -272,7 +272,7 @@ In the sections below the structure of each of the different context objects is 
     }
   }
 ```
-  
+
 ## Editing The Manifest
 
 If the URL you use to access Verse is specific to your company, you will need to add it to the `manifest.json` file. Open the file in a text editor and locate the "matches" key. To ensure the extension loads when using URL parameters or page links, you need to add an `*` to the end of the URL.
@@ -290,9 +290,9 @@ After you modify this file you will need to reload the Chrome extension and refr
     ]
  ```
 
-## Troubleshooting 
+## Troubleshooting
 
-This section describes some common issues you may experience as well as providing information on how to debug your application. 
+This section describes some common issues you may experience as well as providing information on how to debug your application.
 
 ### The Chrome Developer Extension will not load
 
@@ -300,26 +300,25 @@ If you are experiencing problems loading the Chrome Developer Extension as an un
 
 ### The Chrome Developer Extension loads but your extensions do not appear in Verse
 
-If your extensions are not appearing in the Verse UI make sure you have specified 
+If your extensions are not appearing in the Verse UI make sure you have specified
 the correct path and object properties in the [`applications.json`](#registering-an-application-in-ibm-verse).
-Also ensure that you have added the URL you use to access Verse to the manifest file. See 
+Also ensure that you have added the URL you use to access Verse to the manifest file. See
 [here](#editing-the-manifest) to read more on editing the manifest.
 
 ### Debugging your application
 
 Your application opens in a new window but is not working as expected or does not appear to have received any data from Verse.
 
-This may be an issue with the `applications.json` file. 
-If you are using URL query string parameters, check that the variables you added to your URL are valid and correspond to properties in the Verse API data [section](#verse-api-data). 
+This may be an issue with the `applications.json` file.
+If you are using URL query string parameters, check that the variables you added to your URL are valid and correspond to properties in the Verse API data [section](#verse-api-data).
 If you are using cross-document messaging check that you have specified the value ```["core"]``` for the `payload.features` property.
 
 If you are still having problems you will need to debug your application code using the browser developer tools. Since Verse opens your application in a new window which immediately executes your code, you will have no time to open the developer tools and set break points.
 
 The simplest solution to this is to add an ```JavaScript alert()``` followed by a ```Javascript debugger;``` statement.
 
-When the new window opens and your application code starts to execute, the alert will appear and will pause the execution of your code until the alert is dismissed. Before dismissing the alert, open the developer tools. Now dismiss the alert and the the code will pause at your debugger statement. 
+When the new window opens and your application code starts to execute, the alert will appear and will pause the execution of your code until the alert is dismissed. Before dismissing the alert, open the developer tools. Now dismiss the alert and the the code will pause at your debugger statement.
 
 You should inspect the message event listeners and make sure that they are receiving the correct data from Verse. You should also check that you are sending the ```com.ibm.verse.application.loaded``` message to the Verse window to indicate your application is ready to receive data from the Verse window.
 
-See [here](#sending-and-receiving-data) for more information on communicating with the Verse window. 
-
+See [here](#sending-and-receiving-data) for more information on communicating with the Verse window.
