@@ -87,7 +87,7 @@ An application definition __must__ contain the following properties:
 * `url` This is the URL of your application.
 * `extensions` An array of of extension definitions. See below for the properties of this object.
 * `Payload` Describes the method of communication between Verse and the application as well as display options for the new window.
-* `Services` Describes which services the extension is deployed to. "Verse" is the only supported value.
+* `Services` Describes which services the extension is deployed to. `"Verse"` is the only supported value.
 
 ### Extension Properties
 
@@ -101,13 +101,13 @@ An extension definition __must__ contain the following properties. __N.B. only o
 Using the person value specifies that the extension displays in a view which provides the person object.  
 For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.  
 _This property is not required if you are using the `path` property._
-* `path` The path property is used to display an action extension in the mail compose view or the mail read view. Valid values are "mail.read" OR "mail.compose". *This property is not required if you are using the `object` property.*
+* `path` The path property is used to display an action extension in the mail compose view or the mail read view. Valid values are `"mail.read"` OR `"mail.compose"`. *This property is not required if you are using the `object` property.*
 * `title` The title of your action extension which will appear in the Verse UI.
 
 ### Payload Properties
 
 * `features` This property indicates which Verse API is called by the application. The list of features is an array, enclosed in square brackets. Currently, the only accepted value is `["core"]` which indicates that we are invoking the Verse core API.
-* `renderParams` This is an object that contains properties on how the application window is displayed. This object is passed to ```window.open()``` see [here][6]{:target="_blank"} for a complete list of properties.
+* `renderParams` This is an object that contains properties on how the application window is displayed. This object is passed to `window.open()`. See [here][6]{:target="_blank"} for a complete list of properties.
 
 ## Sending and Receiving Data
 
@@ -118,13 +118,7 @@ with your application. Both methods are described below.
 
 Your application can receive data from Verse through URL Query String parameters which are added to the URL specified in the `applications.json` file. Valid parameters are described in the [Verse API Data](#verse-api-data) section.
 
-For Example, to send the name of a user from a business card extension to your application, specify the following URL in the `applications.json` file:
-
-```
-    https://MyCompany.com/extension.html?username=<profile.name>
-```
-
-`profile.name` is a variable which holds the user's name.
+For Example, to send the name of a user from a business card extension to your application, specify the following URL in the `applications.json` file: `https://MyCompany.com/extension.html?username=<profile.name>`. `profile.name` is a variable which holds the user's name.
 
 In your application you retrieve the URL query string parameters as normal.
 
@@ -138,9 +132,9 @@ In your application code you must send a `"com.ibm.verse.application.loaded"` me
 To handle messages from Verse, your web application needs to register an event listener by using
 
 ```javascript
-    window.addEventListener("message", function(event) {
-      // handle message event code
-    });
+  window.addEventListener("message", function(event) {
+    // handle message event code
+  });
 ```
 
 See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section.
@@ -158,11 +152,11 @@ The message event received by your application contains an object called `data` 
 For example:
 
 ```javascript
-    window.addEventListener("message", function(event) {
-      if (event.data.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
-        var verseData = event.data.verseApiData.context;
-      }
+  window.addEventListener("message", function(event) {
+    if (event.data.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
+      var verseData = event.data.verseApiData.context;
     }
+  }
 ```
 
 In the code sample above, you can see that the information we need from Verse is stored in the context property, which we check with the if statement. The value of the verseData variable depends on which extension is used.
@@ -318,15 +312,15 @@ Your application opens in a new window but is not working as expected or does no
 
 This may be an issue with the `applications.json` file.
 If you are using URL query string parameters, check that the variables you added to your URL are valid and correspond to properties in the Verse API data [section](#verse-api-data).
-If you are using cross-document messaging check that you have specified the value ```["core"]``` for the `payload.features` property.
+If you are using cross-document messaging check that you have specified the value `["core"]` for the `payload.features` property.
 
 If you are still having problems you will need to debug your application code using the browser developer tools. Since Verse opens your application in a new window which immediately executes your code, you will have no time to open the developer tools and set break points.
 
-The simplest solution to this is to add an ```javascript alert()``` followed by a ```javascript debugger;``` statement.
+The simplest solution to this is to add an `alert();` followed by a `debugger;` statement.
 
 When the new window opens and your application code starts to execute, the alert will appear and will pause the execution of your code until the alert is dismissed. Before dismissing the alert, open the developer tools. Now dismiss the alert and the the code will pause at your debugger statement.
 
-You should inspect the message event listeners and make sure that they are receiving the correct data from Verse. You should also check that you are sending the ```com.ibm.verse.application.loaded``` message to the Verse window to indicate your application is ready to receive data from the Verse window.
+You should inspect the message event listeners and make sure that they are receiving the correct data from Verse. You should also check that you are sending the `com.ibm.verse.application.loaded` message to the Verse window to indicate your application is ready to receive data from the Verse window.
 
 See [here](#sending-and-receiving-data) for more information on communicating with the Verse window.
 
