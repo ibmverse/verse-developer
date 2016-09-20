@@ -23,7 +23,7 @@ categories: reference
 
 Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions which will enhance Verse with some new functionality. 
 
-For example, one of the extension points that Verse supports is action extensions. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which when clicked triggers some logic in your application. 
+For example, one of the extension points that Verse supports is an action extension. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which when clicked triggers some logic in your application. 
 
 An extension can declare that it requires specific data from Verse and when the extension is activated Verse will send this data to it. For example, if you add a link to a Verse business card your extension can be configured to receive the email address of the person when the link is clicked.
 
@@ -84,7 +84,7 @@ An application definition **must** contain the following properties:
 
 ### Extension Properties
 
-An extension definition **must** contain the following properties. N.B. only one of `object` or `path` is required:
+An extension definition **must** contain the following properties. **N.B. only one of `object` or `path` is required**:
 * `ext_id` The ID of the action extension. This must be **unique**.
 * `type` The type property indicates the type of extension being configured (for example, com.ibm.verse.action specifies an action contribution).
 * `name` The name of the action extension in the UI. This must be **unique**.
@@ -92,8 +92,8 @@ An extension definition **must** contain the following properties. N.B. only one
 * `object` The object property indicates that the extension displays in a view which provides the specific object.
             Using the person value specifies that the extension displays in a view which provides the person object. 
             For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.
-            *This property is optional if you are using the `path` property.*
-* `path` The path property is used to display an action extension in the mail compose view or the mail read view. Valid values are "mail.read" OR "mail.compose". *This property is optional if you are using the `object` property.*
+            *This property is not required if you are using the `path` property.*
+* `path` The path property is used to display an action extension in the mail compose view or the mail read view. Valid values are "mail.read" OR "mail.compose". *This property is not required if you are using the `object` property.*
 * `title` The title of your action extension which will appear in the Verse UI.
 
 ### Payload Properties
@@ -283,10 +283,10 @@ After you modify this file you will need to reload the Chrome extension and refr
 
  ```JavaScript  
     "matches": [
-      "https://mail.notes.na.collabserv.com/vers*",
-      "https://mail.notes.ap.collabserv.com/vers*",
-      "https://mail.notes.ce.collabserv.com/vers*",
-      "https://<your-domain-here>/vers*"
+      "https://mail.notes.na.collabserv.com/verse*",
+      "https://mail.notes.ap.collabserv.com/verse*",
+      "https://mail.notes.ce.collabserv.com/verse*",
+      "https://<your-domain-here>/verse*"
     ]
  ```
 
