@@ -159,7 +159,9 @@ In this section, you will add a new Application which consists of one Extension 
           "type": "com.ibm.verse.action",
           "ext_id": "com.ibm.verse.action.sample.mailCompose",
           "name": "Mail Compose Action Sample",
-          "payload": {},
+          "payload": {
+            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
+          },
           "path": "mail.compose",
           "title": "Mail Compose Action"
         }
@@ -212,7 +214,11 @@ You might have noticed that some of the properties in the newly added Applicatio
 
 Under `extensions`, instead of using `object: "person"`, our new Application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose View. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose View. The reason is, for this example, we are writing an Extension for a particular UI view (Mail Compose View), while in the previous Extension, instead of extending a particular UI view, we are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People Bubble.
 
-Under `payload`, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
+The key `payload` appears twice in the new code, once within the Extension definition, as a child of the `extensions` key; another time at the root of the Application definition.
+
+Under `payload` at the Extension level we have inserted an SVG, which shows up as an icon in the UI just before the __Mail Read Action__ title. The icon comes from the [IBM Design Icons public GitHub repository][17]{:target="_blank"} and has an open source license. Feel free to explore the repository to find an icon more suitable for your Application, or design your own. It is recommended to keep the styling consistent with the Verse UI thus we are not applying any extra styling on the icon and let it inherit its style from the Verse UI.
+
+Under `payload` at the Application level, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose View to the external Application via cross-document messaging.
 
 
 ---
@@ -232,7 +238,9 @@ In this section, you will add an action button to the Mail Read View that when c
       "type": "com.ibm.verse.action",
       "ext_id": "com.ibm.verse.action.sample.mailRead",
       "name": "Mail Read Action Sample",
-      "payload": {},
+      "payload": {
+        "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
+      },
       "path": "mail.read",
       "title": "Mail Read Action"
     }
@@ -262,6 +270,8 @@ Congratulations! You have successfully added an action button to the Mail Read V
 In the previous section you learned how to add an Application containing one Extension to Verse by adding the new Application definition into the `applications` array in `applications.json`. In this section you learned how to add an additional Extension into this Application by adding the new Extension into the `extensions` array of the specific Application.
 
 The configuration differences between the new Mail Read Extension and the Mail Compose Extension previously added are slight. For example, in the Mail Read Extension the `path` property is set to `mail.read` rather than `mail.compose`. This indicates the action button should be located in the Mail Read View.
+
+For this Extension we are using the same SVG icon as the Mail Compose Extension. If you prefer to use a different icon just change the value for the `svg` key under `payload` within `extensions`.
 
 ---
 
@@ -334,7 +344,7 @@ Now you have learned how to register your Application with Verse, add action but
 6. [Registering an application in IBM Verse][9]{:target="_blank"}
 7. [Introduction to cross-document messaging][11]{:target="_blank"}
 8. [Tips for debugging][14]{:target="_blank"}
-
+9. [SVG][18]{:target="_blank"}
 
 
 [1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
@@ -353,3 +363,5 @@ Now you have learned how to register your Application with Verse, add action but
 [15]:{{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
 
 [16]:../reference/reference.html
+[17]:https://github.com/IBM-Design/icons
+[18]:https://developer.mozilla.org/en-US/docs/Web/SVG
