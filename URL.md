@@ -6,3 +6,4 @@
   * `baseurl`
   * `url`
   * `verse-developer-chrome-ext`.
+4. `Readme.md`: 2 places, for linking to the Tutorial and to the Documentation
