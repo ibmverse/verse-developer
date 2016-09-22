@@ -29,12 +29,15 @@ The Verse Developer Extension for Google Chrome is a tool for developers who are
 * Business Card (bizCard) View
 
   access via __i__ icon on people bubble:
+
   ![business card view 1](img/0_bizCard_1.png)
 
   access via hover, wait, then click on sender in message list:
+
   ![business card view 2](img/0_bizCard_2.png)
 
   access via hover, wait, then click on sender in mail preview panel:
+
   ![business card view 3](img/0_bizCard_3.png)
 
 * Mail Compose View
@@ -89,7 +92,7 @@ In the `src/manifest.json` file there is a `matches` property which contains an 
 
 3. If your Verse URL is already there, skip to the next step [Load unpacked extension](#load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
 
-  For example:  
+    For example:  
 ![update manifest.json](img/1_update_manifest.png)
 
 
