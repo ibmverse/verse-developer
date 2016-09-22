@@ -92,7 +92,7 @@ In the `src/manifest.json` file there is a `matches` property which contains an 
 
 3. If your Verse URL is already there, skip to the next step [Load unpacked extension](#load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
 
-  For example:  
+    For example:  
 ![update manifest.json](img/1_update_manifest.png)
 
 
