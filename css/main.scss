@@ -32,9 +32,8 @@ p, pre, ul, ol, dl {
 
 
 img {
-  vertical-align: middle;
-  transition-duration: 0.5s;
   max-width: $container-width;
+  display: block;
 }
 
 
