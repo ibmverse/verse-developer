@@ -41,7 +41,7 @@ This section introduces extensibility concepts and terminology that is used thro
 
 ## Verse Action Extensions
 Verse supports action extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
-The `mail.compose` action extension adds an action to the `more actions` button when composing a mail.
+The `mail.compose` action extension adds an action to the `more actions` button in the New Message window when composing a mail.
 When an extension is clicked, Verse opens your application in a new window and sends the requested information to it.
 For example, if you add a `mail.read` action extension, Verse will send the mail subject, body, recipients, date, etc. See [here](#action-extensions) for the full reference of action extensions.
 
@@ -110,7 +110,7 @@ _This property is not required if you are using the `path` property._
 
 ## Sending and Receiving Data
 
-Verse supports both URL query string parameters orand cross-document messaging to communicate with your application. Both methods are described below.
+Verse supports both URL query string parameters and/or cross-document messaging to communicate with your application. Both methods are described below.
 
 ### Passing data in a URL
 
