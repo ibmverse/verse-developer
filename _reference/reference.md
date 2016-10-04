@@ -17,6 +17,7 @@ categories: reference
 * [Sending and Receiving Data](#sending-and-receiving-data)
 * [Verse API Data](#verse-api-data)
 * [Editing the Manifest](#editing-the-manifest)
+* [Security](#security)
 * [Troubleshooting](#troubleshooting)
 
 ## Introduction to IBM Verse Extensibility
@@ -135,6 +136,9 @@ To handle messages from Verse, your web application needs to register an event l
 ```
 
 See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section.
+
+Cross-document messaging can be vulnerable to cross-site scripting attack, please consult the [Security](#security) section for some suggested security implementations.
+
 
 ## Verse API Data
 
@@ -286,6 +290,43 @@ In the sections below, the structure of each of the different context objects is
 If the URL that you use to access Verse is specific to your company, you need to add it to the `manifest.json` file. You can follow our tutorial on [how to update manifest.json][7]{:target="_blank"}.
 
 After you modify this file, you will need to reload the Chrome extension and refresh Verse to pick up your latest changes.
+
+
+## Security
+
+As your website is using Cross Domain Messaging to communicate with Verse, it can be vulnerable to Cross Site Scripting attack unless certain security implementation is followed carefully. Here are three tips to make your application less vulnerable.
+
+1. When receiving message, always verify origin of the message.
+
+  In this [sample HTML page][5] we provided, we did not verify origin of the message as we need to make sure the page works with any domain for demoing purpose. However, in a production environment, immediately after the line:
+
+  ```javascript
+  window.addEventListener("message", function(event) {
+  ```
+
+  you should add the following code to check the origin of the message and prevent the rest of the JavaScript code from executing if the message origin does not match your Verse domain:
+
+  ```javascript
+  if (event.origin !== "<your-Verse-domain-here>"){
+    return;
+  }
+  ```
+
+2. When sending message, always specify `targetOrigin`.
+
+  `targetOrigin` provides control over where messages are sent. Your application needs to specify `targetOrigin` so that it will not end up sending sensitive information to malicious site.
+
+  In this [sample HTML page][5] we provided, when posting message from the sample page back to Verse, we are specifying the `targetOrigin` to be the origin of the previous event we received (`event.origin`), instead of using a wild card `*`:
+
+  ```javascript
+  event.source.postMessage(loaded_message, event.origin);
+  ```
+
+  If you have verified origin of the message by implementing the suggestion in the previous tip, you can be sure that `event.origin` here would be your Verse domain.
+
+3. Always validate the messages being passed.
+
+  This would include stringify the data received, and use `innerText` instead of `innerHtml` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
 
 
 ## Troubleshooting

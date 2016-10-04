@@ -298,6 +298,8 @@ Open `index.html` in a text editor, copy and paste our sample HTML code from [he
 
 The web page shows details of the event sent from Verse to the application for each of the action buttons that you added. In the case of the bizCard extension, it will also print out the query arguments which were appended to the URL.
 
+Please be aware that if you want to move this sample HTML code into a production environment there are certain security implementation you should add to protect it against cross-site scripting attack. See the [Further Reading](#further-reading) section for more details.
+
 
 ### Set up a web server
 You will need a place to host the web page you just created.
@@ -351,8 +353,9 @@ Now that you have learned how to register your application with Verse, add actio
 5. [Sending and receiving data from Verse][6]{:target="_blank"}
 6. [Registering an application in IBM Verse][9]{:target="_blank"}
 7. [Introduction to cross-document messaging][11]{:target="_blank"}
-8. [Tips for debugging][14]{:target="_blank"}
-9. [SVG][18]{:target="_blank"}
+8. [Security implementation against cross-site scripting attack][12]{:target="_blank"}
+9. [Tips for debugging][14]{:target="_blank"}
+10. [SVG][18]{:target="_blank"}
 
 
 [1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
@@ -366,6 +369,7 @@ Now that you have learned how to register your application with Verse, add actio
 
 [9]: ../reference/reference.html#registering-an-application-in-ibm-verse
 [11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+[12]: ../reference/reference.html#security
 
 [14]:../reference/reference.html#troubleshooting
 [15]:{{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
