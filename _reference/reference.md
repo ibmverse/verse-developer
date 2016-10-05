@@ -298,7 +298,7 @@ As your website is using Cross Domain Messaging to communicate with Verse, it ca
 
 1. When receiving message, always verify origin of the message.
 
-  In this [sample HTML page][5] we provided, we did not verify origin of the message as we need to make sure the page works with any domain for demoing purpose. However, in a production environment, immediately after the line:
+  In this [sample HTML page][5]{:target="_blank"} we provided, we did not verify origin of the message as we need to make sure the page works with any domain for demoing purpose. However, in a production environment, immediately after the line:
 
   ```javascript
   window.addEventListener("message", function(event) {
@@ -316,7 +316,7 @@ As your website is using Cross Domain Messaging to communicate with Verse, it ca
 
   `targetOrigin` provides control over where messages are sent. Your application needs to specify `targetOrigin` so that it will not end up sending sensitive information to malicious site.
 
-  In this [sample HTML page][5] we provided, when posting message from the sample page back to Verse, we are specifying the `targetOrigin` to be the origin of the previous event we received (`event.origin`), instead of using a wild card `*`:
+  In this [sample HTML page][5]{:target="_blank"} we provided, when posting message from the sample page back to Verse, we are specifying the `targetOrigin` to be the origin of the previous event we received (`event.origin`), instead of using a wild card `*`:
 
   ```javascript
   event.source.postMessage(loaded_message, event.origin);
@@ -326,7 +326,15 @@ As your website is using Cross Domain Messaging to communicate with Verse, it ca
 
 3. Always validate the messages being passed.
 
-  This would include stringify the data received, and use `innerText` instead of `innerHtml` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
+  This includes trying to use `innerText` or `textContent` instead of `innerHTML` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
+
+  For example, with the [HTML sample page][5]{:target="_blank"} we provided, as it is using `insertAdjacentHTML` to display user content, if a mail subject contains the following line (either in the Mail Compose View or Mail Read View) when the extension is triggered, a button would be added onto the application's HTML page, which when clicked, will show an alert:
+
+  ```
+  </div><button onclick='alert()'>Click me!</button><div>
+  ```
+
+  This is a proof of concept to show how malicious users can take advantage of this vulnerability to execute their own script.
 
 On the extension side, Google Chrome has also given some suggestion on how to make your Chrome extension more secure. Please refer to their documentation on [Content Security Policy] and [Cross-Origin XHR] for details.
 
