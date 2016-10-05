@@ -1,6 +1,6 @@
 # IBM Verse Developer Extension for Google Chrome
 
-IBM Verse Developer Extension for Google Chrome is an extension which is used in the development of widgets for IBM Verse. It allows you to register your widget in IBM Verse as you develop it. Widgets registered with the extension are only available in the developers' local Chrome browser, and cannot be accessed from other devices.
+IBM Verse Developer Extension for Google Chrome is an extension which is used in the development of applications for IBM Verse. It allows you to register your application in IBM Verse as you develop it. Applications registered with the extension are only available in the developers' local Chrome browser, and cannot be accessed from other devices.
 
 ## What's Here
 ### 1. Tutorials
