@@ -328,6 +328,8 @@ As your website is using Cross Domain Messaging to communicate with Verse, it ca
 
   This would include stringify the data received, and use `innerText` instead of `innerHtml` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
 
+On the extension side, Google Chrome has also given some suggestion on how to make your Chrome extension more secure. Please refer to their documentation on [Content Security Policy] and [Cross-Origin XHR] for details.
+
 
 ## Troubleshooting
 
@@ -366,3 +368,5 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 [5]: {{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 [7]: ../tutorials/tutorial_verse_developer.html#update-manifestjson
+[8]: https://developer.chrome.com/extensions/contentSecurityPolicy
+[9]: https://developer.chrome.com/extensions/xhr
