@@ -111,7 +111,7 @@ _This property is not required if you are using the `path` property._
 
 ## Sending and Receiving Data
 
-Verse supports both URL query string parameters orand cross-document messaging to communicate with your application. Both methods are described below.
+Verse supports both URL query string parameters and cross-document messaging to communicate with your application. Both methods are described below.
 
 ### Passing data in a URL
 
@@ -135,9 +135,7 @@ To handle messages from Verse, your web application needs to register an event l
   });
 ```
 
-See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section.
-
-Cross-document messaging can be vulnerable to cross-site scripting attack, please consult the [Security](#security) section for some suggested security implementations.
+See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section. Please be aware that this example lacks certain security implementations for simplicity. To make it more secure for your own purpose, please refer to the [Security](#security) section, which includes suggested security implementations when using cross-document messaging.
 
 
 ## Verse API Data
@@ -328,6 +326,8 @@ For example, with the [HTML sample page][5]{:target="_blank"}, as it is using `i
 
 This is a proof of concept to show how malicious users can take advantage of this vulnerability to execute their own script.
 
+To learn more about cross-site scripting attack, please refer to the [OWASP site][10]{:target="_blank"}.
+
 On the extension side, Google Chrome has also given some suggestion on how to make your Chrome extension more secure. Please refer to their documentation on [Content Security Policy][8]{:target="_blank"} and [Cross-Origin XHR][9]{:target="_blank"} for details.
 
 
@@ -370,3 +370,4 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 [7]: ../tutorials/tutorial_verse_developer.html#update-manifestjson
 [8]: https://developer.chrome.com/extensions/contentSecurityPolicy
 [9]: https://developer.chrome.com/extensions/xhr
+[10]: https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
