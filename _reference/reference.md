@@ -17,6 +17,7 @@ categories: reference
 * [Sending and Receiving Data](#sending-and-receiving-data)
 * [Verse API Data](#verse-api-data)
 * [Editing the Manifest](#editing-the-manifest)
+* [Security](#security)
 * [Troubleshooting](#troubleshooting)
 
 ## Introduction to IBM Verse Extensibility
@@ -134,7 +135,8 @@ To handle messages from Verse, your web application needs to register an event l
   });
 ```
 
-See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section.
+See [here][5]{:target="_blank"} for the complete code source of a sample application that demonstrates the concepts described in this section. Please be aware that this example lacks certain security implementations for simplicity. To make it more secure for your own purpose, please refer to the [Security](#security) section, which includes suggested security implementations when using cross-document messaging.
+
 
 ## Verse API Data
 
@@ -288,6 +290,47 @@ If the URL that you use to access Verse is specific to your company, you need to
 After you modify this file, you will need to reload the Chrome extension and refresh Verse to pick up your latest changes.
 
 
+## Security
+
+As your website is using cross-document messaging to communicate with Verse, it can be vulnerable to cross-site scripting attack unless certain security implementations are followed carefully. Here are three tips to make your application less vulnerable.
+
+### When receiving message, always verify origin of the message.
+
+In this [sample HTML page][5]{:target="_blank"}, we did not verify origin of the message as we need to make sure the page works with any domain for demoing purpose. However, in a production environment, immediately after the line:
+
+```window.addEventListener("message", function(event) {```
+
+you should add the following code to check the origin of the message and prevent the rest of the JavaScript code from executing if the message origin does not match your Verse domain:
+
+```javascript
+if (event.origin !== "<your-Verse-domain-here>"){
+  return;
+}
+```
+
+### When sending message, always specify `targetOrigin`.
+`targetOrigin` provides control over where messages are sent. Your application needs to specify `targetOrigin` so that it will not end up sending sensitive information to malicious site.
+
+In this [sample HTML page][5]{:target="_blank"}, when posting message from the sample page back to Verse, we are specifying the `targetOrigin` to be the origin of the previous event we received (`event.origin`), instead of using a wild card `*`:
+
+`event.source.postMessage(loaded_message, event.origin);`
+
+If you have verified origin of the message by implementing the suggestion in the previous tip, you can be sure that `event.origin` here would be your Verse domain.
+
+### Always validate the messages being passed.
+This includes trying to use `innerText` or `textContent` instead of `innerHTML` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
+
+For example, with the [HTML sample page][5]{:target="_blank"}, as it is using `insertAdjacentHTML` to display user content, if a mail subject contains the following line (either in the Mail Compose View or Mail Read View) when the extension is triggered, a button would be added onto the application's HTML page, which when clicked, will show an alert:
+
+`</div><button onclick='alert()'>Click me!</button><div>`
+
+This is a proof of concept to show how malicious users can take advantage of this vulnerability to execute their own script.
+
+To learn more about cross-site scripting attack, please refer to the [OWASP site][10]{:target="_blank"}.
+
+On the extension side, Google Chrome has also given some suggestion on how to make your Chrome extension more secure. Please refer to their documentation on [Content Security Policy][8]{:target="_blank"} and [Cross-Origin XHR][9]{:target="_blank"} for details.
+
+
 ## Troubleshooting
 
 This section describes some common issues you might experience and provides information on how to debug your application.
@@ -325,3 +368,6 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 [5]: {{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 [7]: ../tutorials/tutorial_verse_developer.html#update-manifestjson
+[8]: https://developer.chrome.com/extensions/contentSecurityPolicy
+[9]: https://developer.chrome.com/extensions/xhr
+[10]: https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
