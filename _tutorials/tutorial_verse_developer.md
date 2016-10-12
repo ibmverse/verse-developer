@@ -167,9 +167,7 @@ In this section, you will add a new application, which consists of one extension
           "type": "com.ibm.verse.action",
           "ext_id": "com.ibm.verse.action.sample.mailCompose",
           "name": "Mail Compose Action Sample",
-          "payload": {
-            "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
-          },
+          "payload": {},
           "path": "mail.compose",
           "title": "Mail Compose Action"
         }
@@ -224,8 +222,6 @@ Under `extensions`, instead of using `object: "person"`, our new application use
 
 The key `payload` appears twice in the new code, once within the extension definition, as a child of the `extensions` key; another time at the root of the application definition.
 
-Under `payload` at the extension level, we inserted an SVG image file, which shows up as an icon in the UI just before the __Mail Read Action__ title. The icon comes from the [IBM Design Icons public GitHub repository][17]{:target="_blank"} and has an open-source license. Feel free to explore the repository to find an icon more suitable for your application, or to design your own. To keep the styling consistent with the Verse UI, we are not applying any extra styling on the icon, so it inherits its style from the Verse UI.
-
 Under `payload` at the application level, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose view to the external application via cross-document messaging.
 
 
@@ -246,9 +242,7 @@ In this section, you will add an action button to the Mail Read view that, when 
       "type": "com.ibm.verse.action",
       "ext_id": "com.ibm.verse.action.sample.mailRead",
       "name": "Mail Read Action Sample",
-      "payload": {
-        "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
-      },
+      "payload": {},
       "path": "mail.read",
       "title": "Mail Read Action"
     }
@@ -278,8 +272,6 @@ Congratulations! You successfully added an action button to the Mail Read view, 
 In the previous section, you learned how to add an application containing one extension to Verse by adding the new application definition into the `applications` array in `applications.json`. In this section, you learned how to add an additional extension into this application by adding the new extension into the `extensions` array.
 
 The configuration differences between the new Mail Read extension and the Mail Compose extension previously added are slight. For example, in the Mail Read extension, the `path` property is set to `mail.read` rather than `mail.compose`. This indicates that the action button should be located in the Mail Read view.
-
-For this extension, we are using the same SVG icon as for the Mail Compose extension. If you prefer to use a different icon, just change the value for the `svg` key under `payload` within `extensions`.
 
 ---
 
@@ -355,7 +347,6 @@ Now that you have learned how to register your application with Verse, add actio
 7. [Introduction to cross-document messaging][11]{:target="_blank"}
 8. [Security implementation against cross-site scripting attack][12]{:target="_blank"}
 9. [Tips for debugging][14]{:target="_blank"}
-10. [SVG][18]{:target="_blank"}
 
 
 [1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
@@ -375,5 +366,3 @@ Now that you have learned how to register your application with Verse, add actio
 [15]:{{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
 
 [16]:../reference/reference.html
-[17]:https://github.com/IBM-Design/icons
-[18]:https://developer.mozilla.org/en-US/docs/Web/SVG
