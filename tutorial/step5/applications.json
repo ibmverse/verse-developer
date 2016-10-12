@@ -40,9 +40,7 @@
         "type": "com.ibm.verse.action",
         "ext_id": "com.ibm.verse.action.sample.mailCompose",
         "name": "Mail Compose Action Sample",
-        "payload": {
-          "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
-        },
+        "payload": {},
         "path": "mail.compose",
         "title": "Mail Compose Action"
       },
@@ -50,9 +48,7 @@
         "type": "com.ibm.verse.action",
         "ext_id": "com.ibm.verse.action.sample.mailRead",
         "name": "Mail Read Action Sample",
-        "payload": {
-          "svg": "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M15 10V8h-2v2h-2V8H9v2H0v6h16v-6zM8 2H7V0H5v2H3V0H1v2H0v6h8z'/></svg>"
-        },
+        "payload": {},
         "path": "mail.read",
         "title": "Mail Read Action"
       }
