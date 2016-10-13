@@ -14,5 +14,5 @@ Alternatively, we offer reference documentation on Verse extensibility features 
 To check out the reference documentation, click [here][2].
 
 
-[1]: https://ibmcnxdev.github.io/verse-developer-chrome-ext/tutorials/tutorial_verse_developer.html
-[2]: https://ibmcnxdev.github.io/verse-developer-chrome-ext/reference/reference.html
+[1]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/tutorial_verse_developer.html
+[2]: https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html
