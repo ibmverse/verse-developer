@@ -96,7 +96,7 @@ An extension definition __must__ contain the following properties. __Only one of
 * `ext_id` The ID of the action extension. This must be __unique__.
 * `type` The type of extension being configured (for example, `com.ibm.verse.action` specifies an action contribution).
 * `name` The name of the action extension in the UI. This must be __unique__.
-* `payload` The payload property indicates optional properties of the extension (for example, you can insert an icon into your action button by adding `"svg": "<your-svg-element-here>"`). _The `payload` property is required, but its value can be empty_.
+* `payload` The payload property indicates optional properties of the extension. _The `payload` property is required, but its value can be empty_.
 * `object` The object property indicates that the extension displays in a view that provides the specified object.  
 Using the person value specifies that the extension displays in a view that provides the person object.  
 For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.  
