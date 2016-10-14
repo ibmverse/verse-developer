@@ -86,8 +86,8 @@ An application definition __must__ contain the following properties:
 * `name` The name of your application. This must be __unique__.
 * `url` The URL of your application.
 * `extensions` An array of of extension definitions. See below for the properties of this object.
-* `Payload` Describes the method of communication between Verse and the application, as well as display options for the new window.
-* `Services` Describes which services the extension is deployed to. `"Verse"` is the only supported value.
+* `payload` Describes the method of communication between Verse and the application, as well as display options for the new window.
+* `services` Describes which services the extension is deployed to. `"Verse"` is the only supported value.
 
 ### Extension Properties
 
