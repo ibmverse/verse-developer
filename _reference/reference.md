@@ -320,7 +320,7 @@ If you have verified origin of the message by implementing the suggestion in the
 ### Always validate the messages being passed.
 This includes trying to use `innerText` or `textContent` instead of `innerHTML` when inserting data value into the DOM so as to avoid malicious code being inserted and executed.
 
-For example, with the [HTML sample page][5]{:target="_blank"}, as it is using `insertAdjacentHTML` to display user content, if a mail subject contains the following line (either in the Mail Compose View or Mail Read View) when the extension is triggered, a button would be added onto the application's HTML page, which when clicked, will show an alert:
+For example, with the [HTML sample page][5]{:target="_blank"}, if it is using `insertAdjacentHTML` instead of `innerText` to display the stringified JSON data from the user's side, if a mail subject contains the following line (either in the Mail Compose View or Mail Read View) when the extension is triggered, a button would be added onto the application's HTML page, which when clicked, will show an alert:
 
 `</div><button onclick='alert()'>Click me!</button><div>`
 

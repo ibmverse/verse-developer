@@ -21,8 +21,9 @@
 
         document.getElementById("status").innerHTML = "";
 
-        document.getElementById("messages").insertAdjacentHTML('beforeend', "Message received: "
-          + "<hr><pre>" + JSON.stringify(eventData, null, 2) + "</pre>");
+        document.getElementById("messages").innerHTML = "Message received: " + "<hr><pre id='json'></pre>";
+
+        document.getElementById("json").innerText = JSON.stringify(eventData, null, 2);
 
         /**
          * Message from Verse to check whether your web application is ready.
