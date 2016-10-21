@@ -290,7 +290,7 @@ Open `index.html` in a text editor, copy and paste our sample HTML code from [he
 
 The web page shows details of the event sent from Verse to the application for each of the action buttons that you added. In the case of the bizCard extension, it will also print out the query arguments which were appended to the URL.
 
-Please be aware that if you want to move this sample HTML code into a production environment there are certain security implementation you should add to protect it against cross-site scripting attack. See the [Further Reading](#further-reading) section for more details.
+Please be aware that if you want to move this sample HTML code into a production environment there are certain security implementation you should add to protect it against cross-site scripting attack. See the [Further Reading](#further-reading) section for more details. __It is the responsibility of the extension developer to ensure data received is treated appropriately.__
 
 
 ### Set up a web server
