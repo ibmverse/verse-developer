@@ -45,7 +45,7 @@
           */
         if (eventData.verseApiType === "com.ibm.verse.action.clicked" &&
         eventData.verseApiData.actionId === "com.ibm.verse.action.sample.person") {
-          document.getElementById("query-str").innerHTML = "Query String for Person Action Sample"
+          document.getElementById("query-str").innerText = "Query String for Person Action Sample"
           + "<hr><pre>" + window.location.search + "</pre>";
         }
       }, false);
