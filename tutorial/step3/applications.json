@@ -25,30 +25,32 @@
   },
 
   {
-    "app_id": "com.ibm.verse.actions.sample.mail",
+    "app_id": "com.ibm.verse.sample.app.widget",
     "name": "Mail Sample",
-    "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+    "title": "Mail Sample Title",
+    "description": "Mail Sample Description",
 
     "extensions": [
-      {
-        "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.action.sample.mailCompose",
-        "name": "Mail Compose Action Sample",
-        "payload": {},
-        "path": "mail.compose",
-        "title": "Mail Compose Action"
+    {
+      "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+      "name": "Mail Compose Action Sample",
+      "type": "com.ibm.verse.ext.widget",
+      "payload": {
+        "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+        "features": ["core"],
+        "actions": [{
+           "id": "com.ibm.verse.ext.mail.compose.action",
+           "path": "mail.compose",
+           "text": "Mail Compose Action",
+           "title": "Mail Compose Action",
+           "location": "window",
+           "renderParams": {
+              "width": "900",
+              "height": "500"
+           }
+        }]
       }
-    ],
-
-    "payload": {
-      "features": [
-        "core"
-      ],
-      "renderParams": {
-        "width": "900",
-        "height": "500"
-      }
-    },
+    }],
 
     "services": [
       "Verse"
