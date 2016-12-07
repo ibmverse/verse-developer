@@ -24,7 +24,7 @@ categories: reference
 
 Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions, which will enhance Verse with new functionality.
 
-For example, one of the extension points that Verse supports is an action extension. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which, when clicked, triggers some logic in your application.
+For example, one of the extension points that Verse supports is an widget extension. A widget extension is typically displayed as a button in the Verse User Interface (UI) which, when clicked, triggers some logic in your application.
 
 An extension can declare that it requires specific data from Verse, and when the extension is activated, Verse will send this data to it. For example, if you add a link to a Verse business card, your extension can be configured to receive the email address of the person when that link is clicked.
 
@@ -36,24 +36,24 @@ This section introduces extensibility concepts and terminology that is used thro
   The URL of the application is registered with Verse and the application opens in a separate window.
   The application has access to Verse data through cross-document messaging or URL query string parameters.
 
-* Extension: A feature that contributes to a specific part of IBM Verse. For example, an action extension that adds a button or link to the Verse UI which, when clicked, opens a new browser window containing a third-party web application.
+* Extension: A feature that contributes to a specific part of IBM Verse. For example, an extension that adds a button or link to the Verse UI which, when clicked, opens a new browser window containing a third-party web application.
 
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
-## Verse Action Extensions
-Verse supports action extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
-The `mail.compose` action extension adds an action to the `more actions` button in the New Message window when composing a mail.
+## Verse Extensions
+Verse supports extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
+The `mail.compose` widget extension adds a widget to the `more actions` button in the New Message window when composing a mail.
 When an extension is clicked, Verse opens your application in a new window and sends the requested information to it.
-For example, if you add a `mail.read` action extension, Verse will send the mail subject, body, recipients, date, etc. See [here](#action-extensions) for the full reference of action extensions.
+For example, if you add a `mail.read` widget extension, Verse will send the mail subject, body, recipients, date, etc. See [here](#action-extensions) for the full reference of widget extensions.
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
 you can use the [IBM Verse Developer Extension for Google Chrome][4]{:target="_blank"}. There is a [tutorial](../tutorials/tutorial_verse_developer.html){:target="_blank"} to get you started.
 
 ### Your Application
-You will need to provide Verse with the URL to your application. Once an action extension is clicked in the Verse UI, the URL will be loaded in a new window. The page that is loaded uses JavaScript to listen for a window message event containing  a context object. This object has information from Verse for your extension, as specified in the `applications.json` file.
+You will need to provide Verse with the URL to your application. Once an extension is clicked in the Verse UI, the URL will be loaded in a new window. The page that is loaded uses JavaScript to listen for a window message event containing  a context object. This object has information from Verse for your extension, as specified in the `applications.json` file.
 
-When using the Chrome extension, you will need to add the URL of your application and the action extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
+When using the Chrome extension, you will need to add the URL of your application and the extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
 
 ### File structure of `applications.json`
 
@@ -99,10 +99,10 @@ An extension definition __must__ contain the following properties. __Only one of
 * `payload` The payload property indicates optional properties of the extension. _The `payload` property is required, but its value can be empty_.
 * `object` The object property indicates that the extension displays in a view that provides the specified object.  
 Using the person value specifies that the extension displays in a view that provides the person object.  
-For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.  
+For example, if the business card view provides the person data type, then the extension contribution will be shown on the business card view.  
 _This property is not required if you are using the `path` property._
-* `path` The path property displays an action extension in the mail compose view or the mail read view. Valid values are `"mail.read"` or `"mail.compose"`. *This property is not required if you are using the `object` property.*
-* `title` The title of your action extension, which will appear in the Verse UI.
+* `path` The path property displays an extension in the mail compose view or the mail read view. Valid values are `"mail.read"` or `"mail.compose"`. *This property is not required if you are using the `object` property.*
+* `title` The title of your extension, which will appear in the Verse UI.
 
 ### Payload Properties
 
