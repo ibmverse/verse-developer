@@ -1,25 +1,21 @@
 [
   {
-    "app_id": "com.ibm.verse.actions.sample.person",
+    "app_id": "com.ibm.verse.sample.app.templatedlink",
     "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
 
     "extensions": [
       {
-        "type": "com.ibm.verse.action",
-        "ext_id": "com.ibm.verse.action.sample.person",
-        "name": "Person Action Sample",
+        "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
         "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=<profile.primaryEmail>",
-          "features": [
-            "core"
-          ],
-          "renderParams": {
-            "width": "900",
-            "height": "500"
-          }
-        },
-        "object": "person",
-        "title": "Person Action"
+          "text": "Person Templated Link",
+          "title": "Person Templated Link",
+          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=${profile.primaryEmail}"
+        }
       }
     ],
 
