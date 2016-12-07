@@ -24,7 +24,13 @@ Structure of the Tutorial:
 
 ### What is the Verse Developer Extension for Google Chrome?
 
-The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports action extensions, which are displayed in IBM Verse as either a button or a link. Action extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
+The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 4 types of extensions:
+1. Simple Link (type = com.ibm.appreg.ext.simpleLink)
+2. Templated Link (type = com.ibm.appreg.ext.templatedLink)
+3. Widget (type = com.ibm.verse.ext.widget)
+4. Widget Action (type = com.ibm.verse.widget.action)
+
+ which are displayed in IBM Verse as either a button or a link. Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
 
 * Business Card (bizCard) View
 
@@ -52,7 +58,7 @@ The Verse Developer Extension for Google Chrome is a tool for developers who are
 This tutorial starts with a sample application for you to add functionality to the Business Card (bizCard) in Verse. Then you will write another application that adds functionality to both the Mail Compose and Mail Read views.
 
 ### What you'll learn
-* How to add actions into the Verse UI for your application.
+* How to add extensions into the Verse UI for your application.
 * How to transfer data from Verse to your application.
 
 ### What you'll need
@@ -123,31 +129,31 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 3. Click on the __arrow__ button located at the right bottom part of the bizCard to turn the bizCard around.  
 ![bizCard more actions](img/1_bizcard_more_action.png)
 
-4. At the back of the bizCard you will see a new button called __Person Action__.  
+4. At the back of the bizCard you will see a new link called __Person Templated Link__.  
 ![bizCard action](img/1_bizcard_action.png)
 
-5. Click on the __Person Action__ button. This will load a web application (in a separate window) that uses information sent from the Verse bizCard.
+5. Click on the __Person Templated Link__ link. This will load a web application (in a separate window) that uses information sent from the Verse bizCard.
 
 
 ### How it works
 If you have reached this step, congratulations! You successfully installed the Verse Developer Extension with one default application. But how does this all work?
 
-The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Action__ button to the bizCard.
+The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Templated Link__ templated link to the bizCard.
 
-Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `url`.
+Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `href`.
 
-The URL contains the variable `profile.primaryEmail`, surrounded by a pair of angle brackets `<>`. The value for this variable will be calculated and automatically filled in when the external application is loaded.
+The URL contains the variable `profile.primaryEmail`, surrounded by a pair of curly brackets with a dollar sign `${}`. The value for this variable will be calculated and automatically filled in when the external application is loaded.
 
 `profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external application from Verse. A context object contains information related to Verse. Each of the extension points (bizCard, Mail Read view, and Mail Compose view), will have its own context structure.
 
 To learn more about context objects and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further Reading](#further-reading) section at the end of the tutorial.
 
-For adding the UI button on the bizCard, we specified `person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
+For adding the UI link on the bizCard, we specified `com.ibm.appreg.object.person` as the value for the `object` property under `extensions`, and set its title to `"Person Templated Link"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
 
 ---
 
 ## 3. Add Action for Mail Compose
-In this section, you will add a new application, which consists of one extension, to Verse. The extension will add an action button to the Mail Compose View. When the user clicks on this button, an external application will be opened in a separate window, and will print out the details of the event data sent from Verse. In the next section, you will add a second extension into this application.
+In this section, you will add a new application, which consists of one extension, to Verse. The extension will add a widget to the Mail Compose View. When the user clicks on this widget, an external application will be opened in a separate window, and will print out the details of the event data sent from Verse. In the next section, you will add a second extension into this application.
 
 
 ### Edit applications.json
@@ -155,33 +161,34 @@ In this section, you will add a new application, which consists of one extension
 
 2. Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding application before adding your own__.
 
-
 ```json
     {
-      "app_id": "com.ibm.verse.actions.sample.mail",
+      "app_id": "com.ibm.verse.sample.app.widget",
       "name": "Mail Sample",
-      "url": "{{site.baseurl}}/samples/actions.html",
+      "title": "Mail Sample Title",
+      "description": "Mail Sample Description",
 
       "extensions": [
-        {
-          "type": "com.ibm.verse.action",
-          "ext_id": "com.ibm.verse.action.sample.mailCompose",
-          "name": "Mail Compose Action Sample",
-          "payload": {},
-          "path": "mail.compose",
-          "title": "Mail Compose Action"
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+        "name": "Mail Compose Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "{{site.baseurl}}/samples/actions.html",
+          "features": ["core"],
+          "actions": [{
+            "id": "com.ibm.verse.ext.mail.compose.action",
+            "path": "mail.compose",
+            "text": "Mail Compose Action",
+            "title": "Mail Compose Action",
+            "location": "window",
+            "renderParams": {
+              "width": "900",
+              "height": "500"
+            }
+          }]
         }
-      ],
-
-      "payload": {
-        "features": [
-          "core"
-        ],
-        "renderParams": {
-          "width": "900",
-          "height": "500"
-        }
-      },
+      }],
 
       "services": [
         "Verse"
@@ -190,8 +197,69 @@ In this section, you will add a new application, which consists of one extension
 ```
 
 
-If you are using Git, the before and after diffs for the file `applications.json` should look like this:  
-![update applications json](img/2_update_applications.png)
+Your file `applications.json` should now look like this:  
+
+```json
+  [
+    {
+      "app_id": "com.ibm.verse.sample.app.templatedlink",
+      "name": "Person Sample",
+      "title": "Templated Link Person Sample",
+      "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+
+      "extensions": [
+        {
+          "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+          "name": "Person Templated Link",
+          "type": "com.ibm.appreg.ext.templatedLink",
+          "object": "com.ibm.appreg.object.person",
+          "payload": {
+            "text": "Person Templated Link",
+            "title": "Person Templated Link",
+            "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=${profile.primaryEmail}"
+          }
+        }
+      ],
+
+      "services": [
+        "Verse"
+      ]
+    },
+
+    {
+      "app_id": "com.ibm.verse.sample.app.widget",
+      "name": "Mail Sample",
+      "title": "Mail Sample Title",
+      "description": "Mail Sample Description",
+
+      "extensions": [
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+        "name": "Mail Compose Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": ["core"],
+          "actions": [{
+             "id": "com.ibm.verse.ext.mail.compose.action",
+             "path": "mail.compose",
+             "text": "Mail Compose Action",
+             "title": "Mail Compose Action",
+             "location": "window",
+             "renderParams": {
+                "width": "900",
+                "height": "500"
+             }
+          }]
+        }
+      }],
+
+      "services": [
+        "Verse"
+      ]
+    }
+  ]
+```
 
 ### Reload the extension and Verse
 __Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
@@ -210,7 +278,7 @@ To reload the extension, open your Chrome browser, go to `chrome://extensions`, 
 3. In the drop-down menu, click __Mail Compose Action__. This will bring up the web application you just registered with the Chrome extension, with information related to the Mail Compose view passed on from Verse.  
 ![mail compose action button](img/2_mailcompose_action.png)
 
-Congratulations! You successfully added an action button to the Mail Compose view, and registered the relevant application with Verse.
+Congratulations! You successfully added a button to the Mail Compose view, and registered the relevant application with Verse.
 
 
 ### How it works
@@ -218,39 +286,131 @@ In this section, a new application with its own `app_id` is added into `applicat
 
 You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 
-Under `extensions`, instead of using `object: "person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose view. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose view? The reason is, for this example, you are writing an extension for a particular UI view (Mail Compose view), while in the previous extension, instead of extending a particular UI view, you are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People bubble.
+Under `extensions`, instead of using `object: "com.ibm.appreg.object.person"`, our new application uses `path: "mail.compose"`. This indicates the action button should be located in the Mail Compose view. You might wonder, why would we use the key `object` in our previous example for bizCard, but `path` here for the Mail Compose view? The reason is, for this example, you are writing an extension for a particular UI view (Mail Compose view), while in the previous extension, instead of extending a particular UI view, you are actually extending the __Person__ object, which manifests in Verse as a bizCard, and you can open a bizCard from some other places apart from the People bubble.
 
-The key `payload` appears twice in the new code, once within the extension definition, as a child of the `extensions` key; another time at the root of the application definition.
+The key `payload` appears within the extension definition, as a child of the `extensions` key.
 
-Under `payload` at the application level, we are still using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose view to the external application via cross-document messaging.
+Under `payload` at the extension level, we are using `"features": ["core"]` to ask Verse to send context structure related to the Mail Compose view to the external application via cross-document messaging.
 
 
 ---
 
 ## 4. Add Action for Mail Read
-In this section, you will add an action button to the Mail Read view that, when clicked, will open a separate window with information related to the Mail Read view sent from Verse. You will add this extension into the application that you created in the last section (which currently contains one extension for the Mail Compose view).
+In this section, you will add a button to the Mail Read view that, when clicked, will open a separate window with information related to the Mail Read view sent from Verse. You will add this extension into the application that you created in the last section (which currently contains one extension for the Mail Compose view).
 
 
 ### Edit applications.json
 1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the `extensions` belonging to the application with `app_id`: `com.ibm.verse.actions.sample.mail`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Extension before adding your own__.
+2. Append the following object into the `extensions` belonging to the application with `app_id`: `com.ibm.verse.sample.app.widget`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Extension before adding your own__.
 
 
 ```json
     {
-      "type": "com.ibm.verse.action",
-      "ext_id": "com.ibm.verse.action.sample.mailRead",
+      "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
       "name": "Mail Read Action Sample",
-      "payload": {},
-      "path": "mail.read",
-      "title": "Mail Read Action"
-    }
+      "type": "com.ibm.verse.ext.widget",
+      "payload": {
+        "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+        "features": ["core"],
+        "actions": [{
+          "id": "com.ibm.verse.ext.mail.read.action",
+          "path": "mail.read",
+          "text": "Mail Read Action",
+          "title": "Mail Read Action",
+          "location": "window",
+          "renderParams": {
+            "width": "900",
+            "height": "500"
+          }
+        }]
+      }
+    }],
 ```
 
+Your file `applications.json` should look something like this:  
 
-If you are using Git, the diffs for the file `applications.json` before and after edit should show up as follows:  
-![update applications json](img/3_update_applications.png)
+```json
+  [
+    {
+      "app_id": "com.ibm.verse.sample.app.templatedlink",
+      "name": "Person Sample",
+      "title": "Templated Link Person Sample",
+      "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+
+      "extensions": [
+        {
+          "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+          "name": "Person Templated Link",
+          "type": "com.ibm.appreg.ext.templatedLink",
+          "object": "com.ibm.appreg.object.person",
+          "payload": {
+            "text": "Person Templated Link",
+            "title": "Person Templated Link",
+            "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=${profile.primaryEmail}"
+          }
+        }
+      ],
+
+      "services": [
+        "Verse"
+      ]
+    },
+
+    {
+      "app_id": "com.ibm.verse.sample.app.widget",
+      "name": "Mail Sample",
+      "title": "Mail Sample Title",
+      "description": "Mail Sample Description",
+
+      "extensions": [
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+        "name": "Mail Compose Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": ["core"],
+          "actions": [{
+             "id": "com.ibm.verse.ext.mail.compose.action",
+             "path": "mail.compose",
+             "text": "Mail Compose Action",
+             "title": "Mail Compose Action",
+             "location": "window",
+             "renderParams": {
+                "width": "900",
+                "height": "500"
+             }
+          }]
+        }
+      },
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
+        "name": "Mail Read Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": ["core"],
+          "actions": [{
+            "id": "com.ibm.verse.ext.mail.read.action",
+            "path": "mail.read",
+            "text": "Mail Read Action",
+            "title": "Mail Read Action",
+            "location": "window",
+            "renderParams": {
+              "width": "900",
+              "height": "500"
+            }
+          }]
+        }
+      }],
+
+      "services": [
+        "Verse"
+      ]
+    }
+  ]
+```
 
 ### Reload the extension and Verse
 As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ from `chrome://extensions`, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
