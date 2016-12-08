@@ -24,11 +24,11 @@ Structure of the Tutorial:
 
 ### What is the Verse Developer Extension for Google Chrome?
 
-The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 4 types of extensions:
+The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 3 types of extensions:
 1. Simple Link (type = com.ibm.appreg.ext.simpleLink)
 2. Templated Link (type = com.ibm.appreg.ext.templatedLink)
 3. Widget (type = com.ibm.verse.ext.widget)
-4. Widget Action (type = com.ibm.verse.widget.action)
+  * Each Widget can contribute one or more actions to the Verse UI
 
  which are displayed in IBM Verse as either a button or a link. Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
 
@@ -129,16 +129,16 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 3. Click on the __arrow__ button located at the right bottom part of the bizCard to turn the bizCard around.  
 ![bizCard more actions](img/1_bizcard_more_action.png)
 
-4. At the back of the bizCard you will see a new link called __Person Templated Link__.  
+4. At the back of the bizCard you will see a new link called __Person Action__.  
 ![bizCard action](img/1_bizcard_action.png)
 
-5. Click on the __Person Templated Link__ link. This will load a web application (in a separate window) that uses information sent from the Verse bizCard.
+5. Click on the __Person Action__ link. This will load a web application (in a separate window) that uses information sent from the Verse bizCard.
 
 
 ### How it works
 If you have reached this step, congratulations! You successfully installed the Verse Developer Extension with one default application. But how does this all work?
 
-The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Templated Link__ templated link to the bizCard.
+The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Action__ templated link to the bizCard.
 
 Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `href`.
 
@@ -148,7 +148,7 @@ The URL contains the variable `profile.primaryEmail`, surrounded by a pair of cu
 
 To learn more about context objects and how they get sent, please refer to __Verse API data__ and __Sending and receiving data from Verse__ in the [Further Reading](#further-reading) section at the end of the tutorial.
 
-For adding the UI link on the bizCard, we specified `com.ibm.appreg.object.person` as the value for the `object` property under `extensions`, and set its title to `"Person Templated Link"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
+For adding the UI link on the bizCard, we specified `com.ibm.appreg.object.person` as the value for the `object` property under `extensions`, and set its title to `"Person Action"` via the `title` property. In the next section, you will learn how to add UI buttons on different parts of the Verse UI.
 
 ---
 
@@ -215,7 +215,7 @@ Your file `applications.json` should now look like this:
           "object": "com.ibm.appreg.object.person",
           "payload": {
             "text": "Person Templated Link",
-            "title": "Person Templated Link",
+            "title": "Person Action",
             "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=${profile.primaryEmail}"
           }
         }
@@ -346,7 +346,7 @@ Your file `applications.json` should look something like this:
           "object": "com.ibm.appreg.object.person",
           "payload": {
             "text": "Person Templated Link",
-            "title": "Person Templated Link",
+            "title": "Person Action",
             "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html?searchFor=${profile.primaryEmail}"
           }
         }
@@ -479,8 +479,92 @@ This will allow you to use the Web Server URL shown in the section below without
 ![sample page](img/4_sample_page.png)
 
 ### Edit applications.json to point to your new URL
-Open `applications.json` in a text editor. Change the value for all the `url` properties to the address where your `index.html` page is hosted, but leave the query strings of the first application in your URL (see the Git diffs below for reference). If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the application under the section __Web Server URL(s)__. If you are using Git, the diffs for the file `applications.json` before and after edit should show up similar to this:  
-![applications json](img/5_applicationsjson.png)
+Open `applications.json` in a text editor. Change the value for the `href` properties in the Person Sample to the address where your `index.html` page is hosted, but leave the query strings of the first application in your URL. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the application under the section __Web Server URL(s)__.
+
+```json
+{
+  "app_id": "com.ibm.verse.sample.app.templatedlink",
+  "name": "Person Sample",
+  "title": "Templated Link Person Sample",
+  "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+
+  "extensions": [
+    {
+      "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+      "name": "Person Templated Link",
+      "type": "com.ibm.appreg.ext.templatedLink",
+      "object": "com.ibm.appreg.object.person",
+      "payload": {
+        "text": "Person Templated Link",
+        "title": "Person Action",
+        "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
+      }
+    }
+  ],
+
+  "services": [
+    "Verse"
+  ]
+},
+```
+Do the same for the `url` properties in the Mail Sample application.
+
+```json
+{
+  "app_id": "com.ibm.verse.sample.app.widget",
+  "name": "Mail Sample",
+  "title": "Mail Sample Title",
+  "description": "Mail Sample Description",
+
+  "extensions": [
+  {
+    "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+    "name": "Mail Compose Action Sample",
+    "type": "com.ibm.verse.ext.widget",
+    "payload": {
+      "url": "http://127.0.0.1:8887",
+      "features": ["core"],
+      "actions": [{
+         "id": "com.ibm.verse.ext.mail.compose.action",
+         "path": "mail.compose",
+         "text": "Mail Compose Action",
+         "title": "Mail Compose Action",
+         "location": "window",
+         "renderParams": {
+            "width": "900",
+            "height": "500"
+         }
+      }]
+    }
+  },
+  {
+    "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
+    "name": "Mail Read Action Sample",
+    "type": "com.ibm.verse.ext.widget",
+    "payload": {
+      "url": "http://127.0.0.1:8887",
+      "features": ["core"],
+      "actions": [{
+        "id": "com.ibm.verse.ext.mail.read.action",
+        "path": "mail.read",
+        "text": "Mail Read Action",
+        "title": "Mail Read Action",
+        "location": "window",
+        "renderParams": {
+          "width": "900",
+          "height": "500"
+        }
+      }]
+    }
+  }],
+
+  "services": [
+    "Verse"
+  ]
+}
+```
+
+
 
 ### Test it out
 Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
