@@ -24,34 +24,45 @@ categories: reference
 
 Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions, which will enhance Verse with new functionality.
 
-For example, one of the extension points that Verse supports is an widget extension. A widget extension is typically displayed as a button in the Verse User Interface (UI) which, when clicked, triggers some logic in your application.
+For example, one of the extension points that Verse supports is a templated link extension. A templated link extension is displayed as a link in the Verse User Interface (UI) which, when clicked, opens a URL to a third party web application.
 
-An extension can declare that it requires specific data from Verse, and when the extension is activated, Verse will send this data to it. For example, if you add a link to a Verse business card, your extension can be configured to receive the email address of the person when that link is clicked.
+An extension can declare that it requires specific data from Verse, and when the extension is activated, Verse will send this data to it. For example, if you add a templated link to a Verse business card, your extension can be configured to receive the email address of the person included in the link URL.
 
 ## Extensibility Concepts  
 This section introduces extensibility concepts and terminology that is used throughout this document.
 
 * Application: A third-party web application that contributes new functionality to IBM Verse.
   An application can contribute one or more new features to different parts of the IBM Verse UI.
-  The URL of the application is registered with Verse and the application opens in a separate window.
-  The application has access to Verse data through cross-document messaging or URL query string parameters.
 
 * Extension: A feature that contributes to a specific part of IBM Verse. For example, an extension that adds a button or link to the Verse UI which, when clicked, opens a new browser window containing a third-party web application.
+The URL of the application is registered with Verse and the application opens in a separate window.
+The application has access to Verse data through cross-document messaging or URL query string parameters.
 
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
-## Verse Extensions
-Verse supports extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
-The `mail.compose` widget extension adds a widget to the `more actions` button in the New Message window when composing a mail.
-When an extension is clicked, Verse opens your application in a new window and sends the requested information to it.
-For example, if you add a `mail.read` widget extension, Verse will send the mail subject, body, recipients, date, etc. See [here](#action-extensions) for the full reference of widget extensions.
+## Verse Extension Points
+IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+
+For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
+
+Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
+
+However, Widget Actions inside of Widgets allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini webapps that can respond to that input.
+
+Here is the full list of extension points that Verse supports.
+
+  * com.ibm.appreg.ext.simpleLink
+  * com.ibm.appreg.ext.templatedLink
+  * com.ibm.verse.ext.widget
+      * Widget Action
+
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
 you can use the [IBM Verse Developer Extension for Google Chrome][4]{:target="_blank"}. There is a [tutorial](../tutorials/tutorial_verse_developer.html){:target="_blank"} to get you started.
 
 ### Your Application
-You will need to provide Verse with the URL to your application. Once an extension is clicked in the Verse UI, the URL will be loaded in a new window. The page that is loaded uses JavaScript to listen for a window message event containing  a context object. This object has information from Verse for your extension, as specified in the `applications.json` file.
+You will need to provide Verse with the URL to your web application. Once an extension is clicked in the Verse UI, the URL will be loaded in a new window. If cross-document messaging is configured, the initial web page can use JavaScript to listen for a window message event containing a context object after it loads. This object has information from Verse for your extension, as specified in the `applications.json` file.
 
 When using the Chrome extension, you will need to add the URL of your application and the extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
 
@@ -84,9 +95,9 @@ An application definition __must__ contain the following properties:
 
 * `app_id` The __unique__ identifier for the application, using the form: com.companyName.
 * `name` The name of your application. This must be __unique__.
-* `url` The URL of your application.
+* `title` The title of your application.
+* `description` The description of your application.
 * `extensions` An array of of extension definitions. See below for the properties of this object.
-* `payload` Describes the method of communication between Verse and the application, as well as display options for the new window.
 * `services` Describes which services the extension is deployed to. `"Verse"` is the only supported value.
 
 ### Extension Properties
@@ -102,7 +113,6 @@ Using the person value specifies that the extension displays in a view that prov
 For example, if the business card view provides the person data type, then the extension contribution will be shown on the business card view.  
 _This property is not required if you are using the `path` property._
 * `path` The path property displays an extension in the mail compose view or the mail read view. Valid values are `"mail.read"` or `"mail.compose"`. *This property is not required if you are using the `object` property.*
-* `title` The title of your extension, which will appear in the Verse UI.
 
 ### Payload Properties
 
@@ -162,7 +172,7 @@ In the code example above, you can see that the information that you need from V
 
 In the sections below, the structure of each of the different context objects is outlined.
 
-#### Action Extensions
+#### Widget Extensions
 
 * [mail.compose:](#mail-compose) This appears when composing a new mail under the `more actions` button.
 * [mail.read:](#mail-read-view) This appears when viewing an existing mail under the `more actions` button.
