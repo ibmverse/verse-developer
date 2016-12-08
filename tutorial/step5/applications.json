@@ -13,7 +13,7 @@
         "object": "com.ibm.appreg.object.person",
         "payload": {
           "text": "Person Templated Link",
-          "title": "Person Templated Link",
+          "title": "Person Action",
           "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
         }
       }
