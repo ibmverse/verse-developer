@@ -26,10 +26,11 @@ Structure of the Tutorial:
 
 The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 3 types of extensions:
 
-1. Simple Link (type = com.ibm.appreg.ext.simpleLink)
-2. Templated Link (type = com.ibm.appreg.ext.templatedLink)
-3. Widget (type = com.ibm.verse.ext.widget)
-  * Each Widget can contribute one or more actions to the Verse UI
+1. Simple Link (`type = com.ibm.appreg.ext.simpleLink`)
+2. Templated Link (`type = com.ibm.appreg.ext.templatedLink`)
+3. Widget (`type = com.ibm.verse.ext.widget`)
+
+Note: Each Widget can contribute one or more actions to the Verse UI
 
  which are displayed in IBM Verse as either a button or a link. Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
 
