@@ -30,9 +30,9 @@ The Verse Developer Extension for Google Chrome is a tool for developers who are
 2. Templated Link (`type = com.ibm.appreg.ext.templatedLink`)
 3. Widget (`type = com.ibm.verse.ext.widget`)
 
-Note: Each Widget can contribute one or more actions to the Verse UI
+Note: Each Widget can contribute one or more actions to the Verse UI which are displayed in IBM Verse as either a button or a link. 
 
- which are displayed in IBM Verse as either a button or a link. Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
+Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
 
 * Business Card (bizCard) View
 
