@@ -4,7 +4,6 @@
     "name": "Person Sample",
     "title": "Templated Link Person Sample",
     "description": "This samples demonstrates using the Templated Link extension point with a Person object",
-
     "extensions": [
       {
         "ext_id": "com.ibm.verse.sample.ext.templatedlink",
@@ -12,65 +11,71 @@
         "type": "com.ibm.appreg.ext.templatedLink",
         "object": "com.ibm.appreg.object.person",
         "payload": {
-          "text": "Person Templated Link",
+          "text": "Person Action",
           "title": "Person Action",
-          "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
+          "href": "http:\/\/127.0.0.1:8887?searchFor=${profile.primaryEmail}"
         }
       }
     ],
-
     "services": [
       "Verse"
     ]
   },
-
   {
     "app_id": "com.ibm.verse.sample.app.widget",
     "name": "Mail Sample",
     "title": "Mail Sample Title",
     "description": "Mail Sample Description",
     "extensions": [
-    {
-      "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-      "name": "Mail Compose Action Sample",
-      "type": "com.ibm.verse.ext.widget",
-      "payload": {
-        "url": "http://127.0.0.1:8887",
-        "features": ["core"],
-        "actions": [{
-           "id": "com.ibm.verse.ext.mail.compose.action",
-           "path": "mail.compose",
-           "text": "Mail Compose Action",
-           "title": "Mail Compose Action",
-           "location": "window",
-           "renderParams": {
-              "width": "900",
-              "height": "500"
-           }
-        }]
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
+        "name": "Mail Compose Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "http:\/\/127.0.0.1:8887",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
+        "name": "Mail Read Action Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "http:\/\/127.0.0.1:8887",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.read.action",
+              "path": "mail.read",
+              "text": "Mail Read Action",
+              "title": "Mail Read Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
+          ]
+        }
       }
-    },
-    {
-      "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
-      "name": "Mail Read Action Sample",
-      "type": "com.ibm.verse.ext.widget",
-      "payload": {
-        "url": "http://127.0.0.1:8887",
-        "features": ["core"],
-        "actions": [{
-          "id": "com.ibm.verse.ext.mail.read.action",
-          "path": "mail.read",
-          "text": "Mail Read Action",
-          "title": "Mail Read Action",
-          "location": "window",
-          "renderParams": {
-            "width": "900",
-            "height": "500"
-          }
-        }]
-      }
-    }],
-
+    ],
     "services": [
       "Verse"
     ]
