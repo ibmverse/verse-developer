@@ -51,10 +51,10 @@ However, Widget Actions inside of Widgets allow those same kinds of clickable UI
 
 Here is the full list of extension points that Verse supports.
 
-  * com.ibm.appreg.ext.simpleLink
-  * com.ibm.appreg.ext.templatedLink
-  * com.ibm.verse.ext.widget
-      * Widget Action
+  * [com.ibm.appreg.ext.simpleLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#simpleLink)
+  * [com.ibm.appreg.ext.templatedLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#templatedLink)
+  * [com.ibm.verse.ext.widget](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#widget)
+      * [Widget Action](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#action)
 
 
 ## Registering an Application in IBM Verse
