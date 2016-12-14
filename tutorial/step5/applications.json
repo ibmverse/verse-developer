@@ -13,7 +13,7 @@
         "payload": {
           "text": "Person Action",
           "title": "Person Action",
-          "href": "http:\/\/127.0.0.1:8887?searchFor=${profile.primaryEmail}"
+          "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
         }
       }
     ],
@@ -32,7 +32,7 @@
         "name": "Mail Compose Action Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "http:\/\/127.0.0.1:8887",
+          "url": "http://127.0.0.1:8887",
           "features": [
             "core"
           ],
@@ -56,7 +56,7 @@
         "name": "Mail Read Action Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "http:\/\/127.0.0.1:8887",
+          "url": "http://127.0.0.1:8887",
           "features": [
             "core"
           ],
