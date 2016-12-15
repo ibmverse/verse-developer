@@ -40,11 +40,11 @@ Extensions can be contributed to the following parts of the IBM Verse user inter
 
   ![business card view 1](img/0_bizCard_1.png)
 
-  access via hover, wait, then click on sender in message list:
+  access via hovering over and clicking on sender in message list:
 
   ![business card view 2](img/0_bizCard_2.png)
 
-  access via hover, wait, then click on sender in mail preview panel:
+  access via hovering over and clicking on sender in mail preview panel:
 
   ![business card view 3](img/0_bizCard_3.png)
 
@@ -64,7 +64,7 @@ This tutorial starts with a sample application for you to add functionality to t
 * How to transfer data from Verse to your application.
 
 ### What you'll need
-* Google Chrome browser
+* Google Chrome or Firefox (minimum version 49.0) browser
 * [Web Server for Chrome][1]{:target="_blank"} (alternatively, you can also use FireFox Thimble, or your own web server of choice)
 * The Verse Developer Chrome Extension source code
 * A text editor
@@ -98,7 +98,7 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 
 2. See if the value for the property `matches` contains the URL you will be using for Verse. The `*` at the end of a URL means matching 0 or more characters. We recommend adding the `*`.
 
-3. If your Verse URL is already there, skip to the next step [Load unpacked extension](#load-unpacked-extensions). Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
+3. If your Verse URL is already there, proceed to the next step to install Verse Developer on either Google Chrome or Firefox. Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
 
     For example:  
 ![update manifest.json](img/1_update_manifest.png)
@@ -107,15 +107,19 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 1. Open your Google Chrome browser, and type in the address bar: `chrome://extensions`.
 
 2. Select __Developer mode__, (unpacked extensions can only be loaded in __Developer mode__.)  
+
 ![Developer mode](img/1_developer_mode.png)
 
 3. Click the button __Load unpacked extension...__.  
+
 ![Load unpacked extension](img/1_load_unpacked_ext.png)
 
 4. In the pop-up file picker, select the `src` folder, which contains the `manifest.json` file.  
+
 ![Select src](img/1_select_src.png)
 
 5. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `chrome://extensions` page.  
+
 ![Extension loaded](img/1_extension_loaded.png)
 
   If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
@@ -124,22 +128,15 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 1. Open your Firefox browser, and type in the address bar: `about:debugging`.
 
 2. Select __Load Temporary Add-On__,
+
 ![Developer mode](img/1_load_temp_addons_ff.png)
 
 3. In the pop-up file picker, select the `manifest.json` file inside the `src` folder.
+
 ![Select src](img/1_select_src_ff.png)
 
-   ***Note***: If your version of Firefox is below 48, then you will need to add the following line into the `manifest.json` before loading it. 
+4. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `about:debugging` page.
 
-   ```json
-     "applications": {
-       "gecko": {
-         "id": "verse_dev_extension@ibm.com",
-       }
-     },
-   ```
-
-4. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `about:debugging` page. 
 ![Extension loaded](img/1_extension_loaded_ff.png)
 
 ### Reload Verse and test it out
@@ -185,17 +182,17 @@ In this section, you will add a new application, which consists of one extension
 
 ```json
   {
-    "app_id": "com.ibm.verse.sample.app.widget",
+    "id": "com.ibm.verse.sample.app.widget",
     "name": "Mail Sample",
     "title": "Mail Sample Title",
     "description": "Mail Sample Description",
     "extensions": [
       {
-        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-        "name": "Mail Compose Action Sample",
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html",
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
           "features": [
             "core"
           ],
@@ -228,13 +225,13 @@ Your file `applications.json` should now look like this:
 ```json
 [
   {
-    "app_id": "com.ibm.verse.sample.app.templatedlink",
+    "id": "com.ibm.verse.sample.app.templatedlink",
     "name": "Person Sample",
     "title": "Templated Link Person Sample",
     "description": "This samples demonstrates using the Templated Link extension point with a Person object",
     "extensions": [
       {
-        "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+        "id": "com.ibm.verse.sample.ext.templatedlink",
         "name": "Person Templated Link",
         "type": "com.ibm.appreg.ext.templatedLink",
         "object": "com.ibm.appreg.object.person",
@@ -250,14 +247,14 @@ Your file `applications.json` should now look like this:
     ]
   },
   {
-    "app_id": "com.ibm.verse.sample.app.widget",
+    "id": "com.ibm.verse.sample.app.widget",
     "name": "Mail Sample",
     "title": "Mail Sample Title",
     "description": "Mail Sample Description",
     "extensions": [
       {
-        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-        "name": "Mail Compose Action Sample",
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
           "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
@@ -281,20 +278,22 @@ Your file `applications.json` should now look like this:
       }
     ],
 
-      "services": [
-        "Verse"
-      ]
-    }
-  ]
+    "services": [
+      "Verse"
+    ]
+  }
+]
 ```
 
 ### Reload the extension and Verse
 __Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
 
 To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
+
 ![reload extension](img/2_reload.png)
 
 To reload the extension in Firefox, open your Firefox browser, go to `about:debugging`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
+
 ![reload extension](img/2_reload_ff.png)
 
 ### Test it out
@@ -311,7 +310,7 @@ Congratulations! You successfully added a button to the Mail Compose view, and r
 
 
 ### How it works
-In this section, a new application with its own `app_id` is added into `applications.json` and thus registered with Verse. Under this new app, you will add an extension with its own `ext_id`. It is also possible to add multiple extensions within the same application. We will give you an example in the next section.
+In this section, a new application with its own `id` is added into `applications.json` and thus registered with Verse. Under this new app, you will add an extension with its own `id`. It is also possible to add multiple extensions within the same application. We will give you an example in the next section.
 
 You might have noticed that some of the properties in the newly added application are quite different from the previous bizCard application.
 
@@ -331,124 +330,96 @@ In this section, you will add a button to the Mail Read view that, when clicked,
 ### Edit applications.json
 1. Open `src/applications.json` in your text editor.
 
-2. Append the following object into the `extensions` belonging to the application with `app_id`: `com.ibm.verse.sample.app.widget`, and save the file. __Don't forget to add a comma `,` at the end of the preceding Extension before adding your own__.
+2. Append the mail read action object into the `com.ibm.verse.sample.ext.widget.mail.actions` extension belonging to the application with `id`: `com.ibm.verse.sample.app.widget`, and save the file. __Don't forget to add a comma `,` at the end of the preceding action object before adding your own__.
 
 
 ```json
-    {
-      "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
-      "name": "Mail Read Action Sample",
-      "type": "com.ibm.verse.ext.widget",
-      "payload": {
-        "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
-        "features": [
-          "core"
-        ],
-        "actions": [
-          {
-            "id": "com.ibm.verse.ext.mail.read.action",
-            "path": "mail.read",
-            "text": "Mail Read Action",
-            "title": "Mail Read Action",
-            "location": "window",
-            "renderParams": {
-              "width": "900",
-              "height": "500"
-            }
-          }
-        ]
-      }
+  {
+    "id": "com.ibm.verse.ext.mail.read.action",
+    "path": "mail.read",
+    "text": "Mail Read Action",
+    "title": "Mail Read Action",
+    "location": "window",
+    "renderParams": {
+      "width": "900",
+      "height": "500"
     }
-  ],
+  }
 ```
 
 Your file `applications.json` should look something like this:  
 
 ```json
-  [
-    {
-      "app_id": "com.ibm.verse.sample.app.templatedlink",
-      "name": "Person Sample",
-      "title": "Templated Link Person Sample",
-      "description": "This samples demonstrates using the Templated Link extension point with a Person object",
-      "extensions": [
-        {
-          "ext_id": "com.ibm.verse.sample.ext.templatedlink",
-          "name": "Person Templated Link",
-          "type": "com.ibm.appreg.ext.templatedLink",
-          "object": "com.ibm.appreg.object.person",
-          "payload": {
-            "text": "Person Action",
-            "title": "Person Action",
-            "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
-          }
+[
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Action",
+          "title": "Person Action",
+          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
         }
-      ],
-      "services": [
-        "Verse"
-      ]
-    },
-    {
-      "app_id": "com.ibm.verse.sample.app.widget",
-      "name": "Mail Sample",
-      "title": "Mail Sample Title",
-      "description": "Mail Sample Description",
-      "extensions": [
-        {
-          "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-          "name": "Mail Compose Action Sample",
-          "type": "com.ibm.verse.ext.widget",
-          "payload": {
-            "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
-            "features": [
-              "core"
-            ],
-            "actions": [
-              {
-                "id": "com.ibm.verse.ext.mail.compose.action",
-                "path": "mail.compose",
-                "text": "Mail Compose Action",
-                "title": "Mail Compose Action",
-                "location": "window",
-                "renderParams": {
-                  "width": "900",
-                  "height": "500"
-                }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  },
+  {
+    "id": "com.ibm.verse.sample.app.widget",
+    "name": "Mail Sample",
+    "title": "Mail Sample Title",
+    "description": "Mail Sample Description",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
               }
-            ]
-          }
-        },
-        {
-          "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
-          "name": "Mail Read Action Sample",
-          "type": "com.ibm.verse.ext.widget",
-          "payload": {
-            "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
-            "features": [
-              "core"
-            ],
-            "actions": [
-              {
-                "id": "com.ibm.verse.ext.mail.read.action",
-                "path": "mail.read",
-                "text": "Mail Read Action",
-                "title": "Mail Read Action",
-                "location": "window",
-                "renderParams": {
-                  "width": "900",
-                  "height": "500"
-                }
+            },
+            {
+              "id": "com.ibm.verse.ext.mail.read.action",
+              "path": "mail.read",
+              "text": "Mail Read Action",
+              "title": "Mail Read Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
               }
-            ]
-          }
+            }
+          ]
         }
-      ],
-      "services": [
-        "Verse"
-      ]
-    }
-  ]
-
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+]
 ```
 
 ### Reload the extension and Verse
@@ -522,86 +493,79 @@ This will allow you to use the Web Server URL shown in the section below without
 Open `applications.json` in a text editor. Change the value for the `href` properties in the Person Sample to the address where your `index.html` page is hosted, but leave the query strings of the first application in your URL. If you were following our tutorial to use the Web Server for Chrome app to set up the server, this will be the value provided by the application under the section __Web Server URL(s)__.
 
 ```json
-{
-  "app_id": "com.ibm.verse.sample.app.templatedlink",
-  "name": "Person Sample",
-  "title": "Templated Link Person Sample",
-  "description": "This samples demonstrates using the Templated Link extension point with a Person object",
-
-  "extensions": [
-    {
-      "ext_id": "com.ibm.verse.sample.ext.templatedlink",
-      "name": "Person Templated Link",
-      "type": "com.ibm.appreg.ext.templatedLink",
-      "object": "com.ibm.appreg.object.person",
-      "payload": {
-        "text": "Person Templated Link",
-        "title": "Person Action",
-        "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Action",
+          "title": "Person Action",
+          "href": "http://127.0.0.1:8887?searchFor=${profile.primaryEmail}"
+        }
       }
-    }
-  ],
-
-  "services": [
-    "Verse"
-  ]
-},
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
 ```
 Do the same for the `url` properties in the Mail Sample application.
 
 ```json
-{
-  "app_id": "com.ibm.verse.sample.app.widget",
-  "name": "Mail Sample",
-  "title": "Mail Sample Title",
-  "description": "Mail Sample Description",
-
-  "extensions": [
   {
-    "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-    "name": "Mail Compose Action Sample",
-    "type": "com.ibm.verse.ext.widget",
-    "payload": {
-      "url": "http://127.0.0.1:8887",
-      "features": ["core"],
-      "actions": [{
-         "id": "com.ibm.verse.ext.mail.compose.action",
-         "path": "mail.compose",
-         "text": "Mail Compose Action",
-         "title": "Mail Compose Action",
-         "location": "window",
-         "renderParams": {
-            "width": "900",
-            "height": "500"
-         }
-      }]
-    }
-  },
-  {
-    "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
-    "name": "Mail Read Action Sample",
-    "type": "com.ibm.verse.ext.widget",
-    "payload": {
-      "url": "http://127.0.0.1:8887",
-      "features": ["core"],
-      "actions": [{
-        "id": "com.ibm.verse.ext.mail.read.action",
-        "path": "mail.read",
-        "text": "Mail Read Action",
-        "title": "Mail Read Action",
-        "location": "window",
-        "renderParams": {
-          "width": "900",
-          "height": "500"
+    "id": "com.ibm.verse.sample.app.widget",
+    "name": "Mail Sample",
+    "title": "Mail Sample Title",
+    "description": "Mail Sample Description",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "http://127.0.0.1:8887",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            },
+            {
+              "id": "com.ibm.verse.ext.mail.read.action",
+              "path": "mail.read",
+              "text": "Mail Read Action",
+              "title": "Mail Read Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
+          ]
         }
-      }]
-    }
-  }],
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
 
-  "services": [
-    "Verse"
-  ]
-}
 ```
 
 
