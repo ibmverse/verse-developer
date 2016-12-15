@@ -13,7 +13,7 @@ This tutorial will get you started writing an application for Verse. There is mu
 Structure of the Tutorial:
 
 1. [Introduction](#introduction)
-2. [Installing the Verse Developer Extension for Google Chrome](#installing-the-verse-developer-extension-for-google-chrome)
+2. [Installing the Verse Developer Browser Extension](#installing-the-verse-developer-browser-extension)
 3. [Add Action for Mail Compose](#add-action-for-mail-compose)
 4. [Add Action for Mail Read](#add-action-for-mail-read)
 5. [Create a New Application Implementation](#create-a-new-application-implementation)
@@ -22,9 +22,9 @@ Structure of the Tutorial:
 
 ## 1. Introduction
 
-### What is the Verse Developer Extension for Google Chrome?
+### What is the Verse Developer browser extension?
 
-The Verse Developer Extension for Google Chrome is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 3 types of extensions:
+The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 3 types of extensions:
 
 1. [Simple Link](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#simpleLink) (type = com.ibm.appreg.ext.simpleLink)
 2. [Templated Link](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#templatedLink) (type = com.ibm.appreg.ext.templatedLink)
@@ -77,8 +77,8 @@ Note: The changes you make during the tutorial will only be applied to the Chrom
 
 ---
 
-## 2. Installing the Verse Developer Extension for Google Chrome
-In this section, you will install the default Verse Developer Extension and make it work with Verse. This Verse Developer Extension already has one sample application, which contains one extension.
+## 2. Installing the Verse Developer browser extension
+In this section, you will install the default Verse Developer browser extension and make it work with Verse. This Verse Developer browser extension already has one sample application, which contains one extension.
 
 ### Download source code for Verse Developer Extension
 1. Download the Verse Developer Extension for Google Chrome source code to your local file system by clicking [here][8].
