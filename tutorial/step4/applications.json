@@ -28,8 +28,8 @@
     "description": "Mail Sample Description",
     "extensions": [
       {
-        "ext_id": "com.ibm.verse.sample.ext.widget.mail.compose",
-        "name": "Mail Compose Action Sample",
+        "ext_id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
           "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
@@ -47,20 +47,7 @@
                 "width": "900",
                 "height": "500"
               }
-            }
-          ]
-        }
-      },
-      {
-        "ext_id": "com.ibm.verse.sample.ext.widget.mail.read",
-        "name": "Mail Read Action Sample",
-        "type": "com.ibm.verse.ext.widget",
-        "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
-          "features": [
-            "core"
-          ],
-          "actions": [
+            },
             {
               "id": "com.ibm.verse.ext.mail.read.action",
               "path": "mail.read",
