@@ -12,7 +12,7 @@
         "type": "com.ibm.appreg.ext.templatedLink",
         "object": "com.ibm.appreg.object.person",
         "payload": {
-          "text": "Person Templated Link",
+          "text": "Person Action",
           "title": "Person Action",
           "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
         }
