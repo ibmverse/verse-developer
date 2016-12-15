@@ -51,6 +51,90 @@ However, Widget Actions inside of Widgets allow those same kinds of clickable UI
 
 Here is the full list of extension points that Verse supports.
 
+### Simple Link (com.ibm.appreg.ext.simpleLink)
+
+A generic extension point defined by appregistry.
+
+On Verse UI, we can contribute the simple links on all of supported paths.
+
+Many services may wish applications to have the ability to contribute simple links to parts of the UI.
+
+Required Properties for Extensions:
+
+* {string} text The text for the link
+* {string} href The link location
+
+Optional Properties for Extensions
+
+* {string} icon An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+* {string} alt Alt text for the link.
+
+Example Extension
+
+```json
+{
+  "type": "com.ibm.appreg.ext.simpleLink",
+  "path": "com.ibm.verse.path.mailRead",
+  "payload": {
+    "text": "Click this sample link!",
+    "href": "https://sample.com/simple-link-target.html",
+    "icon": "data:image/png;base64,..."  
+  }
+}
+```
+
+### Templated Link (com.ibm.appreg.ext.templatedLink)
+
+A generic extension point defined by appregistry.
+
+On Verse UI, we can contribute the templated links on all of supported paths.
+
+Many services may wish applications to have the ability to contribute links that have contextual behavior depending on the location to which they are contributed.
+
+For instance, an application may want to add profile link to people shown in the UI. This link would be different depending on the person being rendered.
+
+Any of the properties in this extension SHOULD be processed for template stings by the container before the link is rendered. Templated values are defined and fulfilled in the context of the object type the extension is bound to.
+
+Plural Fields SHOULD be substituted in a template string by supplying the primary value. A desired "type" can be specified by treating it as a property of the Plural Type, in which case the container will filter values by that type prior.
+
+Templating Syntax
+
+Values contained within the extension that have text of the format ${property} will be replaced with the value keyed by 'property' from the context of the bound object.
+
+Templating Syntax of plural-fields
+
+Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by 'property' which has the type 'type' from the context of the bound object.
+
+If there are multiple values within the plural-field keyed by 'property' that have type 'type', preference will be given to the value of type 'type' that is "primary". If there is no "primary" within the set of plural-field values of type 'type', it is up to the Container's discretion to determine which value is returned.
+
+If no .type is specified and the specified 'property' keys a plural-field value, the primary entry of the plural-field will serve as the replacement value.
+
+EX: emails is a plural field
+
+```json
+{
+  emails: [
+    {
+      type: 'work',
+      primary: false,
+      value: altwork@DOMAIN.COM
+    },{
+      type: 'home',
+      primary: false,
+      value: home@DOMAIN.COM
+    },{
+      type: 'home',
+      primary: true,
+      value: primaryhome@DOMAIN.COM
+    },{
+      type: 'work',
+      primary: false,
+      value: work@DOMAIN.COM
+    }
+  ]
+}
+```
+
   * [com.ibm.appreg.ext.simpleLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#simpleLink)
   * [com.ibm.appreg.ext.templatedLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#templatedLink)
   * [com.ibm.verse.ext.widget](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#widget)
