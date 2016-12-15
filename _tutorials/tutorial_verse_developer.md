@@ -103,8 +103,7 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
     For example:  
 ![update manifest.json](img/1_update_manifest.png)
 
-
-### Load unpacked extensions
+### Installing to Chrome
 1. Open your Google Chrome browser, and type in the address bar: `chrome://extensions`.
 
 2. Select __Developer mode__, (unpacked extensions can only be loaded in __Developer mode__.)  
@@ -121,6 +120,27 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 
   If you received an error related to `Failed to load extension from: ... Manifest file is missing or unreadable`, make sure you are loading the extension from the `src` folder, not its parent folder.
 
+### Installing to Firefox
+1. Open your Firefox browser, and type in the address bar: `about:debugging`.
+
+2. Select __Load Temporary Add-On__,
+![Developer mode](img/1_load_temp_addons_ff.png)
+
+3. In the pop-up file picker, select the `manifest.json` file inside the `src` folder.
+![Select src](img/1_select_src_ff.png)
+
+   ***Note***: If your version of Firefox is below 48, then you will need to add the following line into the `manifest.json` before loading it. 
+
+   ```json
+     "applications": {
+       "gecko": {
+         "id": "verse_dev_extension@ibm.com",
+       }
+     },
+   ```
+
+4. At this point, you should be able to see the IBM Verse Developer Extension for Google Chrome loaded into your `about:debugging` page. 
+![Extension loaded](img/1_extension_loaded_ff.png)
 
 ### Reload Verse and test it out
 1. __Reload Verse__, so that it will pick up the change you made to the extension.
@@ -271,9 +291,11 @@ Your file `applications.json` should now look like this:
 ### Reload the extension and Verse
 __Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
 
-To reload the extension, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
+To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
 ![reload extension](img/2_reload.png)
 
+To reload the extension in Firefox, open your Firefox browser, go to `about:debugging`, find the IBM Verse Developer Extension for Google Chrome, and click __Reload__.  
+![reload extension](img/2_reload_ff.png)
 
 ### Test it out
 1. In the Verse UI, click the __Compose__ button.  
@@ -430,7 +452,8 @@ Your file `applications.json` should look something like this:
 ```
 
 ### Reload the extension and Verse
-As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ from `chrome://extensions`, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
+As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ then __reload Verse,__ so that the browser and Verse will pick up your latest changes.  
+To reload the extension from Chrome go to `chrome://extensions`. To reload from Firefox go to from `about:debugging`
 
 
 ### Test it out
