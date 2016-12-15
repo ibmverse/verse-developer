@@ -41,15 +41,20 @@ The application has access to Verse data through cross-document messaging or URL
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+IBM Verse supports the general extension points defined by appregistry, like the `Simple Link` and `Templated Link`. Besides that, Verse also supports to contribute a `Widget` extension to add some `Widget Actions` to Verse UI page. For example, a widget can contribute an action to More… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
-Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
+`Simple Link` and `Templated Link` extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
 
-However, Widget Actions inside of Widgets allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini webapps that can respond to that input.
+However, `Widget Action`s inside of `Widget`s allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini webapps that can respond to that input.
 
 Here is the full list of extension points that Verse supports.
+
+com.ibm.appreg.ext.simpleLink
+com.ibm.appreg.ext.templatedLink
+com.ibm.verse.ext.widget
+Widget Action
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
@@ -59,28 +64,28 @@ On Verse UI, we can contribute the simple links on all of supported paths.
 
 Many services may wish applications to have the ability to contribute simple links to parts of the UI.
 
-Required Properties for Extensions:
+####Required Properties for Extensions
 
-* {string} text The text for the link
-* {string} href The link location
+* {string} `text` The text for the link
+* {string} `href` The link location
 
-Optional Properties for Extensions
+####Optional Properties for Extensions
 
-* {string} icon An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
-* {string} alt Alt text for the link.
+* {string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+* {string} `alt` Alt text for the link.
 
-Example Extension
+####Example Extension
 
 ```json
-{
-  "type": "com.ibm.appreg.ext.simpleLink",
-  "path": "com.ibm.verse.path.mailRead",
-  "payload": {
-    "text": "Click this sample link!",
-    "href": "https://sample.com/simple-link-target.html",
-    "icon": "data:image/png;base64,..."  
+  {
+    "type": "com.ibm.appreg.ext.simpleLink",
+    "path": "com.ibm.verse.path.mailRead",
+    "payload": {
+      "text": "Click this sample link!",
+      "href": "https://sample.com/simple-link-target.html",
+      "icon": "data:image/png;base64,..."  
+    }
   }
-}
 ```
 
 ### Templated Link (com.ibm.appreg.ext.templatedLink)
@@ -111,35 +116,153 @@ If no .type is specified and the specified 'property' keys a plural-field value,
 
 EX: emails is a plural field
 
-```json
-{
-  emails: [
-    {
-      type: 'work',
-      primary: false,
-      value: altwork@DOMAIN.COM
-    },{
-      type: 'home',
-      primary: false,
-      value: home@DOMAIN.COM
-    },{
-      type: 'home',
-      primary: true,
-      value: primaryhome@DOMAIN.COM
-    },{
-      type: 'work',
-      primary: false,
-      value: work@DOMAIN.COM
-    }
-  ]
-}
+```javascript
+  {
+    emails: [
+      {
+        type: 'work',
+        primary: false,
+        value: altwork@DOMAIN.COM
+      },{
+        type: 'home',
+        primary: false,
+        value: home@DOMAIN.COM
+      },{
+        type: 'home',
+        primary: true,
+        value: primaryhome@DOMAIN.COM
+      },{
+        type: 'work',
+        primary: false,
+        value: work@DOMAIN.COM
+      }
+    ]
+  }
 ```
 
-  * [com.ibm.appreg.ext.simpleLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#simpleLink)
-  * [com.ibm.appreg.ext.templatedLink](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#templatedLink)
-  * [com.ibm.verse.ext.widget](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#widget)
-      * [Widget Action](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#action)
+```javascript
+${emails} -> primaryhome@DOMAIN.COM      //The primary value
+${emails.work} -> altwork@DOMAIN.COM     //The first occurrence of type "work" (container's disgression)
+${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (primary is of type "home")
+```
 
+####Required Properties for Extensions
+
+{string} `text` The text for the link
+{string} `href` The link location. Containers SHOULD take care to URL encode values replaced in the href property.
+
+####Optional Properties for Extensions
+
+{string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+{string} `alt` Alt text for the link.
+{string} `locator` A hint for container where to render the link within the UI representation of the binding object.Container MAY choose to not honor this attribute for any reason, for example: if it doesn't understand the locator value or it's inappropriate to render the action in that location. See Container for possible values for a locator of person object.
+
+####Example Extension
+
+```json
+  {
+    "type": "com.ibm.appreg.ext.templatedLink",
+    "object": "com.ibm.appreg.object.person",
+    "payload": {
+      "text": "Look up ${displayName} in the directory!",
+      "href": "https://sample.com/simple-link-target.html?user=${emails.work}",
+      "icon": "data:image/png;base64,...",
+      "locator": "profile"
+    }
+  }
+```
+
+### Widget (com.ibm.verse.ext.widget)
+
+A Widget is a kind of extension point. When customer contributes a widget extension, it may contribute multiple Widget Actions via the widget to the Verse UI.
+
+All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget’s url will be rendered on the different place based on the action’s location.
+
+Widget Definition
+
+The definition of a widget MAY contains 1 or multiple Widget Actions. The Widget Actions can be also dynamically added to a widget.
+
+####Required Properties for Extensions
+
+{string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
+{array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
+
+####Optional Properties for Extensions
+
+{array} `features` An array of string. The property is used to specify what features provided by the container are used by this application. Each feature maps to a set of APIs provided by the container. If the application needs to use certain APIs, it needs to add the corresponding feature to this property. The supported features are listed below.
+  * core - that means the widget needs to communicate with Verse page via cross document messaging.
+
+####Example Extension
+
+In this sample, a widget contains two actions, one action is contributed under 'more actions' button when viewing an existing email, one action is contributed as an alternative chat icon on the bizcard view. When the first action is clicked, the widget will be rendered on the new window which width and height are both 800px. When the second action is clicked, the widget will be rendered in a hidden iframe of Verse page.
+
+```json
+  {
+    "type": "com.ibm.verse.ext.widget",
+    "payload": {
+      "url": "https://sample.com/widget.html",
+      "features": ["core"],
+      "actions": [
+        {
+          "id": "com.ibm.verse.widget.action.mailRead1",
+          "path": "com.ibm.verse.path.mailRead",
+          "text": "Click this action",
+          "icon": "data:image/png;base64,...",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "800"
+          }
+        },
+        {
+          "id": "com.ibm.verse.widget.action.personChat1",
+          "path": "com.ibm.verse.path.personChat",
+          "text": "Click this action",
+          "icon": "data:image/png;base64,...",
+          "location": "hidden"
+        }
+      ]
+    }
+  }
+```
+
+#### Widget Action
+
+A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it can’t be directly added into `Application`s extensions array.
+
+When a contributed action is clicked, the widget will be rendered in a different place based on the `location` value.
+
+####Required Properties for Action
+
+{string} `id` The id for the action.
+{string} `text` The text for the action.
+{string} `path`|`object` The path identifies where the action is contributed. All of supported paths are listed here. The object states which data type the action is contributed. All of supported objects are listed here.
+
+####Optional Properties for Action
+
+{string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
+{string} `alt` Alt text for the action.
+{object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab | embedded | hidden”.
+  * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
+  * tab - the widget will be open in the new tab.
+  * embedded - the widget will be open in the embedded iframe. UI components will decide where to embedded iframe.
+  * hidden - the widget will be rendered in a hidden iframe of IBM Verse. The hidden iframe will be placed under the body of Verse page as the last child.
+{object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
+
+####Example Action
+```json
+  {
+    "id": "com.ibm.verse.widget.action.mailCompose",
+    "path": "com.ibm.verse.path.mailCompose",
+    "text": "Click this action",
+    "icon": "data:image/png;base64,...",
+    "location": "window | tab | embedded | hidden",
+    "renderParams": {
+      "width": "800",
+      "height": "600"
+    }
+  }
+```
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
