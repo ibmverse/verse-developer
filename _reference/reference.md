@@ -148,14 +148,14 @@ ${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (pr
 
 ####Required Properties for Extensions
 
-{string} `text` The text for the link
-{string} `href` The link location. Containers SHOULD take care to URL encode values replaced in the href property.
+* {string} `text` The text for the link
+* {string} `href` The link location. Containers SHOULD take care to URL encode values replaced in the href property.
 
 ####Optional Properties for Extensions
 
-{string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
-{string} `alt` Alt text for the link.
-{string} `locator` A hint for container where to render the link within the UI representation of the binding object.Container MAY choose to not honor this attribute for any reason, for example: if it doesn't understand the locator value or it's inappropriate to render the action in that location. See Container for possible values for a locator of person object.
+* {string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+* {string} `alt` Alt text for the link.
+* {string} `locator` A hint for container where to render the link within the UI representation of the binding object.Container MAY choose to not honor this attribute for any reason, for example: if it doesn't understand the locator value or it's inappropriate to render the action in that location. See Container for possible values for a locator of person object.
 
 ####Example Extension
 
@@ -184,12 +184,12 @@ The definition of a widget MAY contains 1 or multiple Widget Actions. The Widget
 
 ####Required Properties for Extensions
 
-{string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
-{array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
+* {string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
+* {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
 
 ####Optional Properties for Extensions
 
-{array} `features` An array of string. The property is used to specify what features provided by the container are used by this application. Each feature maps to a set of APIs provided by the container. If the application needs to use certain APIs, it needs to add the corresponding feature to this property. The supported features are listed below.
+* {array} `features` An array of string. The property is used to specify what features provided by the container are used by this application. Each feature maps to a set of APIs provided by the container. If the application needs to use certain APIs, it needs to add the corresponding feature to this property. The supported features are listed below.
   * core - that means the widget needs to communicate with Verse page via cross document messaging.
 
 ####Example Extension
@@ -234,20 +234,20 @@ When a contributed action is clicked, the widget will be rendered in a different
 
 ####Required Properties for Action
 
-{string} `id` The id for the action.
-{string} `text` The text for the action.
-{string} `path`|`object` The path identifies where the action is contributed. All of supported paths are listed here. The object states which data type the action is contributed. All of supported objects are listed here.
+* {string} `id` The id for the action.
+* {string} `text` The text for the action.
+* {string} `path`|`object` The path identifies where the action is contributed. All of supported paths are listed here. The object states which data type the action is contributed. All of supported objects are listed here.
 
 ####Optional Properties for Action
 
-{string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
-{string} `alt` Alt text for the action.
-{object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab | embedded | hidden”.
+* {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
+* {string} `alt` Alt text for the action.
+* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab | embedded | hidden”.
   * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   * tab - the widget will be open in the new tab.
   * embedded - the widget will be open in the embedded iframe. UI components will decide where to embedded iframe.
   * hidden - the widget will be rendered in a hidden iframe of IBM Verse. The hidden iframe will be placed under the body of Verse page as the last child.
-{object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
+* {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
 
 ####Example Action
 ```json
