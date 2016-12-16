@@ -51,10 +51,10 @@ However, `Widget Action`s inside of `Widget`s allow those same kinds of clickabl
 
 Here is the full list of extension points that Verse supports.
 
-* [com.ibm.appreg.ext.simpleLink](#simple-link)
-* [com.ibm.appreg.ext.templatedLink](#templated-link)
-* [com.ibm.verse.ext.widget](#widget)
-* [Widget Action](#widget-action)
+* [com.ibm.appreg.ext.simpleLink](#simple-link-comibmappregextsimplelink)
+* [com.ibm.appreg.ext.templatedLink](#templated-link-comibmappregexttemplatedlink)
+* [com.ibm.verse.ext.widget](#widget-comibmverseextwidget)
+  * [Widget Action](#widget-action)
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
