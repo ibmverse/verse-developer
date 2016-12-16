@@ -24,11 +24,10 @@ Structure of the Tutorial:
 
 ### What is the Verse Developer browser extension?
 
-The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. IBM Verse supports 3 types of extensions:
+The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutoiral we will have a look at 2 of the possible types of extensions, templated links and widgets. For more info on types of extensions take a look at the [refence documentation](../reference/reference.html).
 
-1. [Simple Link](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#simpleLink) (type = com.ibm.appreg.ext.simpleLink)
-2. [Templated Link](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#templatedLink) (type = com.ibm.appreg.ext.templatedLink)
-3. [Widget](https://jenkins.swg.usma.ibm.com/jenkins/job/sequoia/site/developer/specs/verse-extension-points.html#widget) (type = com.ibm.verse.ext.widget)
+1. Simple Link (type = com.ibm.appreg.ext.simpleLink)
+2. Widget (type = com.ibm.verse.ext.widget)
 
 Each Widget can contribute one or more actions to the Verse UI which are displayed in IBM Verse as either a button or a link.
 
@@ -573,8 +572,10 @@ Do the same for the `url` properties in the Mail Sample application.
 ### Test it out
 Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
 
-Try clicking the action buttons that you added into Verse in previous steps, including the __Person Action__ button at the back of the bizCard, the __Mail Compose Action__ button in the Mail Compose view, and the __Mail Read Action__ in the Mail Read view. These actions will bring up (in a separate window) the web page you added in the previous section. __The URL shown in the address bar should be the same URL you just added in the previous step.__ The web page should be populated with some Verse API data now as the web application is accessed via Verse.  
+Try clicking the action buttons that you added into Verse in previous steps, including the __Mail Compose Action__ button in the Mail Compose view, and the __Mail Read Action__ in the Mail Read view. These actions will bring up (in a separate window) the web page you added in the previous section. __The URL shown in the address bar should be the same URL you just added in the previous step.__ The web page should be populated with some Verse API data now as the web application is accessed via Verse.  
 ![sample page with Verse data](img/4_webpage_with_verse_data.png)
+
+As the __Person Action__ example is a templated link when you click it at this step a new window will appear waiting for a message from verse that will never come as templated links do not support cross-document messaging.
 
 
 ### How it works
