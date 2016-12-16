@@ -26,8 +26,8 @@ Structure of the Tutorial:
 
 The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutoiral we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by IBM Verse please go [here](../reference/reference.html#verse-extension-points).
 
-1. [Templated Link](../reference/reference.html#simple-link-comibmappregextsimplelink) (type = com.ibm.appreg.ext.templatedLink)
-2. [Widget](../reference/reference.html#templated-link-comibmappregexttemplatedlink) (type = com.ibm.verse.ext.widget)
+1. [Templated Link](../reference/reference.html#simple-link-comibmappregexttemplatedlink) (type = com.ibm.appreg.ext.templatedLink)
+2. [Widget](../reference/reference.html#widget-comibmverseextwidget) (type = com.ibm.verse.ext.widget)
 
 
 Extensions can be contributed to the following parts of the IBM Verse user interface (surrounded by a red border in the pictures):
