@@ -51,10 +51,10 @@ However, `Widget Action`s inside of `Widget`s allow those same kinds of clickabl
 
 Here is the full list of extension points that Verse supports.
 
-com.ibm.appreg.ext.simpleLink
-com.ibm.appreg.ext.templatedLink
-com.ibm.verse.ext.widget
-Widget Action
+* [com.ibm.appreg.ext.simpleLink](#simple-link)
+* [com.ibm.appreg.ext.templatedLink](#templated-link)
+* [com.ibm.verse.ext.widget](#widget)
+* [Widget Action](#widget-action)
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
@@ -116,7 +116,7 @@ If no .type is specified and the specified 'property' keys a plural-field value,
 
 EX: emails is a plural field
 
-```javascript
+```
   {
     emails: [
       {
@@ -140,7 +140,7 @@ EX: emails is a plural field
   }
 ```
 
-```javascript
+```
 ${emails} -> primaryhome@DOMAIN.COM      //The primary value
 ${emails.work} -> altwork@DOMAIN.COM     //The first occurrence of type "work" (container's disgression)
 ${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (primary is of type "home")
