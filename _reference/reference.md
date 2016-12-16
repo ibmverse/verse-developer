@@ -40,8 +40,30 @@ The application has access to Verse data through cross-document messaging or URL
 
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
+##IBM Verse Container
+
+IBM Verse Container allows applications to contribute or remove UI at specific locations within the container. Path and Object are the ways the container provides the ability to target a location.
+
+###Path
+
+IBM Verse allows extensionss to contribute or remove UI at specific locations in Verse. A `path` is one way the container provides the ability to target a location. Here is an example of 2 supported `path`s:
+
+  * com.ibm.verse.path.mailRead
+  * com.ibm.verse.path.mailCompose
+
+com.ibm.verse.path.mailRead allows application developers to contribute an action under more actions button when viewing an existing email.
+
+com.ibm.verse.path.mailCompose allows application developers to contribute an action under more actions button when composing a new email.’
+
+###Object
+
+Another way for a container to allow extensions to target locations is by an `object` type. IBM Verse also supports an extension to add a button on Person object. For example, an extension is contributed to the bizcard cards which has a person object.. Here is an example of a supported `object`
+
+  * Person (type = com.ibm.appreg.object.person)
+
+
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the `Simple Link` and `Templated Link`. Besides that, Verse also supports to contribute a `Widget` extension to add some `Widget Actions` to Verse UI page. For example, a widget can contribute an action to More… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+IBM Verse supports the general extension points defined by appregistry, like the `Simple Link` and `Templated Link`. Besides that, Verse also supports to contribute a `Widget` extension to add some `Widget Actions` to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
@@ -60,7 +82,7 @@ Here is the full list of extension points that Verse supports.
 
 A generic extension point defined by appregistry.
 
-On Verse UI, we can contribute the simple links on all of supported paths.
+On Verse UI, we can contribute the simple links on all of the supported paths.
 
 Many services may wish applications to have the ability to contribute simple links to parts of the UI.
 
