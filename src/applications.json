@@ -1,13 +1,13 @@
 [
   {
-    "app_id": "com.ibm.verse.sample.app.templatedlink",
+    "id": "com.ibm.verse.sample.app.templatedlink",
     "name": "Person Sample",
     "title": "Templated Link Person Sample",
     "description": "This samples demonstrates using the Templated Link extension point with a Person object",
 
     "extensions": [
       {
-        "ext_id": "com.ibm.verse.sample.ext.templatedlink",
+        "id": "com.ibm.verse.sample.ext.templatedlink",
         "name": "Person Templated Link",
         "type": "com.ibm.appreg.ext.templatedLink",
         "object": "com.ibm.appreg.object.person",
