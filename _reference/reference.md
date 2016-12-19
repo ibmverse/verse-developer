@@ -48,28 +48,25 @@ IBM Verse Container allows applications to contribute or remove UI at specific l
 
 IBM Verse allows extensionss to contribute or remove UI at specific locations in Verse. A `path` is one way the container provides the ability to target a location. Here is an example of 2 supported `path`s:
 
-  * com.ibm.verse.path.mailRead
-  * com.ibm.verse.path.mailCompose
+  * `mail.read` - allows application developers to contribute an action under more actions button when viewing an existing email
+  * `mail.compose` - allows application developers to contribute an action under more actions button when composing a new email
 
-com.ibm.verse.path.mailRead allows application developers to contribute an action under more actions button when viewing an existing email.
-
-com.ibm.verse.path.mailCompose allows application developers to contribute an action under more actions button when composing a new email.’
 
 ###Object
 
-Another way for a container to allow extensions to target locations is by an `object` type. IBM Verse also supports an extension to add a button on Person object. For example, an extension is contributed to the bizcard cards which has a person object.. Here is an example of a supported `object`
+Another way for a container to allow extensions to target locations is by an `object` type. IBM Verse also supports an extension to add a button on Person object. For example, an extension is contributed to the bizcard cards which has a person object. Here is an example of a supported `object`
 
   * Person (type = com.ibm.appreg.object.person)
 
 
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the `Simple Link` and `Templated Link`. Besides that, Verse also supports to contribute a `Widget` extension to add some `Widget Actions` to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
-`Simple Link` and `Templated Link` extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
+Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
 
-However, `Widget Action`s inside of `Widget`s allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini webapps that can respond to that input.
+However, Widget Action's inside of Widget's allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
 
 Here is the full list of extension points that Verse supports.
 
@@ -80,11 +77,7 @@ Here is the full list of extension points that Verse supports.
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
-A generic extension point defined by appregistry.
-
-On Verse UI, we can contribute the simple links on all of the supported paths.
-
-Many services may wish applications to have the ability to contribute simple links to parts of the UI.
+A Simple Link extension adds a clickable URL link to the Verse UI.
 
 ####Required Properties for Extensions
 
@@ -93,7 +86,7 @@ Many services may wish applications to have the ability to contribute simple lin
 
 ####Optional Properties for Extensions
 
-* {string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+* {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
 * {string} `alt` Alt text for the link.
 
 ####Example Extension
@@ -101,7 +94,7 @@ Many services may wish applications to have the ability to contribute simple lin
 ```json
   {
     "type": "com.ibm.appreg.ext.simpleLink",
-    "path": "com.ibm.verse.path.mailRead",
+    "object": "com.ibm.appreg.object.person",
     "payload": {
       "text": "Click this sample link!",
       "href": "https://sample.com/simple-link-target.html",
@@ -112,17 +105,7 @@ Many services may wish applications to have the ability to contribute simple lin
 
 ### Templated Link (com.ibm.appreg.ext.templatedLink)
 
-A generic extension point defined by appregistry.
-
-On Verse UI, we can contribute the templated links on all of supported paths.
-
-Many services may wish applications to have the ability to contribute links that have contextual behavior depending on the location to which they are contributed.
-
-For instance, an application may want to add profile link to people shown in the UI. This link would be different depending on the person being rendered.
-
-Any of the properties in this extension SHOULD be processed for template stings by the container before the link is rendered. Templated values are defined and fulfilled in the context of the object type the extension is bound to.
-
-Plural Fields SHOULD be substituted in a template string by supplying the primary value. A desired "type" can be specified by treating it as a property of the Plural Type, in which case the container will filter values by that type prior.
+A Simple Link extension adds a clickable URL link to the Verse UI including the option to configure the extension to receive data from Verse encoded in the URL.
 
 Templating Syntax
 
@@ -171,13 +154,13 @@ ${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (pr
 ####Required Properties for Extensions
 
 * {string} `text` The text for the link
-* {string} `href` The link location. Containers SHOULD take care to URL encode values replaced in the href property.
+* {string} `href` The link location. Verse will take care to URL encode values replaced in the href property.
 
 ####Optional Properties for Extensions
 
-* {string} `icon` An icon to use when rendering the link. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the location it was contributed to. The only value format supported for this property is a data-uri with a base64 encoded payload. Containers MUST validate these restrictions.
+* {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
 * {string} `alt` Alt text for the link.
-* {string} `locator` A hint for container where to render the link within the UI representation of the binding object.Container MAY choose to not honor this attribute for any reason, for example: if it doesn't understand the locator value or it's inappropriate to render the action in that location. See Container for possible values for a locator of person object.
+* {string} `locator` A hint for container where to render the link within the UI representation of the binding object. Verse currently does not use the `locator` property.
 
 ####Example Extension
 
@@ -196,7 +179,7 @@ ${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (pr
 
 ### Widget (com.ibm.verse.ext.widget)
 
-A Widget is a kind of extension point. When customer contributes a widget extension, it may contribute multiple Widget Actions via the widget to the Verse UI.
+A Widget extension associates a third party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
 
 All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget’s url will be rendered on the different place based on the action’s location.
 
@@ -216,7 +199,7 @@ The definition of a widget MAY contains 1 or multiple Widget Actions. The Widget
 
 ####Example Extension
 
-In this sample, a widget contains two actions, one action is contributed under 'more actions' button when viewing an existing email, one action is contributed as an alternative chat icon on the bizcard view. When the first action is clicked, the widget will be rendered on the new window which width and height are both 800px. When the second action is clicked, the widget will be rendered in a hidden iframe of Verse page.
+In this sample, a widget contains two actions, one action is contributed under 'more actions' button when viewing an existing email and the second action is contributed under 'more actions' button when composing a new email. When the actions are clicked, the widget will be rendered on the new window which width and height are both 800px.
 
 ```json
   {
@@ -227,7 +210,7 @@ In this sample, a widget contains two actions, one action is contributed under '
       "actions": [
         {
           "id": "com.ibm.verse.widget.action.mailRead1",
-          "path": "com.ibm.verse.path.mailRead",
+          "path": "mail.read",
           "text": "Click this action",
           "icon": "data:image/png;base64,...",
           "location": "window",
@@ -237,11 +220,15 @@ In this sample, a widget contains two actions, one action is contributed under '
           }
         },
         {
-          "id": "com.ibm.verse.widget.action.personChat1",
-          "path": "com.ibm.verse.path.personChat",
+          "id": "com.ibm.verse.widget.action.mailCompose1",
+          "path": "mail.compose",
           "text": "Click this action",
           "icon": "data:image/png;base64,...",
-          "location": "hidden"
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "800"
+          }
         }
       ]
     }
@@ -264,11 +251,9 @@ When a contributed action is clicked, the widget will be rendered in a different
 
 * {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
 * {string} `alt` Alt text for the action.
-* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab | embedded | hidden”.
+* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab”. 
   * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   * tab - the widget will be open in the new tab.
-  * embedded - the widget will be open in the embedded iframe. UI components will decide where to embedded iframe.
-  * hidden - the widget will be rendered in a hidden iframe of IBM Verse. The hidden iframe will be placed under the body of Verse page as the last child.
 * {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
 
 ####Example Action
@@ -278,7 +263,7 @@ When a contributed action is clicked, the widget will be rendered in a different
     "path": "com.ibm.verse.path.mailCompose",
     "text": "Click this action",
     "icon": "data:image/png;base64,...",
-    "location": "window | tab | embedded | hidden",
+    "location": "window | tab",
     "renderParams": {
       "width": "800",
       "height": "600"
