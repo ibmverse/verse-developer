@@ -24,36 +24,261 @@ categories: reference
 
 Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions, which will enhance Verse with new functionality.
 
-For example, one of the extension points that Verse supports is an action extension. An action extension is typically displayed as a button or link in the Verse User Interface (UI) which, when clicked, triggers some logic in your application.
+For example, one of the extension points that Verse supports is a templated link extension. A templated link extension is displayed as a link in the Verse User Interface (UI) which, when clicked, opens a URL to a third party web application.
 
-An extension can declare that it requires specific data from Verse, and when the extension is activated, Verse will send this data to it. For example, if you add a link to a Verse business card, your extension can be configured to receive the email address of the person when that link is clicked.
+An extension can declare that it requires specific data from Verse, and when the extension is activated, Verse will send this data to it. For example, if you add a templated link to a Verse business card, your extension can be configured to receive the email address of the person included in the link URL.
 
 ## Extensibility Concepts  
 This section introduces extensibility concepts and terminology that is used throughout this document.
 
 * Application: A third-party web application that contributes new functionality to IBM Verse.
   An application can contribute one or more new features to different parts of the IBM Verse UI.
-  The URL of the application is registered with Verse and the application opens in a separate window.
-  The application has access to Verse data through cross-document messaging or URL query string parameters.
 
-* Extension: A feature that contributes to a specific part of IBM Verse. For example, an action extension that adds a button or link to the Verse UI which, when clicked, opens a new browser window containing a third-party web application.
+* Extension: A feature that contributes to a specific part of IBM Verse. For example, an extension that adds a button or link to the Verse UI which, when clicked, opens a new browser window containing a third-party web application.
+The URL of the application is registered with Verse and the application opens in a separate window.
+The application has access to Verse data through cross-document messaging or URL query string parameters.
 
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
-## Verse Action Extensions
-Verse supports action extensions in various places in the Verse UI: the mail compose view, the mail read view and the business card, etc.
-The `mail.compose` action extension adds an action to the `more actions` button in the New Message window when composing a mail.
-When an extension is clicked, Verse opens your application in a new window and sends the requested information to it.
-For example, if you add a `mail.read` action extension, Verse will send the mail subject, body, recipients, date, etc. See [here](#action-extensions) for the full reference of action extensions.
+##IBM Verse Container
+
+IBM Verse Container allows applications to contribute or remove UI at specific locations within the container. Path and Object are the ways the container provides the ability to target a location.
+
+###Path
+
+IBM Verse allows extensionss to contribute or remove UI at specific locations in Verse. A `path` is one way the container provides the ability to target a location. Here is an example of 2 supported `path`s:
+
+  * `mail.read` - allows application developers to contribute an action under more actions button when viewing an existing email
+  * `mail.compose` - allows application developers to contribute an action under more actions button when composing a new email
+
+
+###Object
+
+Another way for a container to allow extensions to target locations is by an `object` type. IBM Verse also supports an extension to add a button on Person object. For example, an extension is contributed to the bizcard cards which has a person object. Here is an example of a supported `object`
+
+  * Person (type = com.ibm.appreg.object.person)
+
+
+## Verse Extension Points
+IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+
+For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
+
+Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
+
+However, Widget Action's inside of Widget's allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
+
+Here is the full list of extension points that Verse supports.
+
+* [com.ibm.appreg.ext.simpleLink](#simple-link-comibmappregextsimplelink)
+* [com.ibm.appreg.ext.templatedLink](#templated-link-comibmappregexttemplatedlink)
+* [com.ibm.verse.ext.widget](#widget-comibmverseextwidget)
+  * [Widget Action](#widget-action)
+
+### Simple Link (com.ibm.appreg.ext.simpleLink)
+
+A Simple Link extension adds a clickable URL link to the Verse UI.
+
+####Required Properties for Extensions
+
+* {string} `text` The text for the link
+* {string} `href` The link location
+
+####Optional Properties for Extensions
+
+* {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
+* {string} `alt` Alt text for the link.
+
+####Example Extension
+
+```json
+  {
+    "type": "com.ibm.appreg.ext.simpleLink",
+    "object": "com.ibm.appreg.object.person",
+    "payload": {
+      "text": "Click this sample link!",
+      "href": "https://sample.com/simple-link-target.html",
+      "icon": "data:image/png;base64,..."  
+    }
+  }
+```
+
+### Templated Link (com.ibm.appreg.ext.templatedLink)
+
+A Simple Link extension adds a clickable URL link to the Verse UI including the option to configure the extension to receive data from Verse encoded in the URL.
+
+Templating Syntax
+
+Values contained within the extension that have text of the format ${property} will be replaced with the value keyed by 'property' from the context of the bound object.
+
+Templating Syntax of plural-fields
+
+Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by 'property' which has the type 'type' from the context of the bound object.
+
+If there are multiple values within the plural-field keyed by 'property' that have type 'type', preference will be given to the value of type 'type' that is "primary". If there is no "primary" within the set of plural-field values of type 'type', it is up to the Container's discretion to determine which value is returned.
+
+If no .type is specified and the specified 'property' keys a plural-field value, the primary entry of the plural-field will serve as the replacement value.
+
+EX: emails is a plural field
+
+```
+  {
+    emails: [
+      {
+        type: 'work',
+        primary: false,
+        value: altwork@DOMAIN.COM
+      },{
+        type: 'home',
+        primary: false,
+        value: home@DOMAIN.COM
+      },{
+        type: 'home',
+        primary: true,
+        value: primaryhome@DOMAIN.COM
+      },{
+        type: 'work',
+        primary: false,
+        value: work@DOMAIN.COM
+      }
+    ]
+  }
+```
+
+```
+${emails} -> primaryhome@DOMAIN.COM      //The primary value
+${emails.work} -> altwork@DOMAIN.COM     //The first occurrence of type "work" (container's disgression)
+${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (primary is of type "home")
+```
+
+####Required Properties for Extensions
+
+* {string} `text` The text for the link
+* {string} `href` The link location. Verse will take care to URL encode values replaced in the href property.
+
+####Optional Properties for Extensions
+
+* {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
+* {string} `alt` Alt text for the link.
+* {string} `locator` A hint for container where to render the link within the UI representation of the binding object. Verse currently does not use the `locator` property.
+
+####Example Extension
+
+```json
+  {
+    "type": "com.ibm.appreg.ext.templatedLink",
+    "object": "com.ibm.appreg.object.person",
+    "payload": {
+      "text": "Look up ${displayName} in the directory!",
+      "href": "https://sample.com/simple-link-target.html?user=${emails.work}",
+      "icon": "data:image/png;base64,...",
+      "locator": "profile"
+    }
+  }
+```
+
+### Widget (com.ibm.verse.ext.widget)
+
+A Widget extension associates a third party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
+
+All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget’s url will be rendered on the different place based on the action’s location.
+
+Widget Definition
+
+The definition of a widget MAY contains 1 or multiple Widget Actions. The Widget Actions can be also dynamically added to a widget.
+
+####Required Properties for Extensions
+
+* {string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
+* {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
+
+####Optional Properties for Extensions
+
+* {array} `features` An array of string. The property is used to specify what features provided by the container are used by this application. Each feature maps to a set of APIs provided by the container. If the application needs to use certain APIs, it needs to add the corresponding feature to this property. The supported features are listed below.
+  * core - that means the widget needs to communicate with Verse page via cross document messaging.
+
+####Example Extension
+
+In this sample, a widget contains two actions, one action is contributed under 'more actions' button when viewing an existing email and the second action is contributed under 'more actions' button when composing a new email. When the actions are clicked, the widget will be rendered on the new window which width and height are both 800px.
+
+```json
+  {
+    "type": "com.ibm.verse.ext.widget",
+    "payload": {
+      "url": "https://sample.com/widget.html",
+      "features": ["core"],
+      "actions": [
+        {
+          "id": "com.ibm.verse.widget.action.mailRead1",
+          "path": "mail.read",
+          "text": "Click this action",
+          "icon": "data:image/png;base64,...",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "800"
+          }
+        },
+        {
+          "id": "com.ibm.verse.widget.action.mailCompose1",
+          "path": "mail.compose",
+          "text": "Click this action",
+          "icon": "data:image/png;base64,...",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "800"
+          }
+        }
+      ]
+    }
+  }
+```
+
+#### Widget Action
+
+A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it can’t be directly added into `Application`s extensions array.
+
+When a contributed action is clicked, the widget will be rendered in a different place based on the `location` value.
+
+####Required Properties for Action
+
+* {string} `id` The id for the action.
+* {string} `text` The text for the action.
+* {string} `path`|`object` The path identifies where the action is contributed. All of supported paths are listed here. The object states which data type the action is contributed. All of supported objects are listed here.
+
+####Optional Properties for Action
+
+* {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
+* {string} `alt` Alt text for the action.
+* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab”. 
+  * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
+  * tab - the widget will be open in the new tab.
+* {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
+
+####Example Action
+```json
+  {
+    "id": "com.ibm.verse.widget.action.mailCompose",
+    "path": "com.ibm.verse.path.mailCompose",
+    "text": "Click this action",
+    "icon": "data:image/png;base64,...",
+    "location": "window | tab",
+    "renderParams": {
+      "width": "800",
+      "height": "600"
+    }
+  }
+```
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
 you can use the [IBM Verse Developer Extension for Google Chrome][4]{:target="_blank"}. There is a [tutorial](../tutorials/tutorial_verse_developer.html){:target="_blank"} to get you started.
 
 ### Your Application
-You will need to provide Verse with the URL to your application. Once an action extension is clicked in the Verse UI, the URL will be loaded in a new window. The page that is loaded uses JavaScript to listen for a window message event containing  a context object. This object has information from Verse for your extension, as specified in the `applications.json` file.
+You will need to provide Verse with the URL to your web application. Once an extension is clicked in the Verse UI, the URL will be loaded in a new window. If cross-document messaging is configured, the initial web page can use JavaScript to listen for a window message event containing a context object after it loads. This object has information from Verse for your extension, as specified in the `applications.json` file.
 
-When using the Chrome extension, you will need to add the URL of your application and the action extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
+When using the Chrome extension, you will need to add the URL of your application and the extension(s) to the `applications.json` file. The Chrome extension will use the extension definitions from this file and register them with Verse.
 
 ### File structure of `applications.json`
 
@@ -84,9 +309,9 @@ An application definition __must__ contain the following properties:
 
 * `app_id` The __unique__ identifier for the application, using the form: com.companyName.
 * `name` The name of your application. This must be __unique__.
-* `url` The URL of your application.
+* `title` The title of your application.
+* `description` The description of your application.
 * `extensions` An array of of extension definitions. See below for the properties of this object.
-* `payload` Describes the method of communication between Verse and the application, as well as display options for the new window.
 * `services` Describes which services the extension is deployed to. `"Verse"` is the only supported value.
 
 ### Extension Properties
@@ -99,10 +324,9 @@ An extension definition __must__ contain the following properties. __Only one of
 * `payload` The payload property indicates optional properties of the extension. _The `payload` property is required, but its value can be empty_.
 * `object` The object property indicates that the extension displays in a view that provides the specified object.  
 Using the person value specifies that the extension displays in a view that provides the person object.  
-For example, if the business card view provides the person data type, then the action contribution will be shown on the business card view.  
+For example, if the business card view provides the person data type, then the extension contribution will be shown on the business card view.  
 _This property is not required if you are using the `path` property._
-* `path` The path property displays an action extension in the mail compose view or the mail read view. Valid values are `"mail.read"` or `"mail.compose"`. *This property is not required if you are using the `object` property.*
-* `title` The title of your action extension, which will appear in the Verse UI.
+* `path` The path property displays an extension in the mail compose view or the mail read view. Valid values are `"mail.read"` or `"mail.compose"`. *This property is not required if you are using the `object` property.*
 
 ### Payload Properties
 
@@ -162,7 +386,7 @@ In the code example above, you can see that the information that you need from V
 
 In the sections below, the structure of each of the different context objects is outlined.
 
-#### Action Extensions
+#### Widget Extensions
 
 * [mail.compose:](#mail-compose) This appears when composing a new mail under the `more actions` button.
 * [mail.read:](#mail-read-view) This appears when viewing an existing mail under the `more actions` button.
