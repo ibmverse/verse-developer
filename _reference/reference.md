@@ -287,11 +287,11 @@ The `applications.json` file contains a list of Application definitions in JSON 
 ```javascript
   [
     {
-      "app_id": "com.ibm.verse.actions.sample1",
+      "id": "com.ibm.verse.actions.sample1",
       ...
     },
     {
-      "app_id": "com.ibm.verse.actions.sample2",
+      "id": "com.ibm.verse.actions.sample2",
       ...
     }
   ]
@@ -480,7 +480,7 @@ Here are three different samples of valid `applications.json`:
 
 An application definition __must__ contain the following properties:
 
-* `app_id` The __unique__ identifier for the application, using the form: com.companyName.
+* `id` The __unique__ identifier for the application, using the form: com.companyName.
 * `name` The name of your application. This must be __unique__.
 * `title` The title of your application.
 * `description` The description of your application.
@@ -491,7 +491,7 @@ An application definition __must__ contain the following properties:
 
 An extension definition __must__ contain the following properties. __Only one of `object` or `path` is required__:
 
-* `ext_id` The ID of the action extension. This must be __unique__.
+* `id` The ID of the action extension. This must be __unique__.
 * `type` The type of extension being configured (for example, `com.ibm.verse.action` specifies an action contribution).
 * `name` The name of the action extension in the UI. This must be __unique__.
 * `payload` The payload property indicates optional properties of the extension. _The `payload` property is required, but its value can be empty_.
@@ -543,7 +543,7 @@ The information contained in the context object depends on the action extension 
 
 ### Parsing the Verse API Data
 
-The message event received by your application contains an object called `data`, which has an object called `verseApiData`. You will need to check that the `actionId` property of the `verseApiData` object matches the `ext_id` in your `application.json` file. This will ensure that you only run your code for the correct message events.
+The message event received by your application contains an object called `data`, which has an object called `verseApiData`. You will need to check that the `actionId` property of the `verseApiData` object matches the extension `id` in your `application.json` file. This will ensure that you only run your code for the correct message events.
 
 For example:
 
