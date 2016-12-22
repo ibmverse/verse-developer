@@ -40,11 +40,11 @@ The application has access to Verse data through cross-document messaging or URL
 
 * `applications.json`: This file contains the details of your application: where in the Verse UI your extensions will appear, how your application communicates with Verse, etc. See the `applications.json` [section](#registering-an-application-in-ibm-verse) for more information.
 
-##IBM Verse Container
+## IBM Verse Container
 
 IBM Verse Container allows applications to contribute or remove UI at specific locations within the container. Path and Object are the ways the container provides the ability to target a location.
 
-###Path
+### Path
 
 IBM Verse allows extensionss to contribute or remove UI at specific locations in Verse. A `path` is one way the container provides the ability to target a location. Here is an example of 2 supported `path`s:
 
@@ -52,7 +52,7 @@ IBM Verse allows extensionss to contribute or remove UI at specific locations in
   * `mail.compose` - allows application developers to contribute an action under more actions button when composing a new email
 
 
-###Object
+### Object
 
 Another way for a container to allow extensions to target locations is by an `object` type. IBM Verse also supports an extension to add a button on Person object. For example, an extension is contributed to the bizcard cards which has a person object. Here is an example of a supported `object`
 
@@ -79,17 +79,17 @@ Here is the full list of extension points that Verse supports.
 
 A Simple Link extension adds a clickable URL link to the Verse UI.
 
-####Required Properties for Extensions
+#### Required Properties for Extensions
 
 * {string} `text` The text for the link
 * {string} `href` The link location
 
-####Optional Properties for Extensions
+#### Optional Properties for Extensions
 
 * {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
 * {string} `alt` Alt text for the link.
 
-####Example Extension
+#### Example Extension
 
 ```json
   {
@@ -151,18 +151,18 @@ ${emails.work} -> altwork@DOMAIN.COM     //The first occurrence of type "work" (
 ${emails.home} -> primaryhome@DOMAIN.COM //The primary value for type "home" (primary is of type "home")
 ```
 
-####Required Properties for Extensions
+#### Required Properties for Extensions
 
 * {string} `text` The text for the link
 * {string} `href` The link location. Verse will take care to URL encode values replaced in the href property.
 
-####Optional Properties for Extensions
+#### Optional Properties for Extensions
 
 * {string} `icon` An icon to use when rendering the link. The only value format supported for this property is a data-uri with a base64 encoded payload.
 * {string} `alt` Alt text for the link.
 * {string} `locator` A hint for container where to render the link within the UI representation of the binding object. Verse currently does not use the `locator` property.
 
-####Example Extension
+#### Example Extension
 
 ```json
   {
@@ -187,17 +187,17 @@ Widget Definition
 
 The definition of a widget MAY contains 1 or multiple Widget Actions. The Widget Actions can be also dynamically added to a widget.
 
-####Required Properties for Extensions
+#### Required Properties for Extensions
 
 * {string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
 * {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
 
-####Optional Properties for Extensions
+#### Optional Properties for Extensions
 
 * {array} `features` An array of string. The property is used to specify what features provided by the container are used by this application. Each feature maps to a set of APIs provided by the container. If the application needs to use certain APIs, it needs to add the corresponding feature to this property. The supported features are listed below.
   * core - that means the widget needs to communicate with Verse page via cross document messaging.
 
-####Example Extension
+#### Example Extension
 
 In this sample, a widget contains two actions, one action is contributed under 'more actions' button when viewing an existing email and the second action is contributed under 'more actions' button when composing a new email. When the actions are clicked, the widget will be rendered on the new window which width and height are both 800px.
 
@@ -241,22 +241,22 @@ A widget action is a UI component which will be contributed to Verse page. An ac
 
 When a contributed action is clicked, the widget will be rendered in a different place based on the `location` value.
 
-####Required Properties for Action
+#### Required Properties for Action
 
 * {string} `id` The id for the action.
 * {string} `text` The text for the action.
 * {string} `path`|`object` The path identifies where the action is contributed. All of supported paths are listed here. The object states which data type the action is contributed. All of supported objects are listed here.
 
-####Optional Properties for Action
+#### Optional Properties for Action
 
 * {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
 * {string} `alt` Alt text for the action.
-* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab”. 
+* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab”.
   * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   * tab - the widget will be open in the new tab.
 * {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
 
-####Example Action
+#### Example Action
 ```json
   {
     "id": "com.ibm.verse.widget.action.mailCompose",
