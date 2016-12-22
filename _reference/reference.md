@@ -299,9 +299,182 @@ The `applications.json` file contains a list of Application definitions in JSON 
 
 Here are three different samples of valid `applications.json`:
 
-* [Sample 1][1]{:target="_blank"}
-* [Sample 2][2]{:target="_blank"}
-* [Sample 3][3]{:target="_blank"}
+### Sample 1
+
+```json
+
+[
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Action",
+          "title": "Person Action",
+          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+        }
+      }
+    ],
+
+    "services": [
+      "Verse"
+    ]
+  }
+]
+
+```
+
+### Sample 2
+
+```json
+
+[
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Action",
+          "title": "Person Action",
+          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  },
+  {
+    "id": "com.ibm.verse.sample.app.widget",
+    "name": "Mail Sample",
+    "title": "Mail Sample Title",
+    "description": "Mail Sample Description",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
+          ]
+        }
+      }
+    ],
+
+    "services": [
+      "Verse"
+    ]
+  }
+]
+
+```
+
+### Sample 3
+
+```json
+
+[
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Person Sample",
+    "title": "Templated Link Person Sample",
+    "description": "This samples demonstrates using the Templated Link extension point with a Person object",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Action",
+          "title": "Person Action",
+          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  },
+  {
+    "id": "com.ibm.verse.sample.app.widget",
+    "name": "Mail Sample",
+    "title": "Mail Sample Title",
+    "description": "Mail Sample Description",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.widget.mail.actions",
+        "name": "Mail Actions Sample",
+        "type": "com.ibm.verse.ext.widget",
+        "payload": {
+          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "features": [
+            "core"
+          ],
+          "actions": [
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            },
+            {
+              "id": "com.ibm.verse.ext.mail.read.action",
+              "path": "mail.read",
+              "text": "Mail Read Action",
+              "title": "Mail Read Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+]
+
+```
 
 ### Application Properties
 
