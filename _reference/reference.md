@@ -12,7 +12,7 @@ categories: reference
 
 * [Introduction to IBM Verse Extensibility](#introduction-to-ibm-verse-extensibility)
 * [Extensibility Concepts](#extensibility-concepts)
-* [Verse Action Extensions](#verse-action-extensions)
+* [Verse Extension Points](#verse-extension-points)
 * [Registering an Application in IBM Verse](#registering-an-application-in-ibm-verse)
 * [Sending and Receiving Data](#sending-and-receiving-data)
 * [Verse API Data](#verse-api-data)
