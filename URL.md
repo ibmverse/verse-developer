@@ -11,5 +11,8 @@
   * `baseurl`
   * `url`
   * `verse-developer-chrome-ext`.
-2. `index.html`: 2 places, for linking to the Tutorial and to the Documentation
+2. `index.html`: 
+  * 2 places, for linking to the Tutorial and to the Documentation
+  * Link and sub-title for 'View the Project on GitHub'
+  * Change who project is maintained by to 'IBM Connections Developers' and also change link
 
