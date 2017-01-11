@@ -74,6 +74,7 @@ Here is the full list of extension points that Verse supports.
 * [com.ibm.appreg.ext.templatedLink](#templated-link-comibmappregexttemplatedlink)
 * [com.ibm.verse.ext.widget](#widget-comibmverseextwidget)
   * [Widget Action](#widget-action)
+* [com.ibm.verse.ext.namePicker](#name-picker-comibmverseextnamepicker)
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
@@ -270,6 +271,40 @@ When a contributed action is clicked, the widget will be rendered in a different
     }
   }
 ```
+
+### Name Picker (com.ibm.verse.ext.namePicker)
+Thw following sample shows how the name picker extension point is used.
+
+```json
+  {
+    "id": "com.ibm.verse.custom.name.picker",
+    "name": "Custom name picker",
+    "title": "Name Picker",
+    "description": "Custom name picker on mail compose",
+    "extensions": [
+      {
+        "type": "com.ibm.verse.ext.namePicker",
+        "ext_id": "com.ibm.verse.namepicker.sample.compose",
+        "has": "custom-name-picker",
+        "name": "Custom name picker in mail compose",
+        "url": "${extensionPath}/custom-name-picker/index.html",
+        "title": "Add Contact"
+      }
+    ],
+    "payload": {},
+    "services": [
+      "Verse"
+    ]
+  }
+
+```
+
+#### Required Properties for Extensions
+
+* {string} `id` The id for the custom name picker.
+* {string} `url` The widget’s url, when the __To__ link is clicked, the widget will open the index.html file. A new iframe will open in the mail compose where you can select people to send the mail to by name, location and job.
+* {string} `has` The related Verse has condition that must be enabled.
+
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
