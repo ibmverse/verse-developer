@@ -302,8 +302,8 @@ Thw following sample shows how the name picker extension point is used.
 #### Required Properties for Extensions
 
 * {string} `id` The id for the custom name picker.
-* {string} `url` The widget’s url, when the __To__ link is clicked, the widget will open the index.html file. A new iframe will open in the mail compose where you can select people to send the mail to by name, location and job.
 * {string} `has` The related Verse has condition that must be enabled.
+* {string} `url` The widget’s url, when the __To__ link is clicked, the widget will open the index.html file. A new iframe will open in the mail compose where you can select people to send the mail to.
 
 
 ## Registering an Application in IBM Verse
