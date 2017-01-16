@@ -51,10 +51,56 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.6</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <!-- copy config files here for chrome web extension -->
+              <outputDirectory>${basedir}/target/chrome_src</outputDirectory>
+              <resources>          
+                <resource>
+                  <directory>src/</directory>
+                </resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>   
+      <plugin>
+        <groupId>com.google.code.maven-replacer-plugin</groupId>
+        <artifactId>replacer</artifactId>
+        <version>1.5.3</version>
+        <executions>
+          <execution>
+            <!-- the replace should happen before the app is packaged -->
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>replace</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <includes>
+            <!-- Update manifest.json for chrome plugin by removing firefox specific config -->
+            <include>${basedir}/target/chrome_src/manifest.json</include>
+          </includes>
+          <regex>true</regex>
+          <!-- the name of the token to replace -->
+          <token>"applications":.+</token>
+          <!-- remove the config by replacing it with an empty value -->
+          <value></value>
+        </configuration>
+      </plugin>   
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
         <version>2.6</version>
-
         <executions>
           <execution>
             <id>source</id>
@@ -62,14 +108,39 @@
             <goals>
               <goal>single</goal>
             </goals>
-
             <configuration>
               <descriptors>
+                <descriptor>firefox.xml</descriptor>
                 <descriptor>source.xml</descriptor>
               </descriptors>
             </configuration>
           </execution>
         </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId> 
+        <version>3.0.0</version> 
+        <configuration>
+          <excludeDefaultDirectories>true</excludeDefaultDirectories>
+          <filesets>
+            <fileset>
+              <directory>target</directory>
+              <excludes>
+                <exclude>*.crx</exclude>
+                <exclude>*.zip</exclude>
+              </excludes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets> 
+        </configuration> 
+        <executions> 
+          <execution> 
+            <phase>package</phase> 
+            <goals> 
+              <goal>clean</goal> 
+            </goals> 
+          </execution> 
+        </executions> 
       </plugin>
     </plugins>
   </build>
