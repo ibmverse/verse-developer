@@ -8,11 +8,12 @@
       "https://mail.notes.na.collabserv.com/verse*",
       "https://mail.notes.ap.collabserv.com/verse*",
       "https://mail.notes.ce.collabserv.com/verse*"
-    ],
+      ],
     "run_at": "document_start"
   }],
   "web_accessible_resources": [
     "page.js",
-    "applications.json"
+    "applications.json",
+    "samples/actions.html"
   ]
 }

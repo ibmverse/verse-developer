@@ -19,3 +19,22 @@ xhr.onreadystatechange = function () {
 };
 xhr.open('GET', apps, true);
 xhr.send();
+
+init();
+
+/**
+ * Initialises the verse developer by saving the applications.json contents to localStorage,
+ * injecting the page.js script into Verse, as well as a DOM element.
+ */
+function init() {
+    document.addEventListener('GetExtensionPath', getExtensionPath);
+}
+
+/**
+  * Get the extension path which can be used to load the iframes
+*/
+function getExtensionPath() {
+  document.dispatchEvent(new CustomEvent('SetExtensionPath', {
+  detail: chrome.extension.getURL('')
+}));
+}
