@@ -3,8 +3,6 @@
  * Licensed under the MIT License.
  */
 
-
-
 var apps = chrome.extension.getURL('applications.json');
 var xhr = new XMLHttpRequest();
 xhr.overrideMimeType("application/json");
