@@ -23,7 +23,7 @@ document.addEventListener("WidgetRegistryReady", function(event) {
     // the applications.json file can define an array of applications or a single application
     if(apps instanceof Array) {
       apps.forEach(function(appObj) {
-		  var app = updateExtensionUrl(appObj);
+        var app = updateExtensionUrl(appObj);
         try {
           widgetRegistry.addWidgetFromJSON(app);
         } catch (error) {
