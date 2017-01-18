@@ -2,6 +2,9 @@
  * Print out Verse API data for all the action samples
  */
 window.addEventListener("message", function(event) {
+  if (!isValidOrigin(event.origin)) {
+    return;
+  }
   var eventData = event.data;
 
   console.log(event);
@@ -16,16 +19,14 @@ window.addEventListener("message", function(event) {
    * Message from Verse to check whether your web application is ready.
    */
   if (eventData.verseApiType === "com.ibm.verse.ping.application.loaded") {
-    if (isValidOrigin(event.origin)) {
-      var loaded_message = {
-        verseApiType: 'com.ibm.verse.application.loaded'
-      };
-      /**
-       * Your application must send a message back to Verse
-       * to identify that it's ready to receive data from Verse.
-       */
-      event.source.postMessage(loaded_message, event.origin);
-    }
+    var loaded_message = {
+      verseApiType: 'com.ibm.verse.application.loaded'
+    };
+    /**
+     * Your application must send a message back to Verse
+     * to identify that it's ready to receive data from Verse.
+     */
+    event.source.postMessage(loaded_message, event.origin);
   }
 }, false);
 
