@@ -461,6 +461,50 @@ The web page shows details of the event sent from Verse to the application for e
 
 Please be aware that if you want to move this sample HTML code into a production environment there are certain security implementation you should add to protect it against cross-site scripting attack. See the [Further Reading](#further-reading) section for more details. __It is the responsibility of the extension developer to ensure data received is treated appropriately.__
 
+### Host your web page
+
+This can be done by the chrome extension itself which is an easy process. If you want to host the page yourself proceed to [Set up a web server](#set-up-a-web-server).
+
+### Chome extension
+
+To host your page in the extenison itself you must declare your index.html file as web accessable in the manifest file. Your manifest should now look something like this.
+
+```javascript
+
+  {
+    "name": "IBM Verse Developer Extension for Google Chrome",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "content_scripts": [ {
+      "js": [ "contentscript.js"],
+      "matches": [
+        "https://mail.notes.na.collabserv.com/verse*",
+        "https://mail.notes.ap.collabserv.com/verse*",
+        "https://mail.notes.ce.collabserv.com/verse*"
+      ],
+      "run_at": "document_start"
+    }],
+    "web_accessible_resources": [
+      "page.js",
+      "applications.json",
+      "index.html" // add your file here
+    ]
+  }
+
+
+```
+
+Now move your folder into the chrome extensions directory and make a small change to your __applications.json__ file. Edit the url field in your mail sample application to
+
+```
+  "url": ${extensionPath}/yourFolderName/index.html
+```
+
+### Test it out
+Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
+
+Try clicking the action buttons that you added into Verse in previous steps, including the __Mail Compose Action__ button in the Mail Compose view, and the __Mail Read Action__ in the Mail Read view. These actions ill bring up (in a separate window) the web page you added in the previous section. The web page should be populated with some Verse API data now as the web application is accessed via Verse.  
+![sample page with Verse data](img/4_webpage_with_verse_data.png)
 
 ### Set up a web server
 You will need a place to host the web page you just created.
