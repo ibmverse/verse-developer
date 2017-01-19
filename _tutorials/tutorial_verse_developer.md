@@ -24,7 +24,7 @@ Structure of the Tutorial:
 
 ### What is the Verse Developer browser extension?
 
-The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutoiral we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by IBM Verse please go [here](../reference/reference.html#verse-extension-points).
+The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutorial we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by IBM Verse please go [here](../reference/reference.html#verse-extension-points).
 
 1. [Templated Link](../reference/reference.html#simple-link-comibmappregexttemplatedlink) (type = com.ibm.appreg.ext.templatedLink)
 2. [Widget](../reference/reference.html#widget-comibmverseextwidget) (type = com.ibm.verse.ext.widget)
