@@ -159,7 +159,7 @@ The external application is registered via the file `applications.json`, which i
 
 Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `href`.
 
-The URL contains the variable `profile.primaryEmail`, surrounded by a pair of curly brackets with a dollar sign `${}`. The value for this variable will be calculated and automatically filled in when the external application is loaded.
+The URL contains the variable `profile.primaryEmail`, surrounded by a pair of curly brackets with a dollar sign `${}`. The value for this variable will be calculated and automatically filled in when the external application is loaded. The same can be said for the variable `extensionPath`.
 
 `profile.primaryEmail` is part of the *context* object for the bizCard that gets sent to the external application from Verse. A context object contains information related to Verse. Each of the extension points (bizCard, Mail Read view, and Mail Compose view), will have its own context structure.
 
@@ -190,7 +190,7 @@ In this section, you will add a new application, which consists of one extension
         "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "url": "${extensionPath}/samples/actions.html",
           "features": [
             "core"
           ],
@@ -236,7 +236,7 @@ Your file `applications.json` should now look like this:
         "payload": {
           "text": "Person Action",
           "title": "Person Action",
-          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+          "href": "${extensionPath}/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
         }
       }
     ],
@@ -255,7 +255,7 @@ Your file `applications.json` should now look like this:
         "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "url": "${extensionPath}/samples/actions.html",
           "features": [
             "core"
           ],
@@ -363,7 +363,7 @@ Your file `applications.json` should look something like this:
         "payload": {
           "text": "Person Action",
           "title": "Person Action",
-          "href": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+          "href": "${extensionPath}/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
         }
       }
     ],
@@ -382,7 +382,7 @@ Your file `applications.json` should look something like this:
         "name": "Mail Actions Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
-          "url": "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/samples/actions.html",
+          "url": "${extensionPath}/samples/actions.html",
           "features": [
             "core"
           ],
@@ -463,11 +463,17 @@ Please be aware that if you want to move this sample HTML code into a production
 
 ### Host your web page
 
-This can be done by the chrome extension itself which is an easy process. If you want to host the page yourself proceed to [Set up a web server](#set-up-a-web-server).
+This can be done by the chrome extension itself which is an easy process. Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps: [Set up a web server](#set-up-a-web-server).
 
 ### Chome extension
 
-To host your page in the extenison itself you must declare your index.html file as web accessable in the manifest file. Your manifest should now look something like this.
+To host your page in the extenison itself you must move your folder into the chrome extensions directory and make a small change to your __applications.json__ file. Edit the url field in your mail sample application to
+
+```
+  "url": ${extensionPath}/yourFolderName/index.html
+```
+
+Now declare your index.html file as web accessable in the manifest file. Your manifest should now look something like this.
 
 ```javascript
 
@@ -494,17 +500,12 @@ To host your page in the extenison itself you must declare your index.html file 
 
 ```
 
-Now move your folder into the chrome extensions directory and make a small change to your __applications.json__ file. Edit the url field in your mail sample application to
-
-```
-  "url": ${extensionPath}/yourFolderName/index.html
-```
-
 ### Test it out
 Now try it out in Verse: first __reload the extension and then reload Verse__ to pick up your latest code changes.
 
 Try clicking the action buttons that you added into Verse in previous steps, including the __Mail Compose Action__ button in the Mail Compose view, and the __Mail Read Action__ in the Mail Read view. These actions ill bring up (in a separate window) the web page you added in the previous section. The web page should be populated with some Verse API data now as the web application is accessed via Verse.  
 ![sample page with Verse data](img/4_webpage_with_verse_data.png)
+
 
 ### Set up a web server
 You will need a place to host the web page you just created.
