@@ -1,5 +1,5 @@
 ---
-[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
+[//]: # (Copyright IBM Corp. 2017.  All Rights Reserved.)
 
 layout: tutorial
 title:  "Custom Name Picker for IBM Verse"
@@ -10,7 +10,7 @@ categories: tutorial_verse_developer
 
 This tutorial will get you started writing a custom name picker application for Verse.
 
-There is much more detailed documentation available [here][1], but it's not required to complete the tutorials.
+There is much more detailed documentation available [here][1], but it's not required to complete the tutorial.
 
 This is a follow on tutorial to [Your First Application for IBM Verse](tutorial_verse_developer.md)
 
@@ -47,84 +47,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
 
 ```
 
-__3.__ Create a folder called custom-name-picker in the verse developer __src__ folder. Download the custom name picker code in files __index.html__ and __ui.js__ [here][2] and place in the new __custom-name-picker__ folder you created.
-
-__4.__ Make changes to the verse developer page.js file.
-
-Open the verse developer page.js file, add a new line at line 25 and add the following code
-
-```JavaScript
-var app = updateExtensionUrl(appObj);
-```
-
-In the lines following line 25 replace every instance of __appObj__ with __app__ the variable you just created.
-
-Now append the following code to the end of the file.
-
-```JavaScript
-
-  init();
-
-  function init() {
-    document.addEventListener('SetExtensionPath', setExtensionPath);
-    document.dispatchEvent(new CustomEvent('GetExtensionPath'));
-  }
-
-
-  /** Set the extension path url
-     * @param {Event}
-   */
-  function setExtensionPath(e) {
-    extensionPath = e.detail;
-  }
-
-  /**
-   * Update the extension url with the extension path
-   * @param {Object} app - The app object.
-   * @return {Object} - updated app with the new url
-   */
-  function updateExtensionUrl(app) {
-    var theApp = app;
-    if (app.extensions && app.extensions.length > 0 && app.extensions[0].url) {
-      var extensionUrl = app.extensions[0].url;
-      if (extensionUrl.indexOf('${extensionPath}/') > -1) {
-        theApp.extensions[0].url = extensionUrl.replace('${extensionPath}/', extensionPath);
-        return theApp;
-      }
-    }
-    return app;
-  }
-
-```
-
-__5.__ Make changes to the verse developer contentscript.js file.
-
-Open the verse developer contentscript.js file.
-
-Append the following javascript to the end of the file.
-
-```javascript
-  init();
-
-  /**
-   * Initialises the verse developer by saving the applications.json contents to localStorage,
-   * injecting the page.js script into Verse, as well as a DOM element.
-   */
-  function init() {
-      document.addEventListener('GetExtensionPath', getExtensionPath);
-  }
-
-  /**
-    * Get the extension path which can be used to load the iframes
-  */
-  function getExtensionPath() {
-    document.dispatchEvent(new CustomEvent('SetExtensionPath', {
-      detail: chrome.extension.getURL('')
-    }));
-  }
-```
-
-__6.__ Finally we require a small change in the verse developer manifest file.
+__3.__ Finally we require a small change in the verse developer manifest file.
 
 In the __web_accessible_resources__ array add a new entry and call it __"custom-name-picker/index.html"__.
 
@@ -144,10 +67,10 @@ To reload the extension in Firefox, open your Firefox browser, go to `about:debu
 1. In the Verse UI, click the __Compose__ button.  
 ![compose button](img/2_compose_action.png)
 
-2. In the pop-up Mail Compose view, click on the __To__ link text.
+2. In the Mail Compose view, click on the __To__ link text.
 ![to field](img/5_to_field.png)
 
-3. From here you can enter the names of people the message is meant for and filter the results of the names by location and job.
+3. From here you can pick someone to send the mail to.
 ![name picker](img/5_name_picker.png)
 
 Congratulations! You successfully registered the custom name picker with Verse.
