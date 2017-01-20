@@ -107,7 +107,7 @@ function setContact(email, name, image) {
   liNode.appendChild(imgNode);
   liNode.appendChild(nameNode);
   liNode.appendChild(emailNode);
-  addBtnNode.innerHTML = '<svg class="notify-icons" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="10.5,14.4 6.9,12.4 5.9,14.1 9.5,16.2 9.4,16.2 11.2,17.2 17.2,6.8 15.4,5.8"></polygon></svg><svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"><path d="M7.5 0C3.4 0 0 3.4 0 7.5S3.4 15 7.5 15 15 11.6 15 7.5 11.6 0 7.5 0zm0 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14z"></path><path d="M8 4H7v3H4v1h3v3h1V8h3V7H8"></path></svg><span>Add</span>';
+  addBtnNode.innerHTML = '<svg class="notify-icons" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve"><g><polygon points="14,18.586 10.707,15.293 9.293,16.707 14,21.414 22.707,12.707 21.293,11.293 "/><path d="M16,2C8.269,2,2,8.269,2,16s6.269,14,14,14s14-6.269,14-14S23.731,2,16,2z M16,28C9.383,28,4,22.617,4,16S9.383,4,16,4s12,5.383,12,12S22.617,28,16,28z"/></g></svg><svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15"><path d="M7.5 0C3.4 0 0 3.4 0 7.5S3.4 15 7.5 15 15 11.6 15 7.5 11.6 0 7.5 0zm0 14C3.9 14 1 11.1 1 7.5S3.9 1 7.5 1 14 3.9 14 7.5 11.1 14 7.5 14z"></path><path d="M8 4H7v3H4v1h3v3h1V8h3V7H8"></path></svg><span>Add</span>';
   liNode.appendChild(addBtnNode);
   liNode.setAttribute("tabindex", "1");
 
