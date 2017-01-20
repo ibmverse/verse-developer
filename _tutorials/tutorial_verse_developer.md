@@ -64,7 +64,7 @@ This tutorial starts with a sample application for you to add functionality to t
 ### What you'll need
 * Google Chrome or Firefox (minimum version 49.0) browser
 * [Web Server for Chrome][1]{:target="_blank"} (alternatively, you can also use FireFox Thimble, or your own web server of choice)
-* The Verse Developer Chrome Extension source code
+* The Verse Developer Browser Extension source code
 * A text editor
 * Basic knowledge of HTML, CSS, JavaScript, and Chrome DevTools
 * Estimated time: 40 min
@@ -301,7 +301,7 @@ To reload the extension in Firefox, open your Firefox browser, go to `about:debu
 2. In the pop-up Mail Compose view, click on the __More actions__ button.  
 ![more actions button](img/2_compose_more_action.png)
 
-3. In the drop-down menu, click __Mail Compose Action__. This will bring up the web application you just registered with the Chrome extension, with information related to the Mail Compose view passed on from Verse.  
+3. In the drop-down menu, click __Mail Compose Action__. This will bring up the web application you just registered with the browser extension, with information related to the Mail Compose view passed on from Verse.  
 ![mail compose action button](img/2_mailcompose_action.png)
 
 Congratulations! You successfully added a button to the Mail Compose view, and registered the relevant application with Verse.
@@ -431,7 +431,7 @@ To reload the extension from Chrome go to `chrome://extensions`. To reload from 
 2. In the Mail Read view, click on the __More actions__ button.  
 ![more actions button](img/3_mailread_more.png)
 
-3. In the drop-down menu, click __Mail Read Action__. This will bring up the web application you just registered with the Chrome extension, with information related to the Mail Read view passed on from Verse.  
+3. In the drop-down menu, click __Mail Read Action__. This will bring up the web application you just registered with the browser extension, with information related to the Mail Read view passed on from Verse.  
 ![mail read action button](img/3_mailread_action.png)
 
 Congratulations! You successfully added an action button to the Mail Read view, and registered it as a new extension for the Mail Read application that you created in the last section.
@@ -463,17 +463,17 @@ Please be aware that if you want to move this sample HTML code into a production
 
 ### Host your web page
 
-This can be done by the chrome extension itself which is an easy process. Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps: [Set up a web server](#set-up-a-web-server).
+This can be done by the browser extension itself which is an easy process. Otherwise, you can use the Chrome Web Server to set up a localhost on your machine by following these steps: [Set up a web server](#set-up-a-web-server).
 
-### Chome extension
+### Hosting your web page in the Verse Developer extension
 
-To host your page in the extenison itself you must move your folder into the chrome extensions directory and make a small change to your __applications.json__ file. Edit the url field in your mail sample application to
+To host your page in the extenison itself you must move your folder into the browser extensions directory and make a small change to your __applications.json__ file. Edit the url field in your mail sample application to
 
 ```
   "url": ${extensionPath}/yourFolderName/index.html
 ```
 
-Now declare your index.html file as web accessable in the manifest file. Your manifest should now look something like this.
+Now declare your index.html file as web accessible in the manifest file. Your manifest should now look something like this.
 
 ```javascript
 
