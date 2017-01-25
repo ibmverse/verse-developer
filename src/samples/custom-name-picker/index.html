@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <style>
+      #filter-results > ul {
+        padding: 10px 0px 0px 0px;
+        float: left;
+        width: calc(100% - 20px);
+      }
+      #filter-results > ul > li {
+        padding: 15px 10px;
+        list-style: none;
+        float: left;
+        width: 100%;
+        border-left: 1px solid transparent;
+        border-top: 1px solid transparent;
+        border-right: 1px solid transparent;
+        border-bottom: 1px dashed #e0e0e0;
+        font-size: 12px;
+        font-family: arial, sans-serif;
+        margin-bottom: -1px;
+        position: relative;
+        outline: 0;
+      }
+      .add-contact {
+        cursor: pointer;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        margin-top: -23px;
+        color: #4178be;
+        text-align: right;
+        overflow: hidden;
+        width: 90px;
+        padding: 16px 0px;
+      }
+      .add-contact .notify-icons {
+        position: absolute;
+        right: 37px;
+        width: 15px;
+        top: 14px;
+        fill: #5a5a5a;
+        transform: scale(0);
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
+      .add-contact .plus {
+        width: 13px;
+        position: absolute;
+        right: 21px;
+        margin-right: 4px;
+        fill: #4178be;
+        -webkit-transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+      }
+      .add-contact > span {
+        position: relative;
+      }
+      #filter-results li.added-contact .notify-icons {
+        transform: scale(1);
+      }
+      #filter-results li.added-contact .plus {
+        transform: scale(0.0);
+      }
+      #filter-results li.added-contact .add-contact {
+        cursor: default;
+        color: #5a5a5a;
+      }
+      #filter-results li.added-contact .add-contact > span {
+        animation-name: headingStringAnimate;
+        animation-duration: 0.6s;
+      }
+      #filter-results > ul > li:hover::before {
+        border-right: 2px solid #5596e6;
+      }
+
+      #filter-results > ul > li:focus::before {
+        border-right: 4px solid #4178be;
+      }
+
+      #filter-results > ul > li:hover::before,
+      #filter-results > ul > li:focus::before {
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #filter-results > ul > li > .user-name {
+        margin-top: 10px;
+      }
+      #filter-results > ul > li > .user-avatar {
+        float: left;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+      @keyframes headingStringAnimate {
+          0%   {top: 0px;}
+          25%  {top: -35px; opacity: 0;}
+          35%  {top: 35px; opacity: 0;}
+          100% {top: 0px; opacity: 1;}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="filter-results">
+      <ul id="results-list"></ul>
+    </div>
+    <script src="ui.js"></script>
+  </body>
+</html>
