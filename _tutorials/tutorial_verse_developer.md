@@ -149,7 +149,7 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 4. At the back of the bizCard you will see a new link called __Person Action__.  
 ![bizCard action](img/1_bizcard_action.png)
 
-5. Click on the __Person Action__ link. This will load a web application (in a separate window) that uses information sent from the Verse bizCard.
+5. Click on the __Person Action__ link. This will load a web application in a separate hidden window. An alert should display saying as much.
 
 
 ### How it works
@@ -158,6 +158,8 @@ If you have reached this step, congratulations! You successfully installed the V
 The external application is registered via the file `applications.json`, which is under the `src` folder. This file is also responsible for adding the __Person Action__ templated link to the bizCard.
 
 Open `src/applications.json` in a text editor. It contains an array of objects. Each object contains an application, with one or more extensions registered under it. The URL for the external application is specified under the property `href`.
+
+Templated Links are currently opened in hidden iframes by Verse as we don't neccessarily want to open a new window with every link. If you want to open a new window you can [host it yourself](#set-up-a web-server).
 
 The URL contains the variable `profile.primaryEmail`, surrounded by a pair of curly brackets with a dollar sign `${}`. The value for this variable will be calculated and automatically filled in when the external application is loaded. The same can be said for the variable `extensionPath`.
 
