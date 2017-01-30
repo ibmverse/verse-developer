@@ -656,6 +656,6 @@ Now that you have learned how to register your application with Verse, add actio
 [12]: ../reference/reference.html#security
 
 [14]:../reference/reference.html#troubleshooting
-[15]:{{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
+[15]:{{site.verse-developer-chrome-ext}}/blob/master/src/samples/actions.html
 
 [16]:../reference/reference.html
