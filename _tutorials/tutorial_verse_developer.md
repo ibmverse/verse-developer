@@ -87,7 +87,7 @@ In this section, you will install the default Verse Developer browser extension 
 
 3. After you have extracted the folder, locate the `src` folder. In this tutorial, you will modify the `manifest.json` and `applications.json` files from within the `src` folder.
 
-We have also provided a `tutorial` folder which contains four subfolders: `step2`, `step3`, `step4`, and `step5`. Each subfolder includes the completed version of the files modified in each step of the tutorial.
+We have also provided a `tutorial` folder which contains four subfolders: `step2`, `step3`, `step4`, and `step5`. Subfolders `step2`, `step3` and `step4` include the completed version of the files modified in each step of this tutorial.
 
 ### Update manifest.json
 In the `src/manifest.json` file there is a `matches` property, which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. If the Verse URL you are using is not listed in this array, update the `manifest.json` file to include it:
