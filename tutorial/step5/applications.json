@@ -8,13 +8,13 @@
       {
         "type": "com.ibm.verse.ext.namePicker",
         "id": "com.ibm.verse.namepicker.sample.compose",
-        "has": "custom-name-picker",
         "name": "Custom name picker in mail compose",
-        "url": "${extensionPath}/custom-name-picker/index.html",
-        "title": "Add Contact"
+        "title": "Add Contact",
+        "payload": {
+          "url": "${extensionPath}/custom-name-picker/index.html"
+        }
       }
     ],
-    "payload": {},
     "services": [
       "Verse"
     ]
