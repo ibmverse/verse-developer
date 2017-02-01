@@ -87,7 +87,7 @@ In this section, you will install the default Verse Developer browser extension 
 
 3. After you have extracted the folder, locate the `src` folder. In this tutorial, you will modify the `manifest.json` and `applications.json` files from within the `src` folder.
 
-We have also provided a `tutorial` folder which contains four subfolders: `step2`, `step3`, `step4`, and `step5`. Subfolders `step2`, `step3` and `step4` include the completed version of the files modified in each step of this tutorial.
+We have also provided a `tutorial` folder which contains four subfolders: `step2`, `step3`, `step4`, and `step5`. Subfolders `step2`, `step3` and `step4` include the completed version of the files modified in each step of this tutorial. `Step5` contains the completed version of the file for the [custom name picker tutorial][10].
 
 ### Update manifest.json
 In the `src/manifest.json` file there is a `matches` property, which contains an array of URLs. The extension will only run if the URL visited by the user matches one of the URLs listed in this array. If the Verse URL you are using is not listed in this array, update the `manifest.json` file to include it:
@@ -650,7 +650,7 @@ Now that you have learned how to register your application with Verse, add actio
 [5]: ../reference/reference.html#verse-api-data
 [6]: ../reference/reference.html#sending-and-receiving-data
 [7]: {{site.verse-developer-chrome-ext}}
-
+[10]: {{site.verse-developer-chrome-ext}}/blob/gh-pages/_tutorials/tutorial_custom_name_picker.html
 [9]: ../reference/reference.html#registering-an-application-in-ibm-verse
 [11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
 [12]: ../reference/reference.html#security
