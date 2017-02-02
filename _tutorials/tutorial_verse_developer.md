@@ -149,7 +149,7 @@ In the `src/manifest.json` file there is a `matches` property, which contains an
 4. At the back of the bizCard you will see a new link called __Person Action__.  
 ![bizCard action](img/1_bizcard_action.png)
 
-5. Click on the __Person Action__ link. This will load a web application in a separate hidden window. An alert should display saying as much.
+5. Click on the __Person Action__ link. This will load a web application in a separate hidden iframe. An alert will display notifying you of this.
 
 
 ### How it works
