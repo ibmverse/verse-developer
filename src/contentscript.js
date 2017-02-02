@@ -34,9 +34,13 @@ function replaceExtensionPath(appsStr) {
           extension.url = extensionUrl.replace('${extensionPath}/', extensionPath);
         }
         if (extension.payload) {
-          extensionUrl = extension.payload.url;
+          extensionUrl = extension.payload.url || extension.payload.href;
           if (extensionUrl && extensionUrl.indexOf('${extensionPath}/') > -1) {
-            extension.payload.url = extensionUrl.replace('${extensionPath}/', extensionPath);
+            if (extension.payload.url) {
+              extension.payload.url = extensionUrl.replace('${extensionPath}/', extensionPath);
+            } else if (extension.payload.href) {
+              extension.payload.href = extensionUrl.replace('${extensionPath}/', extensionPath);
+            }
           }
         }
       });
