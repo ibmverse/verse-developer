@@ -33,10 +33,11 @@ __2.__ Append the following object into the array in `applications.json`, and sa
     {
       "type": "com.ibm.verse.ext.namePicker",
       "ext_id": "com.ibm.verse.namepicker.sample.compose",
-      "has": "custom-name-picker",
       "name": "Custom name picker in mail compose",
-      "url": "${extensionPath}/custom-name-picker/index.html",
-      "title": "Add Contact"
+      "title": "Add Contact",
+      "payload": {
+        "url": "${extensionPath}/custom-name-picker/index.html"
+      }
     }
   ],
   "payload": {},
