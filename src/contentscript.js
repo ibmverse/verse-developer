@@ -7,8 +7,8 @@ var apps = chrome.extension.getURL('applications.json');
 var xhr = new XMLHttpRequest();
 xhr.overrideMimeType("application/json");
 xhr.onreadystatechange = function () {
-  if (xhr.readyState == 4 && xhr.status == "200") {
-    var appsStr = replaceExtensionPath(xhr.responseText);
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    var appsStr = updateExtensionURLs(xhr.responseText);
     localStorage.setItem('applications-json', appsStr);
     var pageScript = document.createElement('script');
     pageScript.src = chrome.extension.getURL('page.js');
@@ -21,33 +21,13 @@ xhr.onreadystatechange = function () {
 xhr.open('GET', apps, true);
 xhr.send();
 
-function replaceExtensionPath(appsStr) {
-  var extensionPath = chrome.extension.getURL('');
-  var apps = [];
-  try {
-    apps = JSON.parse(appsStr);
-    apps.forEach(function(app) {
-      var extensions = app.extensions;
-      extensions.forEach(function(extension) {
-        var extensionUrl = extension.url;
-        if (extensionUrl && extensionUrl.indexOf('${extensionPath}/') > -1) {
-          extension.url = extensionUrl.replace('${extensionPath}/', extensionPath);
-        }
-        if (extension.payload) {
-          extensionUrl = extension.payload.url || extension.payload.href;
-          if (extensionUrl && extensionUrl.indexOf('${extensionPath}/') > -1) {
-            if (extension.payload.url) {
-              extension.payload.url = extensionUrl.replace('${extensionPath}/', extensionPath);
-            } else if (extension.payload.href) {
-              extension.payload.href = extensionUrl.replace('${extensionPath}/', extensionPath);
-            }
-          }
-        }
-      });
-    });
-    appsStr = JSON.stringify(apps);
-  } catch (error) {
-    console.error("Fail to parse applications.json: %O", error);
-  }
-  return appsStr;
+/**
+ * Updates the relative url of an extension
+ * @param {String} definedApps - Apps defined in applications.json
+ * @return {String} - Apps definitions with updated extension URLs
+ */
+function updateExtensionURLs(definedApps) {
+  var baseURL = chrome.extension.getURL("");
+  definedApps = definedApps.replace(/\$\{extensionPath\}\//g, baseURL);
+  return definedApps;
 }
