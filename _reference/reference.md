@@ -106,7 +106,7 @@ A Simple Link extension adds a clickable URL link to the Verse UI.
 
 ### Templated Link (com.ibm.appreg.ext.templatedLink)
 
-A Simple Link extension adds a clickable URL link to the Verse UI including the option to configure the extension to receive data from Verse encoded in the URL.
+A Templated Link extension adds a clickable URL link to the Verse UI including the option to configure the extension to receive data from Verse encoded in the URL.
 
 Templating Syntax
 
