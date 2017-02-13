@@ -7,40 +7,39 @@ function addEventHandler(elem, eventType, handler) {
   }
 }
 
-var evt = "";
-var called = 0;
+var SamplePeople = [
+  {
+    "email" : "fadams@mailinator.com",
+    "name" : "Frank Adams",
+    "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
+  },
+  {
+    "email" : "sdaryn@mailinator.com",
+    "name" : "Samantha Daryn",
+    "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
+  },
+  {
+    "email" : "respinosa@mailinator.com",
+    "name" : "Ron Espinosa",
+    "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
+  }
+];
+
+
+var evt = undefined;
+
 (function() {
   window.addEventListener('message', function(event) {
-
-      var people = [
-        {
-          "email" : "fadams@mailinator.com",
-          "name" : "Frank Adams",
-          "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
-        },
-        {
-          "email" : "sdaryn@mailinator.com",
-          "name" : "Samantha Daryn",
-          "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
-        },
-        {
-          "email" : "respinosa@mailinator.com",
-          "name" : "Ron Espinosa",
-          "image" : "https://raw.githubusercontent.com/IBM-Design/icons/master/dist/png/object-based/person_128.png"
-        }
-      ];
-
+    // Add check for the event origin here
     var eventData = event.data;
-
+    console.log('Received event: %O', eventData);
     /**
      * Message from Verse to check whether your web application is ready.
      */
     if (eventData.verseApiType === 'com.ibm.verse.ping.application.loaded') {
-      if (isValidOrigin(event.origin)) {
-        var loaded_message = {
-          verseApiType: 'com.ibm.verse.application.loaded'
-        };
-      }
+      var loaded_message = {
+        verseApiType: 'com.ibm.verse.application.loaded'
+      };
       /**
        * Your application must send a message back to Verse
        * to identify that it's ready to receive data from Verse.
@@ -48,30 +47,13 @@ var called = 0;
       event.source.postMessage(loaded_message, event.origin);
       evt = event;
     }
-    if(called === 0){
-      for(var i = 0; i < people.length; i++){
-        setContact(people[i]["email"], people[i]["name"], people[i]["image"]);
+    else if (eventData.verseApiType === 'com.ibm.verse.action.clicked') {
+      for(var i = 0; i < SamplePeople.length; i++){
+        setContact(SamplePeople[i]["email"], SamplePeople[i]["name"], SamplePeople[i]["image"]);
       }
     }
-    called = called + 1;
   }, false);
 })();
-
-
-/** Verify we are listening to the right origin
- * @param {String} currentOrigin - The url which we should listen to
- * @return {Boolean} true if the origin is valid, false otherwise
- */
-function isValidOrigin(currentOrigin) {
-  var manifest = chrome.runtime.getManifest();
-  var originsList = manifest.content_scripts[0].matches;
-  for (var i = 0; i < originsList.length; i++) {
-    if (originsList[i].indexOf(currentOrigin) !== -1) {
-      return true;
-    }
-  }
-  return false;
-}
 
 /**
  * Build a contact list item and append it to the list
