@@ -13,7 +13,7 @@ document.addEventListener("WidgetRegistryReady", function(event) {
 
   var jsonString = localStorage.getItem('applications-json');
   if(jsonString) {
-    console.log("Loaded applications-json: ", jsonString);
+    console.log("Loaded applications-json: " + jsonString);
     var apps = [];
     try {
       apps = JSON.parse(jsonString);
@@ -25,7 +25,7 @@ document.addEventListener("WidgetRegistryReady", function(event) {
     if(apps instanceof Array) {
       apps.forEach(function(appObj) {
         try {
-          console.log("Registering: %O.", appObj);
+          console.log("Registering: %O", appObj);
           widgetRegistry.addWidgetFromJSON(appObj);
         } catch (error) {
           console.error("Fail to add an application %O from applications.json file: %O", appObj, error);
