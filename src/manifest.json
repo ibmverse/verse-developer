@@ -16,7 +16,6 @@
     "page.js",
     "applications.json",
     "samples/templatedLink.html",
-    "samples/actions.html",
-    "custom-name-picker/index.html"
+    "samples/actions.html"
   ]
 }
