@@ -5,5 +5,5 @@ var href = window.location.href;
 console.log("window location href" + href);
 
 if (href.startsWith("chrome")) {
-  alert("Your web page has been opened in a hidden iframe");
+  alert("Your web page has been opened in a hidden iframe. Query String for Person Action Sample: " + window.location.search);
 }
