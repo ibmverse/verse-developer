@@ -2,6 +2,7 @@
   'use strict';
 
   window.addEventListener('message', function(event) {
+    // Add check for the event origin here
     if(event.data) {
       if (event.data.verseApiType === 'com.ibm.verse.ping.application.loaded') {
         var loaded_message = {
