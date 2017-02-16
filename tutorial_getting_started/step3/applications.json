@@ -18,8 +18,19 @@
             {
               "id": "com.ibm.verse.ext.person.action",
               "object": "com.ibm.appreg.object.person",
-              "text": "Person Action",
-              "title": "Person Action",
+              "text": "Person Widget Action",
+              "title": "Person Widget Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            },
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
               "location": "window",
               "renderParams": {
                 "width": "900",

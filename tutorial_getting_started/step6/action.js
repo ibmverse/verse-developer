@@ -35,8 +35,11 @@ window.addEventListener("message", function(event) {
  * @return {Boolean} true if the origin is valid, false otherwise
  */
 function isValidOrigin(currentOrigin) {
-  var manifest = chrome.runtime.getManifest();
-  var originsList = manifest.content_scripts[0].matches;
+  var originsList = [
+    "https://mail.notes.na.collabserv.com",
+    "https://mail.notes.ap.collabserv.com",
+    "https://mail.notes.ce.collabserv.com"
+  ];
   for (var i = 0; i < originsList.length; i++) {
     if (originsList[i].indexOf(currentOrigin) !== -1) {
       return true;

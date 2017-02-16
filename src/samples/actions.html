@@ -3,19 +3,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Verse Developer Action Sample</title>
-
     <style>
       pre {
         margin-bottom: 50px;
       }
     </style>
-    <script src="index.js"></script>
+    <script src="actions.js"></script>
   </head>
 
   <body>
-    <h1>Verse Developer Action Sample</h1>
+    <h2>Verse Developer Action Sample</h2>
     <div id="status">Waiting for messages from Verse.</div>
     <div id="query-str"></div>
-    <div id="messages"></div>
+    <div id="messages">
+      Messages received:
+      <hr>
+      <pre id='json'></pre>
+    </div>
   </body>
 </html>

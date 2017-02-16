@@ -1,0 +1,24 @@
+[
+  {
+    "id": "com.ibm.verse.sample.app.templatedlink",
+    "name": "Templated Link Sample",
+    "title": "Templated Link Sample",
+    "description": "This samples demonstrates using the templated link extension point",
+    "extensions": [
+      {
+        "id": "com.ibm.verse.sample.ext.templatedlink",
+        "name": "Person Templated Link",
+        "type": "com.ibm.appreg.ext.templatedLink",
+        "object": "com.ibm.appreg.object.person",
+        "payload": {
+          "text": "Person Templated Link",
+          "title": "Person Templated Link",
+          "href": "http://127.0.0.1:8887/samples/templatedLink.html?searchFor=${profile.primaryEmail}"
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+]
