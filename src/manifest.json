@@ -17,6 +17,7 @@
     "applications.json",
     "samples/templatedLink.html",
     "samples/actions.html",
-    "custom-name-picker/index.html"
+    "custom-name-picker/index.html",
+    "hook-before-send/index.html"
   ]
 }
