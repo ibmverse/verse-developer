@@ -25,10 +25,10 @@ Structure of the Tutorial:
 
 ### What is the Verse Developer browser extension?
 
-The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutorial we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by IBM Verse please go [here](../reference/reference.html#verse-extension-points).
+The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutorial we will have a look at 2 of the possible types of extension points i.e. widget and templated link. To get a full list of the extension points supported by IBM Verse please go [here](../reference/reference.html#verse-extension-points).
 
-1. [Templated Link](../reference/reference.html#simple-link-comibmappregexttemplatedlink) (type = com.ibm.appreg.ext.templatedLink)
-2. [Widget](../reference/reference.html#widget-comibmverseextwidget) (type = com.ibm.verse.ext.widget)
+1. [Widget](../reference/reference.html#widget-comibmverseextwidget) (type = com.ibm.verse.ext.widget)
+2. [Templated Link](../reference/reference.html#templated-link-comibmappregexttemplatedlink) (type = com.ibm.appreg.ext.templatedLink)
 
 
 As you will see in this tutorial extensions can be contributed to the following parts of the IBM Verse user interface:
@@ -80,6 +80,35 @@ If the Verse URL you are using is not listed in this array, update the `manifest
 2. See if the value for the property `matches` contains the URL you will be using for Verse. The `*` at the end of a URL means matching 0 or more characters. We recommend adding the `*`.
 3. If your Verse URL is already there, proceed to the next step to install Verse Developer on either Google Chrome or Firefox. Otherwise, append the Verse URL you will be working with into the array as a string. __Don't forget to add a comma `,` at the end of the preceding URL before adding your own__.
 
+In code snippet below shows the `manifest.json` edited to include the `https://mail.notes.collabservintegration.com/verse` Verse URL
+
+```json
+{
+  "name": "IBM Verse Developer Browser Extension",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "applications": { "gecko": {"id": "verse_dev_extension@ibm.com", "strict_min_version": "45.0"} },
+  "content_scripts": [ {
+    "js": [ "contentscript.js"],
+    "matches": [
+      "https://mail.notes.na.collabserv.com/verse*",
+      "https://mail.notes.ap.collabserv.com/verse*",
+      "https://mail.notes.ce.collabserv.com/verse*",
+      "https://mail.notes.collabservintegration.com/verse*"
+    ],
+    "run_at": "document_start"
+  }],
+  "web_accessible_resources": [
+    "page.js",
+    "applications.json",
+    "samples/templatedLink.html",
+    "samples/actions.html",
+    "custom-name-picker/index.html",
+    "hook-before-send/index.html"
+  ]
+}
+```
+
 ### Installing to Chrome
 1. Open your Google Chrome browser, and type in the address bar: `chrome://extensions`.
 2. Select __Developer mode__, (unpacked extensions can only be loaded in __Developer mode__.)  
@@ -106,7 +135,7 @@ If the Verse URL you are using is not listed in this array, update the `manifest
 4. At the back of the business card you will see a new link called __Person Action__.  
 5. Click on the __Person Action__ link. This will load a web page in a popup window and display details of the messages that were sent from Verse to that page.
 
-![Person Widget Action](gifs/person_widget_action.gif)
+![Person Widget Action](gifs/person_action.gif)
 
 ### How it works
 If you have reached this step, congratulations! You successfully installed the Verse Developer Extension with one default application. But how does this all work?
@@ -171,7 +200,7 @@ In the next section, you will learn how to add further actions to the mail compo
 ---
 
 ## 3. Add Action for Mail Compose
-In this section, you will add a new action which appear in the toolbar displayed when composing a mail i.e. Mail Compose view. When the user clicks on this action, the same external application will be opened. This extension point is very useful in cases were you want to display information relevant to a mail a user is currently composing e.g. you could use it to trigger the Watson Tone Analyser to provide the user with data on the tone of the mail before they send it.
+In this section, you will add a new action which appear in the toolbar displayed when composing a mail i.e. Mail Compose view. When the user clicks on this action, the same external application will be opened. This extension point is very useful in cases where you want to display information relevant to a mail a user is currently composing e.g. you could use it to trigger the Watson Tone Analyser to provide the user with data on the tone of the mail before they send it.
 
 
 ### Edit applications.json
@@ -180,17 +209,17 @@ In this section, you will add a new action which appear in the toolbar displayed
 2. Append the following object into the `actions` array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding action before adding this one__.
 
 ```json
-  {
-    "id": "com.ibm.verse.ext.mail.compose.action",
-    "path": "mail.compose",
-    "text": "Mail Compose Action",
-    "title": "Mail Compose Action",
-    "location": "window",
-    "renderParams": {
-      "width": "900",
-      "height": "500"
-    }
-  }
+            {
+              "id": "com.ibm.verse.ext.mail.compose.action",
+              "path": "mail.compose",
+              "text": "Mail Compose Action",
+              "title": "Mail Compose Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
 ```
 
 Your file `applications.json` should now look like this:  
@@ -247,10 +276,10 @@ Your file `applications.json` should now look like this:
 ```
 
 ### Reload the extension and Verse
-__Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that Chrome and Verse will pick up your latest changes.
+__Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that your browser and Verse will pick up your latest changes.
 
-* To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Browser Extension, and click __Reload__.  
-* To reload the extension in Firefox, open your Firefox browser, go to `about:debugging`, find the IBM Verse Developer Browser Extension, and click __Reload__.  
+* To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Browser Extension, and click __Reload__.
+* To reload the extension in Firefox, open your Firefox browser, go to `about:debugging`, find the IBM Verse Developer Browser Extension, and click __Reload__. Older versions of FireFox do not include the __Reload__ button so you may have to go to `about:addons`, remove the add-on and then go to `about:debugging` to reload it.
 
 ### Test it out
 1. In the Verse UI, click the __Compose__ button.  
@@ -282,17 +311,17 @@ In this section, you will add an action which will display when the user is read
 
 
 ```json
-  {
-    "id": "com.ibm.verse.ext.mail.read.action",
-    "path": "mail.read",
-    "text": "Mail Read Action",
-    "title": "Mail Read Action",
-    "location": "window",
-    "renderParams": {
-      "width": "900",
-      "height": "500"
-    }
-  }
+            {
+              "id": "com.ibm.verse.ext.mail.read.action",
+              "path": "mail.read",
+              "text": "Mail Read Action",
+              "title": "Mail Read Action",
+              "location": "window",
+              "renderParams": {
+                "width": "900",
+                "height": "500"
+              }
+            }
 ```
 
 Your file `applications.json` should look something like this:  
@@ -360,10 +389,7 @@ Your file `applications.json` should look something like this:
 ```
 
 ### Reload the extension and Verse
-As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ then __reload Verse,__ so that the browser and Verse will pick up your latest changes.  
-
-* To reload the extension from Chrome go to `chrome://extensions`. 
-* To reload from Firefox go to `about:debugging`
+As explained in the previous section, __every time__ you make a change to the extension code, you need to __reload the extension__ then __reload Verse,__ so that the browser and Verse will pick up your latest changes.
 
 
 ### Test it out
@@ -388,7 +414,7 @@ Congratulations! You successfully added an action button to the Mail Read view, 
 The sample applications we have worked with so far are not secure because they do no check the origin of messages they receive. 
 It is your responsibility to protect your application against [cross-site scripting attacks][12]{:target="_blank"}.
 
-The following version of the `actions.js` includes a check to verify the validity of the message origin. The method `isValidOrigin` contains a list of origins which the application expects to receive messages from. Messages from other origins are possible cross-site scripting attacks.
+The following version of the `actions.js` includes a check to verify the validity of the message origin. The method `isValidOrigin` contains a list of origins which the application expects to receive messages from. Messages from other origins are possible cross-site scripting attacks. This list of origins that are checked should be the same as the ones listed in the `manifest.json`.
 
 ```
 /**
@@ -398,7 +424,6 @@ window.addEventListener("message", function(event) {
   if (!isValidOrigin(event.origin)) {
     return;
   }
-  console.log(event);
 
   document.getElementById("status").innerHTML = "";
 
@@ -429,8 +454,7 @@ function isValidOrigin(currentOrigin) {
   var originsList = [
     "https://mail.notes.na.collabserv.com",
     "https://mail.notes.ap.collabserv.com",
-    "https://mail.notes.ce.collabserv.com",
-    "https://mail.notes.scniris.com"
+    "https://mail.notes.ce.collabserv.com"
   ];
   for (var i = 0; i < originsList.length; i++) {
     if (originsList[i].indexOf(currentOrigin) !== -1) {
@@ -461,7 +485,7 @@ Otherwise, you can use the Chrome Web Server to set up a localhost on your machi
 The web page you will use in this step is the templatedLink.html.
 
 ### Edit applications.json
-Edit the `applications.json` file so that it contains the following content
+For this step we are going to remove the application we worked on in the previous steps and add a new one. Edit the `applications.json` file so that it contains the following content:
 
 ```json
 [
