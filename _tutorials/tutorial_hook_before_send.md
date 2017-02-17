@@ -2,7 +2,7 @@
 [//]: # (Copyright IBM Corp. 2017.  All Rights Reserved.)
 
 layout: tutorial
-title:  "CHook Before Send for IBM Verse"
+title:  "Hook Before Send for IBM Verse"
 categories: tutorial_verse_developer
 ---
 
@@ -15,9 +15,9 @@ Structure of the Tutorial:
 1. [Add Hook Before Send Extension](#add-hook-before-send-extension)
 2. [Secure the Application](#secure-the-application)
 
-There is much more detailed documentation available [here][1], but it's not required to complete the tutorial.
+There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
 
-This is a follow on tutorial to [Your First Application for IBM Verse](tutorial_verse_developer.md)
+This is a follow on tutorial to [Your First Application for IBM Verse](tutorial_verse_developer.html)
 
 ---
 
@@ -106,5 +106,20 @@ Follow the instructions to [secure the application](./tutorial_verse_developer.h
 9. [Tips for debugging][14]{:target="_blank"}
 
 
-[1]: ../reference/reference.html
-[2]: ../samples/custom-name-picker
+[1]: https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
+[2]: https://developer.chrome.com/extensions/match_patterns
+[3]: ../reference/reference.html#introduction-to-ibm-verse-extensibility
+[4]: ../reference/reference.html#editing-the-manifest
+[5]: ../reference/reference.html#verse-api-data
+[6]: ../reference/reference.html#sending-and-receiving-data
+[7]: {{site.verse-developer-chrome-ext}}
+[8]: {{site.verse-developer-chrome-ext}}/archive/master.zip
+[9]: ../reference/reference.html#registering-an-application-in-ibm-verse
+[11]: https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage
+[12]: ../reference/reference.html#security
+[14]:../reference/reference.html#troubleshooting
+[15]:{{site.verse-developer-chrome-ext}}/blob/master/src/samples/templatedLink.html
+[16]:../reference/reference.html
+[17]:{{site.verse-developer-chrome-ext}}/blob/master/src/samples/templatedLink.js
+
+
