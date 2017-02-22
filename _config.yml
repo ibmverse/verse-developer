@@ -3,10 +3,10 @@
 title: IBM Verse Developer Browser Extension
 
 description: >
-  "This site contains a tutorial and reference documentation for IBM Verse developer extensions."
-baseurl: "https://git.swg.usma.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext" # the url for this documentation site
-url: "https://git.swg.usma.ibm.com" # the base hostname & protocol for your site
-verse-developer-chrome-ext: "https://git.swg.usma.ibm.com/IBM-Verse/verse-developer-chrome-ext"
+  "This site contains a tutorial and reference documentation for IBM Verse Developer Browser Extension."
+baseurl: "https://ibmverse.github.io/verse-developer/" # the url for this documentation site
+url: "https://github.com" # the base hostname & protocol for your site
+verse-developer-chrome-ext: "https://github.com/ibmverse/verse-developer"
 
 name: Tutorials for Verse Extension
 markdown: kramdown
