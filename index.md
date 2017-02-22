@@ -1,3 +1,7 @@
+# IBM Verse Developer Browser Extension
+
+IBM Verse Developer Browser Extension is a browser add-on which is used in the development of applications for IBM Verse. It allows you to register your application in IBM Verse as you develop it. Applications registered with the extension are only available in the developers' local browser, and cannot be accessed from other devices.
+
 ## What's Here
 ### 1. Tutorials
 We have a step-by-step tutorial with sample code to help you get started writing your first application for Verse quickly. We recommend following this, if it's your first time here.
