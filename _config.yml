@@ -16,3 +16,7 @@ collections:
     output: true
   reference:
     output: true
+
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-minimal
