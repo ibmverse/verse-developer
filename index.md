@@ -12,7 +12,7 @@ Alternatively, we offer reference documentation on Verse extensibility features 
 To check out the reference documentation, click [here][4].
 
 
-[1]: https://ibmverse.github.io/verse-developer//tutorials/tutorial_verse_developer.html
-[2]: https://ibmverse.github.io/verse-developer//tutorials/tutorial_custom_name_picker.html
-[3]: https://ibmverse.github.io/verse-developer//tutorials/tutorial_hook_before_send.html
-[4]: https://ibmverse.github.io/verse-developer//reference/reference.html
+[1]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_verse_developer.html
+[2]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_custom_name_picker.html
+[3]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_hook_before_send.html
+[4]: https://ibmverse.github.io/verse-developer/reference/reference.html
