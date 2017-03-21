@@ -18,6 +18,7 @@
     "samples/templatedLink.html",
     "samples/actions.html",
     "custom-name-picker/index.html",
-    "hook-before-send/index.html"
+    "hook-before-send/index.html",
+    "prevent-send-click/index.html"
   ]
 }
