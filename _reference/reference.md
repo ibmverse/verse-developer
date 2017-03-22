@@ -252,9 +252,10 @@ When a contributed action is clicked, the widget will be rendered in a different
 
 * {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
 * {string} `alt` Alt text for the action.
-* {object} `location` The property is used to specify where to render the widget. The acceptable values can be “window | tab”.
+* {object} `location` The property is used to specify where to render the widget. The acceptable values can be "window", "tab" or "embedded".
   * window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   * tab - the widget will be open in the new tab.
+  * embedded - the widget will be open inside an iframe. This value is only supported for Mail Compose actions.
 * {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is ‘window’.
 
 #### Example Action
@@ -264,7 +265,7 @@ When a contributed action is clicked, the widget will be rendered in a different
     "path": "com.ibm.verse.path.mailCompose",
     "text": "Click this action",
     "icon": "data:image/png;base64,...",
-    "location": "window | tab",
+    "location": "window | tab | embedded",
     "renderParams": {
       "width": "800",
       "height": "600"
