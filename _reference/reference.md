@@ -274,7 +274,7 @@ When a contributed action is clicked, the widget will be rendered in a different
 ```
 
 ### Name Picker (com.ibm.verse.ext.namePicker)
-Thw following sample shows how the name picker extension point is used.
+The following sample shows how the name picker extension point is used.
 
 ```json
   {
@@ -306,6 +306,48 @@ Thw following sample shows how the name picker extension point is used.
 * {string} `has` The related Verse has condition that must be enabled.
 * {string} `url` The widget’s url, when the __To__ link is clicked, the widget will open the index.html file. A new iframe will open in the mail compose where you can select people to send the mail to.
 
+
+### Live Text (com.ibm.verse.ext.liveText)
+The following sample shows how the live text extension point is used.
+
+```json
+  {
+    "name": "Live Text Widget Sample application",
+    "title": "Live Text Widget Sample",
+    "description": "The sample that shows how to contribute a live text extension in Verse",
+    "extensions": [
+      {
+        "name": "Live Text Widget Sample extension",
+        "type": "com.ibm.verse.ext.liveText",
+        "payload": {
+          "text": "Live Text Widget Action",
+          "href": "https://www.sample.com/${1}/sample.html?tel=${2}",
+          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "600"
+          }
+        }
+      }
+    ],
+    "payload": {},
+    "services": [
+      "Verse"
+    ]
+  }
+```
+
+#### Required Properties for Extensions  
+
+    * __{string}__ `text` The text for the Live Text action.   
+    * __{string}__ `href` The Live Text link location. Use ${groupNumber} to define a variable in the href. The groupNumber is the group number of regular expression defined in recognizer. When execute a Live Text action, the ${groupNumber} will be replaced with text recognized by the groupNumber group.  
+    * __{string}__ `recognizer` A regular expression in string form, not a regex literal, to recognize the specified text pattern as Live Text.  
+
+#### Optional Properties for Extensions  
+    * __{string}__ `alt` Alt text for Live Text action.  
+    * __{string}__ `location` This property specifies where to open the Live Text extension. The acceptable values can be `window` or `tab`.  
+    * __{object}__ `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is window.
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
