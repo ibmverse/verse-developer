@@ -33,7 +33,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action",
-          "href": "https://www.sample.com/${1}/sample.html?tel=${2}",
+          "href": "https://www.ibm.com/${1}/sample.html?tel=${2}",
           "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
           "location": "window",
           "renderParams": {
@@ -52,14 +52,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
 
 __3.__ __Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that the browser and Verse will pick up your latest changes.
 
-For instructions on how to reload the extension click [here](https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/tutorial_verse_developer.html#installing-the-verse-developer-browser-extension).
-
-
-__4.__ Enable Live Text in Verse  
-To enable the Live Text feature in Verse, you need to enable the following experiment settings,  
-
-      Enable Verse extension  
-      Enable live text (must enable Verse extension first)  
+For instructions on how to reload the extension click [here](tutorial_verse_developer.html#installing-the-verse-developer-browser-extension).
 
 
 ### Test it out
@@ -74,6 +67,13 @@ To enable the Live Text feature in Verse, you need to enable the following exper
 ![Here, a GIF animation is needed](gifs/live_text.gif)
 
 Congratulations! You successfully configured a Live Text extension with Verse.
+
+### Multiple Actions  
+Sometimes users may want to create multiple actions for one live text, 
+to fulfill this, muliple Live Text Extensions are needed to be created 
+with the same `recognizer` property, the multiple action items will be 
+organized into one pop up menu for the recognized live text.  
+
 
 ### How it works
 
@@ -95,10 +95,10 @@ Congratulations! You successfully configured a Live Text extension with Verse.
 
 
 [2]: https://developer.chrome.com/extensions/match_patterns
-[3]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html#introduction-to-ibm-verse-extensibility
-[4]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html#editing-the-manifest
-[5]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html#verse-api-data
-[7]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/tutorials/tutorial_verse_developer.html
-[9]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html#registering-an-application-in-ibm-verse
-[14]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html#troubleshooting
-[16]: https://github.ibm.com/pages/IBM-Verse/verse-developer-chrome-ext/reference/reference.html
+[3]: ../reference/reference.html#introduction-to-ibm-verse-extensibility
+[4]: ../reference/reference.html#editing-the-manifest
+[5]: ../reference/reference.html#verse-api-data
+[7]: tutorial_verse_developer.html
+[9]: ../reference/reference.html#registering-an-application-in-ibm-verse
+[14]: ../reference/reference.html#troubleshooting
+[16]: ../reference/reference.html

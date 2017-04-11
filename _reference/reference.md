@@ -321,7 +321,7 @@ The following sample shows how the live text extension point is used.
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action",
-          "href": "https://www.sample.com/${1}/sample.html?tel=${2}",
+          "href": "https://www.ibm.com/${1}/sample.html?tel=${2}",
           "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
           "location": "window",
           "renderParams": {
