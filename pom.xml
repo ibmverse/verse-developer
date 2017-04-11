@@ -5,7 +5,7 @@
 
   <groupId>com.ibm.pim</groupId>
   <artifactId>verse-developer-extension</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.2-SNAPSHOT</version>
   <name>Verse Developer Browser Extension</name>
   <packaging>pom</packaging>
 
