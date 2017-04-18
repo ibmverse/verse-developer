@@ -1,0 +1,26 @@
+
+  {
+    "name": "Live Text Widget Sample application",
+    "title": "The First Live Text Widget Sample",
+    "description": "The sample shows how to contribute a live text extension in Verse",
+    "extensions": [
+      {
+        "name": "Live Text Widget Sample Extension",
+        "type": "com.ibm.verse.ext.liveText",
+        "payload": {
+          "text": "Live Text Widget Action",
+          "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
+          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "400"
+          }
+        }
+      }
+    ],
+    "payload": {},
+    "services": [
+      "Verse"
+    ]
+  }
