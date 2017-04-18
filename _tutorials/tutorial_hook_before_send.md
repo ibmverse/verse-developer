@@ -12,8 +12,9 @@ This tutorial will get you started writing a hook before send extension for Vers
 
 Structure of the Tutorial:
 
-1. [Add Hook Before Send Extension](#add-hook-before-send-extension)
-2. [Secure the Application](#secure-the-application)
+1. [Add Hook Before Send extension](#add-hook-before-send-extension)
+2. [Disable send button by default](#disable-send-button)
+3. [Secure the Application](#secure-the-application)
 
 There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
 
@@ -33,7 +34,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
     "id": "com.ibm.verse.app.beforeOnSend",
     "name": "Hook Before Send",
     "title": "Hook Before Send Sample",
-    "description": "Sample that shows how to check for a secret value in mail being sent",
+    "description": "Sample that shows how to check for a credit card number in mail being sent",
     "extensions": [
       {
         "type": "com.ibm.verse.ext.beforeOnSend",
@@ -59,8 +60,8 @@ For instructions on how to reload the extension click [here](./tutorial_verse_de
 ### Test it out
 1. In the Verse UI, click the __Compose__ button.
 2. In the Mail Compose view, enter recipient and subject.
-3. Enter the text 'Secret12345' in the mail body.
-4. Click the send button and you will receive a warning about sending a mail containing the 'Secret12345'.
+3. Enter a test credit card number (e.g. 5105105105105100) in the mail body.
+4. Click the send button and you will receive a warning about sending a mail containing a credit card number.
 5. The user can go back and edit the mail before sending or can continue to send the mail as is.
 
 ![Hook Before Send](gifs/hook_before_send.gif)
@@ -88,7 +89,69 @@ Below is the snippet of JavaScript which sends a message to Verse to signal that
 
 ---
 
-## 2. Secure the Application
+## 2. Disable send button by default
+
+### Edit applications.json
+__1.__ Open `src/applications.json` in your text editor.
+
+__2.__ Replace the object you added in step #2 with the one below, and save the file.
+
+```json
+  {
+    "id": "com.ibm.verse.app.beforeOnSend",
+    "name": "Hook Before Send Sample",
+    "title": "Hook Before Send Sample",
+    "description": "Sample that shows how to check for a credit card number in mail being sent",
+    "extensions": [
+      {
+        "type": "com.ibm.verse.ext.beforeOnSend",
+        "ext_id": "com.ibm.verse.ext.sample.beforeOnSend",
+        "name": "Hook Before Send Extension",
+        "title": "Hook Before Send Extension",
+        "url": "${extensionPath}/hook-before-send-disable/index.html",
+        "payload": {
+          "disableSend": true
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+```
+
+__3.__ Reload the extension and reload Verse.
+
+
+### Test it out
+1. In the Verse UI, click the __Compose__ button.
+2. In the Mail Compose view, enter recipient and subject.
+3. Enter a test credit card number (e.g. 5105105105105100) in the mail body.
+4. Click the send button and you will receive a warning about sending a mail containing a credit card number.
+5. This time the user cannot click the send button to send the mail as is.
+
+![Hook Before Send](gifs/hook_before_send_disable.gif)
+
+### How it works
+
+* This step introduces a new property supported by the `com.ibm.verse.ext.beforeOnSend` extension point
+* Adding `"disableSend": true` to the payload will cause the send button to be disabled by default
+* The extension can optionally send a message to Verse to signal that it should re-enable the send button
+* Otherwise the user will have to return to the message and adjust the mail before they can send it
+
+
+Below is the snippet of JavaScript which sends a message to Verse to signal that the send button should be enabled:
+
+```
+  var response_message = {
+    verseApiType: 'com.ibm.verse.message.enable.send'
+  };
+  event.source.postMessage(response_message, event.origin);
+```
+
+---
+
+## 3. Secure the Application
 
 Follow the instructions to [secure the application](./tutorial_verse_developer.html#secure-the-application).
 
