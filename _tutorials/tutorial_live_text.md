@@ -10,7 +10,7 @@ categories: verse_live_text
 
 This tutorial will get you started creating a live text extension for Verse. This is a follow on tutorial to [Your First Application for IBM Verse][7](tutorial_verse_developer.html)
 
-There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
+There is much more detailed documentation available [here][8], but it's not required to complete the tutorial.
 
 
 ---
@@ -26,14 +26,14 @@ __2.__ Append the following object into the array in `applications.json`, and sa
   {
     "name": "Live Text Widget Sample application",
     "title": "Live Text Widget Sample",
-    "description": "The sample that shows how to contribute a live text extension in Verse",
+    "description": "The sample shows how to contribute a live text extension in Verse",
     "extensions": [
       {
         "name": "Live Text Widget Sample extension",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action",
-          "href": "https://www.ibm.com/${1}/sample.html?tel=${2}",
+          "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
           "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
           "location": "window",
           "renderParams": {
@@ -57,23 +57,70 @@ For instructions on how to reload the extension click [here](tutorial_verse_deve
 
 ### Test it out
 1. In the Verse UI, click the __Compose__ button.
-2. In the New Mail Dialog, type in __Path:reference, Tel:82451234 CN__ in the mail body.
+2. In the New Mail Dialog, type in __Path:live-text, Tel:82451234 CN__ in the mail body.
 3. Send the mail to yourself.
 4. Once you received the mail, open it.
-5. You will see that the text __Path:reference, Tel:82451234 CN__ is recognized and underlined with dash line.
+5. You will see that the text __Path:live-text, Tel:82451234 CN__ is recognized and underlined with dash line.
 6. Click on the highlighed text, a menu will pop up with a menu item, __Live Text Widget Action__.
-7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__reference/sample.html?tel=82451234__" at the end of the URL.
+7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__live-text/sample1.html?tel=82451234__" at the end of the URL.
 
-![Here, a GIF animation is needed](gifs/live_text.gif)
+![The GIF animation for Live Text](gifs/live_text.gif)
 
 Congratulations! You successfully configured a Live Text extension with Verse.
 
 ### Multiple Actions  
 Sometimes users may want to create multiple actions for one live text, 
-to fulfill this, muliple Live Text Extensions are needed to be created 
-with the same `recognizer` property, the multiple action items will be 
-organized into one pop up menu for the recognized live text.  
+to fulfill this, multiple Live Text extensions are needed to be created with 
+recognizer property recognize the same live text, the multiple action items 
+will be organized into one pop up menu for the recognized live text.  
 
+You can follow the steps above to add the following object into the array in `applications.json`,  
+and test the multiple actions out.  
+
+```json
+[
+  {
+    "name": "Live Text Widget Sample application",
+    "title": "The First Live Text Widget Sample",
+    "description": "The sample shows how to contribute a live text extension in Verse",
+    "extensions": [
+      {
+        "name": "Live Text Widget Sample Extension",
+        "type": "com.ibm.verse.ext.liveText",
+        "payload": {
+          "text": "Live Text Widget Action One",
+          "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
+          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "400"
+          }
+        }
+      },
+      
+      {
+        "name": "Live Text Widget Sample Extension",
+        "type": "com.ibm.verse.ext.liveText",
+        "payload": {
+          "text": "Live Text Widget Action Two",
+          "href": "${extensionPath}/live-text/sample2.html?tel=${2}",
+          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "400"
+          }
+        }
+      }
+    ],
+    "payload": {},
+    "services": [
+      "Verse"
+    ]
+  }
+]
+```
 
 ### How it works
 
@@ -86,19 +133,19 @@ organized into one pop up menu for the recognized live text.
 ---
 
 ## Further Reading
-1. [Introduction to Verse extensibility][3]{:target="_blank"}
-2. [Editing the `manifest.json` file][4]{:target="_blank"}
-3. [Working with match patterns in `manifest.json`][2]{:target="_blank"}
-4. [Verse API data][5]{:target="_blank"}
-5. [Registering an application in IBM Verse][9]{:target="_blank"}
-6. [Tips for debugging][14]{:target="_blank"}
+1. [Introduction to Verse extensibility][1]{:target="_blank"}
+2. [Editing the `manifest.json` file][2]{:target="_blank"}
+3. [Working with match patterns in `manifest.json`][3]{:target="_blank"}
+4. [Verse API data][4]{:target="_blank"}
+5. [Registering an application in IBM Verse][5]{:target="_blank"}
+6. [Tips for debugging][6]{:target="_blank"}
 
 
-[2]: https://developer.chrome.com/extensions/match_patterns
-[3]: ../reference/reference.html#introduction-to-ibm-verse-extensibility
-[4]: ../reference/reference.html#editing-the-manifest
-[5]: ../reference/reference.html#verse-api-data
+[1]: ../reference/reference.html#introduction-to-ibm-verse-extensibility
+[2]: ../reference/reference.html#editing-the-manifest
+[3]: https://developer.chrome.com/extensions/match_patterns
+[4]: ../reference/reference.html#verse-api-data
+[5]: ../reference/reference.html#registering-an-application-in-ibm-verse
+[6]: ../reference/reference.html#troubleshooting
 [7]: tutorial_verse_developer.html
-[9]: ../reference/reference.html#registering-an-application-in-ibm-verse
-[14]: ../reference/reference.html#troubleshooting
-[16]: ../reference/reference.html
+[8]: ../reference/reference.html
