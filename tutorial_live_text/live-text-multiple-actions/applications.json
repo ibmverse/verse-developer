@@ -1,16 +1,16 @@
 [
   {
-    "name": "Live Text Widget Sample application",
+    "name": "Live Text Widget Multiple Actions Sample",
     "title": "The First Live Text Widget Sample",
-    "description": "The sample shows how to contribute a live text extension in Verse",
+    "description": "The sample shows how to create multiple Live Text actions for the same Live Text in Verse",
     "extensions": [
       {
-        "name": "Live Text Widget Sample Extension",
+        "name": "Live Text Widget Action Sample One",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action One",
           "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
-          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*",
           "location": "window",
           "renderParams": {
             "width": "800",
@@ -20,17 +20,13 @@
       },
       
       {
-        "name": "Live Text Widget Sample Extension",
+        "name": "Live Text Widget Action Sample Two",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action Two",
           "href": "${extensionPath}/live-text/sample2.html?tel=${2}",
-          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
-          "location": "window",
-          "renderParams": {
-            "width": "800",
-            "height": "400"
-          }
+          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*",
+          "location": "tab"
         }
       }
     ],
