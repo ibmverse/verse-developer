@@ -2,7 +2,7 @@
   {
     "id": "com.ibm.verse.sample.app.widget",
     "name": "Widget Samples",
-    "title": "Widget Sampled",
+    "title": "Widget Samples",
     "description": "This samples demonstrates using the widget extension point",
     "extensions": [
       {
