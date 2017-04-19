@@ -8,9 +8,9 @@ categories: verse_live_text
 
 # {{page.title}}
 
-This tutorial will get you started creating a live text extension for Verse. This is a follow on tutorial to [Your First Application for IBM Verse][7](tutorial_verse_developer.html)
+This tutorial will get you started creating a live text extension for Verse. This is a follow-on tutorial to [Your First Application for IBM Verse][7](tutorial_verse_developer.html)
 
-There is much more detailed documentation available [here][8], but it's not required to complete the tutorial.
+There is much more detailed documentation available [here][8], but it's not required for completing the tutorial.
 
 
 ---
@@ -59,8 +59,8 @@ For instructions on how to reload the extension click [here](tutorial_verse_deve
 1. In the Verse UI, click the __Compose__ button.
 2. In the New Mail Dialog, type in __Path:live-text, Tel:82451234 CN__ in the mail body.
 3. Send the mail to yourself.
-4. Once you received the mail, open it.
-5. You will see that the text __Path:live-text, Tel:82451234 CN__ is recognized and underlined with dash line.
+4. When you receive the mail, open it.
+5. You will see that the text __Path:live-text, Tel:82451234 CN__ is recognized and underlined.
 6. Click on the highlighed text, a menu will pop up with a menu item, __Live Text Widget Action__.
 7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__live-text/sample1.html?tel=82451234__" at the end of the URL.
 
@@ -69,28 +69,28 @@ For instructions on how to reload the extension click [here](tutorial_verse_deve
 Congratulations! You successfully configured a Live Text extension with Verse.
 
 ### Multiple Actions  
-Sometimes users may want to create multiple actions for one live text, 
-to fulfill this, multiple Live Text extensions are needed to be created with 
-recognizer property recognize the same live text, the multiple action items 
-will be organized into one pop up menu for the recognized live text.  
+Sometimes users might want to create multiple actions for one live text. 
+To do this, create multiple Live Text extensions with a 
+recognizer property to recognize the same live text. The multiple action items 
+will be organized into one pop-up menu for the recognized live text.  
 
 You can follow the steps above to add the following object into the array in `applications.json`,  
-and test the multiple actions out.  
+and test the multiple actions.  
 
 ```json
 [
   {
-    "name": "Live Text Widget Sample application",
-    "title": "The First Live Text Widget Sample",
-    "description": "The sample shows how to contribute a live text extension in Verse",
+    "name": "Live Text Widget Multiple Actions Sample",
+    "title": "The Live Text Widget With Multiple Actions Sample",
+    "description": "The sample shows how to create multiple Live Text actions for the same Live Text in Verse",
     "extensions": [
       {
-        "name": "Live Text Widget Sample Extension",
+        "name": "Live Text Widget Action One Sample",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action One",
           "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
-          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*",
           "location": "window",
           "renderParams": {
             "width": "800",
@@ -100,17 +100,13 @@ and test the multiple actions out.
       },
       
       {
-        "name": "Live Text Widget Sample Extension",
+        "name": "Live Text Widget Action Two Sample",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action Two",
           "href": "${extensionPath}/live-text/sample2.html?tel=${2}",
-          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
-          "location": "window",
-          "renderParams": {
-            "width": "800",
-            "height": "400"
-          }
+          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*",
+          "location": "tab"
         }
       }
     ],
@@ -124,10 +120,11 @@ and test the multiple actions out.
 
 ### How it works
 
-* This step introduces a new extension point with the type `com.ibm.verse.ext.liveText`
-* A live text extension is configured into Verse, the recognized live text will be highlighted to indicate the end user to click on it and then the menu item 
-* Click on the popped up menu item, the specified web application is opened in a new window
-* The web application receives parameters from the URL
+1. This step introduces a new extension point with the type `com.ibm.verse.ext.liveText`
+1. A live text extension is configured into Verse, the recognized live text will be underlined
+1. Click on the underlined text to display the pop-up menu
+1. Click on an item in the pop-up menu and the specified web application is opened in a new window or a new tab
+1. The web application receives parameters from the URL
 
 
 ---
