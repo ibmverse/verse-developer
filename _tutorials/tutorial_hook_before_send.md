@@ -32,7 +32,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
 ```json
   {
     "id": "com.ibm.verse.app.beforeOnSend",
-    "name": "Hook Before Send",
+    "name": "Hook Before Send Sample",
     "title": "Hook Before Send Sample",
     "description": "Sample that shows how to check for a credit card number in mail being sent",
     "extensions": [
@@ -40,7 +40,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
         "type": "com.ibm.verse.ext.beforeOnSend",
         "ext_id": "com.ibm.verse.ext.hookbeforesend.sample",
         "name": "Hook Before Send Extension",
-        "title": "Secret Value Checker",
+        "title": "Hook Before Send Extension",
         "payload": {
           "url": "${extensionPath}/hook-before-send/index.html"
         }
@@ -105,11 +105,11 @@ __2.__ Replace the object you added in step #2 with the one below, and save the 
     "extensions": [
       {
         "type": "com.ibm.verse.ext.beforeOnSend",
-        "ext_id": "com.ibm.verse.ext.sample.beforeOnSend",
+        "ext_id": "com.ibm.verse.ext.hookbeforesend.sample",
         "name": "Hook Before Send Extension",
         "title": "Hook Before Send Extension",
-        "url": "${extensionPath}/hook-before-send-disable/index.html",
         "payload": {
+          "url": "${extensionPath}/hook-before-send-disable/index.html",
           "disableSend": true
         }
       }
