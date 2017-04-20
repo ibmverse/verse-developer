@@ -82,7 +82,7 @@ and test the multiple actions.
 [
   {
     "name": "Live Text Widget Multiple Actions Sample",
-    "title": "The Live Text Widget With Multiple Actions Sample",
+    "title": "The Live Text Widget Sample with Multiple Actions",
     "description": "The sample shows how to create multiple Live Text actions for the same Live Text in Verse",
     "extensions": [
       {

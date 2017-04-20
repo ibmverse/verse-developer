@@ -75,6 +75,7 @@ Here is the full list of extension points that Verse supports.
 * [com.ibm.verse.ext.widget](#widget-comibmverseextwidget)
 * [com.ibm.verse.ext.namePicker](#name-picker-comibmverseextnamepicker)
 * [com.ibm.verse.ext.beforeOnSend](#before-on-send-comibmverseextbeforeonsend)
+* [com.ibm.verse.ext.liveText](#live-text-comibmverseextlivetext)
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
