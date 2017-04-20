@@ -356,6 +356,7 @@ The following sample shows how the live text extension point is used.
     "extensions": [
       {
         "name": "Live Text Widget Sample extension",
+        "ext_id": "com.ibm.verse.livetext.sample",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action",

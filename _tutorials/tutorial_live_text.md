@@ -30,6 +30,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
     "extensions": [
       {
         "name": "Live Text Widget Sample extension",
+        "ext_id": "com.ibm.verse.livetext.sample",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action",
@@ -86,6 +87,7 @@ and test the multiple actions.
     "extensions": [
       {
         "name": "Live Text Widget Action One Sample",
+        "ext_id": "com.ibm.verse.livetext.sample.one",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action One",
@@ -101,6 +103,7 @@ and test the multiple actions.
       
       {
         "name": "Live Text Widget Action Two Sample",
+        "ext_id": "com.ibm.verse.livetext.sample.two",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action Two",
