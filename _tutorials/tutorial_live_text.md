@@ -86,7 +86,7 @@ and test the multiple actions.
     "description": "The sample shows how to create multiple Live Text actions for the same Live Text in Verse",
     "extensions": [
       {
-        "name": "Live Text Widget Action One Sample",
+        "name": "Live Text Widget Action Sample One",
         "ext_id": "com.ibm.verse.livetext.sample.one",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
@@ -102,7 +102,7 @@ and test the multiple actions.
       },
       
       {
-        "name": "Live Text Widget Action Two Sample",
+        "name": "Live Text Widget Action Sample Two",
         "ext_id": "com.ibm.verse.livetext.sample.two",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
