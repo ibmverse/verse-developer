@@ -347,7 +347,7 @@ An optional property called `disableSend` is provided to control the send button
 ```
 
 ### Live Text (com.ibm.verse.ext.liveText)
-The Live Text extension recognizes defined patterns of data in email, and displays the live text with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application. The pattern and the corresponding actions are defined in an extension that is added to Verse.
+The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
 
 #### Required Properties for Extensions  
 * __{string}__ `text` The text for the Live Text action.   
