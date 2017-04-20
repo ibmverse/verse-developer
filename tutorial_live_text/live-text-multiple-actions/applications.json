@@ -1,11 +1,12 @@
 [
   {
-    "name": "Live Text Widget Multiple Actions Sample",
-    "title": "The First Live Text Widget Sample",
+    "name": "The Live Text Widget Sample with Multiple Actions",
+    "title": "The Live Text Widget Sample with Multiple Actions",
     "description": "The sample shows how to create multiple Live Text actions for the same Live Text in Verse",
     "extensions": [
       {
         "name": "Live Text Widget Action Sample One",
+        "ext_id": "com.ibm.verse.livetext.sample.one",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action One",
@@ -21,12 +22,12 @@
       
       {
         "name": "Live Text Widget Action Sample Two",
+        "ext_id": "com.ibm.verse.livetext.sample.two",
         "type": "com.ibm.verse.ext.liveText",
         "payload": {
           "text": "Live Text Widget Action Two",
           "href": "${extensionPath}/live-text/sample2.html?tel=${2}",
-          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*",
-          "location": "tab"
+          "recognizer": "Path:(live-text), Tel:([0-9]{8}).*"
         }
       }
     ],
