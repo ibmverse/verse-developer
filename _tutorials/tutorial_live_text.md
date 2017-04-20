@@ -62,7 +62,7 @@ For instructions on how to reload the extension click [here](tutorial_verse_deve
 3. Send the mail to yourself.
 4. When you receive the mail, open it.
 5. You will see that the text __Path:live-text, Tel:82451234 CN__ is recognized and underlined.
-6. Click on the highlighed text, a menu will pop up with a menu item, __Live Text Widget Action__.
+6. Click on the underlined text, a menu will pop up with a menu item, __Live Text Widget Action__.
 7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__live-text/sample1.html?tel=82451234__" at the end of the URL.
 
 ![The GIF animation for Live Text](gifs/live_text.gif)
