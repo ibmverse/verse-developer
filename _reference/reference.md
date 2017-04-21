@@ -75,6 +75,7 @@ Here is the full list of extension points that Verse supports.
 * [com.ibm.verse.ext.widget](#widget-comibmverseextwidget)
 * [com.ibm.verse.ext.namePicker](#name-picker-comibmverseextnamepicker)
 * [com.ibm.verse.ext.beforeOnSend](#before-on-send-comibmverseextbeforeonsend)
+* [com.ibm.verse.ext.liveText](#live-text-comibmverseextlivetext)
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 
@@ -344,6 +345,55 @@ An optional property called `disableSend` is provided to control the send button
   }
 
 ```
+
+### Live Text (com.ibm.verse.ext.liveText)
+The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
+
+#### Required Properties for Extensions  
+* __{string}__ `text` The text for the Live Text action.   
+* __{string}__ `href` The Live Text link location. Use ${groupNumber} to define a variable in the href. The groupNumber is the group number of regular expression defined in recognizer. When execute a Live Text action, the ${groupNumber} will be replaced with text recognized by the groupNumber group.  
+* __{string}__ `recognizer` A regular expression in string form, not a regex literal, to recognize the specified text pattern as Live Text.  
+
+#### Optional Properties for Extensions  
+* __{string}__ `alt` Alt text for Live Text action.  
+* __{string}__ `location` This property specifies where to open the Live Text extension. The acceptable values can be `window` or `tab`.  
+    * `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new window’s size. If renderParams is not provided, a default renderParams will be used.
+    * `tab` - The Live Text extension will be opened in the new tab.
+* __{object}__ `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new window’s width/height accordingly. This property is only valid if the `location`’s value is `window`.
+
+#### Example Live Text extension
+```json
+  {
+    "name": "Live Text Widget Sample application",
+    "title": "Live Text Widget Sample",
+    "description": "The sample shows how to contribute a live text extension in Verse",
+    "extensions": [
+      {
+        "name": "Live Text Widget Sample extension",
+        "ext_id": "com.ibm.verse.livetext.sample",
+        "type": "com.ibm.verse.ext.liveText",
+        "payload": {
+          "text": "Live Text Widget Action",
+          "href": "${extensionPath}/${1}/sample1.html?tel=${2}",
+          "recognizer": "Path:([a-z].*), Tel:([0-9]{8}).*",
+          "location": "window",
+          "renderParams": {
+            "width": "800",
+            "height": "600"
+          }
+        }
+      }
+    ],
+    "payload": {},
+    "services": [
+      "Verse"
+    ]
+  }
+```
+
+The ${extensionPath} in above example is only a path var of this repository. You need to use absolute path in their own extensions if their extension page is not in this repository.
+
+The `ext_id` property is only required when you import extension json in Appregistry. It is not a required property for this extension point or Verse.
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
