@@ -357,6 +357,8 @@ The Live Text extension point recognizes defined patterns of data in email, and 
 #### Optional Properties for Extensions  
 * __{string}__ `alt` Alt text for Live Text action.  
 * __{string}__ `location` This property specifies where to open the Live Text extension. The acceptable values can be `window` or `tab`.  
+    * `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new window’s size. If renderParams is not provided, a default renderParams will be used.
+    * `tab` - The Live Text extension will be opened in the new tab.
 * __{object}__ `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new window’s width/height accordingly. This property is only valid if the `location`’s value is `window`.
 
 #### Example Live Text extension
@@ -389,9 +391,9 @@ The Live Text extension point recognizes defined patterns of data in email, and 
   }
 ```
 
-The ${extensionPath} in above example is only a path var of this repository. User need to use absolute path in their own extensions if their extension page is not in this repository.
+The ${extensionPath} in above example is only a path var of this repository. You need to use absolute path in their own extensions if their extension page is not in this repository.
 
-The `ext_id` property is only required when user imports extension json in Appregistry. It is not a required property for this extension point or Verse.
+The `ext_id` property is only required when you import extension json in Appregistry. It is not a required property for this extension point or Verse.
 
 ## Registering an Application in IBM Verse
 To add an application to Verse, you need to register it using the IBM App Registry. For development purposes
