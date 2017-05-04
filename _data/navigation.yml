@@ -1,0 +1,95 @@
+footer:
+  - title          : "IBM.com"
+    url            : /
+    class          :
+
+  - title          : "IBM Verse"
+    url            : /
+    class          :
+
+  - title          : "Terms & Conditions"
+    url            : /
+    class          :
+
+  - title          : "Back to Top"
+    url            : /
+    class          : "back-to-top"
+
+topNavigation:
+  - title          : "Overview"
+    url            : /
+
+  - title          : "Developers"
+    url            : "/developers"
+
+documentation      :
+  - title          : "Get Started"
+    url            : "#get-started"
+    type           : "url"
+
+  - title          : "Your First Application"
+    type           : "head"
+
+  - title          : "How to Install"
+    url            : "#how-to-install"
+    type           : "url"
+
+  - title          : "Add Action for Mail Compose"
+    url            : "#add-action-for-mail-compose"
+    type           : "url"
+
+
+  - title          : "Add Action for Mail Read"
+    url            : "#add-action-for-mail-read"
+    type           : "url"
+
+  - title          : "Secure the Application"
+    url            : "#secure-the-application"
+    type           : "url"
+
+  - title          : "Create a New Application"
+    url            : "#create-a-new-application"
+    type           : "url"
+
+  - title          : "Documentation"
+    type           : "head"
+
+  - title          : "IBM Verse Extensibility"
+    url            : "#ibm-verse-extensibility"
+    type           : "url"
+
+  - title          : "Extensibility Concepts"
+    url            : "#extensibility-concepts"
+    type           : "url"
+
+  - title          : "IBM Verse Container"
+    url            : "#ibm-verse-container"
+    type           : "url"
+
+  - title          : "Verse Extension Points"
+    url            : "#verse-extension-points"
+    type           : "url"
+
+  - title          : "Registering an Application in IBM Verse"
+    url            : "#registering-an-application-in-ibm-verse"
+    type           : "url"
+
+  - title          : "Sending and Receiving Data"
+    url            : "#sending-and-receiving-data"
+    type           : "url"
+
+  - title          : "Verse API Data"
+    url            : "#verse-api-data"
+    type           : "url"
+
+  - title          : "Editing the Manifest"
+    url            : "#editing-the-manifest"
+    type           : "url"
+
+  - title          : "Security"
+    url            : "#security"
+    type           : "url"
+
+  - title          : "Troubleshooting"
+    url            : "#troubleshooting"
+    type           : "url"

@@ -1,0 +1,46 @@
+---
+layout: default
+---
+<main class="home" role="main">
+  <div class="site">
+    <section class="banner" role="banner">
+      <div class="container">
+        <h1>{{ site.data.home[site.locale].h1 }}</h1>
+        <a class="btn get-started-btn" href="">{{ site.data.home[site.locale].getStartedBtn }}</a>
+      </div>
+    </section>
+    <section class="what-is-wws container">
+      <section class="info-block col-md-5">
+        <h3>{{ site.data.home[site.locale].howToExtend.h3 }}</h3>
+        <p>{{ site.data.home[site.locale].howToExtend.p1 }}</p>
+        <p>{{ site.data.home[site.locale].howToExtend.p2 }}</p>
+      </section>
+      <div class="col-md-1 vert-rule"></div>
+      <div class="col-md-1"></div>
+      <section class="api-tool-cards col-md-5">
+        <div class="card">
+          <img role="presentation" src="{{ site.data.home[site.locale].developersGuide.img }}" />
+          <h3>{{ site.data.home[site.locale].developersGuide.h3 }}</h3>
+          <p>{{ site.data.home[site.locale].developersGuide.p1 }}</p>
+          <a class="btn btn-blue" href="{{ site.data.home[site.locale].developersGuide.btn.url }}">{{ site.data.home[site.locale].developersGuide.btn.title }}</a>
+        </div>
+      </section>
+    </section>
+	<div class="white-bg">
+	  <section class="cards container">
+        {% for block in site.data.home[site.locale].getStartedBlocks %}
+	      <section class="col-md-4">
+	        <div class="card">
+	          <div class="img-container">
+	            <img role="presentation" src="{{ block.img }}" />
+	          </div>
+	          <h3>{{ block.title }}</h3>
+	          <p>{{ block.content }}</p>
+	          <a class="btn btn-blue" href="{{ block.btn.url }}">{{ block.btn.title }}</a>
+	        </div>
+	      </section>
+        {% endfor %}
+	  </section>
+	</div>
+  </div>
+</main>

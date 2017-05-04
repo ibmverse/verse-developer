@@ -1,0 +1,26 @@
+<nav class="navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="collapsed" id="main-nav-toggle" type="button" aria-label={menuText} data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false" role="menu">
+        <span class="sr-only">{{ site.data.common[site.locale].mobileMenu }}</span>
+        <svg viewBox="0 0 4 16"><path d="M2,1A1,1,0,1,1,1,2,1,1,0,0,1,2,1M2,0A2,2,0,1,0,4,2,2,2,0,0,0,2,0Z"></path><path d="M2,7A1,1,0,1,1,1,8,1,1,0,0,1,2,7M2,6A2,2,0,1,0,4,8,2,2,0,0,0,2,6Z"></path><path d="M2,13a1,1,0,1,1-1,1,1,1,0,0,1,1-1m0-1a2,2,0,1,0,2,2,2,2,0,0,0-2-2Z"></path></svg>
+      </a>
+      <a class="logo" href="">
+        <span>{{ site.data.common[site.locale].ibm }}</span>
+        <span class="verse">{{ site.data.common[site.locale].verse }}</span>
+      </a>
+    </div>
+    <div id="main-nav-collapse" class="collapse navbar-collapse">
+      <a class="btn get-started-btn" href="">{{ site.data.common[site.locale].getStarted }}</a>
+      <ul class="nav navbar-nav navbar-right" role="menu" aria-labelledby="main-nav">
+        {% for link in site.data.navigation.topNavigation %}
+          <li role="presentation">
+            {% assign layoutName = page.layout | downcase %}
+            {% assign linkTitle = link.title | downcase %}
+            <a class="{% if layoutName == linkTitle %}active {%endif%}" href="{{ site.url }}{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
+           </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

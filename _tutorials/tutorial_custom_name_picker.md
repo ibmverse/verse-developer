@@ -15,9 +15,9 @@ Structure of the Tutorial:
 1. [Add Custom Name Picker Extension](#add-custom-name-picker-extension)
 2. [Secure the Application](#secure-the-application)
 
-There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
+There is much more detailed documentation available [here][1], but it's not required to complete the tutorial.
 
-This is a follow on tutorial to [Your First Application for IBM Verse](tutorial_verse_developer.html)
+This is a follow on tutorial to [Your First Application for IBM Verse](tutorial_verse_developer.md)
 
 ---
 
