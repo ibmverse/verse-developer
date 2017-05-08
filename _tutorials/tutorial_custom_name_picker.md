@@ -54,7 +54,7 @@ __2.__ Append the following object into the array in `applications.json`, and sa
 
 __3.__ __Every time__ you make a change to the extension code, you need to __reload the extension__ first, then __reload Verse,__ so that the browser and Verse will pick up your latest changes.
 
-For instructions on how to reload the extension click [here](./tutorial_verse_developer.html#installing-the-verse-developer-browser-extension).
+For instructions on how to reload the extension click [here](./tutorial_verse_developer.html#2-installing-the-verse-developer-browser-extension).
 
 
 ### Test it out
