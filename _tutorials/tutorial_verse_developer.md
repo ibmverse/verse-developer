@@ -12,12 +12,12 @@ This tutorial will get you started writing an application for Verse. There is mu
 
 Structure of the Tutorial:
 
-1. [Introduction](#1-introduction)
-2. [Installing the Verse Developer Browser Extension](#2-installing-the-verse-developer-browser-extension)
-3. [Add Action for Mail Compose](#3-add-action-for-mail-compose)
-4. [Add Action for Mail Read](#4-add-action-for-mail-read)
-5. [Secure the Application](#5-secure-the-application)
-6. [Create a New Application Implementation](#6-create-a-new-application-implementation)
+1. [Introduction](#introduction)
+2. [Installing the Verse Developer Browser Extension](#installing-the-verse-developer-browser-extension)
+3. [Add Action for Mail Compose](#add-action-for-mail-compose)
+4. [Add Action for Mail Read](#add-action-for-mail-read)
+5. [Secure the Application](#secure-the-application)
+6. [Create a New Application Implementation](#create-a-new-application-implementation)
 
 ---
 
