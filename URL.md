@@ -21,4 +21,3 @@
   * 3 places, for linking to the Tutorial and to the Documentation
   * Link and sub-title for 'View the Project on GitHub'
   * Change who project is maintained by to 'IBM Connections Developers' and also change link
-

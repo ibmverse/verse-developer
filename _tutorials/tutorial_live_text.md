@@ -63,22 +63,16 @@ For instructions on how to reload the extension click [here](tutorial_verse_deve
 4. When you receive the mail, open it.
 5. You will see that the text __Path:live-text, Tel:82451234 CN__ is recognized and underlined.
 6. Click on the underlined text, a menu will pop up with a menu item, __Live Text Widget Action__.
-<<<<<<< HEAD
-7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__live-text/sample1.html?tel=82451234__" at the end of the URL.
-=======
+
 7. Click on the menu item, __Live Text Widget Action__, a new browser window will be opened with "__live-text__/sample1.html?tel=__82451234__" at the end of the URL.
->>>>>>> d19267082ff6c9c034cdd745603671c0f4009d29
 
 ![The GIF animation for Live Text](gifs/live_text.gif)
 
 Congratulations! You successfully configured a Live Text extension with Verse.
 
 ### Multiple Actions  
-<<<<<<< HEAD
-Sometimes users might want to create multiple actions for one live text. 
-=======
 Sometimes you might want to create multiple actions for one live text. 
->>>>>>> d19267082ff6c9c034cdd745603671c0f4009d29
+
 To do this, create multiple Live Text extensions with a 
 recognizer property to recognize the same live text. The multiple action items 
 will be organized into one pop-up menu for the recognized live text.  

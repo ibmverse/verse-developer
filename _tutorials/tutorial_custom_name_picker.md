@@ -12,8 +12,8 @@ This tutorial will get you started writing a custom name picker extension for Ve
 
 Structure of the Tutorial:
 
-1. [Add Custom Name Picker Extension](#add-custom-name-picker-extension)
-2. [Secure the Application](#secure-the-application)
+1. [Add Custom Name Picker Extension](#1-add-custom-name-picker-extension)
+2. [Secure the Application](#2-secure-the-application)
 
 There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
 
@@ -93,7 +93,7 @@ Below is the snippet of JavaScript which sends a message to Verse to insert an e
 
 ## 2. Secure the Application
 
-Follow the instructions to [secure the application](./tutorial_verse_developer.html#secure-the-application).
+Follow the instructions to [secure the application](./tutorial_verse_developer.html#5-secure-the-application).
 
 ---
 
