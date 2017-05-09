@@ -19,7 +19,6 @@
     "samples/actions.html",
     "custom-name-picker/index.html",
     "hook-before-send/index.html",
-    "hook-before-send-disable/index.html",
-    "modify-on-send/index.html"
+    "hook-before-send-disable/index.html"
   ]
 }
