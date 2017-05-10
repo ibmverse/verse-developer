@@ -349,7 +349,7 @@ An optional property called `disableSend` is provided to control the send button
 ### Live Text (com.ibm.verse.ext.liveText)
 The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
 
-Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial][11]. For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see <Export plugin doc link placeholder>
+Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial][11]. For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes][12]
 
 #### Required Properties for Extensions  
 * __{string}__ `text` The text for the Live Text action.   
@@ -722,3 +722,4 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 [9]: https://developer.chrome.com/extensions/xhr
 [10]: https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
 [11]: ../tutorials/tutorial_live_text.html
+[12]: http://www.ibm.com/developerworks/lotus/documentation/export_live_text_widget/index.html
