@@ -12,9 +12,9 @@ This tutorial will get you started writing a hook before send extension for Vers
 
 Structure of the Tutorial:
 
-1. [Add Hook Before Send extension](#add-hook-before-send-extension)
-2. [Disable send button by default](#disable-send-button-by-default)
-3. [Secure the Application](#secure-the-application)
+1. [Add Hook Before Send extension](#1-add-hook-before-send-extension)
+2. [Disable send button by default](#2-disable-send-button-by-default)
+3. [Secure the Application](#3-secure-the-application)
 
 There is much more detailed documentation available [here][16], but it's not required to complete the tutorial.
 
