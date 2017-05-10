@@ -389,7 +389,10 @@ Your file `applications.json` should look something like this:
 ```
 
 ### Reload the extension and Verse
-As explained in the previous section, __every time__ you make a change to the extension code, you need to __reload the extension__ then __reload Verse,__ so that the browser and Verse will pick up your latest changes.
+As explained in previous sections, __every time__ you make a change to the extension code, you need to __reload the extension__ then __reload Verse,__ so that the browser and Verse will pick up your latest changes.  
+
+* To reload the extension from Chrome go to `chrome://extensions`. 
+* To reload from Firefox go to `about:debugging`
 
 
 ### Test it out

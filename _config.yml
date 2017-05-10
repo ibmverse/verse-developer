@@ -1,9 +1,9 @@
-# Copyright IBM Corp. 2016  All Rights Reserved.
+# Copyright IBM Corp. 2016, 2017  All Rights Reserved.
 
 title: IBM Verse Developer Browser Extension
 
 description: >
-  "This site contains a tutorial and reference documentation for IBM Verse Developer Browser Extension."
+  "This site contains a tutorial and reference documentation for IBM Verse developer extensions."
 baseurl: "https://ibmverse.github.io/verse-developer/" # the url for this documentation site
 url: "https://github.com" # the base hostname & protocol for your site
 verse-developer-chrome-ext: "https://github.com/ibmverse/verse-developer"
