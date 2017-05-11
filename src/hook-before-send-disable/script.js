@@ -31,7 +31,7 @@
     var found = regex.test(body);
     if (found) {
       var errorNode = document.getElementById('error');
-      errorNode.textContent = 'Are you sure you want to send an email that contains a credit card number?';
+      errorNode.textContent = 'You are not permitted to send an email that contains a credit card number.';
     } else {
       var response_message = {
         verseApiType: 'com.ibm.verse.message.continue.send'
