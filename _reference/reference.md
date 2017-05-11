@@ -1,5 +1,5 @@
 ---
-[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
+[//]: # (Copyright IBM Corp. 2016, 2017.  All Rights Reserved.)
 
 layout: reference
 title:  "Verse Extensibility Documentation"
@@ -712,10 +712,10 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 
 
 [1]: {{site.verse-developer-chrome-ext}}/blob/master/src/applications.json
-[2]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial/step3/applications.json
-[3]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial/step4/applications.json
+[2]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial_getting_started/step3/applications.json
+[3]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial_getting_started/step4/applications.json
 [4]: {{site.verse-developer-chrome-ext}}
-[5]: {{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
+[5]: {{site.verse-developer-chrome-ext}}/blob/master/src/samples/actions.html
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 [7]: ../tutorials/tutorial_verse_developer.html#update-manifestjson
 [8]: https://developer.chrome.com/extensions/contentSecurityPolicy
