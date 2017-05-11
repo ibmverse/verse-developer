@@ -20,7 +20,7 @@ There is much more detailed documentation available [here][8], but it's not requ
 ### Edit applications.json  
 __1.__ Open `src/applications.json` in your text editor.
 
-__2.__ Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding application before adding your own__.
+__2.__ Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma (`,`) at the end of the preceding application before adding your own__.
 
 ```json
   {
@@ -77,8 +77,7 @@ To do this, create multiple Live Text extensions with a
 recognizer property to recognize the same live text. The multiple action items 
 will be organized into one pop-up menu for the recognized live text.  
 
-You can follow the steps above to add the following object into the array in `applications.json`,  
-and test the multiple actions.  
+You can follow the steps above to add the following object into the array in `applications.json`, and test the multiple actions.  
 
 ```json
 [
