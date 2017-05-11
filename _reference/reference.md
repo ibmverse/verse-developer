@@ -1,5 +1,5 @@
 ---
-[//]: # (Copyright IBM Corp. 2016.  All Rights Reserved.)
+[//]: # (Copyright IBM Corp. 2016, 2017.  All Rights Reserved.)
 
 layout: reference
 title:  "Verse Extensibility Documentation"
@@ -349,7 +349,7 @@ An optional property called `disableSend` is provided to control the send button
 ### Live Text (com.ibm.verse.ext.liveText)
 The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
 
-Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial][11]. For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes][12]
+Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial][11]. For a tool on exporting Live Text widgets from Notes, download the [IBM Notes Live Text Widget Export Plug-in][12]. For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes][13]
 
 #### Required Properties for Extensions  
 * __{string}__ `text` The text for the Live Text action.   
@@ -712,14 +712,15 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 
 
 [1]: {{site.verse-developer-chrome-ext}}/blob/master/src/applications.json
-[2]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial/step3/applications.json
-[3]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial/step4/applications.json
+[2]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial_getting_started/step3/applications.json
+[3]: {{site.verse-developer-chrome-ext}}/blob/master/tutorial_getting_started/step4/applications.json
 [4]: {{site.verse-developer-chrome-ext}}
-[5]: {{site.verse-developer-chrome-ext}}/blob/gh-pages/samples/actions.html
+[5]: {{site.verse-developer-chrome-ext}}/blob/master/src/samples/actions.html
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 [7]: ../tutorials/tutorial_verse_developer.html#update-manifestjson
 [8]: https://developer.chrome.com/extensions/contentSecurityPolicy
 [9]: https://developer.chrome.com/extensions/xhr
 [10]: https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
 [11]: ../tutorials/tutorial_live_text.html
-[12]: https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html
+[12]: https://www-01.ibm.com/marketing/iwm/iwm/web/reg/download.do?source=ESD-SUPPORT&S_PKG=CJ1M4EN
+[13]: https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html
