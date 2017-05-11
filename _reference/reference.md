@@ -722,4 +722,4 @@ See [here](#sending-and-receiving-data) for more information on communicating wi
 [9]: https://developer.chrome.com/extensions/xhr
 [10]: https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)
 [11]: ../tutorials/tutorial_live_text.html
-[12]: http://www.ibm.com/developerworks/lotus/documentation/export_live_text_widget/index.html
+[12]: https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html
