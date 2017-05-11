@@ -9,15 +9,17 @@ We have a step-by-step tutorial with sample code to help you get started writing
 * To follow our getting started tutorial, click [here][1].
 * To follow our custom name picker tutorial, click [here][2].
 * To follow our hook before send tutorial, click [here][3].
+* To follow our live text tutorial, click [here][4].
 
 ### 2. Documentation
 Alternatively, we offer reference documentation on Verse extensibility features and how it all works. If you already have some basic idea of how to write an application for Verse, and want to dig into the details or simply looking for reference material, this is the place to go.
 
-To check out the reference documentation, click [here][4].
+To check out the reference documentation, click [here][5].
 
 
 [1]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_verse_developer.html
 [2]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_custom_name_picker.html
 [3]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_hook_before_send.html
-[4]: https://ibmverse.github.io/verse-developer/reference/reference.html
+[4]: https://ibmverse.github.io/verse-developer/tutorials/tutorial_live_text.html
+[5]: https://ibmverse.github.io/verse-developer/reference/reference.html
 

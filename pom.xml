@@ -4,50 +4,24 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.ibm.pim</groupId>
-  <artifactId>widget-registry-chrome-ext</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
-  <name>Widget Registry Chrome Extension</name>
+  <artifactId>verse-developer-extension</artifactId>
+  <version>1.1.0-SNAPSHOT</version>
+  <name>Verse Developer Browser Extension</name>
   <packaging>pom</packaging>
 
   <url></url>
-  <description>Widget Registry Chrome Extension</description>
+  <description>Verse Developer Browser Extension</description>
   <organization>
     <name>IBM</name>
     <url>http://www.ibm.com</url>
   </organization>
   
   <scm>
-    <url>https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext</url>
-    <connection>scm:git:https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext.git</connection>
-    <developerConnection>scm:git:https://git.swg.usma.ibm.com/IBM-Verse/widget-registry-chrome-ext.git</developerConnection>
+    <url>https://github.com/ibmverse/verse-developer</url>
+    <connection>scm:git:https://github.com/ibmverse/verse-developer.git</connection>
+    <developerConnection>scm:git:https://github.com/ibmverse/verse-developer.git</developerConnection>
   </scm>
   
-  <repositories>
-    <repository>
-      <id>jenkins-nexus-staging</id>
-      <name>Releases</name>
-      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/releases</url>
-    </repository>
-    <repository>
-      <id>jenkins-nexus-snapshots</id>
-      <name>Snapshots</name>
-      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/snapshots</url>
-    </repository>
-  </repositories>
-
-  <distributionManagement>
-    <repository>
-      <id>jenkins-nexus-staging</id>
-      <name>Releases</name>
-      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>jenkins-nexus-snapshots</id>
-      <name>Snapshots</name>
-      <url>https://jenkins.swg.usma.ibm.com/nexus/content/repositories/snapshots</url>
-    </snapshotRepository>
-  </distributionManagement>
-
   <build>
     <plugins>
       <plugin>
