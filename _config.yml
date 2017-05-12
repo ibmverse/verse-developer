@@ -16,5 +16,3 @@ collections:
     output: true
   reference:
     output: true
-  document:
-    output: true
