@@ -1,4 +1,4 @@
-# IBM Verse Developer Extension for Google Chrome
+# IBM Verse Developer Browser Extension
 
 * The `_tutorials` directory contains all the tutorials
 * The `_reference` directory contains the reference documentation

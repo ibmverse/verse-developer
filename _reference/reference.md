@@ -393,7 +393,7 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
   }
 ```
 
-The ${extensionPath} in above example is only a path var of this repository. You need to use absolute path in their own extensions if their extension page is not in this repository.
+The ${extensionPath} in above example is only a path var of this repository. You need to use absolute path in your own extensions if your extension page is not in this repository.
 
 The `ext_id` property is only required when you import extension json in Appregistry. It is not a required property for this extension point or Verse.
 
