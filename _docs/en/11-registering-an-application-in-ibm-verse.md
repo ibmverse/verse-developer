@@ -1,6 +1,7 @@
 ---
 title: Registering an Application in IBM Verse
 lang: en
+pagename: registering-an-application-in-ibm-verse
 ---
 
 ## Registering an Application in IBM Verse

@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting
 lang: en
+pagename: troubleshooting
 ---
 
 ## Troubleshooting

@@ -1,6 +1,7 @@
 ---
 title: Extensibility Concepts
 lang: en
+pagename: extensibility-concepts
 ---
 
 ## Extensibility Concepts

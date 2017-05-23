@@ -1,6 +1,7 @@
 ---
 title: Secure the Application
 lang: en
+pagename: secure-the-application
 ---
 
 ## Secure the Application

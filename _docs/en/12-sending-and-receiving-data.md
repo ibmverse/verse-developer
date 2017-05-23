@@ -1,6 +1,7 @@
 ---
 title: Sending and Receiving Data
 lang: en
+pagename: sending-and-receiving-data
 ---
 
 ## Sending and Receiving Data

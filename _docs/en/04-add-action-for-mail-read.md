@@ -1,6 +1,7 @@
 ---
 title: Add Action for Mail Read
 lang: en
+pagename: add-action-for-mail-read
 ---
 
 ## Add Action for Mail Read

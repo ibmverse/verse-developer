@@ -1,6 +1,7 @@
 ---
 title: Security
 lang: en
+pagename: security
 ---
 
 ## Security

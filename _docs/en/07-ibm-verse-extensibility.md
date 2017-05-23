@@ -1,6 +1,7 @@
 ---
 title: IBM Verse Extensibility
 lang: en
+pagename: ibm-verse-extensibility
 ---
 
 ## IBM Verse Extensibility

@@ -1,6 +1,7 @@
 ---
 title: Verse API Data
 lang: en
+pagename: verse-api-data
 ---
 
 ## Verse API Data

@@ -1,6 +1,7 @@
 ---
 title: Add Action for Mail Compose
 lang: en
+pagename: add-action-for-mail-compose
 ---
 
 ## Add Action for Mail Compose

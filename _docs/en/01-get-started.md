@@ -1,6 +1,7 @@
 ---
 title: Verse Get Started
 lang: en
+pagename: get-started
 ---
 
 ## Get Started
@@ -37,7 +38,6 @@ This tutorial starts with a sample application for you to add functionality to t
 &nbsp;
 
 ### What you’ll need
-{{site.data.documentation.external.webServerForChrome}}
 - Google Chrome or Firefox (minimum version 49.0) browser
 - [Web Server for Chrome]({{site.data.developers.webServerForChrome}}){:target="_blank"} (alternatively, you can also use FireFox Thimble, or any other web server)
 - The Verse Developer Browser Extension source code

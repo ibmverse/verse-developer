@@ -1,6 +1,7 @@
 ---
 title: Editing The Manifest
 lang: en
+pagename: editing-the-manifest
 ---
 
 ## Editing The Manifest

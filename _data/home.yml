@@ -3,17 +3,17 @@ en: &DEFAULT_EN
   getStartedBtn          : "Get Started"
 
   howToExtend:
-    h3                   : "How do I extend IBM Verse?"
-    p1                   : "IBM Verse includes key extension points throughout the application that allow you to customize and extend the ways people get work done."
-    p2                   : "You can use these extension points to integrate your own applications into IBM Verse."
+    h3                   : "Why customize IBM Verse?"
+    p1                   : "Create additional features in Verse that are suited to your work. Using Verse extension points, you can integrate Verse with your applications."
+    p2                   : "For example, create a link extension that adds a clickable URL link to the Verse UI. Then configure this extension to receive data from Verse encoded in the URL for your application. Extend Verse by designing new actions that users can take when reading or composing an email. Create a custom name picker for selecting email addresses. Add logic to validate the content of an email before sending, and more."
 
   developersGuide:
-    h3                   : "Developers Guide"
-    p1                   : "Learning to customize IBM Verse is easy.  Jump right in and learn about all of the extension points, with our getting started guide."
+    h3                   : "Developer's Guide"
+    p1                   : "Learning to customize IBM Verse is easy. Jump right in and learn about all the extension points, with our getting started guide."
     img                  : "assets/img/illo_devguide.svg"
     btn:
-      title              : "Go to the Developers Guide"
-      url                : "#"
+      title              : "Get Started"
+      url                : "/developers"
 
   getStartedBlocks:
     - title              : "Install the Extension"
@@ -21,19 +21,19 @@ en: &DEFAULT_EN
       img                : "assets/img/illo_register.svg"
       btn:
         title            : "Learn more"
-        url              : "#"
+        url              : "developers/#how-to-install"
     - title              : "Develop your App"
       content            : "Develop your application to leverage the extension points available in IBM Verse."
       img                : "assets/img/illo_watsontowork.svg"
       btn:
         title            : "Learn more"
-        url              : "#"
+        url              : "developers/#get-started"
     - title              : "Sample Apps"
       content            : "Try out the set of sample apps on GitHub to see the IBM Verse extension points in action."
       img                : "assets/img/illo_sampleapps.svg"  
       btn:
         title            : "Learn more"
-        url              : "#"
+        url              : "developers/#verse-extension-points"
 
 en-US:
   <<: *DEFAULT_EN

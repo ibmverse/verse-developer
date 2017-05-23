@@ -1,6 +1,7 @@
 ---
 title: Verse Extension Points
 lang: en
+pagename: verse-extension-points
 ---
 
 ## Verse Extension Points
@@ -336,6 +337,9 @@ An optional property called `disableSend` is provided to control the send button
 &nbsp;
 ### Live Text (com.ibm.verse.ext.liveText)
 The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
+
+&nbsp;
+Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial](../tutorials#live-text-widget). For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes]({{site.data.documentation.external.exportingLiveTextWidget}}){:target="_blank"}
 
 &nbsp;
 

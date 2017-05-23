@@ -1,6 +1,7 @@
 ---
 title: How to Install
 lang: en
+pagename: how-to-install
 ---
 
 ## How to Install

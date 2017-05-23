@@ -1,6 +1,7 @@
 ---
 title: IBM Verse Container
 lang: en
+pagename: ibm-verse-container
 ---
 
 ## IBM Verse Container

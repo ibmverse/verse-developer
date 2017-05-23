@@ -16,7 +16,7 @@ layout: default
       </div>
       <div class="collapse navbar-collapse" id="side-nav-toggle">
         <ul class="nav nav-tabs" role="tablist">
-          {% for link in site.data.navigation.documentation %}
+          {% for link in site.data.navigation.tutorials %}
             <li {% if link.type == "head" %}class="tab-head"{% endif %}>
               {% if link.type == "url" %}
                 <a href="#{{link.url}}">{{link.title}}</a>
@@ -30,15 +30,15 @@ layout: default
     </div>
   </nav>
   <section class="col-xs-12 col-sm-8 col-md-9" id="verse-doc-pane">
-    {% assign docs=site.docs | where:"lang", page.lang %}
-    {% for link in site.data.navigation.documentation %}
-        {% for doc in docs %}
-          {% if doc.pagename == link.url %}
-            <div class="verse-doc-section">
-              {{doc.content}}
-            </div>
-          {% endif %}
-        {% endfor %}
-    {% endfor %}
+  {% assign tutorials=site.tutorials | where:"lang", page.lang %}
+  {% for link in site.data.navigation.tutorials %}
+	  {% for tutorial in tutorials %}
+      {% if tutorial.pagename == link.url %}
+        <div class="verse-doc-section">
+	      {{ tutorial.content }}
+        </div>
+      {% endif %}
+	  {% endfor %}
+  {% endfor %}
   </section>
 </main>

@@ -1,6 +1,7 @@
 ---
 title: Create a New Application
 lang: en
+pagename: create-a-new-application
 ---
 
 ## Create a New Application
