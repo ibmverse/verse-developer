@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" class="no-js">
+  <head>
+    {% include head.html %}
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-85487421-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+  </head>
 
-  {% include head.html %}
-
-  <body>
-
-    {% include header.html %}
-
-    <div class="page-content">
-      <div class="container">
-        {{ content }}
-      </div>
+  <body class="layout-{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %} verse-page" id="main" data-spy="scroll" data-target="#side-nav-toggle">
+    <div id="main" class="verse-page">
+      {% include top-navigation.html %}
+      {{ content }}
     </div>
+    <footer class="footer" role="contentinfo">
+      {% include footer.html %}
+    </footer>
+
+    {% include scripts.html %}
 
   </body>
 </html>

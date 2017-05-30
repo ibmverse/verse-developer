@@ -1,0 +1,5 @@
+<div class="container">
+    {% for link in site.data.navigation.footer %}
+    <a href="{{ link.url }}" target="_blank" class="{{ link.class }}">{{ link.title }}</a>
+  {% endfor %}
+</div>

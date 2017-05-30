@@ -1,6 +1,6 @@
 locale                   : "en"
-url                      : "https://pages.github.ibm.com/IBM-Verse"
-baseurl                  : "/verse-developer-chrome-ext"
+url                       : http://127.0.0.1:4000
+baseurl                   : ""
 # Collections
 collections:
   docs:
@@ -9,6 +9,7 @@ collections:
   tutorials:
     output: true
     permalink: /:collection/:path/
+
 # Build settings
 markdown: kramdown
 theme: minima

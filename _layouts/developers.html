@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<main class="container docs-page" role="main">
+  <nav class="col-xs-12 col-sm-4 col-md-3" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="collapsed" id="side-nav-btn" aria-label="Side nav button" data-toggle="collapse" data-target="#side-nav-toggle" aria-expanded="false" role="menu">
+          <span class="current-topic" data-content="Select a Section"></span>
+          <svg class="side-nav-btn-icon" role="presentation" viewBox="0 0 40 40">
+            <title>{mobileMenuTitle}</title>
+            <circle class="a" cx="20" cy="20" r="20"></circle><polyline class="b" points="28.68 17.5 20.01 22.5 19.99 22.5 11.32 17.5"></polyline>
+          </svg>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="side-nav-toggle">
+        <ul class="nav nav-tabs" role="tablist">
+          {% for link in site.data.navigation.documentation %}
+            <li {% if link.type == "head" %}class="tab-head"{% endif %}>
+              {% if link.type == "url" %}
+                <a href="#{{link.url}}">{{link.title}}</a>
+              {% else if link.type == "head" %}
+                <div>{{link.title}}</div>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="col-xs-12 col-sm-8 col-md-9" id="verse-doc-pane">
+    {% assign docs=site.docs | where:"lang", page.lang %}
+    {% for link in site.data.navigation.documentation %}
+        {% for doc in docs %}
+          {% if doc.pagename == link.url %}
+            <div class="verse-doc-section">
+              {{doc.content}}
+            </div>
+          {% endif %}
+        {% endfor %}
+    {% endfor %}
+  </section>
+</main>

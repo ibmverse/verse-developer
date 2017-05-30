@@ -1,0 +1,19 @@
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/jquery-3.1.1.min.js"></script>
+<script src="{{ site.url }}{{ site.baseurl }}/assets/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $(document).on('click', 'a[href*="#"]:not([href="#"])', function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html, body').animate({
+            scrollTop: (target.offset().top - 80)
+          }, 500);
+          return false;
+        }
+      }
+    });
+    $('body').scrollspy({ target: '#side-nav-toggle', offset:80});
+  });
+</script>
