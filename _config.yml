@@ -1,6 +1,6 @@
 locale                   : "en"
-url                      : "https://pages.github.ibm.com/verse-labs"
-baseurl                  : "/verse-developer"
+url                      : "https://pages.github.ibm.com/IBM-Verse"
+baseurl                  : "/verse-developer-chrome-ext"
 # Collections
 collections:
   docs:
