@@ -30,10 +30,10 @@ h1 {
   font-size: 24px;
 }
 h2 {
-  font-size: 18px;
+  font-size: 20px;
 }
 h3 {
-  font-size: 15px;
+  font-size: 18px;
 }
 a {
   color: #1D3649;
@@ -346,7 +346,7 @@ section {
   margin-top: 0px;
 }
 h3 {
-  font-size: 1.375rem;
+  font-size: 18px;
   position: relative;
   z-index: 2;
   color: #1D3649;
