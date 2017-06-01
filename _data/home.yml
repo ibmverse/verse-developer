@@ -1,11 +1,12 @@
 en: &DEFAULT_EN
   h1                     : "Customize and Extend IBM Verse"
   getStartedBtn          : "Get Started"
+  getStartedBtnUrl       : "/developers"
 
   howToExtend:
-    h3                   : "Why customize IBM Verse?"
-    p1                   : "Create additional features in Verse that are suited to your work. Using Verse extension points, you can integrate Verse with your applications."
-    p2                   : "For example, create a link extension that adds a clickable URL link to the Verse UI. Then configure this extension to receive data from Verse encoded in the URL for your application. Extend Verse by designing new actions that users can take when reading or composing an email. Create a custom name picker for selecting email addresses. Add logic to validate the content of an email before sending, and more."
+    h3                   : "How can IBM Verse be customized?"
+    p1                   : "Verse provides you with a set of extension points. These points, in the user interface, allow you to add capabilities and extend Verse to further meet your business needs. "
+    p2                   : "You can add actions that users can take when reading, composing, or sending a message. You can create additional customizations such as a custom name picker for addressing messages or add links to the user interface. Use the documentation and sample extensions to get started."
 
   developersGuide:
     h3                   : "Developer's Guide"
