@@ -6,7 +6,7 @@ layout: default
     <section class="banner" role="banner">
       <div class="container">
         <h1>{{ site.data.home[site.locale].h1 }}</h1>
-        <a class="btn get-started-btn" href="">{{ site.data.home[site.locale].getStartedBtn }}</a>
+        <a class="btn get-started-btn" href="{{ site.url }}{{ site.baseurl }}{{ site.data.home[site.locale].getStartedBtnUrl }}">{{ site.data.home[site.locale].getStartedBtn }}</a>
       </div>
     </section>
     <section class="what-is-wws container">
@@ -22,7 +22,7 @@ layout: default
           <img role="presentation" src="{{ site.data.home[site.locale].developersGuide.img }}" />
           <h3>{{ site.data.home[site.locale].developersGuide.h3 }}</h3>
           <p>{{ site.data.home[site.locale].developersGuide.p1 }}</p>
-          <a class="btn btn-blue" href="{{ site.data.home[site.locale].developersGuide.btn.url }}">{{ site.data.home[site.locale].developersGuide.btn.title }}</a>
+          <a class="btn btn-blue" href="{{ site.url }}{{ site.baseurl }}{{ site.data.home[site.locale].developersGuide.btn.url }}">{{ site.data.home[site.locale].developersGuide.btn.title }}</a>
         </div>
       </section>
     </section>

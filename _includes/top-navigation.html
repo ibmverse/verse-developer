@@ -17,7 +17,7 @@
           <li role="presentation">
             {% assign layoutName = page.layout | downcase %}
             {% assign linkTitle = link.title | downcase %}
-            <a class="{% if layoutName == linkTitle %}active {%endif%}" href="{{ site.url }}{{ site.baseurl }}{{ link.url }}">{{ link.title }}</a>
+            <a class="{% if layoutName == linkTitle %}active {%endif%}" href="{% if link.newWindow == 'false' %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ link.url }}" {% if link.newWindow == 'true' %}target="_blank"{% endif %}>{{ link.title }}</a>
            </li>
         {% endfor %}
       </ul>

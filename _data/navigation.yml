@@ -18,12 +18,19 @@ footer:
 topNavigation:
   - title          : "Overview"
     url            : /
+    newWindow      : "false"
 
   - title          : "Developers"
     url            : "/developers"
+    newWindow      : "false"
 
   - title          : "Tutorials"
     url            : "/tutorials"
+    newWindow      : "false"
+
+  - title          : "Resources"
+    url            : "https://github.com/ibmverse"
+    newWindow      : "true"
 
 tutorials          :
 
