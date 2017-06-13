@@ -339,7 +339,7 @@ An optional property called `disableSend` is provided to control the send button
 The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
 
 &nbsp;
-Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial](../tutorials#live-text-widget). For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes]({{site.data.documentation.external.exportingLiveTextWidget}}){:target="_blank"}
+Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial](../tutorials#live-text-widget). For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes]({{site.data.developers.exportingLiveTextWidget}}){:target="_blank"}
 
 &nbsp;
 
