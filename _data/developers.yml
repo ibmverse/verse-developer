@@ -11,3 +11,5 @@ sample3                          : "https://github.ibm.com/verse-labs/verse-deve
 sampleActionApp                  : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/master/src/samples/actions.html"
 exportingLiveTextWidget          : "https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html"
 liveTextTutorial                 : "/tutorials/tutorial_live_text.html"
+appregistryGuide                 : "https://www-10.lotus.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=Dev+Guide+topics#action=openDocument&res_title=Managing_applications_for_Verse_or_the_Top_Navigation_Bar&content=sdkcontent"
+RetrievingApplications           : "https://www-10.lotus.com/ldd/appdevwiki.nsf/xpAPIViewer.xsp?lookupName=API+Reference#action=openDocument&res_title=Retrieving_a_list_of_all_extensions&content=apicontent"
