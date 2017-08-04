@@ -5,7 +5,7 @@ pagename: registering-an-application-in-ibm-verse
 ---
 
 ## Registering an Application in IBM Verse
-To add an application to Verse on-Cloud, admin need to register it using the IBM App Registry. You can refer to this guide [Managing extensions for Verse]({{site.data.developers.appregistryGuide}}) for details.
+To add an application to Verse on-Cloud, admin need to register it using the IBM App Registry. You can refer to this guide [Managing extensions for Verse]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
 
 To add an application to Verse on-Premise, Verse supports two approaches to deploy your applications/extensions to end users:
 - Deploying extensions using the built-in endpoint
@@ -46,7 +46,7 @@ If you would like to serve the applications.json data dynamically using code, yo
 VOP_Extensibility_Endpoint_URL=https://rest.renovations.com/vop/appregistry/services/Verse/applications
 {% endhighlight %}
 
-The custom endpoint MUST return the same response format as IBM Connections Appregistry API (see [Retrieving a list of all extensions]({{site.data.developers.RetrievingApplications}}) ), otherwise, Verse will not be able to correctly parse the response and get the extensions. You can see the response format below. In the <b>items</b>, it contains all of your registered applications/extensions.
+The custom endpoint MUST return the same response format as IBM Connections Appregistry API (see [Retrieving a list of all extensions]({{site.data.developers.RetrievingApplications}}){:target="_blank"}), otherwise, Verse will not be able to correctly parse the response and get the extensions. You can see the response format below. In the <b>items</b>, it contains all of your registered applications/extensions.
 ![Format for items list](/assets/img/items.png)
 
 ### Summary of related notes.ini parameters
