@@ -41,8 +41,7 @@ In code snippet below shows the `manifest.json` edited to include the `https://m
     "matches": [
       "https://mail.notes.na.collabserv.com/verse*",
       "https://mail.notes.ap.collabserv.com/verse*",
-      "https://mail.notes.ce.collabserv.com/verse*",
-      "https://mail.notes.collabservintegration.com/verse*"
+      "https://mail.notes.ce.collabserv.com/verse*"
     ],
     "run_at": "document_start"
   }],
