@@ -15,7 +15,7 @@ Alternatively, we offer reference documentation on Verse extensibility features 
 To check out the reference documentation, click [here][1].
 
 
-[1]: https://ibmverse.github.io/ibmverse/verse-developer/developers/
-[2]: https://ibmverse.github.io/ibmverse/verse-developer/tutorials/
+[1]: https://ibmverse.github.io/verse-developer/developers/
+[2]: https://ibmverse.github.io/verse-developer/tutorials/
 
 
