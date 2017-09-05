@@ -1,15 +1,13 @@
-locale                   : "en"
-url                      : "https://pages.github.ibm.com/IBM-Verse"
-baseurl                  : "/verse-developer-chrome-ext"
-# Collections
+locale: en
+url: 'https://ibmverse.github.io/ibmverse'
+baseurl: /verse-developer
 collections:
   docs:
     output: true
-    permalink: /:collection/:path/
+    permalink: '/:collection/:path/'
   tutorials:
     output: true
-    permalink: /:collection/:path/
-# Build settings
+    permalink: '/:collection/:path/'
 markdown: kramdown
 theme: minima
 gems:

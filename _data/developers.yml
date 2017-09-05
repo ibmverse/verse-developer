@@ -1,15 +1,22 @@
-webServerForChrome               : "https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb"
-mozillaWindowApi                 : "https://developer.mozilla.org/en-US/docs/Web/API/Window/open"
-owaspSite                        : "https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)"
-contentSecurityPolicy            : "https://developer.chrome.com/extensions/contentSecurityPolicy"
-crossOriginXhr                   : "https://developer.chrome.com/extensions/xhr"
-verseDeveloperExtensionSource    : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/archive/master.zip"
-developerChromeExtension         : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext"
-sample1                          : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/master/src/applications.json"
-sample2                          : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/master/tutorial_getting_started/step3/applications.json"
-sample3                          : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/master/tutorial_getting_started/step4/applications.json"
-sampleActionApp                  : "https://github.ibm.com/IBM-Verse/verse-developer-chrome-ext/blob/master/src/samples/actions.html"
-exportingLiveTextWidget          : "https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html"
-liveTextTutorial                 : "/tutorials/tutorial_live_text.html"
-appregistryGuide                 : "https://www-10.lotus.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=Dev+Guide+topics#action=openDocument&res_title=Managing_applications_for_Verse_or_the_Top_Navigation_Bar&content=sdkcontent"
-RetrievingApplications           : "https://www-10.lotus.com/ldd/appdevwiki.nsf/xpAPIViewer.xsp?lookupName=API+Reference#action=openDocument&res_title=Retrieving_a_list_of_all_extensions&content=apicontent"
+webServerForChrome: >-
+  https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb
+mozillaWindowApi: 'https://developer.mozilla.org/en-US/docs/Web/API/Window/open'
+owaspSite: 'https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)'
+contentSecurityPolicy: 'https://developer.chrome.com/extensions/contentSecurityPolicy'
+crossOriginXhr: 'https://developer.chrome.com/extensions/xhr'
+verseDeveloperExtensionSource: 'https://github.com/ibmverse/verse-developer/archive/master.zip'
+developerChromeExtension: 'https://github.com/ibmverse/verse-developer'
+sample1: 'https://github.com/ibmverse/verse-developer/blob/master/src/applications.json'
+sample2: >-
+  https://github.com/ibmverse/verse-developer/blob/master/tutorial_getting_started/step3/applications.json
+sample3: >-
+  https://github.com/ibmverse/verse-developer/blob/master/tutorial_getting_started/step4/applications.json
+sampleActionApp: >-
+  https://github.com/ibmverse/verse-developer/blob/master/src/samples/actions.html
+exportingLiveTextWidget: >-
+  https://www.ibm.com/developerworks/lotus/documentation/notes_live_text_widget_export_plugin/index.html
+liveTextTutorial: /tutorials/tutorial_live_text.html
+appregistryGuide: >-
+  https://www-10.lotus.com/ldd/appdevwiki.nsf/xpDocViewer.xsp?lookupName=Dev+Guide+topics#action=openDocument&res_title=Managing_applications_for_Verse_or_the_Top_Navigation_Bar&content=sdkcontent
+RetrievingApplications: >-
+  https://www-10.lotus.com/ldd/appdevwiki.nsf/xpAPIViewer.xsp?lookupName=API+Reference#action=openDocument&res_title=Retrieving_a_list_of_all_extensions&content=apicontent
