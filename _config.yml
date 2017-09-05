@@ -1,5 +1,5 @@
 locale: en
-url: 'https://ibmverse.github.io/ibmverse'
+url: 'https://ibmverse.github.io'
 baseurl: /verse-developer
 collections:
   docs:
