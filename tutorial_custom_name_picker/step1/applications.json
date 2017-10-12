@@ -1,13 +1,11 @@
 [
   {
-    "id": "com.ibm.verse.custom.name.picker",
     "name": "Custom Name Picker",
     "title": "Custom Name Picker",
     "description": "Sample that shows how to add a custom name picker in mail compose view",
     "extensions": [
       {
         "type": "com.ibm.verse.ext.namePicker",
-        "id": "com.ibm.verse.namepicker.sample.compose",
         "name": "Custom name picker in mail compose",
         "title": "Add Contact",
         "payload": {
