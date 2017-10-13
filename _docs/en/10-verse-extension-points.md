@@ -261,7 +261,6 @@ The Name Picker extension point allows the integration of a custom UI for select
 &nbsp;
 
 #### Required Properties for a Name Picker
-- {string} `id` The id for the custom name picker.
 - {string} `url` The widget’s url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
 
 &nbsp;
@@ -269,15 +268,12 @@ The Name Picker extension point allows the integration of a custom UI for select
 #### Example Name Picker
 {% highlight pre %}
 {
-  "id": "com.ibm.verse.custom.name.picker",
   "name": "Custom name picker",
   "title": "Name Picker",
   "description": "Custom name picker on mail compose",
   "extensions": [
     {
       "type": "com.ibm.verse.ext.namePicker",
-      "ext_id": "com.ibm.verse.namepicker.sample.compose",
-      "has": "custom-name-picker",
       "name": "Custom name picker in mail compose",
       "url": "${extensionPath}/custom-name-picker/index.html",
       "title": "Add Contact"
@@ -314,14 +310,12 @@ An optional property called `disableSend` is provided to control the send button
 #### Example Before On Send
 {% highlight pre %}
 {
-  "id": "com.ibm.verse.app.beforeOnSend",
   "name": "Hook Before Send Sample",
   "title": "Hook Before Send Sample",
   "description": "Sample that shows how to check for a credit card number in mail being sent",
   "extensions": [
     {
       "type": "com.ibm.verse.ext.beforeOnSend",
-      "ext_id": "com.ibm.verse.ext.sample.beforeOnSend",
       "name": "Hook Before Send Extension",
       "title": "Hook Before Send Extension",
       "url": "${extensionPath}/hook-before-send/index.html"
@@ -369,7 +363,6 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
   "extensions": [
     {
       "name": "Live Text Widget Sample extension",
-      "ext_id": "com.ibm.verse.livetext.sample",
       "type": "com.ibm.verse.ext.liveText",
       "payload": {
         "text": "Live Text Widget Action",
