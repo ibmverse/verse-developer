@@ -52,7 +52,7 @@ An application definition **must** contain the following properties:
 &nbsp;
 
 ### Extension Properties
-There are different required and optional properties for different extensions, please refer to [Verse Extension Points](#verse-extension-points).
+For extension properties, please refer to [Verse Extension Points](#verse-extension-points) for details.
 
 ### Deploy application on Verse on-Cloud
 To add an application to Verse on-Cloud, you need to register it using the IBM App Registry. You can refer to this guide [Managing extensions for Verse]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
