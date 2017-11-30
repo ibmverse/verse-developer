@@ -1,6 +1,5 @@
 [
   {
-    "id": "com.ibm.verse.app.beforeOnSend",
     "name": "Hook Before Send Sample",
     "title": "Hook Before Send Sample",
     "description": "Sample that shows how to check for a credit card number in mail being sent",
