@@ -32,13 +32,11 @@ In this section, you will add a new action which appear in the toolbar displayed
 {% highlight pre %}
 [
   {
-    "id": "com.ibm.verse.sample.app.widget",
     "name": "Widget Samples",
     "title": "Widget Sampled",
     "description": "This samples demonstrates using the widget extension point",
     "extensions": [
       {
-        "id": "com.ibm.verse.sample.ext.widget",
         "name": "Person Action Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
@@ -100,4 +98,4 @@ Congratulations! You successfully added a button to the Mail Compose view, and r
 - This action uses the `path` property to specify were it is displayed in the Verse UI
 - Using `mail.compose` as the path will cause the action to be displayed in the toolbar in the mail compose window
 - The action will also be available when replying to or forwarding a mail
-- The action is always displayed in the overflow menu of the toolbar
+- The action is always displayed in the "More actions" dropdown menu of the toolbar
