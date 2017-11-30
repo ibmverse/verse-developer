@@ -19,11 +19,11 @@ The `applications.json` file contains a list of Application definitions in JSON 
 {% highlight pre %}
 [
   {
-    "id": "com.ibm.verse.actions.sample1",
+    "name": "application one",
     ...
   },
   {
-    "id": "com.ibm.verse.actions.sample2",
+    "name": "application two",
     ...
   }
 ]
@@ -43,7 +43,6 @@ Here are three different samples of valid `applications.json`:
 
 ### Application Properties
 An application definition **must** contain the following properties:
-- `id` The **unique** identifier for the application, using the form: com.companyName.
 - `name` The name of your application. This **must** be unique.
 - `title` The title of your application.
 - `description` The description of your application.
@@ -53,19 +52,7 @@ An application definition **must** contain the following properties:
 &nbsp;
 
 ### Extension Properties
-An extension definition **must** contain the following properties. **Only one of `object` or `path` is required**:
-- `id` The ID of the action extension. This must be **unique**.
-- `type` The type of extension being configured (for example, `com.ibm.verse.action` specifies an action contribution).
-- `name` The name of the action extension in the UI. This must be **unique**.
-- `payload` The payload property indicates optional properties of the extension. *The `payload` property is required, but its value can be empty*.
-- `object` The object property indicates that the extension displays in a view that provides the specified object. Using the person value specifies that the extension displays in a view that provides the person object. For example, if the business card view provides the person data type, then the extension contribution will be shown on the business card view. *This property is not required if you are using the `path` property*.
-- `path` The path property displays an extension in the mail compose view or the mail read view. Valid values are `mail.read` or `mail.compose`. *This property is not required if you are using the `object` property*.
-
-&nbsp;
-
-### Payload Properties
-- `features` This property indicates which Verse API is called by the application. The list of features is an array, enclosed in square brackets. Currently, the only accepted value is `["core"]`, which indicates that you are invoking the Verse core API.
-- `renderParams` This is an object that contains properties on how the application window is displayed. This object is passed to `window.open()`. See [here]({{site.data.developers.mozillaWindowApi}}){:target="_blank"} for a complete list of properties.
+For extension properties, please refer to [Verse Extension Points](#verse-extension-points) for details.
 
 ### Deploy application on Verse on-Cloud
 To add an application to Verse on-Cloud, you need to register it using the IBM App Registry. You can refer to this guide [Managing extensions for Verse]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.

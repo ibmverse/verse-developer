@@ -32,13 +32,11 @@ In this section, you will add a new action which appear in the toolbar displayed
 {% highlight pre %}
 [
   {
-    "id": "com.ibm.verse.sample.app.widget",
     "name": "Widget Samples",
     "title": "Widget Sampled",
     "description": "This samples demonstrates using the widget extension point",
     "extensions": [
       {
-        "id": "com.ibm.verse.sample.ext.widget",
         "name": "Person Action Sample",
         "type": "com.ibm.verse.ext.widget",
         "payload": {
