@@ -38,13 +38,11 @@ For this step we are going to remove the application we worked on in the previou
 {% highlight pre %}
 [
   {
-    "id": "com.ibm.verse.sample.app.templatedlink",
     "name": "Templated Link Sample",
     "title": "Templated Link Sample",
     "description": "This samples demonstrates using the templated link extension point",
     "extensions": [
       {
-        "id": "com.ibm.verse.sample.ext.templatedlink",
         "name": "Person Templated Link",
         "type": "com.ibm.appreg.ext.templatedLink",
         "object": "com.ibm.appreg.object.person",
