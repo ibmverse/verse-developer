@@ -110,4 +110,4 @@ Congratulations! You successfully added an action button to the Mail Read view, 
 ### How it works
 - This action also uses the `path` property to specify were it is displayed in the Verse UI
 - Using `mail.read` as the path will cause the action to be displayed in the toolbar in the mail preview area
-- The action is always displayed in the overflow menu of the toolbar
+- The action is always displayed in the "More actions" dropdown menu of the toolbar
