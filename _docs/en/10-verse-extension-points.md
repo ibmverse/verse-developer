@@ -31,7 +31,7 @@ Here is the full list of extension points that Verse supports:
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
 A Simple Link extension adds a clickable URL link to the Verse UI.
-
+You can refer to [Deploy application on Verse on-Premise](#deploy-application-on-verse-on-cloud) on how to deploy the navigation bar extensions on Verse on-Premise.
 &nbsp;
 
 #### Required Properties for a Simple Link
