@@ -9,8 +9,8 @@
         "ext_id": "com.ibm.verse.ext.sample.beforeOnSend",
         "name": "Hook Before Send Extension",
         "title": "Hook Before Send Extension",
-        "url": "${extensionPath}/hook-before-send-disable/index.html",
         "payload": {
+          "url": "${extensionPath}/hook-before-send-disable/index.html",
           "disableSend": true
         }
       }
