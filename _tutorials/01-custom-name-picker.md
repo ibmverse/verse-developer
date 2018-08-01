@@ -28,7 +28,7 @@ This is a follow on tutorial to [Your First Application for IBM Verse](../develo
 
 __1.__ Open `src/applications.json` in your text editor.
 
-__2.__ Append the following object into the array in `applications.json`, and save the file. __Don't forget to add a comma `,` at the end of the preceding application before adding your own__.
+__2.__ Append the following object into the array in `applications.json`, and save the file. __Be sure to add a comma `,` at the end of the last object in applications.json before adding your own__.
 
 ```json
   {

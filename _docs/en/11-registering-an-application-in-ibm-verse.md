@@ -57,8 +57,8 @@ For extension properties, please refer to [Verse Extension Points](#verse-extens
 ### Deploy application on Verse on-Cloud
 To add an application to Verse on-Cloud, you need to register it using the IBM App Registry. You can refer to this guide [Managing extensions for Verse]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
 
-### Deploy application on Verse on-Premise
-To add an application to Verse on-Premise, Verse supports two approaches to deploy your applications/extensions to end users:
+### Deploy application on Verse on-Premises
+To add an application to Verse on-Premises, Verse supports two approaches to deploy your applications/extensions to end users:
 - Deploying extensions using the built-in endpoint
 - Deploying extensions using a custom endpoint
 

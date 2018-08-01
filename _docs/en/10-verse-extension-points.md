@@ -27,6 +27,12 @@ Here is the full list of extension points that Verse supports:
 
 - [com.ibm.verse.ext.liveText](#live-text-comibmverseextlivetext)
 
+- [com.ibm.action.link](#add-top-level-link-on-the-navigation-bar-comibmactionlink)
+
+- [com.ibm.action.delete](#hide-top-level-link-on-the-navigation-bar-comibmactiondelete)
+
+- [com.ibm.verse.ext.file](#third-party-file-repository-integration-comibmverseextfile)
+
 &nbsp;
 
 ### Simple Link (com.ibm.appreg.ext.simpleLink)
@@ -146,7 +152,7 @@ EX: emails is a plural field
 &nbsp;
 
 ### Widget (com.ibm.verse.ext.widget)
-A Widget extension associates a third party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
+A Widget extension associates a third-party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
 
 All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget’s url will be rendered on the different place based on the action’s location.
 
@@ -234,6 +240,9 @@ When a contributed action is clicked, the widget will be rendered in a different
 
 - {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is **window**.
 
+- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and avaiable in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
+  - `bcc` - The `recipientBcc` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
+  - `attachment` - The `attachments` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
 
 &nbsp;
 
@@ -248,7 +257,8 @@ When a contributed action is clicked, the widget will be rendered in a different
   "renderParams": {
     "width": "800",
     "height": "600"
-  }
+  },
+  "permissions": ["bcc", "attachment"]
 }
 {% endhighlight %}
 
@@ -256,7 +266,7 @@ When a contributed action is clicked, the widget will be rendered in a different
 &nbsp;
 
 ### Name Picker (com.ibm.verse.ext.namePicker)
-The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the ‘To’ label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name pickerand these will be added to whichever of **To**, **Cc** or **Bcc** input fields is currently selected.
+The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the ‘To’ label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name picker then the selected names will be added to **To** **Cc** **Bcc** fields accordingly in mail compose view.
 
 &nbsp;
 
@@ -275,8 +285,10 @@ The Name Picker extension point allows the integration of a custom UI for select
     {
       "type": "com.ibm.verse.ext.namePicker",
       "name": "Custom name picker in mail compose",
-      "url": "${extensionPath}/custom-name-picker/index.html",
-      "title": "Add Contact"
+      "title": "Add Contact",
+      "payload": {
+        "url": "${extensionPath}/custom-name-picker/index.html"
+      }
     }
   ],
   "payload": {},
@@ -287,10 +299,130 @@ The Name Picker extension point allows the integration of a custom UI for select
 {% endhighlight %}
 
 &nbsp;
+
+#### Response Message required from Name Picker to add recipients
+There are two methods to add recipient(s) from the name picker. One is to add a single recipient to 
+whichever of **To**, **Cc** or **Bcc** input fields is currently selected.
+The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud as well.
+
+&nbsp;
+
+##### Method 1: Add single recipient from name picker to whichever of **To**, **Cc** or **Bcc** input fields is currently selected
+
+&nbsp;
+
+##### Required Properties
+- {string} `verseApiType` The value must be `com.ibm.verse.add.contact`
+- {string} `userEmail` The recipient email address
+
+&nbsp;
+
+##### Optional Property
+- {string} `userName` The recipient name
+
+&nbsp;
+
+##### Example Response Message to add single recipient to currently selected input field
+
+```
+var userEmail = samantha@cn.ibm.com;
+var userName = Samantha;
+var emails_message = {
+  verseApiType: "com.ibm.verse.add.contact",
+  userEmail: userEmail,
+  userName: userName
+};
+evt.source.postMessage(emails_message, evt.origin);
+```
+
+&nbsp;
+
+##### Method 2: Add recipients from name picker to **To**, **Cc** and **Bcc** input fields all together in one action
+
+&nbsp;
+
+This method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud too.
+
+&nbsp;
+
+##### Required Properties
+- {string} `verseApiType` The value must be `com.ibm.verse.add.contact`
+
+&nbsp;
+
+##### Optional Property
+- {array} `recipientTo` An array of `Recipient`s to be added to To field.
+- {array} `recipientCC` An array of `Recipient`s to be added to Cc field.
+- {array} `recipientBcc` An array of `Recipient`s to be added to Bcc field.
+
+&nbsp;
+
+**Note** that the response message must have at least one of `recipientTo`, `recipientCC` or `recipientBcc` property.
+
+&nbsp;
+
+The `Recipient` is a JSON object with following properties:
+
+###### Required Property for Recipient
+- {string} `userEmail` The recipient email address
+
+&nbsp;
+
+###### Optional Property for Recipient
+- {string} `userName` The recipient name
+
+&nbsp;
+
+##### Example Response Message to add recipients from name picker to **To**, **Cc** and **Bcc** input fields in one action
+
+```
+var toArray = [ 
+                { 
+                  userEmail: a1@cn.ibm.com, 
+                  userName:  a1
+                }, 
+                { 
+                  userEmail: a2@cn.ibm.com, 
+                  userName:  a2
+                },
+                { 
+                  userEmail: a3@cn.ibm.com, 
+                  userName:  a3
+                }
+              ];
+
+var ccArray = [ 
+                { 
+                  userEmail: b1@cn.ibm.com, 
+                  userName:  b1
+                },
+                { 
+                  userEmail: b2@cn.ibm.com, 
+                  userName:  b2
+                }
+              ];
+
+var bccArray = [
+                 { 
+                   userEmail: c1@cn.ibm.com, 
+                   userName:  c1
+                 }
+               ];
+
+var emails_message = {
+  verseApiType: "com.ibm.verse.add.contact",
+  recipientTo: toArray,
+  recipientCC: ccArray,
+  recipientBcc: bccArray
+};
+evt.source.postMessage(emails_message, evt.origin);
+```
+
+&nbsp;
 &nbsp;
 
 ### Before On Send (com.ibm.verse.ext.beforeOnSend)
-The Before On Send extension point allows third party logic to be invoked which can validate the content of an email. The extension can either display a UI e.g. to warn the user about something in the mail or can allow the mail to be sent. By default if an extension displays a UI with a warning the user can decide to send the mail anyway by clicking the send button again.
+The Before On Send extension point allows third-party logic to be invoked which can validate the content of an email. The extension can either display a UI e.g. to warn the user about something in the mail or can allow the mail to be sent. By default if an extension displays a UI with a warning the user can decide to send the mail anyway by clicking the send button again.
 
 An optional property called `disableSend` is provided to control the send button behavior. By default `disableSend` is set as false, which means that send button will always be enabled and the user can send the message even if the extension displays a warning. If `disableSend` is set as true, when the user clicks the send button it becomes disabled while the extension is loading and validating the mail. There are a number of options available to the extension:
 
@@ -318,7 +450,10 @@ An optional property called `disableSend` is provided to control the send button
       "type": "com.ibm.verse.ext.beforeOnSend",
       "name": "Hook Before Send Extension",
       "title": "Hook Before Send Extension",
-      "url": "${extensionPath}/hook-before-send/index.html"
+      "payload": {
+        "url": "${extensionPath}/hook-before-send/index.html"
+      }
+      
     }
   ],
   "services": [
@@ -383,4 +518,121 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 }
 {% endhighlight %}
 
-The ${extensionPath} in above example is only a path var of this repository. You need to use absolute path in their own extensions if their extension page is not in this repository.
+The ${extensionPath} in the previous example is only a path var of this repository. You need to use absolute path in your own extensions if your extension page is not in this repository.
+&nbsp;
+&nbsp;
+
+### Add top-level link on the navigation bar (com.ibm.action.link)
+### Hide top-level link on the navigation bar (com.ibm.action.delete)
+You can customize the navigation bar by adding your own top-level links, hiding or renaming default top-level links.
+You can refer to this guide [Working with top-level links on the navigation bar]({{site.data.developers.NavbarTopLevelLinkGuide}}){:target="_blank"} for details.
+
+&nbsp;
+&nbsp;
+
+#### Deploy navigation bar extensions on Verse on-Premises
+The navigation bar extensions can be deployed the same way as the other Verse extensions as of Verse On-Premises 1.0.4.
+You can refer to [Deploy application on Verse on-Premises](#deploy-application-on-verse-on-cloud) to deploy the navigation bar extensions on Verse on-Premises.
+
+#### Deploy navigation bar extensions on Verse on-Cloud
+On Verse on-Cloud, you must register the navigation bar extensions using the IBM App Registry. You can refer to this guide [Managing extensions for Top Navigation Bar]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
+
+
+### Third-Party File Repository Integration (com.ibm.verse.ext.file)
+The Third-Party File Repository extension point integrates a third-party file repository with IBM Verse. Users can choose files from a third-party file repository and add the file links into messages. It's only supported in Verse on-Premises 1.0.4 and above.
+
+&nbsp;
+
+#### Required Properties for a Third-Party File Repository Extension
+- {string} `text` The name of the repository.
+- {string} `url` The target url to open the repository. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the file repository extension.
+- {string} `icon` The icon for the repository. The only value format supported is a data-uri with a base64 encoded payload. For example: `"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGpJREFUOE+1k4EKgDAIRC36b/3z6kLJFUpOejAYQ293si3MvFMREdHdCQQqoN73rKpTxlxMC4BLpBrBg95NxV74QQ1De/LFQVSD89YMQBgBmPUsQuoAjbYi/ovgb80ctN9BO0JbYOo73xAdbuoHJPh854UAAAAASUVORK5CYII="`.
+
+&nbsp;
+
+#### Optional Properties for a Third-Party File Repository Extension
+- {object} `renderParams` The window width and height when the repository is loaded in a new window. If not specified, the browser determines the new window width and height.
+
+&nbsp;
+
+#### Example Third-Party File Repository Extension
+{% highlight pre %}
+{
+  "name": "Third-party file repository integration",
+  "title": "Third-party file repository integration",
+  "description": "Integrate third-party file repository in Verse",
+  "extensions": [{
+    "type": "com.ibm.verse.ext.file",
+    "name": "Third-party file repository extension",
+    "payload": {
+      "text": "Third-Party File Repository",
+      "url": "https://third-party-file-repo.com",
+      "icon": "data:image/png;base64,...",
+      "renderParams": {
+        "width": "450",
+        "height": "230"
+      }
+    }
+  }],
+  "services": [
+    "Verse"
+  ]
+}
+{% endhighlight %}
+
+#### Sending and Receiving Data between Verse and Third-Party File Repository Extension
+
+Verse supports [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) to communicate with your repository. The communication involves two steps:
+
+1. Notify Verse that your repository application is ready to receive and send data.
+
+When a user attempts to access your repository, Verse loads your repository application and pings it the message `com.ibm.verse.ping.application.loaded` to check whether your application is ready to receive data.
+Your application needs to handle this message and send back a message `com.ibm.verse.application.loaded` to notify Verse that your application is ready to receive and send data.
+
+Below is the sample code to handle Verse message and notify Verse your application is ready to receive and send data.
+```
+window.addEventListener('message', function(evt) {
+  var verseApiType = evt && evt.data && evt.data.verseApiType;
+  if (verseApiType === 'com.ibm.verse.ping.application.loaded') {
+    evt.source.postMessage({
+      verseApiType: 'com.ibm.verse.application.loaded'
+    }, evt.origin);
+  }
+}, false);
+```
+
+Note that the Verse ping will time out in 30 seconds, so your application must send back the `com.ibm.verse.application.loaded message` as soon as possible once it is ready to receive data.
+
+2. Send file or folder link information to Verse. 
+After the user chooses files or folders in your repository application, your application sends the Add Links message to Verse to insert file or folder links into the message body via winodw.postMessage API.
+
+The Add Links message structure is defined as below:
+  ```
+  {
+    verseApiType: "com.ibm.verse.ext.file.add.links",
+    links: [{
+      url: "http://link-of-one-file",
+      name: "IBM Verse Introduction.pdf"
+    }, {
+      url: "https://link-of-another-file",
+      name: "IBM ICS Products.ppt"
+    }, {
+      // more file or folder links
+    }],
+    closeWindow: true
+  }
+  ```
+
+##### Required Properties for Add Links message
+
+- {string} `verseApiType` This property indicates the message type. Its value must be `com.ibm.verse.ext.file.add.links`
+
+##### Optional Properties for Add Links Message
+
+- {array<object>} `links` It is an array of the file or folder links. Each link is a Json object that contains `url` and `name` properties.
+  - url - The url used to open a file or folder.
+  - name - The display text of the link.
+- {boolean} `closeWindow` This property tells Verse whether to close your third-party file repository application when Verse receives the Add Links message. The default value is false.
+
+#### Third-party file repository integration tutorial
+For the tutorial of creating Third-Party File Repository extension in Verse, see [Third-Party File Repository Integration Tutorial](../tutorials#third-party-file-repository-integration).

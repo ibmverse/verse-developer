@@ -46,6 +46,10 @@ tutorials          :
     url            : "live-text-widget"
     type           : "url"
 
+  - title          : "Third-Party File Repository Integration"
+    url            : "third-party-file-repository-integration"
+    type           : "url"
+
 documentation      :
   - title          : "Get Started"
     url            : "get-started"
