@@ -519,6 +519,7 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 {% endhighlight %}
 
 The ${extensionPath} in the previous example is only a path var of this repository. You need to use absolute path in your own extensions if your extension page is not in this repository.
+
 &nbsp;
 &nbsp;
 
@@ -528,7 +529,6 @@ You can customize the navigation bar by adding your own top-level links, hiding 
 You can refer to this guide [Working with top-level links on the navigation bar]({{site.data.developers.NavbarTopLevelLinkGuide}}){:target="_blank"} for details.
 
 &nbsp;
-&nbsp;
 
 #### Deploy navigation bar extensions on Verse on-Premises
 The navigation bar extensions can be deployed the same way as the other Verse extensions as of Verse On-Premises 1.0.4.
@@ -537,6 +537,8 @@ You can refer to [Deploy application on Verse on-Premises](#deploy-application-o
 #### Deploy navigation bar extensions on Verse on-Cloud
 On Verse on-Cloud, you must register the navigation bar extensions using the IBM App Registry. You can refer to this guide [Managing extensions for Top Navigation Bar]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
 
+&nbsp;
+&nbsp;
 
 ### Third-Party File Repository Integration (com.ibm.verse.ext.file)
 The Third-Party File Repository extension point integrates a third-party file repository with IBM Verse. Users can choose files from a third-party file repository and add the file links into messages. It's only supported in Verse on-Premises 1.0.4 and above.
@@ -580,6 +582,8 @@ The Third-Party File Repository extension point integrates a third-party file re
 }
 {% endhighlight %}
 
+&nbsp;
+
 #### Sending and Receiving Data between Verse and Third-Party File Repository Extension
 
 Verse supports [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) to communicate with your repository. The communication involves two steps:
@@ -603,6 +607,8 @@ window.addEventListener('message', function(evt) {
 
 Note that the Verse ping will time out in 30 seconds, so your application must send back the `com.ibm.verse.application.loaded message` as soon as possible once it is ready to receive data.
 
+&nbsp;
+
 2. Send file or folder link information to Verse. 
 After the user chooses files or folders in your repository application, your application sends the Add Links message to Verse to insert file or folder links into the message body via winodw.postMessage API.
 
@@ -622,6 +628,8 @@ The Add Links message structure is defined as below:
     closeWindow: true
   }
   ```
+
+&nbsp;
 
 ##### Required Properties for Add Links message
 
