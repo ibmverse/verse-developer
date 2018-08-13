@@ -40,11 +40,33 @@ In the sections below, the structure of each of the different context objects is
 &nbsp;
 
 #### Mail Compose
+
+&nbsp;
+
+**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) definition.
+
+&nbsp;
+
+The `attachments` property is an array of JSON objects. Each JSON object contains the following properties:
+- {string} `name` attachment name
+- {number} `size` the size of attachment in **Byte**
+- {string} `assignedName` attachment assigned name in server
+- {boolean} `selected` whether attachment is selected or not
+- {boolean} `uploaded` whether attachment is uploaded to server or not
+
+&nbsp;
+
 {% highlight pre %}
 {
   "body": "",
   "contextId": "",
   "id": "",
+  "recipientBcc": [
+    {
+      "displayName": "",
+      "emailAddress": ""
+    }
+  ],
   "recipientCC": [
     {
       "displayName": "",
@@ -55,6 +77,15 @@ In the sections below, the structure of each of the different context objects is
     {
       "displayName": "",
       "emailAddress": ""
+    }
+  ],
+  "attachments": [
+    {
+      "assignedName": "",
+      "name": "",
+      "size": "",
+      "selected": "",
+      "uploaded": "",
     }
   ],
   "subject": ""
@@ -64,11 +95,33 @@ In the sections below, the structure of each of the different context objects is
 &nbsp;
 
 #### Mail Read
+
+&nbsp;
+
+**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) definition.
+
+&nbsp;
+
+The `attachments` property is an array of JSON objects. Each JSON object contains the following properties:
+- {string} `name` attachment name
+- {number} `size` the size of attachment in **Byte**
+- {string} `assignedName` attachment assigned name in server
+- {boolean} `selected` whether attachment is selected or not
+- {boolean} `uploaded` whether attachment is uploaded to server or not
+
+&nbsp;
+
 {% highlight pre %}
 {
   "body": "",
   "contextId": "",
   "id": "",
+  "recipientBcc": [
+    {
+      "displayName": "",
+      "emailAddress": ""
+    }
+  ],
   "recipientCC": [
     {
       "displayName": "",
@@ -79,6 +132,15 @@ In the sections below, the structure of each of the different context objects is
     {
       "displayName": "",
       "emailAddress": ""
+    }
+  ],
+  "attachments": [
+    {
+      "assignedName": "",
+      "name": "",
+      "size": "",
+      "selected": "",
+      "uploaded": "",
     }
   ],
   "sender": {
