@@ -39,11 +39,11 @@ In the sections below, the structure of each of the different context objects is
 
 &nbsp;
 
-#### Mail Compose
+#### Mail Compose and Before On Send
 
 &nbsp;
 
-**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) definition.
+**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) or [Before On Send](#Optional-Properties-for-a-Before-On-Send) definition.
 
 &nbsp;
 
