@@ -46,7 +46,7 @@ tutorials          :
     url            : "live-text-widget"
     type           : "url"
 
-  - title           : "Third-Party Chat Service Integration"
+  - title          : "Third-Party Chat Service Integration"
     url            : "chat-service"
     type           : "url"
 
