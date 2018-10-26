@@ -46,10 +46,6 @@ tutorials          :
     url            : "live-text-widget"
     type           : "url"
 
-  - title          : "Third-Party Chat Service Integration"
-    url            : "chat-service"
-    type           : "url"
-
   - title          : "Third-Party File Repository Integration"
     url            : "third-party-file-repository-integration"
     type           : "url"
