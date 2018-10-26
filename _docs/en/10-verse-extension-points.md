@@ -5,13 +5,13 @@ pagename: verse-extension-points
 ---
 
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions‚Ä¶ menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More ActionsÖ menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
 Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
 
-However, Widget Action‚Äôs inside of Widget‚Äôs allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
+However, Widget Actionís inside of Widgetís allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
 
 Here is the full list of extension points that Verse supports:
 
@@ -27,31 +27,11 @@ Here is the full list of extension points that Verse supports:
 
 - [com.ibm.verse.ext.liveText](#live-text-comibmverseextlivetext)
 
-- [com.ibm.action.link](#navigation-bar-extensions)
+- [com.ibm.action.link](#add-top-level-link-on-the-navigation-bar-comibmactionlink)
 
-- [com.ibm.action.delete](#navigation-bar-extensions)
-
-- [com.ibm.action.menu](#navigation-bar-extensions)
-
-- [com.ibm.action.menu.link](#navigation-bar-extensions)
+- [com.ibm.action.delete](#hide-top-level-link-on-the-navigation-bar-comibmactiondelete)
 
 - [com.ibm.verse.ext.file](#third-party-file-repository-integration-comibmverseextfile)
-
-- [com.ibm.verse.ext.css](#css-support-comibmverseextcss)
-
-&nbsp;
-
-### Verse Extension Points Offline Support
-The following extension points are supported in offline mode as of Verse On-Premises 1.0.5. The extension points are also supported for Verse on-cloud.
-- [com.ibm.action.link](#navigation-bar-extensions)
-
-- [com.ibm.action.delete](#navigation-bar-extensions)
-
-- [com.ibm.action.menu](#navigation-bar-extensions)
-
-- [com.ibm.action.menu.link](#navigation-bar-extensions)
-
-- [com.ibm.verse.ext.css](#css-support-comibmverseextcss)
 
 &nbsp;
 
@@ -100,9 +80,9 @@ Values contained within the extension that have text of the format ${property} w
 &nbsp;
 
 #### Templating Syntax of plural-fields
-Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by `property` which has the type ‚Äòtype‚Äô from the context of the bound object.
+Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by `property` which has the type ëtypeí from the context of the bound object.
 
-If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is ‚Äúprimary‚Äù. If there is no ‚Äúprimary‚Äù within the set of plural-field values of type ‚Äòtype‚Äô, it is up to the Container‚Äôs discretion to determine which value is returned.
+If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is ìprimaryî. If there is no ìprimaryî within the set of plural-field values of type ëtypeí, it is up to the Containerís discretion to determine which value is returned.
 
 If no type is specified and the specified `property` keys a plural-field value, the primary entry of the plural-field will serve as the replacement value.
 
@@ -174,7 +154,7 @@ EX: emails is a plural field
 ### Widget (com.ibm.verse.ext.widget)
 A Widget extension associates a third-party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
 
-All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget‚Äôs url will be rendered on the different place based on the action‚Äôs location.
+All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widgetís url will be rendered on the different place based on the actionís location.
 
 &nbsp;
 
@@ -184,7 +164,7 @@ The definition of a widget MAY contain 1 or multiple Widget Actions. The Widget 
 &nbsp;
 
 #### Required Properties for a Widget
-- {string} `url` The widget‚Äôs url, when the action in the widget is clicked, the widget will open the url on the place specified by the action‚Äôs location.
+- {string} `url` The widgetís url, when the action in the widget is clicked, the widget will open the url on the place specified by the actionís location.
 - {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
 
 &nbsp;
@@ -237,7 +217,7 @@ In this sample, a widget contains two actions, one action is contributed under *
 &nbsp;
 
 #### Widget Action
-A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it can‚Äôt be directly added into `Applications` extensions array.
+A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it canít be directly added into `Applications` extensions array.
 
 When a contributed action is clicked, the widget will be rendered in a different place based on the `location` value.
 
@@ -254,13 +234,13 @@ When a contributed action is clicked, the widget will be rendered in a different
 - {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
 - {string} `alt` Alt text for the action.
 - {object} `location` The property is used to specify where to render the widget. The acceptable values can be **window**, **tab** or **embedded**.
-  - window - the widget will be open in the new window. We can use renderParams to specify the new window‚Äôs size.
+  - window - the widget will be open in the new window. We can use renderParams to specify the new windowís size.
   - tab - the widget will be open in the new tab.
   - embedded - the widget will be open inside an iframe. This value is only supported for Mail Compose actions.
 
-- {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window‚Äôs width/height accordingly. This property is only valid if the location‚Äôs value is **window**.
+- {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new windowís width/height accordingly. This property is only valid if the locationís value is **window**.
 
-- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and available in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
+- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and avaiable in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
   - `bcc` - The `recipientBcc` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
   - `attachment` - The `attachments` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
 
@@ -286,12 +266,12 @@ When a contributed action is clicked, the widget will be rendered in a different
 &nbsp;
 
 ### Name Picker (com.ibm.verse.ext.namePicker)
-The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the ‚ÄòTo‚Äô label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name picker then the selected names will be added to **To** **Cc** **Bcc** fields accordingly in mail compose view.
+The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the ëToí label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name picker then the selected names will be added to **To** **Cc** **Bcc** fields accordingly in mail compose view.
 
 &nbsp;
 
 #### Required Properties for a Name Picker
-- {string} `url` The widget‚Äôs url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
+- {string} `url` The widgetís url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
 
 &nbsp;
 
@@ -323,7 +303,7 @@ The Name Picker extension point allows the integration of a custom UI for select
 #### Response Message required from Name Picker to add recipients
 There are two methods to add recipient(s) from the name picker. One is to add a single recipient to 
 whichever of **To**, **Cc** or **Bcc** input fields is currently selected.
-The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud as well.
+The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud as well.
 
 &nbsp;
 
@@ -361,7 +341,7 @@ evt.source.postMessage(emails_message, evt.origin);
 
 &nbsp;
 
-This method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud as well.
+This method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud too.
 
 &nbsp;
 
@@ -449,20 +429,13 @@ An optional property called `disableSend` is provided to control the send button
 - If it determines the mail is OK to send it can allow it to be sent without any further action from the user.
 - If it wants to display a warning to the user but still allow them to send the mail it can display a UI and re-enable the send button.
 - If it wants to block the user from sending the mail it can display a UI and leave the send button disabled.
-- In case the external application fails to load, the ‚ÄòSend‚Äô button will be automatically re-enabled and a message will be displayed to the user warning them that there is risk associated with sending the mail because the extension to which validates mails cannot be loaded.
+- In case the external application fails to load, the ëSendí button will be automatically re-enabled and a message will be displayed to the user warning them that there is risk associated with sending the mail because the extension to which validates mails cannot be loaded.
 
 &nbsp;
 
 #### Required Properties for a Before On Send
-- {string} `url` The widget‚Äôs url, when the Send button is clicked, the URL is opened in a hidden iframe.
-
-&nbsp;
-
-#### Optional Properties for a Before On Send
-- {boolean} `disableSend` By default `disableSend` is set as false, which means that ‚ÄòSend‚Äô button will always be enabled and the user can send the message even if there is a warning. If `disableSend` is set as true, then ‚ÄòSend‚Äô button will be disabled until the external application re-enables it by sending a message to Verse.  
-- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and available in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.  
-  - `bcc` - The `recipientBcc` property will be exposed in `verseApiData` [context](#verse-api-data) property.  
-  - `attachment` - The `attachments` property will be exposed in `verseApiData` [context](#verse-api-data) property.  
+- {string} `id` The id for the custom name picker.
+- {string} `url` The widgetís url, when the Send button is clicked, the URL is opened in a hidden iframe.
 
 &nbsp;
 
@@ -500,19 +473,19 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 
 &nbsp;
 
-#### Required Properties for a Live Text
+#### Required Properties for Extensions
 - {string} `text` The text for the Live Text action.
 - {string} `href` The Live Text link location. Use ${groupNumber} to define a variable in the href. The groupNumber is the group number of regular expression defined in recognizer. When execute a Live Text action, the ${groupNumber} will be replaced with text recognized by the groupNumber group.
 - {string} `recognizer` A regular expression in string form, not a regex literal, to recognize the specified text pattern as Live Text.
 
 &nbsp;
 
-#### Optional Properties for a Live Text
+#### Optional Properties for Extensions
 - {string} `alt` Alt text for Live Text action.
 - {string} `location` This property specifies where to open the Live Text extension. The acceptable values can be `window` or `tab`.
-  - `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new window‚Äôs size. If renderParams is not provided, a default renderParams will be used.
+  - `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new windowís size. If renderParams is not provided, a default renderParams will be used.
   - `tab` - The Live Text extension will be opened in the new tab.
-- {object} `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new window‚Äôs width/height accordingly. This property is only valid if the `location`‚Äôs value is `window`.
+- {object} `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new windowís width/height accordingly. This property is only valid if the `location`ís value is `window`.
 
 &nbsp;
 
@@ -546,99 +519,14 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 {% endhighlight %}
 
 The ${extensionPath} in the previous example is only a path var of this repository. You need to use absolute path in your own extensions if your extension page is not in this repository.
-&nbsp;
-&nbsp;
-
-### Navigation bar extensions
-
-- com.ibm.action.link (available in Verse on-cloud, Verse On-Premises 1.0.4 and above)  
-
-- com.ibm.action.delete (available in Verse on-cloud, Verse On-Premises 1.0.4 and above)  
-
-- com.ibm.action.menu (available in Verse on-cloud, Verse On-Premises 1.0.5 and above)  
-
-- com.ibm.action.menu.link (available in Verse on-cloud, Verse On-Premises 1.0.5 and above)  
-
-You can customize the navigation bar by hiding default links and menus, and by adding custom links and menus.
-You can refer to [Extending the navigation bar]({{site.data.developers.NavbarExtensionGuide}}){:target="_blank"} topic and its sub topics to take an overview of navigation bar extensibility and how to use these extensions.  
-
-**Security Tip:** `com.ibm.action.delete` extension can delete existing menu. `com.ibm.action.link` and `com.ibm.action.delete` extensions used together can modify existing menu. If the navigation bar extensions are contributed by external developer, administrator should check whether the extensions have any potential risk and control it when they deploy the exensions.
 
 &nbsp;
-
-#### Example Navigation bar extensions
-The following extension illustrates how to customize the organization name and logo on the navigation bar.  
-{% highlight pre %}
-{
-  "name": "Branding App",
-  "title": "Branding App",
-  "description": "Customize the organization name and logo on the navigation bar",
-  "extensions": [
-    {
-      "type": "com.ibm.action.delete",
-      "name": "Delete predefined organization",
-      "path": ".org",
-      "application": "Branding App",
-      "title": "Delete predefined organization",
-      "description": "Delete predefined organization"
-    },
-    {
-      "type": "com.ibm.action.link",
-      "name": "Company logo demo",
-      "title": "Company logo demo",
-      "description": "Customize organization logo",
-      "path": "com.ibm.navbar.order.1000",
-      "application": "Branding App",
-      "payload": {
-        "link": "http://www.brandingCompanyLogoDemo.com",
-        "icon": "data:image/svg+xml;base64,PHN2ZyBjbGFzcz0nY2hhdC1pbWFnZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSd3aGl0ZScgdmlld0JveD0nMCAwIDIwIDIwJz48cGF0aCBjbGFzcz0nY2hhdC1pbWFnZS1vdXRsaW5lJyBkPSdNMTAgMEM1LjYgMCAyIDMuNiAyIDhjMCA0LjEgMy4xIDcuNCA3IDcuOVYyMGw2LjgtNi41QzE3LjEgMTIuMSAxOCAxMC4xIDE4IDhjMC00LjQtMy42LTgtOC04em01IDEyLjlsLTUgNC43VjE1Yy0zLjkgMC03LTMuMS03LTdzMy4xLTcgNy03IDcgMy4xIDcgN2MwIDEuOS0uOCAzLjYtMiA0Ljl6Jy8+PC9zdmc+",
-        "window_features": "target=_blank"
-      }
-    },
-    {
-      "type": "com.ibm.action.link",
-      "name": "Company Name Demo",
-      "title": "Company Name Demo",
-      "description": "Customize organization name",
-      "path": "com.ibm.navbar.order.1500",
-      "application": "Branding App",
-      "payload": {
-        "link": "http://www.brandingCompanyNameDemo.com/",
-        "window_features": "target=_blank"
-      }
-    }
-  ],
-  "payload": {},
-  "services": [
-    "TopNavigationBar"
-  ]
-}
-{% endhighlight %}
-
 &nbsp;
 
-The following extension illustrates how to delete the predefined More menu from the navigation bar.  
-{% highlight pre %}
-{
-  "name": "Delete More menu app",
-  "title": "Delete More menu app title",
-  "description": "Delete More menu app description",
-  "extensions": [
-    {
-      "type": "com.ibm.action.delete",
-      "path": ".apps",
-      "name": "Delete More menu extension",
-      "application": "Delete More menu app",
-      "title": "Delete More menu"
-      "description": "Delete More menu description",
-    }
-  ],
-  "payload": {},
-  "services": [
-    "TopNavigationBar"
-  ]
-}
-{% endhighlight %}
+### Add top-level link on the navigation bar (com.ibm.action.link)
+### Hide top-level link on the navigation bar (com.ibm.action.delete)
+You can customize the navigation bar by adding your own top-level links, hiding or renaming default top-level links.
+You can refer to this guide [Working with top-level links on the navigation bar]({{site.data.developers.NavbarTopLevelLinkGuide}}){:target="_blank"} for details.
 
 &nbsp;
 
@@ -649,6 +537,8 @@ You can refer to [Deploy application on Verse on-Premises](#deploy-application-o
 #### Deploy navigation bar extensions on Verse on-Cloud
 On Verse on-Cloud, you must register the navigation bar extensions using the IBM App Registry. You can refer to this guide [Managing extensions for Top Navigation Bar]({{site.data.developers.appregistryGuide}}){:target="_blank"} for details.
 
+&nbsp;
+&nbsp;
 
 ### Third-Party File Repository Integration (com.ibm.verse.ext.file)
 The Third-Party File Repository extension point integrates a third-party file repository with IBM Verse. Users can choose files from a third-party file repository and add the file links into messages. It's only supported in Verse on-Premises 1.0.4 and above.
@@ -692,6 +582,8 @@ The Third-Party File Repository extension point integrates a third-party file re
 }
 {% endhighlight %}
 
+&nbsp;
+
 #### Sending and Receiving Data between Verse and Third-Party File Repository Extension
 
 Verse supports [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) to communicate with your repository. The communication involves two steps:
@@ -715,6 +607,8 @@ window.addEventListener('message', function(evt) {
 
 Note that the Verse ping will time out in 30 seconds, so your application must send back the `com.ibm.verse.application.loaded message` as soon as possible once it is ready to receive data.
 
+&nbsp;
+
 2. Send file or folder link information to Verse. 
 After the user chooses files or folders in your repository application, your application sends the Add Links message to Verse to insert file or folder links into the message body via winodw.postMessage API.
 
@@ -735,6 +629,8 @@ The Add Links message structure is defined as below:
   }
   ```
 
+&nbsp;
+
 ##### Required Properties for Add Links message
 
 - {string} `verseApiType` This property indicates the message type. Its value must be `com.ibm.verse.ext.file.add.links`
@@ -748,64 +644,3 @@ The Add Links message structure is defined as below:
 
 #### Third-party file repository integration tutorial
 For the tutorial of creating Third-Party File Repository extension in Verse, see [Third-Party File Repository Integration Tutorial](../tutorials#third-party-file-repository-integration).
-
-
-### CSS Support (com.ibm.verse.ext.css)
-The CSS extension point allows you to customize Verse UI using a standard CSS. Your style sheet is inserted as an internal style sheet in the Verse page.
-The CSS extension point is introduced in Verse on-Premises 1.0.5 and is available in Verse on-cloud as well.  
-
-**Security Tip:** the CSS provided by the extension is added 'as is', so administrator should check the CSS extension when they deploy it to understand and control the risks that come with that as appearance and to some degree behavior can be changed.
-
-&nbsp;
-
-#### Required Properties for a CSS Extension
-- {string} `css` This property specifies the internal style sheet you want to apply to Verse.
-
-&nbsp;
-
-#### Example CSS Extensions
-The following CSS extension illustrates how to change the background color of navigation bar.
-{% highlight pre %}
-{
-  "name": "Customize navigation bar app",
-  "title": "Customize navigation bar app",
-  "description": "CSS extension to customize navigation bar",
-  "extensions": [
-    {
-      "type": "com.ibm.verse.ext.css",
-      "name": "Customize navigation bar",
-      "description": "Change the background color of navigation bar",
-      "payload": {
-        "css": ".ics-scbanner {background-color:green!important;}"
-      }
-    }
-  ],
-  "services": [
-    "Verse"
-  ]
-}
-{% endhighlight %}
-
-&nbsp;
-
-The following CSS extension illustrates how to hide all Calendar elements.
-{% highlight pre %}
-{
-  "name": "Hide Calendar elements app",
-  "title": "Hide Calendar elements app",
-  "description": "Hide Calendar elements",
-  "extensions": [
-    {
-      "type": "com.ibm.verse.ext.css",
-      "name": "Hide Calendar elements",
-      "description": "CSS extension to hide calendar elements",
-      "payload": {
-        "css": ".calendar-Container, .calendar-settings-section-tab, .settings-section.calendar-settings-section, .action.accept, .action.decline, .action.tentative, .action.respond, .action.pim-check-calendar.icon, .action.pim-create-meeting.icon {display:none!important;} .itm-closed .seq-mcv {height: calc(100% - 70px)!important;} .seq-mcv {height: calc(100% - 86px - 54px) !important;}"
-      }
-    }
-  ],
-  "services": [
-    "Verse"
-  ]
-}
-{% endhighlight %}
