@@ -61,7 +61,7 @@ A Simple Link extension adds a clickable URL link to the Verse UI.
   "payload": {
     "text": "Click this sample link!",
     "href": "https://sample.com/simple-link-target.html",
-    "icon": "data:image/png;base64,..."  
+    "icon": "data:image/png;base64,..."
   }
 }
 {% endhighlight %}
@@ -82,7 +82,7 @@ Values contained within the extension that have text of the format ${property} w
 #### Templating Syntax of plural-fields
 Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by `property` which has the type ‘type’ from the context of the bound object.
 
-If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is “primary”. If there is no “primary” within the set of plural-field values of type ‘type’, it is up to the Container’s discretion to determine which value is returned.
+If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is “primary�?. If there is no “primary�? within the set of plural-field values of type ‘type’, it is up to the Container’s discretion to determine which value is returned.
 
 If no type is specified and the specified `property` keys a plural-field value, the primary entry of the plural-field will serve as the replacement value.
 
@@ -240,7 +240,7 @@ When a contributed action is clicked, the widget will be rendered in a different
 
 - {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is **window**.
 
-- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and avaiable in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
+- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and available in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
   - `bcc` - The `recipientBcc` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
   - `attachment` - The `attachments` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
 
@@ -303,7 +303,7 @@ The Name Picker extension point allows the integration of a custom UI for select
 #### Response Message required from Name Picker to add recipients
 There are two methods to add recipient(s) from the name picker. One is to add a single recipient to 
 whichever of **To**, **Cc** or **Bcc** input fields is currently selected.
-The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud as well.
+The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud as well.
 
 &nbsp;
 
@@ -341,7 +341,7 @@ evt.source.postMessage(emails_message, evt.origin);
 
 &nbsp;
 
-This method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud too.
+This method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud too.
 
 &nbsp;
 
