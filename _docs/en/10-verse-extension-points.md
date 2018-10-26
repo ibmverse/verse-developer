@@ -5,13 +5,13 @@ pagename: verse-extension-points
 ---
 
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actionsâ€¦ menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
 Simple Link and Templated Link extensions provide an easy way to contribute clickable UI artifacts that result in the opening of a webpage in a new tab/window.
 
-However, Widget Actionâ€™s inside of Widgetâ€™s allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
+However, Widget Action’s inside of Widget’s allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
 
 Here is the full list of extension points that Verse supports:
 
@@ -61,7 +61,7 @@ A Simple Link extension adds a clickable URL link to the Verse UI.
   "payload": {
     "text": "Click this sample link!",
     "href": "https://sample.com/simple-link-target.html",
-    "icon": "data:image/png;base64,..."
+    "icon": "data:image/png;base64,..."  
   }
 }
 {% endhighlight %}
@@ -80,9 +80,9 @@ Values contained within the extension that have text of the format ${property} w
 &nbsp;
 
 #### Templating Syntax of plural-fields
-Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by `property` which has the type â€˜typeâ€™ from the context of the bound object.
+Values contained within the extension that have text of the format ${property.type} will be replaced with the value within the plural-field keyed by `property` which has the type ‘type’ from the context of the bound object.
 
-If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is â€œprimaryâ€?. If there is no â€œprimaryâ€? within the set of plural-field values of type â€˜typeâ€™, it is up to the Containerâ€™s discretion to determine which value is returned.
+If there are multiple values within the plural-field keyed by `property` that have type `type`, preference will be given to the value of type `type` that is “primary”. If there is no “primary” within the set of plural-field values of type ‘type’, it is up to the Container’s discretion to determine which value is returned.
 
 If no type is specified and the specified `property` keys a plural-field value, the primary entry of the plural-field will serve as the replacement value.
 
@@ -154,7 +154,7 @@ EX: emails is a plural field
 ### Widget (com.ibm.verse.ext.widget)
 A Widget extension associates a third-party web application with Verse by opening a new browser window/tab or embedding the application using an `iframe` within the Verse UI. A widget extension may contribute multiple Widget Actions to the Verse UI.
 
-All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widgetâ€™s url will be rendered on the different place based on the actionâ€™s location.
+All of actions in the widget will share the same url. When Widget Action is clicked, the application opened by the widget’s url will be rendered on the different place based on the action’s location.
 
 &nbsp;
 
@@ -164,7 +164,7 @@ The definition of a widget MAY contain 1 or multiple Widget Actions. The Widget 
 &nbsp;
 
 #### Required Properties for a Widget
-- {string} `url` The widgetâ€™s url, when the action in the widget is clicked, the widget will open the url on the place specified by the actionâ€™s location.
+- {string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
 - {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
 
 &nbsp;
@@ -217,7 +217,7 @@ In this sample, a widget contains two actions, one action is contributed under *
 &nbsp;
 
 #### Widget Action
-A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it canâ€™t be directly added into `Applications` extensions array.
+A widget action is a UI component which will be contributed to Verse page. An action MUST be contained in a widget extension, it can’t be directly added into `Applications` extensions array.
 
 When a contributed action is clicked, the widget will be rendered in a different place based on the `location` value.
 
@@ -234,13 +234,13 @@ When a contributed action is clicked, the widget will be rendered in a different
 - {string} `icon` An icon to use when rendering the action. Containers MAY choose to not honor this attribute for any reason, for example: if it would be inappropriate to render an icon in the `location` it was contributed to. The preferred format for the icon is a data-uri.
 - {string} `alt` Alt text for the action.
 - {object} `location` The property is used to specify where to render the widget. The acceptable values can be **window**, **tab** or **embedded**.
-  - window - the widget will be open in the new window. We can use renderParams to specify the new windowâ€™s size.
+  - window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   - tab - the widget will be open in the new tab.
   - embedded - the widget will be open inside an iframe. This value is only supported for Mail Compose actions.
 
-- {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new windowâ€™s width/height accordingly. This property is only valid if the locationâ€™s value is **window**.
+- {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is **window**.
 
-- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and available in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
+- {array} `permissions` The property controls which sensitive information will be exposed in `verseApiData` [context](#verse-api-data) property. It's introduced in Verse on-Premises 1.0.4 and avaiable in Verse on-cloud as well. The acceptable values can be **bcc** and **attachment**.
   - `bcc` - The `recipientBcc` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
   - `attachment` - The `attachments` property will be exposed in `verseApiData` [context](#verse-api-data) property if action `path` is `com.ibm.verse.path.mailCompose` or `com.ibm.verse.path.mailRead`.
 
@@ -266,12 +266,12 @@ When a contributed action is clicked, the widget will be rendered in a different
 &nbsp;
 
 ### Name Picker (com.ibm.verse.ext.namePicker)
-The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the â€˜Toâ€™ label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name picker then the selected names will be added to **To** **Cc** **Bcc** fields accordingly in mail compose view.
+The Name Picker extension point allows the integration of a custom UI for selecting addresses when sending an email. When a custom name picker is contributed to Verse, the ‘To’ label in the UI for composing a mail will be rendered as a link. On clicking the link, the name-picker will be rendered inside of the mail compose view. The user can select names using the name picker then the selected names will be added to **To** **Cc** **Bcc** fields accordingly in mail compose view.
 
 &nbsp;
 
 #### Required Properties for a Name Picker
-- {string} `url` The widgetâ€™s url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
+- {string} `url` The widget’s url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
 
 &nbsp;
 
@@ -303,7 +303,7 @@ The Name Picker extension point allows the integration of a custom UI for select
 #### Response Message required from Name Picker to add recipients
 There are two methods to add recipient(s) from the name picker. One is to add a single recipient to 
 whichever of **To**, **Cc** or **Bcc** input fields is currently selected.
-The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud as well.
+The other is to add recipients to **To**, **Cc** and **Bcc** input fields all together in one action. The second method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud as well.
 
 &nbsp;
 
@@ -341,7 +341,7 @@ evt.source.postMessage(emails_message, evt.origin);
 
 &nbsp;
 
-This method is introduced in Verse on-Premises 1.0.4 and is available in Verse on-cloud too.
+This method is introduced in Verse on-Premises 1.0.4 and is avaiable in Verse on-cloud too.
 
 &nbsp;
 
@@ -429,13 +429,13 @@ An optional property called `disableSend` is provided to control the send button
 - If it determines the mail is OK to send it can allow it to be sent without any further action from the user.
 - If it wants to display a warning to the user but still allow them to send the mail it can display a UI and re-enable the send button.
 - If it wants to block the user from sending the mail it can display a UI and leave the send button disabled.
-- In case the external application fails to load, the â€˜Sendâ€™ button will be automatically re-enabled and a message will be displayed to the user warning them that there is risk associated with sending the mail because the extension to which validates mails cannot be loaded.
+- In case the external application fails to load, the ‘Send’ button will be automatically re-enabled and a message will be displayed to the user warning them that there is risk associated with sending the mail because the extension to which validates mails cannot be loaded.
 
 &nbsp;
 
 #### Required Properties for a Before On Send
 - {string} `id` The id for the custom name picker.
-- {string} `url` The widgetâ€™s url, when the Send button is clicked, the URL is opened in a hidden iframe.
+- {string} `url` The widget’s url, when the Send button is clicked, the URL is opened in a hidden iframe.
 
 &nbsp;
 
@@ -483,9 +483,9 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 #### Optional Properties for Extensions
 - {string} `alt` Alt text for Live Text action.
 - {string} `location` This property specifies where to open the Live Text extension. The acceptable values can be `window` or `tab`.
-  - `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new windowâ€™s size. If renderParams is not provided, a default renderParams will be used.
+  - `window` - The Live Text extension will be opened in the new window. We can use renderParams to specify the new window’s size. If renderParams is not provided, a default renderParams will be used.
   - `tab` - The Live Text extension will be opened in the new tab.
-- {object} `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new windowâ€™s width/height accordingly. This property is only valid if the `location`â€™s value is `window`.
+- {object} `renderParams` This property specifies the window size when the extension is open in a new window. The renderParams property contains `width` and `height` properties, which are used to specify the new window’s width/height accordingly. This property is only valid if the `location`’s value is `window`.
 
 &nbsp;
 
