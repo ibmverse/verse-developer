@@ -5,17 +5,16 @@ pagename: security
 ---
 
 ## Security
-As your website is using cross-document messaging to communicate with Verse, it can be vulnerable to cross-site scripting attack unless certain security implementations are followed carefully. Here are four tips to make your application less vulnerable.
 
-&nbsp;
+**Note: For best security, IBM recommends running extensions from a different [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) than the Verse application. Extensions that run from the same origin as Verse have full access to the Verse application page content and therefore potentially are less secure. Any extension code that runs from the Verse origin should be reviewed and fully trusted by your organization.**
+
+As your website is using cross-document messaging to communicate with Verse, it can be vulnerable to cross-site scripting attack unless certain security implementations are followed carefully. Here are four tips to make your application less vulnerable.
 
 ### When receiving message, always verify origin of the message
 In this [sample HTML page]({{site.data.developers.sampleActionApp}}){:target="_blank"}, we did not verify origin of the message as we need to make sure the page works with any domain for demoing purpose. However, in a production environment, immediately after the line:
 {% highlight pre %}
 window.addEventListener("message", function(event) {
 {% endhighlight %}
-
-&nbsp;
 
 you should add the following code to check the origin of the message and prevent the rest of the JavaScript code from executing if the message origin does not match your Verse domain:
 
@@ -34,8 +33,6 @@ In this [sample HTML page]({{site.data.developers.sampleActionApp}}){:target="_b
 {% highlight pre %}
 event.source.postMessage(loaded_message, event.origin);
 {% endhighlight %}
-
-&nbsp;
 
 If you have verified origin of the message by implementing the suggestion in the previous tip, you can be sure that `event.origin` here would be your Verse domain.
 
@@ -61,14 +58,12 @@ On the extension side, Google Chrome has also given some suggestion on how to ma
 
 Verse defines a URL scheme whitelist to restrict what URL scheme can be used in extension URL when the URL is opened from Verse.
 
-&nbsp;
-
 #### Default URL scheme whitelist
 
 The URL schemes `http`, `https`, `notes`, `im`, `sip`, `tel` and `xmpp` are allowed by default.
-&nbsp;
+
 If the extension is registered via Verse Developer browser extension, then `chrome-extension` and `moz-extension` URL schemes are also allowed by default.
-&nbsp;
+
 If the extension is opened in a new window or new tab, then only `http`, `https`, `chrome-extension` and `moz-extension` URL schemes are allowed by default.
 
 &nbsp;

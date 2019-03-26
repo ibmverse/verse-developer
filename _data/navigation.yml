@@ -54,6 +54,18 @@ tutorials          :
     url            : "third-party-file-repository-integration"
     type           : "url"
 
+  - title          : "Directory Search Extension"
+    url            : "directory-search-extension"
+    type           : "url"
+
+  - title          : "CSS Extension"
+    url            : "css-extension"
+    type           : "url"
+
+  - title          : "Navigation Bar Extension"
+    url            : "navigation-bar-extension"
+    type           : "url"
+
 documentation      :
   - title          : "Get Started"
     url            : "get-started"

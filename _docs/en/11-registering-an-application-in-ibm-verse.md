@@ -98,7 +98,7 @@ VOP_Extensibility_Endpoint_URL=https://rest.renovations.com/vop/appregistry/serv
 {% endhighlight %}
 
 The custom endpoint MUST return the same response format as IBM Connections Appregistry API (see [Retrieving a list of all extensions]({{site.data.developers.RetrievingApplications}}){:target="_blank"}), otherwise, Verse will not be able to correctly parse the response and get the extensions. You can see the response format below. In the <b>items</b>, it contains all of your registered applications/extensions.
-![Format for items list](/assets/img/items.png)
+![Format for items list]({{ site.url }}{{ site.baseurl }}/assets/img/items.png)
 
 #### Summary of related notes.ini parameters
 The following table lists related notes.ini parameters that you can use based on your specific needs. You can find each parameter's description, allowed value, and its default value in the table.
