@@ -39,6 +39,7 @@ Here is the full list of extension points that Verse supports:
 
 - [com.ibm.verse.ext.css](#css-support-comibmverseextcss)
 
+- [com.ibm.verse.ext.directorySearch](#directory-search-extension-comibmverseextdirectorysearch)
 &nbsp;
 
 ### Verse Extension Points Offline Support
@@ -246,7 +247,9 @@ When a contributed action is clicked, the widget will be rendered in a different
 #### Required Properties for a Widget Action
 - {string} `id` The id for the action.
 - {string} `text` The text for the action.
-- {string} `path` The path identifies where the action is contributed. All of supported paths are listed here.
+- {string} `path` The path identifies where the action is contributed. The supported paths:
+  - `com.ibm.verse.path.mailCompose`
+  - `com.ibm.verse.path.mailRead`
 
 &nbsp;
 
@@ -256,7 +259,7 @@ When a contributed action is clicked, the widget will be rendered in a different
 - {object} `location` The property is used to specify where to render the widget. The acceptable values can be **window**, **tab** or **embedded**.
   - window - the widget will be open in the new window. We can use renderParams to specify the new window’s size.
   - tab - the widget will be open in the new tab.
-  - embedded - the widget will be open inside an iframe. This value is only supported for Mail Compose actions.
+  - embedded - the widget will be open inside the component specified by `path`. This value is supported for both Mail Read and Mail Compose actions. It's introduced in Verse on-Premises 1.0.7 and available in Verse on-cloud as well.
 
 - {object} `renderParams` The property is used to specify the window size when the application is open in a new window. The renderParams property contains width and height properties which are used to specify the new window’s width/height accordingly. This property is only valid if the location’s value is **window**.
 
@@ -331,18 +334,18 @@ The other is to add recipients to **To**, **Cc** and **Bcc** input fields all to
 
 &nbsp;
 
-##### Required Properties
+###### Required Properties
 - {string} `verseApiType` The value must be `com.ibm.verse.add.contact`
 - {string} `userEmail` The recipient email address
 
 &nbsp;
 
-##### Optional Property
+###### Optional Property
 - {string} `userName` The recipient name
 
 &nbsp;
 
-##### Example Response Message to add single recipient to currently selected input field
+###### Example Response Message to add single recipient to currently selected input field
 
 ```
 var userEmail = samantha@cn.ibm.com;
@@ -365,12 +368,12 @@ This method is introduced in Verse on-Premises 1.0.4 and is available in Verse o
 
 &nbsp;
 
-##### Required Properties
+###### Required Properties
 - {string} `verseApiType` The value must be `com.ibm.verse.add.contact`
 
 &nbsp;
 
-##### Optional Property
+###### Optional Property
 - {array} `recipientTo` An array of `Recipient`s to be added to To field.
 - {array} `recipientCC` An array of `Recipient`s to be added to Cc field.
 - {array} `recipientBcc` An array of `Recipient`s to be added to Bcc field.
@@ -393,7 +396,7 @@ The `Recipient` is a JSON object with following properties:
 
 &nbsp;
 
-##### Example Response Message to add recipients from name picker to **To**, **Cc** and **Bcc** input fields in one action
+###### Example Response Message to add recipients from name picker to **To**, **Cc** and **Bcc** input fields in one action
 
 ```
 var toArray = [ 
@@ -700,7 +703,9 @@ The Third-Party File Repository extension point integrates a third-party file re
 
 Verse supports [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) to communicate with your repository. The communication involves two steps:
 
-1. Notify Verse that your repository application is ready to receive and send data.
+&nbsp;
+
+##### 1. Notify Verse that your repository application is ready to receive and send data.
 
 When a user attempts to access your repository, Verse loads your repository application and pings it the message `com.ibm.verse.ping.application.loaded` to check whether your application is ready to receive data.
 Your application needs to handle this message and send back a message `com.ibm.verse.application.loaded` to notify Verse that your application is ready to receive and send data.
@@ -721,7 +726,7 @@ Note that the Verse ping will time out in 30 seconds, so your application must s
 
 &nbsp;
 
-2. Send file or folder link information to Verse. 
+##### 2. Send file or folder link information to Verse. 
 After the user chooses files or folders in your repository application, your application sends the Add Links message to Verse to insert file or folder links into the message body via winodw.postMessage API.
 
 The Add Links message structure is defined as below:
@@ -743,20 +748,26 @@ The Add Links message structure is defined as below:
 
 &nbsp;
 
-##### Required Properties for Add Links message
+###### Required Properties for Add Links message
 
 - {string} `verseApiType` This property indicates the message type. Its value must be `com.ibm.verse.ext.file.add.links`
 
-##### Optional Properties for Add Links Message
+&nbsp;
 
-- {array<object>} `links` It is an array of the file or folder links. Each link is a Json object that contains `url` and `name` properties.
+###### Optional Properties for Add Links Message
+
+- {array<object>} `links` It is an array of the file or folder links. Each link is a JSON object that contains `url` and `name` properties.
   - url - The url used to open a file or folder.
   - name - The display text of the link.
 - {boolean} `closeWindow` This property tells Verse whether to close your third-party file repository application when Verse receives the Add Links message. The default value is false.
 
+&nbsp;
+
 #### Third-party file repository integration tutorial
 For the tutorial of creating Third-Party File Repository extension in Verse, see [Third-Party File Repository Integration Tutorial](../tutorials#third-party-file-repository-integration).
 
+&nbsp;
+&nbsp;
 
 ### CSS Support (com.ibm.verse.ext.css)
 The CSS extension point allows you to customize Verse UI using a standard CSS. Your style sheet is inserted as an internal style sheet in the Verse page.
@@ -817,3 +828,182 @@ The following CSS extension illustrates how to hide all Calendar elements.
   ]
 }
 {% endhighlight %}
+
+&nbsp;
+&nbsp;
+
+### Directory Search Extension (com.ibm.verse.ext.directorySearch)
+The directory search extension point allows you to contribute a custom directory search to find people in Verse. It is introduced in Verse on-Premises 1.0.7 and is available in Verse on-cloud as well.
+
+&nbsp;
+
+#### Required Properties for a Directory Search Extension
+- {string} `url` The extension's url. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the directory search extension.
+
+&nbsp;
+
+#### Optional Properties for a Directory Search Extension
+- {boolean} `enableBuiltinDirectorySearch` This property controls whether the built-in directory search in Verse is also used. When the value is true, the built-in search is used and the results from the built-in search are combined with the results from the custom directory search. If enableBuiltinDirectorySearch is not specified or is set to false, the built-in search is not used.
+
+&nbsp;
+
+#### Example Directory Search Extension
+{% highlight pre %}
+  {
+    "name": "Directory Search Extension Sample",
+    "title": "Directory Search Extension Sample",
+    "description": "This is a sample of directory search extension",
+    "extensions": [
+      {
+        "type": "com.ibm.verse.ext.directorySearch",
+        "payload": {
+          "url": "${extensionPath}/custom-directory-search/index.html",
+          "enableBuiltinDirectorySearch": false
+        }
+      }
+    ],
+    "services": ["Verse"]
+  }
+{% endhighlight %}
+
+&nbsp;
+
+#### Sending and Receiving Data between Verse and Directory Search Extension
+
+Verse supports [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) to communicate with your directory search extension. The communication involves below steps:
+
+&nbsp;
+
+##### 1. Notify Verse that your extension is ready to receive and send data.
+
+Verse loads the extension and pings it the message `com.ibm.verse.ping.application.loaded` to check whether it is ready to receive data.
+
+Your extension needs to handle this message and send back a message `com.ibm.verse.application.loaded` to notify Verse that your application is ready to receive and send data.
+
+Below is the sample code to handle Verse message and notify Verse your extension is ready to receive and send data.
+
+{% highlight pre %}
+window.addEventListener('message', function(evt) {
+  var verseApiType = evt && evt.data && evt.data.verseApiType;
+  if (verseApiType === 'com.ibm.verse.ping.application.loaded') {
+    evt.source.postMessage({
+      verseApiType: 'com.ibm.verse.application.loaded'
+    }, evt.origin);
+  }
+}, false);
+{% endhighlight %}
+
+&nbsp;
+
+**Note** that the Verse ping will time out in 30 seconds, so your extension must send back the `com.ibm.verse.application.loaded message` as soon as possible once it is ready to receive data.
+
+&nbsp;
+
+##### 2. Verse sends the text to search to the directory search extension
+
+After user types some characters and clicks 'Search Directory' button, Verse sends a message with the text to search to your extension. The message structure is defined as below:
+
+{% highlight pre %}
+{
+  verseApiType: "com.ibm.verse.action.clicked",
+  verseApiData: {
+    actionId: "com.ibm.verse.ext.action.directorySearch",
+    context: {
+      searchString: "The text to search"
+    }
+  }
+}
+{% endhighlight %}
+
+&nbsp;
+
+##### 3. The directory search extension sends the search results to Verse.
+
+When the directory search extension receives the message with the text to search from Verse, it does the search. After your extension finishes search, it should send the Search Results message to Verse via window.postMessage API.
+
+The Search Results message structure is defined as below:
+
+{% highlight pre %}
+{
+  verseApiType: "com.ibm.verse.ext.directorySearch.searchResults",
+  returnCode: 0,
+  result: [
+    {
+      emailAddress: "johnsmith@sample.com",
+      notesAddress: "John Smith/UK/SAMPLE",
+      displayName: "John Smith",
+      forwardMailAddress: "johnsmith@sampleuk.com",
+    },
+    {
+      emailAddress: "johnLi@sample.com",
+      displayName: "John Li",
+    },
+   {
+      notesAddress: "John Zhang/China/SAMPLE",
+      displayName: "John Zhang",
+    },
+   {
+     emailAddress: "john-wang@sample.com",
+   }
+  ]
+}
+{% endhighlight %}
+
+&nbsp;
+
+###### Required Properties for the Search Results message
+
+- {string} `verseApiType` The value of this property must be 'com.ibm.verse.ext.directorySearch.searchResults'.
+- {number} `returnCode` The property is the status code of your response, and the value could be:
+  - 0: Success
+  - 1: General error
+  - 2: No network connection
+  - 3: Server no response
+
+&nbsp;
+
+###### Optional Properties for the Search Results message
+
+- {string} `result` The value should be an array of the search result items. Only when `returnCode` is 0, the value of `result` will be used. If the value of `result` is [] or the property is not specified, Verse will regard as no matches found. Each result item is a JSON object that contains below properties. At least one `emailAddress` or `notesAddress` is required; `displayName` and `forwardMailAddress` is optional.
+  - {string} emailAddress: Email address
+  - {string} notesAddress: Notes address
+  - {string} displayName: Name to be displayed. Optional
+  - {string} forwardMailAddress: Forward email address. Optional
+
+&nbsp;
+
+**Note** that the Verse directory search will time out in 1 minute, so your extension must send back the `com.ibm.verse.ext.action.directorySearch` message as soon as possible once it finishes searching.
+
+Below is the sample code to handle the message from Verse and send the Search Results message to Verse.
+
+{% highlight pre %}
+document.onload = function() {
+  document.addEventListener('message', function(evt) {
+    var verseApiType = event && event.data && event.data.verseApiType;
+    var verseWindow = event.source;
+    if (verseApiType === 'com.ibm.verse.action.clicked') {
+      var actionId = event.data.verseApiData && event.data.verseApiData.actionId;
+      if ( actionId === 'com.ibm.verse.ext.action.directorySearch') {
+        var searchString = event.data.verseApiData && event.data.verseApiData.context
+          && event.data.verseApiData.context.searchString;
+          // Do custom search
+          var searchResult = someCustomSearchAPI(searchString);
+          // Send message back to Verse
+          var searchResultsMessage = {
+            verseApiType: 'com.ibm.verse.ext.directorySearch.searchResults',
+            returnCode: 0,
+            result: searchResult,
+          };
+          verseWindow.postMessage(searchResultsMessage, evt.origin);
+  });
+}
+{% endhighlight %}
+
+&nbsp;
+
+When Verse receives message from the directory search extension, Verse will check if it is a `com.ibm.verse.ext.directorySearch.searchResults` message. If so, Verse will process the results, and shows the results in the search panel.
+
+&nbsp;
+
+#### Directory Search Extension Tutorial
+For the tutorial of creating a directory search extension in Verse, see [Directory Search Extension Tutorial](../tutorials#directory-search-extension).

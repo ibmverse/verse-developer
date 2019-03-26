@@ -58,6 +58,15 @@ The `attachments` property is an array of JSON objects. Each JSON object contain
 
 {% highlight pre %}
 {
+  "attachments": [
+    {
+      "assignedName": "",
+      "name": "",
+      "size": "",
+      "selected": "",
+      "uploaded": "",
+    }
+  ],
   "body": "",
   "contextId": "",
   "id": "",
@@ -77,15 +86,6 @@ The `attachments` property is an array of JSON objects. Each JSON object contain
     {
       "displayName": "",
       "emailAddress": ""
-    }
-  ],
-  "attachments": [
-    {
-      "assignedName": "",
-      "name": "",
-      "size": "",
-      "selected": "",
-      "uploaded": "",
     }
   ],
   "subject": ""
@@ -98,24 +98,35 @@ The `attachments` property is an array of JSON objects. Each JSON object contain
 
 &nbsp;
 
-**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) definition.
+- {Array} `attachments` - It's an array of JSON objects. Each JSON object contains the following properties:
+  - {string} `name` attachment name
+  - {number} `size` the size of attachment in **Byte**
+  - {string} `assignedName` attachment assigned name in server
+  - {boolean} `selected` whether attachment is selected or not
+  - {boolean} `uploaded` whether attachment is uploaded to server or not
+- {boolean} `isPreventCopy` - Whether the sender of a message marked it as "Prevent copying" (IBM Notes) or "Keep Private" (IBM iNotes). This property is introduced in Verse on-Premises 1.0.7 and available in Verse on-cloud as well.
 
 &nbsp;
 
-The `attachments` property is an array of JSON objects. Each JSON object contains the following properties:
-- {string} `name` attachment name
-- {number} `size` the size of attachment in **Byte**
-- {string} `assignedName` attachment assigned name in server
-- {boolean} `selected` whether attachment is selected or not
-- {boolean} `uploaded` whether attachment is uploaded to server or not
+**Note** that `recipientBcc` and `attachments` properties are only available when they are enabled in `permissions` property of [widget action](#Optional-Properties-for-a-Widget-Action) definition.
 
 &nbsp;
 
 {% highlight pre %}
 {
+  "attachments": [
+    {
+      "assignedName": "",
+      "name": "",
+      "size": "",
+      "selected": "",
+      "uploaded": "",
+    }
+  ],
   "body": "",
   "contextId": "",
   "id": "",
+  "isPreventCopy": "",
   "recipientBcc": [
     {
       "displayName": "",
@@ -132,15 +143,6 @@ The `attachments` property is an array of JSON objects. Each JSON object contain
     {
       "displayName": "",
       "emailAddress": ""
-    }
-  ],
-  "attachments": [
-    {
-      "assignedName": "",
-      "name": "",
-      "size": "",
-      "selected": "",
-      "uploaded": "",
     }
   ],
   "sender": {

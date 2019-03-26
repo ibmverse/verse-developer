@@ -76,3 +76,9 @@ Congratulations! You successfully configured a Third-Party File Repository exten
 1. Click on the contributed button to arise third-party file repository
 1. Choose files from the repository.
 1. Verse receives the chosen files information and add the file links into the message body.
+
+---
+
+#### Secure the Application
+
+Follow the instructions to [secure the application](../developers/#secure-the-application).
