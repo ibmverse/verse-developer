@@ -1,0 +1,53 @@
+[
+  {
+    "extensions": [
+      {
+        "type": "com.ibm.action.link",
+        "path": "com.ibm.navbar.order.10000",
+        "applications": [
+          "Narbar App"
+        ],
+        "name": "Sample Link 1",
+        "description": "This sample shows how to add a top-level link",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "Sample Link 1",
+          "window_features": "target=_blank"
+        },
+        "title": "Sample Link 1"
+      },
+      {
+        "type": "com.ibm.action.link",
+        "path": "com.ibm.navbar.order.390000",
+        "applications": [
+          "Narbar App"
+        ],
+        "name": "Sample Link 2",
+        "description": "This sample shows how to add a top-level link",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "Sample Link 2",
+          "window_features": "target=_blank"
+        },
+        "title": "Sample Link 2"
+      },
+      {
+        "type": "com.ibm.action.delete",
+        "path": ".mailnotebook",
+        "applications": [
+          "Navbar App"
+        ],
+        "name": "Delete Notebook link",
+        "description": "This sample shows how to delete the Notebook link from the More menu",
+        "title": "Delete Notebook Link"
+      }
+    ],
+    "title": "Navbar App",
+    "name": "Navbar App",
+    "description": "Navbar App",
+    "payload": {},
+    "services": [
+      "TopNavigationBar"
+    ]
+  }
+]

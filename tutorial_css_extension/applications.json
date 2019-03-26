@@ -1,0 +1,19 @@
+[
+  {
+    "name": "CSS Extension Sample",
+    "description": "The sample shows how to customize Verse UI",
+    "title": "CSS Extension Sample",
+    "extensions": [
+      {
+        "type": "com.ibm.verse.ext.css",
+        "name": "CSS extension sample",
+        "payload": {
+          "css": ".ics-scbanner {background-color:green!important;} .seq-window .compose-button {font-size:16px!important;background-color:red!important;} .message-list-container .seq-msg-row {background-color:yellow!important;} .createEvent {display:none!important;}"
+        }
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+]
