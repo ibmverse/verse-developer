@@ -19,6 +19,7 @@
     "samples/actions.html",
     "custom-name-picker/index.html",
     "hook-before-send/index.html",
-    "hook-before-send-disable/index.html"
+    "hook-before-send-disable/index.html",
+    "custom-directory-search/index.html"
   ]
 }

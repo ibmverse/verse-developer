@@ -1,0 +1,51 @@
+[
+  {
+    "extensions": [
+      {
+        "type": "com.ibm.action.menu",
+        "path": "com.ibm.navbar.order.3500",
+        "applications": [
+          "News Menu"
+        ],
+        "name": "NewsMenuContainer",
+        "description": "This sample shows how to contribute a menu container",
+        "title": "News"
+      },
+      {
+        "type": "com.ibm.action.menu.link",
+        "path": "NewsMenuContainer.1",
+        "applications": [
+          "News Menu"
+        ],
+        "name": "News.CNN",
+        "description": "This sample shows how to contribute a submenu",
+        "payload": {
+          "link": "http://cnn.com",
+          "target":"_blank"
+        },
+        "title": "CNN"
+      },
+      {
+        "type": "com.ibm.action.menu.link",
+        "path": "NewsMenuContainer.2",
+        "applications": [
+          "News Menu"
+        ],
+        "name": "News.BBC",
+        "description": "This sample shows how to contribute a submenu",
+        "payload": {
+          "link": "http://bbc.com/news",
+          "target":"_blank"
+        },
+        "title": "BBC"
+      }
+    ],
+    "title": "News Menu",
+    "name": "News Menu",
+    "description": "This sample shows how to contribute a cascading menu",
+    "payload": {},
+    "services": [
+      "TopNavigationBar"
+    ]
+  }
+]

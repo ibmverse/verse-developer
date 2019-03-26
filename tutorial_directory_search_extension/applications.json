@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Directory Search Extension Sample",
+    "title": "Directory Search Extension Sample",
+    "description": "This is a sample of directory search extension",
+    "extensions": [
+      {
+        "type": "com.ibm.verse.ext.directorySearch",
+        "payload": {
+          "url": "${extensionPath}/custom-directory-search/index.html",
+          "enableBuiltinDirectorySearch": false
+        }
+      }
+    ],
+    "services": ["Verse"]
+  }
+]

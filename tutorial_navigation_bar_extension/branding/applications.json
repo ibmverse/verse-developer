@@ -1,0 +1,48 @@
+[
+  {
+    "extensions": [
+      {
+        "name": "Delete the default Org link",
+        "type": "com.ibm.action.delete",
+        "path": ".org",
+        "title": "Delete the default Org link",
+        "description": "This sample shows how to delete the default organization link",
+        "applications": [
+          "Branding App"
+        ]
+      },
+      {
+        "name": "New Company Name",
+        "type": "com.ibm.action.link",
+        "path": "com.ibm.navbar.order.1500",
+        "title": "New Company Name",
+        "description": "This sample shows how to add a new organization link",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "New Company Name",
+          "window_features": "target=_blank"
+        }
+      },
+      {
+        "name": "New Company logo",
+        "type": "com.ibm.action.link",
+        "title": "New Company Name",
+        "path": "com.ibm.navbar.order.1000",
+        "description": "This sample shows how to add a new organization logo",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "New Company Name",
+          "icon": "data:image/svg+xml;base64,PHN2ZyBjbGFzcz0nY2hhdC1pbWFnZScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyBmaWxsPSd3aGl0ZScgdmlld0JveD0nMCAwIDIwIDIwJz48cGF0aCBjbGFzcz0nY2hhdC1pbWFnZS1vdXRsaW5lJyBkPSdNMTAgMEM1LjYgMCAyIDMuNiAyIDhjMCA0LjEgMy4xIDcuNCA3IDcuOVYyMGw2LjgtNi41QzE3LjEgMTIuMSAxOCAxMC4xIDE4IDhjMC00LjQtMy42LTgtOC04em01IDEyLjlsLTUgNC43VjE1Yy0zLjkgMC03LTMuMS03LTdzMy4xLTcgNy03IDcgMy4xIDcgN2MwIDEuOS0uOCAzLjYtMiA0Ljl6Jy8+PC9zdmc+",
+          "window_features": "target=_blank"
+        }
+      }
+    ],
+    "title": "Branding App",
+    "name": "Branding App",
+    "description": "This sample shows how to brand Verse",
+    "payload": {},
+    "services": [
+      "TopNavigationBar"
+    ]
+  }
+]
