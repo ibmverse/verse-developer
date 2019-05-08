@@ -237,6 +237,21 @@ __2.__ Append the following object into the array in `applications.json`, and sa
         "name": "Delete Notebook link",
         "description": "This sample shows how to delete the Notebook link from the More menu",
         "title": "Delete Notebook Link"
+      },
+      {
+        "type": "com.ibm.action.link",
+        "path": "com.ibm.navbar.order.96001",
+        "applications": [
+          "Narbar App"
+        ],
+        "name": "Sample Link 3",
+        "title": "Sample Link 3",
+        "description": "This sample shows how to add a new link to More menu",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "Sample Link 3",
+          "window_features": "target=_blank"
+        }
       }
     ],
     "title": "Navbar App",
@@ -259,7 +274,7 @@ For instructions on how to reload the extension click [here](../developers/#inst
 #### Test it out
 
 A top-level link `Sample Link 1` is added on the left part of navigation bar. A top-level link `Sample Link 2` is added on the right part of navigation bar.
-The `Notebook` link is deleted from `More` menu.
+The `Notebook` link is deleted from `More` menu. A new link `Sample Link 3` is added to `More` menu.
 
 ![Navigation Bar Add and Delete Link UI]({{ site.url }}{{ site.baseurl }}/assets/img/navbar-extension-add-delete-link.png)
 
@@ -271,4 +286,4 @@ Congratulations! You successfully configured navigation bar extensions with Vers
 #### How it works
 
 * This step introduces two extension points, one with the type `com.ibm.action.link`, the other with the type `com.ibm.action.delete`.
-* Three navigation bar extensions are configured into Verse. The extension with the type `com.ibm.action.link` add two top-level links `Sample Link 1` and `Sample Link 2` on navigation bar. The extension with the type `com.ibm.action.delete` deletes the `Notebook` link from the `More` menu.
+* Four navigation bar extensions are configured into Verse. The extension with the type `com.ibm.action.link` add two top-level links `Sample Link 1` and `Sample Link 2` on navigation bar and a new link `Sample Link 3` to `More` menu. The extension with the type `com.ibm.action.delete` deletes the `Notebook` link from the `More` menu.
