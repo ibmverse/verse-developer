@@ -41,7 +41,7 @@ Here is the full list of extension points that Verse supports. Note that only an
 
 - [com.ibm.verse.ext.directorySearch](#directory-search-extension-comibmverseextdirectorysearch)
 
-- [com.ibm.appreg.ext.enableSametime](#enable-sametime-comibmappregextenableSametime)
+- [com.ibm.appreg.ext.enableSametime](#enable-sametime-comibmappregextenablesametime)
 &nbsp;
 
 ### Verse Extension Points Offline Support
