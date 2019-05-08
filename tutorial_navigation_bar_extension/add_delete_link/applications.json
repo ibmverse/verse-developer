@@ -32,6 +32,21 @@
         "title": "Sample Link 2"
       },
       {
+        "type": "com.ibm.action.link",
+        "path": "com.ibm.navbar.order.96001",
+        "applications": [
+          "Narbar App"
+        ],
+        "name": "Sample Link 3",
+        "title": "Sample Link 3",
+        "description": "This sample shows how to add a new link to More menu",
+        "payload": {
+          "link": "http://www.ibm.com",
+          "title": "Sample Link 3",
+          "window_features": "target=_blank"
+        }
+      },
+      {
         "type": "com.ibm.action.delete",
         "path": ".mailnotebook",
         "applications": [
