@@ -13,7 +13,7 @@ Simple Link and Templated Link extensions provide an easy way to contribute clic
 
 However, Widget Action’s inside of Widget’s allow those same kinds of clickable UI artifacts to trigger programmatic logic inside of widgets, which are like mini web applications that can respond to that input.
 
-Here is the full list of extension points that Verse supports:
+Here is the full list of extension points that Verse supports. Note that only an absolute link is supported in an extension.
 
 - [com.ibm.appreg.ext.simpleLink](#simple-link-comibmappregextsimplelink)
 
@@ -40,6 +40,8 @@ Here is the full list of extension points that Verse supports:
 - [com.ibm.verse.ext.css](#css-support-comibmverseextcss)
 
 - [com.ibm.verse.ext.directorySearch](#directory-search-extension-comibmverseextdirectorysearch)
+
+- [com.ibm.appreg.ext.enableSametime](#com-ibm-appreg-ext-enableSametime)
 &nbsp;
 
 ### Verse Extension Points Offline Support
@@ -63,7 +65,7 @@ A Simple Link extension adds a clickable URL link to the Verse UI.
 
 #### Required Properties for a Simple Link
 - {string} `text` The text for the link
-- {string} `href` The link location
+- {string} `href` The absolute link location.
 
 
 &nbsp;
@@ -144,7 +146,7 @@ EX: emails is a plural field
 
 #### Required Properties for a Templated Link
 - {string} `text` The text for the link
-- {string} `href` The link location. Verse will take care to URL encode values replaced in the href property.
+- {string} `href` The absolute link location. Verse will take care to URL encode values replaced in the href property.
 
 &nbsp;
 
@@ -185,7 +187,7 @@ The definition of a widget MAY contain 1 or multiple Widget Actions. The Widget 
 &nbsp;
 
 #### Required Properties for a Widget
-- {string} `url` The widget’s url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
+- {string} `url` The widget’s absolute url, when the action in the widget is clicked, the widget will open the url on the place specified by the action’s location.
 - {array} `actions` An array of Widget Actions. This property identifies the contributed Widget Actions by this widget.
 
 &nbsp;
@@ -294,7 +296,7 @@ The Name Picker extension point allows the integration of a custom UI for select
 &nbsp;
 
 #### Required Properties for a Name Picker
-- {string} `url` The widget’s url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
+- {string} `url` The widget’s absolute url, when the **To** link is clicked, a new iframe will open in the mail compose view pointing to this URL. The resource at the URL must display a UI allowing the user to add names to the email.
 
 &nbsp;
 
@@ -457,7 +459,7 @@ An optional property called `disableSend` is provided to control the send button
 &nbsp;
 
 #### Required Properties for a Before On Send
-- {string} `url` The widget’s url, when the Send button is clicked, the URL is opened in a hidden iframe.
+- {string} `url` The widget’s absolute url, when the Send button is clicked, the URL is opened in a hidden iframe.
 
 &nbsp;
 
@@ -505,7 +507,7 @@ Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text E
 
 #### Required Properties for a Live Text
 - {string} `text` The text for the Live Text action.
-- {string} `href` The Live Text link location. Use ${groupNumber} to define a variable in the href. The groupNumber is the group number of regular expression defined in recognizer. When execute a Live Text action, the ${groupNumber} will be replaced with text recognized by the groupNumber group.
+- {string} `href` The Live Text absolute link location. Use ${groupNumber} to define a variable in the href. The groupNumber is the group number of regular expression defined in recognizer. When execute a Live Text action, the ${groupNumber} will be replaced with text recognized by the groupNumber group.
 - {string} `recognizer` A regular expression in string form, not a regex literal, to recognize the specified text pattern as Live Text.
 
 &nbsp;
@@ -563,7 +565,7 @@ The ${extensionPath} in the previous example is only a path var of this reposito
 - com.ibm.action.menu.link (available in Verse on-cloud, Verse On-Premises 1.0.5 and above)  
 
 You can customize the navigation bar by hiding default links and menus, and by adding custom links and menus.
-You can refer to [Extending the navigation bar]({{site.data.developers.NavbarExtensionGuide}}){:target="_blank"} topic and its sub topics to take an overview of navigation bar extensibility and how to use these extensions.  
+You can refer to [Extending the navigation bar]({{site.data.developers.NavbarExtensionGuide}}){:target="_blank"} topic and its sub topics to take an overview of navigation bar extensibility and how to use these extensions. Note that only an absolute link is supported in an extension.  
 
 **Security Tip:** `com.ibm.action.delete` extension can delete existing menu. `com.ibm.action.link` and `com.ibm.action.delete` extensions used together can modify existing menu. If the navigation bar extensions are contributed by external developer, administrator should check whether the extensions have any potential risk and control it when they deploy the exensions.
 
@@ -662,7 +664,7 @@ The Third-Party File Repository extension point integrates a third-party file re
 
 #### Required Properties for a Third-Party File Repository Extension
 - {string} `text` The name of the repository.
-- {string} `url` The target url to open the repository. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the file repository extension.
+- {string} `url` The target absolute url to open the repository. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the file repository extension.
 - {string} `icon` The icon for the repository. The only value format supported is a data-uri with a base64 encoded payload. For example: `"icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGpJREFUOE+1k4EKgDAIRC36b/3z6kLJFUpOejAYQ293si3MvFMREdHdCQQqoN73rKpTxlxMC4BLpBrBg95NxV74QQ1De/LFQVSD89YMQBgBmPUsQuoAjbYi/ovgb80ctN9BO0JbYOo73xAdbuoHJPh854UAAAAASUVORK5CYII="`.
 
 &nbsp;
@@ -838,7 +840,7 @@ The directory search extension point allows you to contribute a custom directory
 &nbsp;
 
 #### Required Properties for a Directory Search Extension
-- {string} `url` The extension's url. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the directory search extension.
+- {string} `url` The extension's absolute url. Only `https` protocol is allowed in url, since Verse uses `https` protocol and [Cross-document Messaging](https://www.w3.org/TR/webmessaging/) is used to communicate between Verse and the directory search extension.
 
 &nbsp;
 
@@ -1007,3 +1009,29 @@ When Verse receives message from the directory search extension, Verse will chec
 
 #### Directory Search Extension Tutorial
 For the tutorial of creating a directory search extension in Verse, see [Directory Search Extension Tutorial](../tutorials#directory-search-extension).
+
+&nbsp;
+&nbsp;
+
+### Enable Sametime (com.ibm.appreg.ext.enableSametime)
+The Enable Sametime extension point allows you to enable Connection Cloud Chat in Verse when Webchat is disabled at the Organization level. It overrides the Administration panel setting to allow Sametime chat in Verse even if the Instant Messaging is disabled in the Administration panel.
+
+&nbsp;
+
+#### Example Enable Sametime Extension
+{% highlight pre %}
+  {
+    "name": "Enable Sametime",
+    "title": "Enable Sametime",
+    "description": "This extension enables Sametime in Verse, overriding the Admin panel setting",
+    "extensions": [
+      {
+        "name": "Enable Sametime",
+        "type": "com.ibm.appreg.ext.enableSametime"
+      }
+    ],
+    "services": [
+      "Verse"
+    ]
+  }
+{% endhighlight %}
