@@ -1,16 +1,16 @@
 en: &DEFAULT_EN
-  h1                     : "Customize and Extend IBM Verse"
+  h1                     : "Customize and Extend HCL Verse"
   getStartedBtn          : "Get Started"
   getStartedBtnUrl       : "/developers"
 
   howToExtend:
-    h3                   : "How can IBM Verse be customized?"
+    h3                   : "How can HCL Verse be customized?"
     p1                   : "Verse provides you with a set of extension points. These points, in the user interface, allow you to add capabilities and extend Verse to further meet your business needs. "
     p2                   : "You can add actions that users can take when reading, composing, or sending a message. You can create additional customizations such as a custom name picker for addressing messages or add links to the user interface. Use the documentation and sample extensions to get started."
 
   developersGuide:
     h3                   : "Developer's Guide"
-    p1                   : "Learning to customize IBM Verse is easy. Jump right in and learn about all the extension points, with our getting started guide."
+    p1                   : "Learning to customize HCL Verse is easy. Jump right in and learn about all the extension points, with our getting started guide."
     img                  : "assets/img/illo_devguide.svg"
     btn:
       title              : "Get Started"
@@ -18,19 +18,19 @@ en: &DEFAULT_EN
 
   getStartedBlocks:
     - title              : "Install the Extension"
-      content            : "Install the Verse Developer browser extension so that you can get your code working with IBM Verse."
+      content            : "Install the Verse Developer browser extension so that you can get your code working with HCL Verse."
       img                : "assets/img/illo_register.svg"
       btn:
         title            : "Learn more"
         url              : "developers/#how-to-install"
     - title              : "Develop your App"
-      content            : "Develop your application to leverage the extension points available in IBM Verse."
+      content            : "Develop your application to leverage the extension points available in HCL Verse."
       img                : "assets/img/illo_watsontowork.svg"
       btn:
         title            : "Learn more"
         url              : "developers/#get-started"
     - title              : "Sample Apps"
-      content            : "Try out the set of sample apps on GitHub to see the IBM Verse extension points in action."
+      content            : "Try out the set of sample apps on GitHub to see the HCL Verse extension points in action."
       img                : "assets/img/illo_sampleapps.svg"  
       btn:
         title            : "Learn more"

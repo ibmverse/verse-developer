@@ -1,9 +1,5 @@
 footer:
-  - title          : "IBM.com"
-    url            : /
-    class          :
-
-  - title          : "IBM Verse"
+  - title          : "HCL Verse"
     url            : /
     class          :
 
@@ -100,7 +96,7 @@ documentation      :
     type           : "head"
     url            : ""
 
-  - title          : "IBM Verse Extensibility"
+  - title          : "HCL Verse Extensibility"
     url            : "ibm-verse-extensibility"
     type           : "url"
 
@@ -108,7 +104,7 @@ documentation      :
     url            : "extensibility-concepts"
     type           : "url"
 
-  - title          : "IBM Verse Container"
+  - title          : "HCL Verse Container"
     url            : "ibm-verse-container"
     type           : "url"
 
@@ -116,7 +112,7 @@ documentation      :
     url            : "verse-extension-points"
     type           : "url"
 
-  - title          : "Registering an Application in IBM Verse"
+  - title          : "Registering an Application in HCL Verse"
     url            : "registering-an-application-in-ibm-verse"
     type           : "url"
 

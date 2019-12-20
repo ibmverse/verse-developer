@@ -1,11 +1,11 @@
 ---
-title: Registering an Application in IBM Verse
+title: Registering an Application in HCL Verse
 lang: en
 pagename: registering-an-application-in-ibm-verse
 ---
 
-## Registering an Application in IBM Verse
-For development purposes you can use the [IBM Verse Developer Extension for Google Chrome]({{site.data.developers.developerChromeExtension}}){:target="_blank"} to register an application. There is a [tutorial](#get-started) to get you started.
+## Registering an Application in HCL Verse
+For development purposes you can use the [HCL Verse Developer Extension for Google Chrome]({{site.data.developers.developerChromeExtension}}){:target="_blank"} to register an application. There is a [tutorial](#get-started) to get you started.
 &nbsp;
 ### Your Application
 You will need to provide Verse with the URL to your web application. Once an extension is clicked in the Verse UI, the URL will be loaded in a new window. If cross-document messaging is configured, the initial web page can use JavaScript to listen for a window message event containing a context object after it loads. This object has information from Verse for your extension, as specified in the `applications.json` file.
@@ -97,7 +97,7 @@ If you would like to serve the applications.json data dynamically using code, yo
 VOP_Extensibility_Endpoint_URL=https://rest.renovations.com/vop/appregistry/services/Verse/applications
 {% endhighlight %}
 
-The custom endpoint MUST return the same response format as IBM Connections Appregistry API (see [Retrieving a list of all extensions]({{site.data.developers.RetrievingApplications}}){:target="_blank"}), otherwise, Verse will not be able to correctly parse the response and get the extensions. You can see the response format below. In the <b>items</b>, it contains all of your registered applications/extensions.
+The custom endpoint MUST return the same response format as HCL Connections Appregistry API (see [Retrieving a list of all extensions]({{site.data.developers.RetrievingApplications}}){:target="_blank"}), otherwise, Verse will not be able to correctly parse the response and get the extensions. You can see the response format below. In the <b>items</b>, it contains all of your registered applications/extensions.
 ![Format for items list]({{ site.url }}{{ site.baseurl }}/assets/img/items.png)
 
 #### Summary of related notes.ini parameters

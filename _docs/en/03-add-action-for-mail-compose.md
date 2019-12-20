@@ -82,7 +82,7 @@ In this section, you will add a new action which appear in the toolbar displayed
 
 ### Reload the extension and Verse
 **Every time** you make a change to the extension code, you need to **reload the extension** first, then **reload Verse**, so that your browser and Verse will pick up your latest changes.
-- To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the IBM Verse Developer Browser Extension, and click **Reload**.
+- To reload the extension in Chrome, open your Chrome browser, go to `chrome://extensions`, find the HCL Verse Developer Browser Extension, and click **Reload**.
 - In the pop-up Mail Compose view, click on the **More actions** button.
 - In the drop-down menu, click **Mail Compose Action**. This will bring up the web application you just registered with the browser extension, with information related to the Mail Compose view passed on from Verse.
 

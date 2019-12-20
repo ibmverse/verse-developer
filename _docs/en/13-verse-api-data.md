@@ -104,7 +104,7 @@ The `attachments` property is an array of JSON objects. Each JSON object contain
   - {string} `assignedName` attachment assigned name in server
   - {boolean} `selected` whether attachment is selected or not
   - {boolean} `uploaded` whether attachment is uploaded to server or not
-- {boolean} `isPreventCopy` - Whether the sender of a message marked it as "Prevent copying" (IBM Notes) or "Keep Private" (IBM iNotes). This property is introduced in Verse on-Premises 1.0.7 and available in Verse on-cloud as well.
+- {boolean} `isPreventCopy` - Whether the sender of a message marked it as "Prevent copying" (HCL Notes) or "Keep Private" (HCL iNotes). This property is introduced in Verse on-Premises 1.0.7 and available in Verse on-cloud as well.
 
 &nbsp;
 

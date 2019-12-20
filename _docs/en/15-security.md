@@ -6,7 +6,7 @@ pagename: security
 
 ## Security
 
-**Note: For best security, IBM recommends running extensions from a different [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) than the Verse application. Extensions that run from the same origin as Verse have full access to the Verse application page content and therefore potentially are less secure. Any extension code that runs from the Verse origin should be reviewed and fully trusted by your organization.**
+**Note: For best security, HCL recommends running extensions from a different [origin](https://developer.mozilla.org/en-US/docs/Glossary/Origin) than the Verse application. Extensions that run from the same origin as Verse have full access to the Verse application page content and therefore potentially are less secure. Any extension code that runs from the Verse origin should be reviewed and fully trusted by your organization.**
 
 As your website is using cross-document messaging to communicate with Verse, it can be vulnerable to cross-site scripting attack unless certain security implementations are followed carefully. Here are four tips to make your application less vulnerable.
 

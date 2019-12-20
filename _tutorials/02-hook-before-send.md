@@ -15,7 +15,7 @@ Structure of the Tutorial:
 
 There is much more detailed documentation available [here](../developers), but it's not required to complete the tutorial.
 
-This is a follow on tutorial to [Your First Application for IBM Verse](../developers/#how-to-install)
+This is a follow on tutorial to [Your First Application for HCL Verse](../developers/#how-to-install)
 
 ---
 
