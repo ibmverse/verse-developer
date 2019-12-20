@@ -32,7 +32,7 @@ In code snippet below shows the `manifest.json` edited to include the `https://m
 
 {% highlight pre %}
 {
-  "name": "IBM Verse Developer Browser Extension",
+  "name": "HCL Verse Developer Browser Extension",
   "version": "1.0.0",
   "manifest_version": 2,
   "applications": { "gecko": {"id": "verse_dev_extension@ibm.com", "strict_min_version": "45.0"} },
@@ -63,7 +63,7 @@ In code snippet below shows the `manifest.json` edited to include the `https://m
 - Select **Developer mode**, (unpacked extensions can only be loaded in **Developer mode**.)
 - Click the button **Load unpacked extension…**.
 - In the pop-up file picker, select the `src` folder, which contains the `manifest.json` file.
-- At this point, you should be able to see the IBM Verse Developer Browser Extension loaded into your `chrome://extensions` page.
+- At this point, you should be able to see the HCL Verse Developer Browser Extension loaded into your `chrome://extensions` page.
 
 ![Load Unpacked Extension]({{ site.url }}{{ site.baseurl }}/assets/gifs/load_unpacked_extension.gif)
 
@@ -75,7 +75,7 @@ If you received an error related to `Failed to load extension from: ... Manifest
 - Open your Firefox browser, and type in the address bar: `about:debugging`.
 - Select **Load Temporary Add-On**.
 - In the pop-up file picker, select the `manifest.json` file inside the `src` folder.
-- At this point, you should be able to see the IBM Verse Developer Browser Extension loaded into your `about:debugging` page.
+- At this point, you should be able to see the HCL Verse Developer Browser Extension loaded into your `about:debugging` page.
 
 ![Load Unpacked Extension]({{ site.url }}{{ site.baseurl }}/assets/gifs/load_temporary_addon.gif)
 
@@ -148,7 +148,7 @@ An external application is registered with Verse via the file `applications.json
 
 &nbsp;
 
-To learn more about context objects and how they get sent, please refer to **Verse API data** and **Sending and receiving data from Verse** in the [IBM Verse Extensibility](#ibm-verse-extensibility) section at the end of the tutorial.
+To learn more about context objects and how they get sent, please refer to **Verse API data** and **Sending and receiving data from Verse** in the [HCL Verse Extensibility](#ibm-verse-extensibility) section at the end of the tutorial.
 
 &nbsp;
 

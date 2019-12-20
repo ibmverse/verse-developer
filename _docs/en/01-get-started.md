@@ -10,7 +10,7 @@ This tutorial will get you started writing an application for Verse. There is mu
 &nbsp;
 
 ### What is the Verse Developer browser extension?
-The Verse Developer browser extension is a tool for developers who are adding customised capabilities to IBM Verse. The tool allows an application to be registered with IBM Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutoiral we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by IBM Verse please go [here](#verse-extension-points).
+The Verse Developer browser extension is a tool for developers who are adding customised capabilities to HCL Verse. The tool allows an application to be registered with HCL Verse, where each application contains a set of customised capabilities. One or more applications can be registered using the tool. Each application can contain one or more extensions. In this tutoiral we will have a look at 2 of the possible types of extensions, templated links and widgets. To get a full list of the extension points supported by HCL Verse please go [here](#verse-extension-points).
 
 {:.table .table-striped}
 |                     Name              |                       Usage                     |
@@ -18,7 +18,7 @@ The Verse Developer browser extension is a tool for developers who are adding cu
 | [Templated Link](#templated-link-comibmappregexttemplatedlink)      |    type = com.ibm.appreg.ext.templatedLink      |
 | [Widget](#widget-comibmverseextwidget)                     |    type = com.ibm.verse.ext.widget              |
 
-As you will see in this tutorial extensions can be contributed to the following parts of the IBM Verse user interface:
+As you will see in this tutorial extensions can be contributed to the following parts of the HCL Verse user interface:
 
 - Business Card
 - Mail Compose View

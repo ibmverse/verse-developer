@@ -6,7 +6,7 @@ pagename: css-extension
 
 ## {{page.title}}
 
-This tutorial will get you started creating a CSS extension for Verse. This is a follow-on tutorial to [Your First Application for IBM Verse](../developers/#how-to-install)
+This tutorial will get you started creating a CSS extension for Verse. This is a follow-on tutorial to [Your First Application for HCL Verse](../developers/#how-to-install)
 
 There is much more detailed documentation available [here](../developers), but it's not required for completing the tutorial.
 

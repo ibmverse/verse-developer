@@ -1,11 +1,11 @@
 ---
-title: IBM Verse Extensibility
+title: HCL Verse Extensibility
 lang: en
 pagename: ibm-verse-extensibility
 ---
 
-## IBM Verse Extensibility
-Verse Extensibility allows you to integrate your own web applications with IBM Verse, by registering your application with it. Your application can declare one or more extensions, which will enhance Verse with new functionality.
+## HCL Verse Extensibility
+Verse Extensibility allows you to integrate your own web applications with HCL Verse, by registering your application with it. Your application can declare one or more extensions, which will enhance Verse with new functionality.
 
 
 For example, one of the extension points that Verse supports is a templated link extension. A templated link extension is displayed as a link in the Verse User Interface (UI) which, when clicked, opens a URL to a third party web application.

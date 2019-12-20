@@ -5,7 +5,7 @@ pagename: verse-extension-points
 ---
 
 ## Verse Extension Points
-IBM Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
+HCL Verse supports the general extension points defined by appregistry, like the Simple Link and Templated Link. Besides that, Verse also supports to contribute a Widget extension to add some Widget Actions to Verse UI page. For example, a widget can contribute an action to More Actions… menu in toolbar when composing/viewing a message, or contribute an action to Verse business card.
 
 For a simple and templated link type extension, it will be rendered as a plain link on the Verse UI. Therefore, when a link type extension clicks, it will be open in a new tab/window.
 
@@ -501,7 +501,7 @@ An optional property called `disableSend` is provided to control the send button
 The Live Text extension point recognizes defined patterns of data in email, and displays the information with an underline. Clicking the live text displays a menu of custom actions; for example, to open a web application or start a chat. The pattern and the corresponding actions are defined in an extension that is added to Verse.
 
 &nbsp;
-Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial](../tutorials#live-text-widget). For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from IBM Notes]({{site.data.developers.exportingLiveTextWidget}}){:target="_blank"}
+Note: For a tutorial on creating Live Text extensions in Verse, see [Live Text Extension Tutorial](../tutorials#live-text-widget). For instructions on exporting Live Text widgets from Notes so you can import them into Verse, see [Exporting a Live Text Widget from HCL Notes]({{site.data.developers.exportingLiveTextWidget}}){:target="_blank"}
 
 &nbsp;
 
@@ -658,7 +658,7 @@ On Verse on-Cloud, you must register the navigation bar extensions using the IBM
 &nbsp;
 
 ### Third-Party File Repository Integration (com.ibm.verse.ext.file)
-The Third-Party File Repository extension point integrates a third-party file repository with IBM Verse. Users can choose files from a third-party file repository and add the file links into messages. It's only supported in Verse on-Premises 1.0.4 and above.
+The Third-Party File Repository extension point integrates a third-party file repository with HCL Verse. Users can choose files from a third-party file repository and add the file links into messages. It's only supported in Verse on-Premises 1.0.4 and above.
 
 &nbsp;
 
@@ -737,10 +737,10 @@ The Add Links message structure is defined as below:
     verseApiType: "com.ibm.verse.ext.file.add.links",
     links: [{
       url: "http://link-of-one-file",
-      name: "IBM Verse Introduction.pdf"
+      name: "HCL Verse Introduction.pdf"
     }, {
       url: "https://link-of-another-file",
-      name: "IBM ICS Products.ppt"
+      name: "HCL Products.ppt"
     }, {
       // more file or folder links
     }],
