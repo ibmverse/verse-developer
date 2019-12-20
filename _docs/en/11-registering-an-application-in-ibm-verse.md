@@ -1,5 +1,5 @@
 ---
-title: Registering an Application in IBM Verse
+title: Registering an Application in HCL Verse
 lang: en
 pagename: registering-an-application-in-ibm-verse
 ---
