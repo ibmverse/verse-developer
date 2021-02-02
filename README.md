@@ -8,8 +8,7 @@ HCL Verse Developer Browser Extension is a browser add-on which is used in the d
 
 We have a step-by-step tutorial with sample code to help you get started writing your first application for Verse quickly. We recommend following this, if it's your first time here.
 
-- To follow your first application tutorial, click [here][1].
-- To follow our other tutorials, click [here][2].
+- To follow our tutorials, click [here][2].
 
 ### 2. Documentation
 
@@ -17,5 +16,5 @@ Alternatively, we offer reference documentation on Verse extensibility features 
 
 To check out the reference documentation, click [here][1].
 
-[1]: https://ibmverse.github.io/verse-developer/developers/
-[2]: https://ibmverse.github.io/verse-developer/tutorials/
+[1]: https://doc.cwpcollaboration.com/verse-developer/docs/introduction
+[2]: https://doc.cwpcollaboration.com/verse-developer/docs/getting-started
